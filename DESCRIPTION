@@ -1,0 +1,40 @@
+Package: asymsam
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R:
+    person(given = "Elio",
+           family = "Campitelli",
+           role = c("cre", "aut"),
+           email = "elio.campitelli@cima.fcen.uba.ar",
+           comment = c(ORCID = "0000-0002-7742-9230"))
+Description: Research compendium for a workng paper.
+License: GPL-3
+ByteCompile: true
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
+Imports: 
+    bookdown,
+    here,
+    data.table,
+    ggplot2,
+    metR,
+    ggperiodic,
+    magrittr,
+    lubridate,
+    maps,
+    rmapshaper,
+    maptools,
+    sp,
+    memoise,
+    tidyr,
+    checkmate,
+    scales,
+    ecmwfr,
+    purrr
+Suggests: devtools,
+    git2r,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

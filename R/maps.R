@@ -1,0 +1,50 @@
+#' Quick maps
+#'
+#'
+#' @param subset a function that will be applied to the map data.
+#' @param color,size,fill parameters passed to [ggplot2::geom_polygon()]
+#' @param wrap vector of length 2 interpreted as the longitude range of a global map (see [maps::map()])
+#' @param keep proportions of point to retain (passed to [rmapshaper::ms_simplify()])
+#' @param ... other arguments passed to [ggplot2::geom_polygon()]
+#'
+#' @export
+geom_qmap <- function(subset = identity, color = "black", size = 0.2,
+                      fill = NA, wrap = c(0, 360),
+                      keep = 0.015, ...) {
+  lon <- lat <- group <- NULL
+  data <- ggplot2::fortify(map_simple(wrap = wrap, keep  = keep)) %>%
+    data.table::as.data.table() %>%
+    .[, c("long", "lat", "group")] %>%
+    data.table::setnames("long", "lon")
+  subset <- purrr::as_mapper(subset)
+  data <- subset(data)
+
+  ggplot2::geom_polygon(data = data,
+                        ggplot2::aes(lon, lat, group = group),
+                        color = color,
+                        size = size,
+                        fill = fill,
+                        ...)
+}
+
+map_simple_ <- function(wrap = c(0, 360), keep = 0.015) {
+  map <- maps::map("world", fill = TRUE,
+                   col = "transparent", plot = FALSE, wrap = wrap)
+  IDs <- vapply(strsplit(map$names, ":"), function(x) x[1],
+                "")
+  proj <- sp::CRS("+proj=longlat +datum=WGS84")
+  map <- maptools::map2SpatialPolygons(map, IDs = IDs,
+                                       proj4string = proj)
+
+  if (keep != 1) {
+    map <- rmapshaper::ms_simplify(map, keep = keep)
+  }
+  map
+}
+
+
+
+
+#' @export
+#' @rdname geom_qmap
+map_simple <- memoise::memoise(map_simple_)
