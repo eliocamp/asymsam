@@ -1,34 +1,18 @@
 ---
-title: "Title Goes Here"
-author:
-  - Myfirstname Mylastname:
-      email: fl@oneplace.edu
-      institute: [UofO]
-      correspondence: true
-  - Yourfirstname Yourlastname:
-      email: fl@another.edu
-      institute: [UofA]
-      correspondence: false
-institute:
-  - UofO: University of One Place
-  - UofA: University of Another Place
-date: "`r format(Sys.time(), '%d %B, %Y')`"
+title: "SAM simétrico y asimétrico"
+author: "Elio Campitelli"
 output: 
-    bookdown::word_document2:
-      fig_caption: yes
-      reference_docx: "../templates/template.docx" # Insert path for the DOCX file
-      pandoc_args:
-      - --lua-filter=../templates/scholarly-metadata.lua
-      - --lua-filter=../templates/author-info-blocks.lua
-      - --lua-filter=../templates/pagebreak.lua
-bibliography: references.bib
-csl: "../templates/journal-of-archaeological-science.csl" # Insert path for the bib-style
-abstract: |
-  Text of abstract
-keywords: |
-  keyword 1; keyword 2; keyword 3
-highlights: |
-  These are the highlights. 
+   # pdf_document:
+   #    latex_engine: xelatex
+   powerpoint_presentation:
+    # ioslides_presentation:
+        fig_height: 7.6
+        fig_width: 12.8
+        reference_doc: "../templates/template.pptx" 
+        slide_level: 2
+urlcolor: blue
+header_includes:
+   - \usepackage[utf8]{inputenc}
 ---
 
 <!-- This is the format for text comments that will be ignored during renderings. Do not put R code in these comments because it will not be ignored. -->
@@ -41,7 +25,8 @@ Highlights: `r rmarkdown::metadata$highlights`
 
 <!-- The following code chunk defines some general settings how code chunks should behave. -->
 
-```{r setup, echo = FALSE}
+
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   warning = FALSE,
@@ -51,45 +36,159 @@ knitr::opts_chunk$set(
   fig.path = "../figures/",
   dpi = 300
 )
+
+library(metR)
+library(data.table)
+library(ggplot2)
+library(magrittr)
+library(ggh4x)
+library(ggperiodic)
+library(asymsam)
+
+# source(here("scripts", "helperfun.R"))
+# source(here("scripts", "data_locations.R"))
+theme_set(theme_asymsam())
+ZeroBreaks <- AnchorBreaks(0, NULL, 0)
+
+lev.lab <- AddSuffix(" hPa")
+
+guide_colorstrip_bottom <- function(width = 25, height = 0.5, ...) {
+  guide_colorstrip(title.position = "top", title.hjust = 0.5,
+                   barheight = height,
+                   barwidth = width, ...)
+}
+
+main_levs <- c(700, 300, 30)
+# knitr_set_timer()
+# knitr_set_cache(cache.extra = 44)
 ```
+
+
+```{r read-hgt, cache = FALSE}
+hgt <- ReadNetCDF(ERA5(), 
+                  subset = list(time = c("1979-01-01", "2018-12-31"),
+                                latitude = c(-90, 10)),
+                  vars = c(hgt = "z")) %>% 
+  normalise_coords() %>% 
+  .[, hgt := hgt/9.8] %>% 
+  .[, dataset := "ERA5"] %>%  
+  .[, hgt_a := hgt - mean(hgt), by = .(lon, lat, lev, month(time), dataset)] %>% 
+  .[, hgt_m := mean(hgt_a), by = .(lat, lev, time)] %>% 
+  .[, hgt_z := hgt_a - hgt_m]
+```
+
+```{r compute-SAM}
+SAM <- hgt[lat <= -20] %>% 
+  .[, hgt := hgt_a*sqrt(cos(lat*pi/180))] %>% 
+  .[, .(eof = list(eof_flip(EOF(hgt ~ time | lon + lat, n = 1, data = .SD)))), 
+    by = .(dataset, lev)]
+```
+
 
 <!-- The actual document text starts here: -->
 
 # Introduction
 
-```{r}
-library(asymsam)
-library(ggplot2)
-```
-
-```{r}
-ggplot() +
-  geom_qmap()
-```
-
-Here is a citation [@Marwick2017]
-
-# Background
 
 # Methods
 
+
+```{r method, fig.cap = "Spatial patterns of the first EOF of 700 hPa geopotential height. Full field (left), zonally asymmetric component (middle) and zonally symmetric component (right). Arbitrary units."}
+sam_sep <- SAM[, eof[[1]]$right, by = .(dataset, lev)] %>% 
+  setnames("hgt", "full") %>% 
+  .[, c("sym", "asym") := list(mean(full), Anomaly(full)), by = .(lat, lev, dataset)]
+
+
+lab_sam <-  c(full = "Full", 
+              asym = "Asymmetric",
+              sym  = "Symmetric")
+
+sam_sep %>% 
+  .[dataset == "ERA5"] %>% 
+  .[lev == 700] %>%
+  rm_singleton() %>% 
+  melt(id.vars = c("lon", "lat")) %>% 
+  
+  # .[variable == "asym", value := value + rnorm(.N, 0, sd = 1e-6)] %>%
+  .[, variable := factor(variable, levels = names(lab_sam), ordered = TRUE)] %>% 
+  periodic(lon = c(0, 360)) %>% 
+  ggplot(aes(lon, lat)) +
+  # geom_contour2(aes(z = value, linetype = factor(-sign(..level..))), global.breaks = FALSE) +
+  geom_contour_fill(aes(z = value), global.breaks = FALSE) +
+  geom_contour_tanaka(aes(z = value), global.breaks = FALSE) +
+  geom_qmap() +
+  scale_x_longitude() +
+  scale_y_latitude(limits = c(NA, -20)) +
+  scale_fill_divergent(guide = "none") +
+  coord_polar() +
+  facet_grid(~variable, labeller = labeller(variable = lab_sam, lev = lev.lab)) 
+```
+
+
 # Results
 
-<!-- Here's some example analysis code: -->
 
-```{r get-data, eval = FALSE}
-# Note the path that we need to use to access our data files when rendering this document
-my_data <- read.csv(here::here('analysis/data/raw_data/my_csv_file.csv'))
+```{r compute-asymsam}
+indexes <-  hgt[lat <= -20, eof_asym(hgt_a, lon, lat, time, n = 1), by = lev]
+indexes_wide <- dcast(indexes, + lev + time ~ term, value.var = "estimate_norm")
 ```
 
-```{r demo-plot, fig.cap="A plot of random numbers"}
-plot(rnorm(10))
+```{r asymsam-timeseries, fig.cap = "Time series for the asymmetric SAM and symmetric SAM."}
+indexes %>% 
+  .[lev == 700 & term != "full"] %>% 
+  ggplot(aes(time, estimate_norm)) +
+  geom_line(aes(color = term)) +
+  # geom_smooth(method = "lm", aes(color = term)) +
+  scale_color_brewer(NULL, palette = "Set1", labels = lab_sam) +
+  scale_y_continuous(NULL) +
+  scale_x_datetime(NULL)
 ```
 
-Figure \@ref(fig:demo-plot) shows how we can have a caption and cross-reference for a plot
 
-```{r demo-inline-code}
-x <- round(pi, 2)
+```{r}
+indexes_wide[, cor(asym, sym), by = lev] %>% 
+  ggplot(aes(lev, V1)) +
+  geom_line() +
+  scale_x_level() + 
+  scale_y_continuous(limits = c(0, 1)) +
+  coord_flip()
+```
+
+
+```{r}
+
+indexes_2d <- hgt[lev %in% main_levs] %>% 
+  indexes_wide[., on = .NATURAL, allow.cartesian = TRUE] %>% 
+  .[, rbind(as.data.table(FitLm(hgt_a, sym, asym)),
+            as.data.table(FitLm(hgt_a, full))),
+    by = .(lon, lat, lev)] %>% 
+  rm_intercept() %>% 
+  periodic(lon = c(0, 360)) %>% 
+  .[, term := factor(term, levels = names(lab_sam), ordered = TRUE)] 
+
+
+indexes_2d %>% 
+  .[lat <= -20] %>% 
+  ggplot(aes(lon, lat)) +
+  geom_contour_fill(aes(z = estimate), breaks = ZeroBreaks, global.breaks = FALSE) +
+  # geom_contour2(aes(z = estimate, linetype = factor(-sign(..level..))), 
+                # size = 0.3,
+                # global.breaks = FALSE) +
+  geom_contour_tanaka(aes(z = estimate),
+                      breaks = ZeroBreaks,
+                      size = 0.3,
+                      global.breaks = FALSE) +
+  geom_qmap(~.x[lat <= -20]) +
+  # geom_contour2(data = ~.x[dataset == "NCEP"], aes(z = V1)) +
+  scale_x_longitude() +
+  scale_y_latitude(limits = c(NA, -20)) +
+  scale_fill_divergent(NULL, guide = guide_colorstrip_bottom(), 
+                       limits = c(-80, 80),
+                       oob = scales::squish,
+                       breaks = MakeBreaks(binwidth = 20, exclude = 0)) +
+  scale_linetype(guide = "none") +
+  coord_polar() +
+  facet_grid(term ~ lev, labeller = labeller(term = lab_sam, lev = lev.lab))
 ```
 
 Here is an example of inline code `r x` in the middle of a sentence. 

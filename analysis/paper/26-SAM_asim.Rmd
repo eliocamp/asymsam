@@ -33,6 +33,13 @@ theme_set(theme_asymsam())
 ZeroBreaks <- AnchorBreaks(0, NULL, 0)
 
 lev.lab <- AddSuffix(" hPa")
+
+guide_colorstrip_bottom <- function(width = 25, height = 0.5, ...) {
+   guide_colorstrip(title.position = "top", title.hjust = 0.5,
+                    barheight = height,
+                    barwidth = width, ...)
+}
+
 # knitr_set_timer()
 # knitr_set_cache(cache.extra = 44)
 ```
@@ -66,7 +73,7 @@ SAM <- hgt[lat <= -20] %>%
 ```
 
 
-```{r, fig.cap = "Patrón espacial del SAM. ERA5 en sombrado, NCEP en contornos."}
+```{r, fig.cap = "Spatial pattern of the first EOF of 700hPa geopotential height. Arbitrary units."}
 SAM[lev == 700, eof[[1]]$right, by = dataset] %>% 
    periodic(lon = c(0, 360)) %>% 
    ggplot(aes(lon, lat)) +
@@ -74,18 +81,19 @@ SAM[lev == 700, eof[[1]]$right, by = dataset] %>%
    geom_qmap(~.x[lat < -20]) +
    scale_x_longitude() +
    scale_y_latitude() +
-   scale_fill_divergent() +
-   coord_polar()
+   scale_fill_divergent(guide = "none") +
+   coord_polar() +
+   theme(panel.border = element_blank())
 ```
 
 ```{r, fig.cap = "Proyección de la anomalía de altura geopotencial en el índice SAM de 700hPa -ERA5. (Comparar con Baldwin y THompson 2009 figura 8, columna izquierda)"}
-levs <- c(700, 300, 30, 3)
+main_levs <- c(700, 300, 30, 3)
 
 SAM[lev == 700, eof[[1]]$left, by = .(dataset)] %>% 
    .[dataset == "ERA5"] %>% 
    setnames("hgt", "SAM") %>% 
    .[, SAM := SAM/sd(SAM), by = .(dataset, PC)] %>% 
-   .[hgt[lev %in% levs & dataset == "ERA5" & lat <= -20], on = .NATURAL] %>% 
+   .[hgt[lev %in% main_levs & dataset == "ERA5" & lat <= -20], on = .NATURAL] %>% 
    .[, FitLm(hgt_a, SAM), by = .(lon, lat, lev)] %>% 
    rm_intercept() -> proj
 
@@ -94,13 +102,14 @@ proj %>%
    ggplot(aes(lon, lat)) +
    geom_contour_fill(aes(z = estimate), global.breaks = FALSE, breaks = ZeroBreaks) +
    geom_qmap(~.[lat < -20]) +
-   geom_contour2(aes(z = estimate, linetype = factor(-sign(..level..))), 
-                 global.breaks = FALSE, breaks = ZeroBreaks) +
+   geom_contour_tanaka(aes(z = estimate), 
+                       global.breaks = FALSE, breaks = ZeroBreaks) +
    # geom_text_contour(aes(z = estimate), stroke = 0.1, rotate = FALSE, 
    #                   global.breaks = FALSE, breaks = ZeroBreaks) +
    scale_x_longitude() +
    scale_y_latitude(limits = c(-90, -20)) +
-   scale_fill_divergent() +
+   scale_fill_divergent(guide = "none") +
+   scale_linetype(guide = "none") +
    coord_polar() +
    facet_wrap(lev~., ncol = 2, labeller = labeller(lev = lev.lab)) 
 ```
@@ -145,7 +154,7 @@ bt09[, eof[[1]]$sdev, by = .(dataset, lev)] %>%
    ggrepel::geom_text_repel(data = extremes, aes(label = AddSuffix(" hPA")(lev))) +
    scale_x_level() +
    coord_flip() +
-   facet_grid(~dataset)
+   facet_grid(~dataset) 
 ```
 
 
@@ -222,12 +231,12 @@ bt09_2d <- bt09 %>%
    .[, eof[[1]]$left, by = .(lev, dataset)] %>% 
    # .[PC == "PC1"] %>% 
    setnames("hgt", "EOF") %>%
-   .[hgt[lat <= -20 & lev %in% unique(c(levs, extremes$lev))], on = .NATURAL, allow.cartesian = TRUE] %>% 
+   .[hgt[lat <= -20 & lev %in% unique(c(main_levs, extremes$lev))], on = .NATURAL, allow.cartesian = TRUE] %>% 
    .[, FitLm(hgt, EOF = EOF/sd(EOF)), by = .(lon, lat, lev, dataset, PC)] %>% 
    rm_intercept()
 
 bt09_2d %>% 
-   .[lev %in% levs] %>% 
+   .[lev %in% main_levs] %>% 
    .[dataset == "ERA5"] %>% 
    periodic(lon = c(0, 360)) %>% 
    ggplot(aes(lon, lat)) +
@@ -277,13 +286,13 @@ sam_sep <- SAM[, eof[[1]]$right, by = .(dataset, lev)] %>%
    .[, c("sym", "asym") := list(mean(full), Anomaly(full)), by = .(lat, lev, dataset)]
 
 
-lab_sam <-  c(full = "Completo", 
-              asym = "Asimétrico",
-              sym  = "Simétrico")
+lab_sam <-  c(full = "Full", 
+              asym = "Asymmetric",
+              sym  = "Symmetric")
 
 sam_sep %>% 
    .[dataset == "ERA5"] %>% 
-   .[lev %in% levs] %>%
+   .[lev %in% main_levs] %>%
    rm_singleton() %>%
    melt(id.vars = c("lon", "lat", "lev")) %>% 
    .[variable == "asym", value := value + rnorm(.N, 0, sd = 1e-6)] %>%
@@ -306,7 +315,7 @@ sam_sep %>%
 # sam_sep %>% 
 #    .[dataset == "ERA5"] %>% 
 #    .[as.numeric(hemisphere) == 1] %>%
-#    .[lev %in% levs] %>% 
+#    .[lev %in% main_levs] %>% 
 #    rm_singleton() %>%
 #    melt(id.vars = c("lon", "lat", "lev")) %>% 
 #    .[, variable := factor(variable, levels = names(lab_sam), ordered = TRUE)] %>% 
@@ -324,7 +333,7 @@ sam_sep %>%
 
 
 ```{r, fig.cap = "Relación entre el EOF1 calculado acá y el índice AAO provisto por NCEP"}
-aao <- readRDS(data_path("derived"))
+aao <- readRDS(data_path("derived", "aao.Rds"))
 
 SAM[lev == 700, eof[[1]]$left, by = .(dataset)] %>%
    .[dataset == "ERA5"] %>%
@@ -397,15 +406,15 @@ indexes %>%
 
 ```{r, fig.cap = "Correlaciones cruzadas de los índices entre niveles para el hemisferio sur."}
 indexes %>% 
-   .[dataset == "ERA5"] %>%
-   .[, widyr::pairwise_cor(.SD, lev, time, estimate), by = .(dataset, term)] %>% 
+   # .[dataset == "ERA5"] %>%
+   .[, widyr::pairwise_cor(.SD, lev, time, estimate), by = .(term)] %>% 
    ggplot(aes(item1, item2)) +
    geom_contour_fill(aes(z = correlation), na.fill = 1) +
    scale_fill_divergent() +
    scale_x_level() +
    scale_y_level() +
    coord_equal() +
-   facet_grid(dataset ~ term, labeller = labeller(term = lab_sam))
+   facet_grid(. ~ term, labeller = labeller(term = lab_sam))
 ```
 
 
@@ -442,11 +451,11 @@ indexes_wide %>%
 
 ```{r, fig.cap = "Regresión entre el SAM completo y el simétrico o el asimétrico"}
 vertical_sym <- indexes %>% 
-   # .[lev %in% levs] %>%
-   .[dataset == "ERA5"] %>%
+   # .[lev %in% main_levs] %>%
+   # .[dataset == "ERA5"] %>%
    # .[, estimate := estimate/sd(estimate), by = .(dataset, lev, hemisphere, term)] %>% 
-   dcast(dataset + time  + lev ~ term, value.var = "estimate") %>% 
-   .[, FitLm(full, asym, sym, se = TRUE), by = .(dataset, lev)] %>% 
+   dcast(time  + lev ~ term, value.var = "estimate") %>% 
+   .[, FitLm(full, asym, sym, se = TRUE), by = .(lev)] %>% 
    rm_intercept() %>% 
    .[term == "sym"] 
 # vertical_sym[, .SD[which.max(estimate)], by = .(hemisphere, dataset)]
@@ -493,7 +502,7 @@ indexes %>%
 sam_sep %>% 
    .[, .(sym = var(sym*cos(lat*pi/180))/var(full*cos(lat*pi/180))),
      by = .(dataset, lev)] %>% 
-   # .[lev %in% levs] %>% 
+   # .[lev %in% main_levs] %>% 
    melt(id.vars = c("dataset", "lev"), variable.name = "term", value.name = "estimate2")  %>% 
    vertical_sym[., on = .NATURAL] %>% 
    ggplot(aes(estimate, estimate2)) +
