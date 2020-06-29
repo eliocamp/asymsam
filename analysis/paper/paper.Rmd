@@ -43,12 +43,9 @@ library(metR)
 library(data.table)
 library(ggplot2)
 library(magrittr)
-library(ggh4x)
 library(ggperiodic)
 library(asymsam)
 
-# source(here("scripts", "helperfun.R"))
-# source(here("scripts", "data_locations.R"))
 theme_set(theme_asymsam())
 ZeroBreaks <- AnchorBreaks(0, NULL, 0)
 
@@ -61,8 +58,6 @@ guide_colorstrip_bottom <- function(width = 25, height = 0.5, ...) {
 }
 
 main_levs <- c(700, 300, 30)
-# knitr_set_timer()
-# knitr_set_cache(cache.extra = 44)
 ```
 
 
