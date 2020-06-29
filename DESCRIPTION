@@ -32,7 +32,8 @@ Imports:
     checkmate,
     scales,
     ecmwfr,
-    purrr
+    purrr,
+    widyr
 Suggests: devtools,
     git2r,
     knitr,

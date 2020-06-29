@@ -4,7 +4,7 @@ print.nc_file <- function(x, ...) {
 }
 
 #' @param type character indicating the type of data. The resulting base will be type_data
-#' @param ... characters to be contactenadted with [path.file()]
+#' @param ... characters to be contactenadted with [file.path()]
 #' @export
 #' @rdname data_locations
 data_path <- function(type = c("raw", "derived"), ...) {
@@ -58,7 +58,17 @@ OLR <- function() {
 #' @export
 #' @rdname data_locations
 CMAP <- function() {
-   file <- here::here("DATA", "reanalysis", "CMAP", "precip.mon.mean.nc")
+   file <- data_path("raw", "precip.mon.mean.nc")
+   checkmate::assert_access(file, access = "r")
+   class(file) <- c("nc_file", class(file))
+   return(file)
+}
+
+
+#' @export
+#' @rdname data_locations
+GISTEMP <- function() {
+   file <- data_path("raw", "air.2x2.1200.mon.anom.land.nc")
    checkmate::assert_access(file, access = "r")
    class(file) <- c("nc_file", class(file))
    return(file)

@@ -7,6 +7,7 @@
 \alias{ERA5}
 \alias{OLR}
 \alias{CMAP}
+\alias{GISTEMP}
 \title{Data locations}
 \usage{
 data_path(type = c("raw", "derived"), ...)
@@ -20,11 +21,13 @@ ERA5()
 OLR()
 
 CMAP()
+
+GISTEMP()
 }
 \arguments{
 \item{type}{character indicating the type of data. The resulting base will be type_data}
 
-\item{...}{characters to be contactenadted with \code{\link[=path.file]{path.file()}}}
+\item{...}{characters to be contactenadted with \code{\link[=file.path]{file.path()}}}
 }
 \description{
 Functions that return the location of different datasets. They check that
