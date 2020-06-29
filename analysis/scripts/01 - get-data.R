@@ -14,6 +14,9 @@ files <- list(aao = "aao.csv",
               cmap = "precip.mon.mean.nc",
               era5 =  "era5.z.mon.mean.nc")
 
+dir.create(asymsam::data_path("raw"), recursive = TRUE, showWarnings = FALSE)
+dir.create(asymsam::data_path("derived"), recursive = TRUE, showWarnings = FALSE)
+
 # Download AAO ------------------------------------------------------------
 file <- files$aao
 aao <- rsoi::download_aao(use_cache = !force, file = asymsam::data_path("raw", file)) %>%
