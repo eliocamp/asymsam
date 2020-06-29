@@ -67,6 +67,25 @@ CMAP <- function() {
 
 #' @export
 #' @rdname data_locations
+NOAATemp <- function() {
+   file <- data_path("raw", "air.mon.anom.nc")
+   checkmate::assert_access(file, access = "r")
+   class(file) <- c("nc_file", class(file))
+   return(file)
+}
+
+#' @export
+#' @rdname data_locations
+HadCRUT <- function() {
+   file <- data_path("raw", "HadCRUT.4.6.0.0.median.nc")
+   checkmate::assert_access(file, access = "r")
+   class(file) <- c("nc_file", class(file))
+   return(file)
+}
+
+
+#' @export
+#' @rdname data_locations
 GISTEMP <- function() {
    file <- data_path("raw", "air.2x2.1200.mon.anom.land.nc")
    checkmate::assert_access(file, access = "r")

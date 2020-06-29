@@ -5,3 +5,5 @@
 ^figures$
 ^paper$
 ^templates$
+^analysis$
+^Dockerfile$

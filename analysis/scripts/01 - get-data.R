@@ -11,7 +11,9 @@ force <- FALSE
 
 files <- list(aao = "aao.csv",
               gistemp = "air.2x2.1200.mon.anom.land.nc",
+              NOAAGlobalTemp = "air.mon.anom.nc",
               cmap = "precip.mon.mean.nc",
+              hadcrut = "HadCRUT.4.6.0.0.median.nc",
               era5 =  "era5.z.mon.mean.nc")
 
 # Download AAO ------------------------------------------------------------
@@ -31,6 +33,27 @@ if (!force && file.exists(asymsam::data_path("raw", file))) {
 } else {
   download.file(url, destfile = asymsam::data_path("raw", file))
 }
+
+# Download NOAAGlobalTemp --------------------------------------------------------
+url <- "ftp://ftp.cdc.noaa.gov/Datasets/noaaglobaltemp/air.mon.anom.nc"
+file <- files$NOAAGlobalTemp
+
+if (!force && file.exists(asymsam::data_path("raw", file))) {
+  message("File already exists.")
+} else {
+  download.file(url, destfile = asymsam::data_path("raw", file))
+}
+
+# Download HadCRUT4 --------------------------------------------------------
+url <- "https://crudata.uea.ac.uk/cru/data/temperature/HadCRUT.4.6.0.0.median.nc"
+file <- files$hadcrut
+
+if (!force && file.exists(asymsam::data_path("raw", file))) {
+  message("File already exists.")
+} else {
+  download.file(url, destfile = asymsam::data_path("raw", file))
+}
+
 
 # Download CMAP -----------------------------------------------------------
 url <- "ftp://ftp.cdc.noaa.gov/Datasets/cmap/std/precip.mon.mean.nc"

@@ -7,6 +7,8 @@
 \alias{ERA5}
 \alias{OLR}
 \alias{CMAP}
+\alias{NOAATemp}
+\alias{HadCRUT}
 \alias{GISTEMP}
 \title{Data locations}
 \usage{
@@ -21,6 +23,10 @@ ERA5()
 OLR()
 
 CMAP()
+
+NOAATemp()
+
+HadCRUT()
 
 GISTEMP()
 }

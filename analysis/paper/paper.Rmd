@@ -144,7 +144,21 @@ indexes %>%
   scale_color_brewer(NULL, palette = "Set1", labels = lab_sam) +
   scale_y_continuous(NULL) +
   scale_x_datetime(NULL) +
-  facet_wrap(lev~., labeller = labeller(lev = lev.lab), ncol = 1)
+  facet_grid(lev~., labeller = labeller(lev = lev.lab))
+```
+
+```{r asymsam-timeseries-seasonally, fig.cap = "Seasonal time series for the asymmetric SAM and symmetric SAM."}
+indexes %>% 
+  .[lev %in% c(30, 700) & term != "full"] %>% 
+  .[, .(estimate_norm = mean(estimate_norm)), by = .(term, lev, time = seasonally(time))] %>% 
+  .[, season := season(time)] %>% 
+  ggplot(aes(time, estimate_norm)) +
+  geom_line(aes(color = term)) +
+  # geom_smooth(method = "lm", aes(color = term)) +
+  scale_color_brewer(NULL, palette = "Set1", labels = lab_sam) +
+  scale_y_continuous(NULL) +
+  scale_x_datetime(NULL) +
+  facet_grid(season~lev, labeller = labeller(lev = lev.lab))
 ```
 
 
@@ -328,31 +342,75 @@ pp_regr %>%
 
 
 ```{r}
-air_regr <- GISTEMP() %>% 
-  ReadNetCDF(subset = list(time = range(indexes$time))) %>% 
-  normalise_coords() %>% 
+time_subset <- list(time = range(indexes$time))
+air <- NOAATemp() %>% 
+  ReadNetCDF(vars = "air", subset = time_subset) %>% 
+  normalise_coords() 
+
+air_regr <- air %>%
+  copy() %>% 
+  .[, nas := mean(is.na(air)), by = .(lon, lat)] %>% 
+  .[nas >= 0.15, air := NA] %>% 
   # .[, air := Anomaly(air), by = .(lon, lat)] %>%
   .[indexes_wide[lev == 700], on = .NATURAL] %>% 
-  .[, FitLm(air, asym, sym), by = .(lon, lat)] %>% 
+  .[, rbind(as.data.table(FitLm(air, asym, sym, se = TRUE)),
+            as.data.table(FitLm(air, full, se = TRUE))),
+    by = .(lon, lat)] %>% 
   rm_intercept()
 ```
 
-```{r,  fig.cap = "Regression pattern of surface temperature with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas."}
-air_regr %>% 
+```{r, fig.cap = "Regression pattern of surface temperature with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas."}
+air_regr %>%
+  copy() %>% 
+  .[lat <= -60, estimate := NA] %>%
+  .[, p.value := Pvaluate(estimate, std.error, df, "fdr"), by = .(term)] %>% 
   ggplot(aes(lon, lat)) +
-  # geom_raster(aes(fill = estimate)) +
-  geom_contour_fill(aes(z = estimate), na.fill = 0, breaks = AnchorBreaks(0, 0.1, 0)) +
-  # geom_contour2(aes(z = p.value), breaks = 0.01) +
+  geom_contour_fill(aes(z = estimate), na.fill = 0,
+                    breaks = AnchorBreaks(0, 0.05, 0)) +
+  geom_contour2(aes(z = p.value), breaks = 0.05) +
+  stat_subset(aes(subset = p.value <= 0.05 & is.cross(lon, lat)), size = 0.4, alpha = 0.8) +
   stat_subset(aes(subset = is.na(estimate)), geom = "raster", fill = "gray50") +
-  # stat_subset(aes(subset = p.value <= 0.01 & is.cross(lon, lat)), size = 0.4, alpha = 0.3) +
   geom_qmap() +
   scale_x_longitude() +
   scale_y_latitude() +
-  scale_fill_divergent("Surface temperature", limits = c(-0.5, 0.5), 
-                       oob = scales::squish,
-                       guide = guide_colorstrip_bottom(), breaks = AnchorBreaks(0, 0.1, 0)) +
+  scale_fill_divergent("Surface temperature", 
+                       guide = guide_colorstrip_bottom(), breaks = AnchorBreaks(0, 0.05, 0)) +
   coord_quickmap() +
-  facet_wrap(~term, labeller = labeller(term = lab_sam))
+  facet_grid(.~term, labeller = labeller(term = lab_sam))
+```
+
+```{r, fig.cap = "Regression pattern of surface temperature with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas."}
+air_regr_season <- air %>% 
+  # .[, air := Anomaly(air), by = .(lon, lat)] %>%
+  .[indexes_wide[lev == 700], on = .NATURAL] %>% 
+  rm_singleton() %>% 
+  .[, lapply(.SD, mean, na.rm = TRUE), by = .(lon, lat, time = seasonally(time))] %>%
+  .[, nas := mean(is.na(air)), by = .(lon, lat, season(time))] %>% 
+  .[nas >= 0.15, air := NA] %>% 
+  .[, rbind(as.data.table(FitLm(air, asym, sym, se = TRUE)),
+            as.data.table(FitLm(air, full, se = TRUE))),
+    by = .(lon, lat, season(time))] %>% 
+  rm_intercept() 
+
+air_regr_season %>% 
+  copy() %>% 
+  .[lat <= -61, estimate := NA] %>%
+  .[lat >= 65, estimate := NA] %>%
+  .[, p.value := Pvaluate(estimate, std.error, df, "fdr"), by = .(term, season)] %>% 
+  ggplot(aes(lon, lat)) +
+  geom_contour_fill(aes(z = estimate), na.fill = 0,
+                    breaks = AnchorBreaks(0, 0.15, 0)) +
+  # geom_raster(aes(fill = estimate)) +
+  geom_contour2(aes(z = p.value), breaks = 0.05) +
+  stat_subset(aes(subset = p.value <= 0.05 & is.cross(lon, lat)), size = 0.4, alpha = 0.8) +
+  stat_subset(aes(subset = is.na(estimate)), geom = "raster", fill = "gray50") +
+  geom_qmap() +
+  scale_x_longitude() +
+  scale_y_latitude() +
+  scale_fill_divergent("Surface temperature",  limits = c(-0.8, .8), oob = scales::squish,
+                       guide = guide_colorstrip_bottom(), breaks = AnchorBreaks(0, 0.15, 0)) +
+  coord_quickmap() +
+  facet_grid(season~term, labeller = labeller(term = lab_sam))
 ```
 
 

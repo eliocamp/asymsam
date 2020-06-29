@@ -29,7 +29,7 @@ eof_asym <- function(value, lon, lat, time, n = 1) {
   pcor <- indexes[, partial_cor(value, sym, asym, weights = cos(lat*pi/180)),
                   keyby = .(time, PC)]
 
-  indexes[, rbind(data.table::as.data.table(lm_lite(value, full, weights = cos(lat*pi/180), r2 = TRUE)),
+  indexes[, rbind(data.table::as.data.table(metR::FitLm(value, full, weights = cos(lat*pi/180), r2 = TRUE)),
                   data.table::as.data.table(metR::FitLm(value, sym, asym, weights = cos(lat*pi/180), r2 = TRUE))),
           keyby = .(time, PC)] %>%
     .[term != "(Intercept)"] %>%
