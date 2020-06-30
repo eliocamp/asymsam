@@ -40,6 +40,5 @@ Suggests: devtools,
     git2r,
     knitr,
     rmarkdown 
-Remotes:  
-    eliocamp/metR@dev
+Remotes: eliocamp/metR@dev
 VignetteBuilder: knitr
