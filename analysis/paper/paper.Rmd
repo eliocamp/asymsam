@@ -61,24 +61,22 @@ main_levs <- c(700, 300, 30)
 ```
 
 
-```{r read-hgt, cache = FALSE}
+```{r read-hgt}
 hgt <- ReadNetCDF(ERA5(), 
                   subset = list(time = c("1979-01-01", "2018-12-31"),
-                                latitude = c(-90, 10)),
+                                latitude = c(-90, 10),
+                                level = as.list(main_levs)),
                   vars = c(hgt = "z")) %>% 
   normalise_coords() %>% 
   .[, hgt := hgt/9.8] %>% 
-  .[, dataset := "ERA5"] %>%  
-  .[, hgt_a := hgt - mean(hgt), by = .(lon, lat, lev, month(time), dataset)] %>% 
-  .[, hgt_m := mean(hgt_a), by = .(lat, lev, time)] %>% 
-  .[, hgt_z := hgt_a - hgt_m]
+  .[, hgt_a := hgt - mean(hgt), by = .(lon, lat, lev, month(time))]
 ```
 
 ```{r compute-SAM}
 SAM <- hgt[lat <= -20] %>% 
   .[, hgt := hgt_a*sqrt(cos(lat*pi/180))] %>% 
   .[, .(eof = list(eof_flip(EOF(hgt ~ time | lon + lat, n = 1, data = .SD)))), 
-    by = .(dataset, lev)]
+    by = .(lev)]
 ```
 
 
@@ -91,9 +89,9 @@ SAM <- hgt[lat <= -20] %>%
 
 
 ```{r method, fig.cap = "Spatial patterns of the first EOF of 700 hPa geopotential height. Full field (left), zonally asymmetric component (middle) and zonally symmetric component (right). Arbitrary units."}
-sam_sep <- SAM[, eof[[1]]$right, by = .(dataset, lev)] %>% 
+sam_sep <- SAM[, eof[[1]]$right, by = .(lev)] %>% 
   setnames("hgt", "full") %>% 
-  .[, c("sym", "asym") := list(mean(full), Anomaly(full)), by = .(lat, lev, dataset)]
+  .[, c("sym", "asym") := list(mean(full), Anomaly(full)), by = .(lat, lev)]
 
 
 lab_sam <-  c(full = "Full", 
@@ -101,7 +99,6 @@ lab_sam <-  c(full = "Full",
               sym  = "Symmetric")
 
 sam_sep %>% 
-  .[dataset == "ERA5"] %>% 
   .[lev == 700] %>%
   rm_singleton() %>% 
   melt(id.vars = c("lon", "lat")) %>% 
@@ -126,7 +123,14 @@ sam_sep %>%
 
 
 ```{r compute-asymsam}
-indexes <-  hgt[lat <= -20, eof_asym(hgt_a, lon, lat, time, n = 1), by = lev]
+indexes_file <- data_path("derived", "indexes.Rds")
+if (file.exists(indexes_file)) {
+  indexes <- readRDS(indexes_file)
+} else {
+  stop("Run 02-compute-eofs.R")
+}
+
+
 indexes_wide <- dcast(indexes, + lev + time ~ term, value.var = "estimate_norm")
 ```
 

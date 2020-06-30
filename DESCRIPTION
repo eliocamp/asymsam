@@ -33,9 +33,13 @@ Imports:
     scales,
     ecmwfr,
     purrr,
-    widyr
+    widyr,
+    ncdf4, 
+    udunits2
 Suggests: devtools,
     git2r,
     knitr,
-    rmarkdown
+    rmarkdown 
+Remotes:  
+    eliocamp/metR@dev
 VignetteBuilder: knitr
