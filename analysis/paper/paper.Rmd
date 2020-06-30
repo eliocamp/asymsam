@@ -313,10 +313,12 @@ indexes_2d %>%
 ```
 
 ```{r compute-pp-regr} 
-pp_regr <- CMAP() %>% 
+pp <- CMAP() %>% 
   ReadNetCDF() %>% 
   normalise_coords() %>% 
-  .[, precip := Anomaly(precip), by = .(lon, lat)] %>% 
+  .[, precip := Anomaly(precip), by = .(lon, lat)]
+
+pp_regr <- pp %>% 
   .[indexes_wide[lev == 700], on = .NATURAL] %>% 
   .[, FitLm(precip, asym, sym, se = TRUE, r2 = TRUE), by = .(lon, lat)] %>% 
   rm_intercept() %>% 
@@ -334,13 +336,44 @@ pp_regr %>%
   geom_qmap() +
   scale_x_longitude() +
   scale_y_latitude() +
-  scale_fill_divergent("Precipitation", guide = guide_colorstrip_bottom(), breaks = AnchorBreaks(0, 0.1, 0)) +
+  scale_fill_divergent("Precipitation", guide = guide_colorstrip_bottom(), 
+                       breaks = AnchorBreaks(0, 0.1, 0)) +
   coord_quickmap() +
   facet_wrap(~term, labeller = labeller(term = lab_sam))
 ```
 
+```{r regr-pp-season, fig.cap = "Regression pattern of precipiation with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas."}
+pp_regr_season <- pp %>% 
+  # .[, air := Anomaly(air), by = .(lon, lat)] %>%
+  .[indexes_wide[lev == 700], on = .NATURAL] %>% 
+  rm_singleton() %>% 
+  .[, lapply(.SD, mean, na.rm = TRUE), by = .(lon, lat, time = seasonally(time))] %>%
+  .[, nas := mean(is.na(precip)), by = .(lon, lat, season(time))] %>% 
+  .[nas >= 0.15, precip := NA] %>% 
+  .[, rbind(as.data.table(FitLm(precip, asym, sym, se = TRUE)),
+            as.data.table(FitLm(precip, full, se = TRUE))),
+    by = .(lon, lat, season(time))] %>% 
+  rm_intercept() %>% 
+  .[, p.value := Pvaluate(estimate, std.error, df, "fdr"), by = .(season, term)]
 
-```{r}
+pp_regr_season %>% 
+  ggplot(aes(lon, lat)) +
+  # geom_raster(aes(fill = estimate)) +
+  geom_contour_fill(aes(z = estimate), na.fill = 0, breaks = AnchorBreaks(0, 0.5, 0)) +
+  geom_contour2(aes(z = p.value), breaks = 0.01) +
+  geom_contour_fill(aes(z = as.numeric(is.na(estimate))), breaks = 1) +
+  stat_subset(aes(subset = p.value <= 0.01 & is.cross(lon, lat)), size = 0.4, alpha = 0.3) +
+  geom_qmap() +
+  scale_x_longitude() +
+  scale_y_latitude() +
+  scale_fill_divergent("Precipitation", guide = guide_colorstrip_bottom(), 
+                       breaks = AnchorBreaks(0, 0.5, 0)) +
+  coord_quickmap() +
+  facet_grid(season~term, labeller = labeller(term = lab_sam))
+```
+
+
+```{r compute-air-regr}
 time_subset <- list(time = range(indexes$time))
 air <- NOAATemp() %>% 
   ReadNetCDF(vars = "air", subset = time_subset) %>% 
@@ -358,7 +391,7 @@ air_regr <- air %>%
   rm_intercept()
 ```
 
-```{r, fig.cap = "Regression pattern of surface temperature with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas."}
+```{r regr-air, fig.cap = "Regression pattern of surface temperature with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas."}
 air_regr %>%
   copy() %>% 
   .[lat <= -60, estimate := NA] %>%
@@ -378,7 +411,7 @@ air_regr %>%
   facet_grid(.~term, labeller = labeller(term = lab_sam))
 ```
 
-```{r, fig.cap = "Regression pattern of surface temperature with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas."}
+```{r regr-air-season, fig.cap = "Regression pattern of surface temperature with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas."}
 air_regr_season <- air %>% 
   # .[, air := Anomaly(air), by = .(lon, lat)] %>%
   .[indexes_wide[lev == 700], on = .NATURAL] %>% 
@@ -442,7 +475,7 @@ if ("devtools" %in% installed.packages()) devtools::session_info()
 
 The current Git commit details are:
 
-```{r}
+```{r git-info, cache = FALSE}
 # what commit is this file at? 
 if ("git2r" %in% installed.packages() & git2r::in_repository(path = ".")) git2r::repository(here::here())  
 ```
