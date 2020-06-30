@@ -20,6 +20,7 @@ RUN R -e "devtools::install_deps('/asymsam', dependencies = TRUE)"
 
  # render the manuscript 
 COPY . /asymsam/
+RUN rm -r /asymsam/analysis/paper/paper_cache
 
 RUN R -e "devtools::install('/asymsam', dep = TRUE)" \
     && R -e "rmarkdown::render('/asymsam/analysis/paper/paper.Rmd')"
