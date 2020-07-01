@@ -1,0 +1,21 @@
+libgit2-dev
+libssl-dev
+zlib1g-dev
+libv8-dev
+pandoc pandoc-citeproc
+libgeos-dev libgeos++-dev
+default-jre-headless
+make
+gdal-bin
+libjq-dev
+libnetcdf-dev
+libxml2-dev
+libgdal-dev
+libsodium-dev
+protobuf-compiler libprotoc-dev
+libudunits2-dev
+libcurl4-openssl-dev
+libssh2-1-dev
+libsecret-1-dev
+git-core
+libprotobuf-dev

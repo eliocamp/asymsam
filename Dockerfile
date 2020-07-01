@@ -1,20 +1,16 @@
 # get the base image, the rocker/verse has R, RStudio and pandoc
-FROM rocker/verse:3.5.3
+FROM rocker/verse:3.6.3
 
 # required
 MAINTAINER Elio Campitelli <elio.campitelli@cima.fcen.uba.ar>
 
+RUN R -e "devtools::install_github('r-hub/sysreqs')"  
 
-
-# go into the repo directory
-RUN . /etc/environment \
-  # Install linux depedendencies here
-  && sudo apt-get update \
-  && sudo apt install pandoc pandoc-citeproc libssl-dev zlib1g-dev libxml2-dev libsecret-1-dev libnetcdf-dev make gdal-bin libgeos-dev libgeos++-dev libudunits2-dev libv8-dev imagemagick -y 
-
-RUN sudo apt install libgdal-dev libsodium-dev libjq-dev libprotobuf-dev protobuf-compiler -y 
-  
  # install dependencies (copy only description as to not invalidate cache)
+
+COPY ./system-deps.txt /asymsam/system-deps.txt
+RUN R -e "system(paste('sudo apt update && sudo apt install -y ', paste0(readLines('/asymsam/system-deps.txt'), collapse = ' '), collapse = ' '))" 
+
 COPY ./DESCRIPTION /asymsam/DESCRIPTION
 RUN R -e "devtools::install_deps('/asymsam', dependencies = TRUE)"
 
