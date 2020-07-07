@@ -7,3 +7,5 @@
 ^templates$
 ^analysis$
 ^Dockerfile$
+^system-deps\.txt$
+^write-system-deps\.R$
