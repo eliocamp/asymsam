@@ -7,7 +7,7 @@
 #'
 #' @export
 theme_asymsam <- function(base_size = 16) {
-  ggplot2::theme_minimal(base_size = 16) +
+  ggplot2::theme_minimal(base_size = base_size) +
     ggplot2::theme(
       # strip.background = ggplot2::element_rect(fill = NA, color = "gray30"),
       # text = element_text(family = font_rc),

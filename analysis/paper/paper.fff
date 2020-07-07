@@ -1,0 +1,38 @@
+\begin{figure*}
+\includegraphics{method-1} \caption[Spatial patterns of the first EOF of 700 hPa geopotential height]{Spatial patterns of the first EOF of 700 hPa geopotential height. Full field (left), zonally asymmetric component (middle) and zonally symmetric component (right). Arbitrary units.}\label{fig:method}
+\end{figure*}
+\efloatseparator
+ 
+\begin{figure*}
+\includegraphics{asymsam-timeseries-1} \caption[Time series for the asymmetric SAM and symmetric SAM]{Time series for the asymmetric SAM and symmetric SAM.}\label{fig:asymsam-timeseries}
+\end{figure*}
+\efloatseparator
+ 
+\begin{figure}
+\includegraphics{trends-1} \caption[Trends for each index at each level]{Trends for each index at each level. Shading indicates the 95\% confidence interval.}\label{fig:trends}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\includegraphics{cor-lev-1} \caption[Correlation between the Symmetric and Asymmetric SAM at each level]{Correlation between the Symmetric and Asymmetric SAM at each level.}\label{fig:cor-lev}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure*}
+\includegraphics{cross-correlation-1} \caption[Cross correlation between levels of the Full, Asymmetric and Symmetric SAM]{Cross correlation between levels of the Full, Asymmetric and Symmetric SAM.}\label{fig:cross-correlation}
+\end{figure*}
+\efloatseparator
+ 
+\begin{figure*}
+\includegraphics{2d-regr-1} \caption[Regression patterns of geopotential height at 30, 300 and 700 hPa with the Full, Asymmetric and Symmetric SAM]{Regression patterns of geopotential height at 30, 300 and 700 hPa with the Full, Asymmetric and Symmetric SAM. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices, not of two simple regressions involving each index by itsef.}\label{fig:2d-regr}
+\end{figure*}
+\efloatseparator
+ 
+\begin{figure}
+\includegraphics{wave-amplitude-700-1} \caption[Planteray wave amplitude for the regression patterns at 700 hPa]{Planteray wave amplitude for the regression patterns at 700 hPa.}\label{fig:wave-amplitude-700}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\includegraphics{wave-amplitude-30-1} \caption[Planteray wave amplitude for the regression patterns at 30 hPa]{Planteray wave amplitude for the regression patterns at 30 hPa.}\label{fig:wave-amplitude-30}
+\end{figure}

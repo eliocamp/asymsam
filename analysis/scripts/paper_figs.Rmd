@@ -1,0 +1,546 @@
+---
+title: "SAM simétrico y asimétrico"
+author: "Elio Campitelli"
+output: 
+   # pdf_document:
+   #    latex_engine: xelatex
+   powerpoint_presentation:
+    # ioslides_presentation:
+        fig_height: 7.6
+        fig_width: 12.8
+        reference_doc: "../templates/template.pptx" 
+        slide_level: 2
+urlcolor: blue
+header_includes:
+   - \usepackage[utf8]{inputenc}
+---
+
+<!-- This is the format for text comments that will be ignored during renderings. Do not put R code in these comments because it will not be ignored. -->
+
+<!-- With the following code you can access and display values from the yml header above. -->
+<!-- 
+Keywords: `r rmarkdown::metadata$keywords`
+
+Highlights: `r rmarkdown::metadata$highlights`
+-->
+
+<!-- The following code chunk defines some general settings how code chunks should behave. -->
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  cache = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  echo = FALSE,
+  comment = "#>",
+  fig.path = "../figures/",
+  dpi = 300
+)
+
+library(metR)
+library(data.table)
+library(ggplot2)
+library(magrittr)
+library(ggperiodic)
+library(asymsam)
+
+theme_set(theme_asymsam())
+ZeroBreaks <- AnchorBreaks(0, NULL, 0)
+axis_labs_smol <- theme(axis.text = element_text(size = 7))
+lev.lab <- AddSuffix(" hPa")
+
+guide_colorstrip_bottom <- function(width = 25, height = 0.5, ...) {
+  guide_colorstrip(title.position = "top", title.hjust = 0.5,
+                   barheight = height,
+                   barwidth = width, ...)
+}
+
+main_levs <- c(700, 300, 30)
+```
+
+
+```{r read-hgt}
+hgt <- ReadNetCDF(ERA5(), 
+                  subset = list(time = c("1979-01-01", "2018-12-31"),
+                                latitude = c(-90, 10),
+                                level = as.list(main_levs)),
+                  vars = c(hgt = "z")) %>% 
+  normalise_coords() %>% 
+  .[, hgt := hgt/9.8] %>% 
+  .[, hgt_a := hgt - mean(hgt), by = .(lon, lat, lev, month(time))]
+```
+
+```{r compute-SAM}
+SAM <- hgt[lat <= -20] %>% 
+  .[, hgt := hgt_a*sqrt(cos(lat*pi/180))] %>% 
+  .[, .(eof = list(eof_flip(EOF(hgt ~ time | lon + lat, n = 1, data = .SD)))), 
+    by = .(lev)]
+```
+
+
+<!-- The actual document text starts here: -->
+
+# Introduction
+
+
+# Methods
+
+
+```{r method, fig.cap = "Spatial patterns of the first EOF of 700 hPa geopotential height. Full field (left), zonally asymmetric component (middle) and zonally symmetric component (right). Arbitrary units."}
+sam_sep <- SAM[, eof[[1]]$right, by = .(lev)] %>% 
+  setnames("hgt", "full") %>% 
+  .[, c("sym", "asym") := list(mean(full), Anomaly(full)), by = .(lat, lev)]
+
+
+lab_sam <-  c(full = "Full", 
+              asym = "Asymmetric",
+              sym  = "Symmetric")
+
+sam_sep %>% 
+  .[lev == 700] %>%
+  rm_singleton() %>% 
+  melt(id.vars = c("lon", "lat")) %>% 
+  .[variable == "sym", value := value + rnorm(.N, 0, sd = 1e-6)] %>%
+  .[, variable := factor(variable, levels = names(lab_sam), ordered = TRUE)] %>% 
+  periodic(lon = c(0, 360)) %>%
+  ggplot(aes(lon, lat)) +
+  # geom_contour(aes(z = value, linetype = factor(-sign(..level..))), global.breaks = FALSE) +
+  geom_contour_fill(aes(z = value), global.breaks = FALSE, breaks = ZeroBreaks) +
+  geom_contour_tanaka(aes(z = value), global.breaks = FALSE, breaks = ZeroBreaks) +
+  geom_qmap() +
+  scale_x_longitude() +
+  scale_y_latitude(limits = c(NA, -20), labels = NULL) +
+  scale_fill_divergent(guide = "none") +
+  coord_polar() +
+  facet_grid(~variable, labeller = labeller(variable = lab_sam, lev = lev.lab)) +
+  axis_labs_smol
+```
+
+
+# Results
+
+
+```{r compute-asymsam}
+indexes_file <- data_path("derived", "indexes.Rds")
+if (file.exists(indexes_file)) {
+  indexes <- readRDS(indexes_file)
+} else {
+  stop("Run 02-compute-eofs.R")
+}
+
+indexes_wide <- dcast(indexes, + lev + time ~ term, value.var = "estimate_norm")
+```
+
+```{r asymsam-timeseries, fig.cap = "Time series for the asymmetric SAM and symmetric SAM."}
+indexes %>% 
+  .[lev %in% c(30, 700) & term != "full"] %>% 
+  # .[, estimate_norm := estimate_norm/sd(estimate_norm), by = .(lev, term)] %>% 
+  ggplot(aes(time, estimate_norm)) +
+  geom_line(aes(color = term)) +
+  scale_color_brewer(NULL, palette = "Set1", labels = lab_sam) +
+  scale_y_continuous(NULL) +
+  scale_x_datetime(NULL) +
+  facet_grid(lev~., labeller = labeller(lev = lev.lab), scales = "free")
+```
+
+```{r lag-correlation, fig.cap = "Lag-correlation between Symmetric and Asymmetric SAM at each level."}
+ccf_dt <- function(..., plot = FALSE) {
+  stat <- ccf(..., plot = plot)
+  list(lag = stat$lag[, 1, 1], 
+       acf = stat$acf[, 1, 1])
+}
+
+indexes_wide %>% 
+  .[, ccf_dt(asym, sym, lag.max = 5), by = .(lev)] %>% 
+  ggplot(aes(lag, lev)) +
+  geom_contour_fill(aes(z = acf), breaks = AnchorBreaks(0, 0.05)) +
+  geom_vline(xintercept = 0) +
+  scale_fill_divergent(NULL, guide = guide_colorstrip_bottom(), breaks = AnchorBreaks(0, 0.05)) +
+  scale_x_continuous("\u2190 Asym leads Sym\t \t\t Sym leads Asym \U2192", breaks = seq(-5, 5, 1), 
+                     expand = c(0, 0)) +
+  scale_y_level()
+```
+
+```{r}
+my_spectrum <- function(data, spans = NULL, R = 1000, ..., probs = 0.95) {
+  mtm <- spec.pgram(data, spans = spans, ..., plot = FALSE)
+  
+  out <- as.data.table(mtm[c("freq", "spec")])
+  
+  out[, boot_null := null_spec(data, spans = spans, R = R, ..., probs = probs)]
+  
+  return(out[])
+}
+
+
+null_spec <- memoise::memoise(function(data, spans, R = 1000, ..., probs = 0.95) {
+  
+  b <- boot::boot(data, function(d, i) spec.pgram(d[i], spans = spans, 
+                                                  ...,
+                                                  plot = FALSE)$spec, 
+                  R = R)
+  
+  apply(b$t, 2, quantile, probs = probs)
+})
+
+indexes %>% 
+  copy() %>% 
+  # .[, estimate_norm := estimate_norm/sd(estimate_norm), by = .(lev, term)] %>% 
+  .[, my_spectrum(estimate_norm, 5), by = .(term, lev)] -> spec
+```
+
+```{r}
+spec %>%
+  .[lev %in% c(30, 700)] %>% 
+  ggplot(aes(1/freq/12, spec)) +
+  # geom_ribbon(aes(group = interaction(term, rleid(sign(spec - boot_null))), 
+  #                 fill = sign(spec - boot_null),
+  #                 ymin = spec, ymax = boot_null)) +
+    geom_line(aes(color = term)) +
+  geom_line(aes(color = term, y = boot_null)) +
+  annotation_logticks(sides = "b") +
+  scale_color_brewer(palette = "Set1") +
+  scale_fill_divergent() +
+  scale_x_log10() +
+  facet_grid(lev ~ .,labeller = labeller(lev = lev.lab))
+```
+
+
+```{r trends, fig.cap = "Trends (in standard deviations per decade) for each index at each level. Shading indicates the 95% confidence interval."}
+indexes %>%
+  copy() %>% 
+  .[, estimate_norm := estimate_norm/sd(estimate_norm), by = .(lev, term)] %>%
+  .[, FitLm(estimate_norm, time, se = TRUE), by = .(lev, type = term)] %>% 
+  rm_intercept() %>% 
+  .[, term := NULL] %>% 
+  .[, estimate := estimate*3600*24*365*10] %>% 
+  .[, std.error := std.error*3600*24*365*10] %>% 
+  setnames("type", "term") %>% 
+  ggplot(aes(lev, estimate)) +
+  geom_ribbon(aes(ymax = estimate + std.error*1.96, ymin = estimate - std.error*1.96, fill = term), alpha = 0.3) +
+  geom_line(aes(color = term)) + 
+  geom_hline(yintercept = 0) +
+  scale_x_level() +
+  coord_flip() 
+```
+
+
+
+
+
+```{r cor-lev, fig.cap = "Correlation between the Symmetric and Asymmetric SAM at each level."}
+indexes_wide[, cor(asym, sym), by = lev] %>% 
+  ggplot(aes(lev, V1)) +
+  geom_line() +
+  scale_x_level() + 
+  scale_y_continuous("Correlation", limits = c(0, 1)) + 
+  coord_flip()
+```
+
+```{r cross-correlation, fig.cap = "Cross correlation between levels of the Full, Asymmetric and Symmetric SAM."}
+
+tri <- matrix(c(1000, 1000, 1000, 1, 1, 1, 1000, 1000), ncol = 2, byrow = TRUE) %>% 
+  as.data.table() %>% 
+  setnames(., colnames(.), c("item1", "item2"))
+
+logbreaks <- function(range) {
+  ticks <- ggplot2:::calc_logticks(minpow = log10(min(range)), maxpow = log10(max(range)))
+  ticks$value[ticks$end == 0.2]
+}
+
+indexes %>% 
+  copy() %>% 
+  .[, widyr::pairwise_cor(.SD, lev, time, estimate, diag = FALSE), by = .(term)] %>% 
+  ggplot(aes(item2, item1)) +
+  geom_contour_fill(aes(z = correlation), na.fill = .99, breaks = MakeBreaks(binwidth = 0.1)) +
+  geom_polygon(data = tri, fill = "white") +
+  scale_fill_divergent("Cross-correlation", 
+                       breaks = MakeBreaks(binwidth = 0.1),
+                       guide = guide_colorstrip_bottom()) +
+  scale_x_level(minor_breaks = logbreaks, position = "top") +
+  scale_y_level(minor_breaks = logbreaks) +
+  coord_equal() +
+  facet_grid(. ~ term, labeller = labeller(term = lab_sam)) +
+  theme(panel.spacing.x = unit(2, "lines"), strip.placement = "outside")
+```
+
+```{r compute-regr-pattern}
+indexes_2d_yearly <- hgt[lev %in% main_levs] %>% 
+  indexes_wide[., on = .NATURAL, allow.cartesian = TRUE] %>% 
+  .[, rbind(as.data.table(FitLm(hgt_a, sym, asym)),
+            as.data.table(FitLm(hgt_a, full))),
+    by = .(lon, lat, lev)] %>% 
+  rm_intercept() %>% 
+  periodic(lon = c(0, 360)) %>% 
+  .[, term := factor(term, levels = names(lab_sam), ordered = TRUE)] 
+```
+
+
+```{r 2d-regr, fig.cap = "Regression patterns of geopotential height at 30, 300 and 700 hPa with the Full, Asymmetric and Symmetric SAM. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices, not of two simple regressions involving each index by itsef."}
+indexes_2d_yearly %>% 
+  .[lat <= -20] %>% 
+  ggplot(aes(lon, lat)) +
+  geom_contour_fill(aes(z = estimate), breaks = ZeroBreaks, global.breaks = FALSE) +
+  # geom_contour2(aes(z = estimate, linetype = factor(-sign(..level..))), 
+  # size = 0.3,
+  # global.breaks = FALSE) +
+  geom_contour_tanaka(aes(z = estimate),
+                      breaks = ZeroBreaks,
+                      size = 0.3,
+                      global.breaks = FALSE) +
+  geom_qmap(~.x[lat <= -20]) +
+  # geom_contour2(data = ~.x[dataset == "NCEP"], aes(z = V1)) +
+  scale_x_longitude() +
+  scale_y_latitude(limits = c(NA, -20), labels = NULL) +
+  scale_fill_divergent(NULL, guide = guide_colorstrip_bottom(), 
+                       limits = c(-85, 85),
+                       oob = scales::squish,
+                       breaks = MakeBreaks(binwidth = 20, exclude = 0)) +
+  scale_linetype(guide = "none") +
+  coord_polar() +
+  facet_grid(term ~ lev, labeller = labeller(term = lab_sam, lev = lev.lab)) +
+  axis_labs_smol 
+```
+
+
+```{r compute-regr-pattern-season}
+indexes_2d <- hgt[lev %in% main_levs] %>% 
+  indexes_wide[., on = .NATURAL, allow.cartesian = TRUE] %>% 
+  .[, rbind(as.data.table(FitLm(hgt_a, sym, asym)),
+            as.data.table(FitLm(hgt_a, full))),
+    by = .(lon, lat, lev, season(time))] %>% 
+  rm_intercept() %>% 
+  periodic(lon = c(0, 360)) %>% 
+  .[, term := factor(term, levels = names(lab_sam), ordered = TRUE)] 
+```
+
+```{r 2d-regr-700, fig.cap = "Seasonal regression patterns of geopotential height at 700 hPa with the Full, Asymmetric and Symmetric SAM. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices, not of two simple regressions involving each index by itsef."}
+indexes_2d %>% 
+  .[lat <= -20] %>% 
+  .[lev == 700] %>% 
+  ggplot(aes(lon, lat)) +
+  geom_contour_fill(aes(z = estimate),  breaks = AnchorBreaks(0, binwidth = 5, 0),
+                    global.breaks = FALSE) +
+  geom_contour_tanaka(aes(z = estimate),
+                      breaks = AnchorBreaks(0, binwidth = 5, 0),
+                      size = 0.3,
+                      global.breaks = FALSE) +
+  geom_qmap(~.x[lat <= -20]) +
+  scale_x_longitude() +
+  scale_y_latitude(limits = c(NA, -20), labels = NULL) +
+  scale_fill_divergent(NULL, guide = guide_colorstrip_bottom(),
+                       limits = c(-55, 55),
+                       oob = scales::squish,
+                       breaks = AnchorBreaks(0, binwidth = 5, 0)) +
+  scale_linetype(guide = "none") +
+  coord_polar() +
+  facet_grid(term ~ season, labeller = labeller(term = lab_sam, lev = lev.lab)) +
+  axis_labs_smol
+```
+
+```{r wave-amplitude-700, fig.cap = "Planteray wave amplitude for the regression patterns at 700 hPa."}
+indexes_2d %>% 
+  .[ lev == 700 & lat < -20] %>%
+  .[, FitWave(estimate, 0:3), by = .(lat, lev, season, term)] %>% 
+  ggplot(aes(lat, amplitude)) +
+  geom_line(aes(color = factor(k))) +
+  scale_color_brewer("Wave-number", palette = "Set1") +
+  scale_y_continuous("Amplitude") +
+  scale_x_latitude(ticks = 15) +
+  coord_flip() +
+  facet_grid(term~season, labeller = labeller(term = lab_sam), scales = "free_x")
+```
+
+```{r 2d-regr-30, fig.cap = "Seasonal regression patterns of geopotential height at 30 hPa with the Full, Asymmetric and Symmetric SAM. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices, not of two simple regressions involving each index by itsef."}
+indexes_2d %>% 
+  .[lat <= -20] %>% 
+  .[lev == 30] %>% 
+  ggplot(aes(lon, lat)) +
+  geom_contour_fill(aes(z = estimate),  breaks = AnchorBreaks(0, binwidth = 20, 0),
+                    global.breaks = FALSE) +
+  geom_contour_tanaka(aes(z = estimate),
+                      breaks = AnchorBreaks(0, binwidth = 20, 0),
+                      size = 0.3,
+                      global.breaks = FALSE) +
+  geom_qmap(~.x[lat <= -20]) +
+  scale_x_longitude() +
+  scale_y_latitude(limits = c(NA, -20), labels = NULL) +
+  scale_fill_divergent(NULL, guide = guide_colorstrip_bottom(),
+                       limits = c(-105, 105),
+                       oob = scales::squish,
+                       breaks = AnchorBreaks(0, binwidth = 20, 0)) +
+  scale_linetype(guide = "none") +
+  coord_polar() +
+  facet_grid(term ~ season, labeller = labeller(term = lab_sam, lev = lev.lab)) +
+  axis_labs_smol
+```
+
+
+
+```{r wave-amplitude-30, fig.cap = "Planteray wave amplitude for the regression patterns at 30 hPa."}
+indexes_2d %>% 
+  .[ lev == 30 & lat < -20] %>%
+  .[, FitWave(estimate, 0:3), by = .(lat, lev, season, term)] %>% 
+  ggplot(aes(lat, amplitude)) +
+  geom_line(aes(color = factor(k))) +
+  scale_color_brewer("Wave-number", palette = "Set1") +
+  scale_y_continuous("Squared amplitude") +
+  scale_x_latitude(ticks = 15) +
+  coord_flip() +
+  facet_grid(term~season, labeller = labeller(term = lab_sam), scales = "free_x") 
+```
+
+
+```{r compute-pp-regr} 
+pp <- CMAP() %>% 
+  ReadNetCDF(subset = list(lat = c(-90, 20))) %>% 
+  normalise_coords() %>% 
+  .[, precip := Anomaly(precip), by = .(lon, lat)]
+
+
+pp_regr_season <- pp %>% 
+  # .[, air := Anomaly(air), by = .(lon, lat)] %>%
+  .[indexes_wide[lev == 700], on = .NATURAL] %>% 
+  rm_singleton() %>% 
+  .[, lapply(.SD, mean, na.rm = TRUE), by = .(lon, lat, time = seasonally(time))] %>%
+  .[, nas := mean(is.na(precip)), by = .(lon, lat, season(time))] %>% 
+  .[nas >= 0.15, precip := NA] %>% 
+  .[, rbind(as.data.table(FitLm(precip, asym, sym, se = TRUE)),
+            as.data.table(FitLm(precip, full, se = TRUE))),
+    by = .(lon, lat, season(time))] %>% 
+  rm_intercept() %>% 
+  .[, p.value := Pvaluate(estimate, std.error, df, "fdr"), by = .(season, term)]
+
+```
+
+```{r pp-regr-global}
+pp_regr_season %>%
+  # filter_sa() %>% 
+  # .[, lon := ConvertLongitude(lon)] %>% 
+  ggplot(aes(lon, lat)) +
+  # geom_raster(aes(fill = estimate)) +
+  geom_contour_fill(aes(z = estimate), na.fill = 0, breaks = AnchorBreaks(0, 0.25, 0)) +
+  geom_contour2(aes(z = p.value), breaks = 0.01) +
+  geom_contour_fill(aes(z = as.numeric(is.na(estimate))), breaks = 1) +
+  stat_subset(aes(subset = p.value <= 0.01 & is.cross(lon, lat)), size = 0.4, alpha = 0.3) +
+  geom_qmap(~.x[lat <= -20]) +
+  scale_x_longitude() +
+  scale_y_latitude(labels = NULL) +
+  scale_fill_divergent("Precipitation", guide = guide_colorstrip_bottom(), 
+                       breaks = AnchorBreaks(0, 0.25, 0)) +
+  coord_polar() +
+  facet_grid(season~term, labeller = labeller(term = lab_sam)) +
+  axis_labs_smol
+```
+
+
+```{r regr-pp-season, fig.cap = "Regression pattern of precipiation with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas."}
+
+is.sa <- function(data, lons = c(265, 325), lats = c(-80, -10)) {
+  data[, lon %between% lons & lat %between% lats]
+}
+
+filter_sa <- function(data, lons = c(265, 325), lats = c(-80, -10)) {
+  data[is.sa(data, lons = lons, lats = lats)]
+}
+
+pp_regr_season %>% 
+  filter_sa() %>% 
+  .[, lon := ConvertLongitude(lon)] %>% 
+  ggplot(aes(lon, lat)) +
+  # geom_raster(aes(fill = estimate)) +
+  geom_contour_fill(aes(z = estimate), na.fill = 0, breaks = AnchorBreaks(0, 0.25, 0)) +
+  geom_contour2(aes(z = p.value), breaks = 0.01) +
+  geom_contour_fill(aes(z = as.numeric(is.na(estimate))), breaks = 1) +
+  stat_subset(aes(subset = p.value <= 0.01 & is.cross(lon, lat)), size = 0.4, alpha = 0.3) +
+  geom_qmap(~filter_sa(.x)[, lon := ConvertLongitude(lon)], keep = 0.02) +
+  scale_x_longitude() +
+  scale_y_latitude() +
+  scale_fill_divergent("Precipitation", guide = guide_colorstrip_bottom(), 
+                       breaks = AnchorBreaks(0, 0.25, 0)) +
+  # coord_polar() +
+  ggalt::coord_proj("+proj=moll +lon_0=-60") +
+  facet_grid(season~term, labeller = labeller(term = lab_sam)) +
+  axis_labs_smol
+```
+
+
+```{r compute-air-regr}
+time_subset <- list(time = range(indexes$time))
+air <- NOAATemp() %>% 
+  ReadNetCDF(vars = "air", subset = c(time_subset, list(lat = c(-90, 10)))) %>% 
+  normalise_coords() 
+
+air_regr <- air %>% 
+  # .[, air := Anomaly(air), by = .(lon, lat)] %>%
+  .[indexes_wide[lev == 700], on = .NATURAL] %>% 
+  rm_singleton() %>% 
+  .[, lapply(.SD, mean, na.rm = TRUE), by = .(lon, lat, time = seasonally(time))] %>%
+  .[, nas := mean(is.na(air)), by = .(lon, lat, season(time))] %>% 
+  .[nas >= 0.15, air := NA] %>% 
+  .[, rbind(as.data.table(FitLm(air, asym, sym, se = TRUE)),
+            as.data.table(FitLm(air, full, se = TRUE))),
+    by = .(lon, lat, season(time))] %>% 
+  rm_intercept() 
+```
+
+
+```{r regr-air-season, fig.cap = "Regression pattern of surface temperature with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas."}
+air_regr %>% 
+  copy() %>% 
+  .[lat <= -61, estimate := NA] %>%
+  .[lat >= 65, estimate := NA] %>%
+  .[, p.value := Pvaluate(estimate, std.error, df, "fdr"), by = .(term, season)] %>% 
+  ggplot(aes(lon, lat)) +
+  geom_contour_fill(aes(z = estimate), na.fill = 0,
+                    breaks = AnchorBreaks(0, 0.15, 0)) +
+  # geom_raster(aes(fill = estimate)) +
+  geom_contour2(aes(z = p.value), breaks = 0.05) +
+  stat_subset(aes(subset = p.value <= 0.05 & is.cross(lon, lat)), size = 0.4, alpha = 0.8) +
+  # stat_subset(aes(subset = is.na(estimate)), geom = "raster", fill = "gray50") +
+  geom_qmap(~.x[lat <= 10]) +
+  scale_x_longitude() +
+  scale_y_latitude(labels = NULL) +
+  scale_fill_divergent("Surface temperature",  limits = c(-0.8, .8), oob = scales::squish,
+                       guide = guide_colorstrip_bottom(), breaks = AnchorBreaks(0, 0.15, 0)) +
+  coord_polar() +
+  facet_grid(season~term, labeller = labeller(term = lab_sam)) +
+  axis_labs_smol
+```
+
+
+# Discussion
+
+# Conclusion
+
+# Acknowledgements
+
+<!-- The following line inserts a page break  -->
+
+\newpage
+
+# References 
+
+<!-- The following line ensures the references appear here for the MS Word or HTML output files, rather than right at the end of the document (this will not work for PDF files):  -->
+
+<div id="refs"></div>
+
+\newpage
+
+### Colophon
+
+This report was generated on `r Sys.time()` using the following computational environment and dependencies: 
+
+```{r colophon, cache = FALSE}
+# which R packages and versions?
+if ("devtools" %in% installed.packages()) devtools::session_info()
+```
+
+The current Git commit details are:
+
+```{r git-info, cache = FALSE}
+# what commit is this file at? 
+if ("git2r" %in% installed.packages() & git2r::in_repository(path = ".")) git2r::repository(here::here())  
+```
