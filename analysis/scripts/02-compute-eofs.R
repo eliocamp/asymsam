@@ -1,6 +1,7 @@
 library(metR)
 library(magrittr)
 library(asymsam)
+library(data.table)
 
 indexes_file <- data_path("derived", "indexes.Rds")
 

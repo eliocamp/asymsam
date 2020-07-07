@@ -1,0 +1,53 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\renewcommand{\UrlFont}{\rmfamily}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{Chung and Nigam(1999)Chung, and Nigam}]{chung1999}
+Chung, C., and S.~Nigam, 1999: Weighting of geophysical data in {{Principal
+  Component Analysis}}. \textit{Journal of Geophysical Research: Atmospheres},
+  \textbf{104~(D14)}, 16\,925--16\,928, \doi{10.1029/1999JD900234}.
+
+\bibitem[{Hersbach et~al.()}]{hersbach}
+Hersbach, H., and Coauthors, ????: The {{ERA5}} global reanalysis.
+  \textit{Quarterly Journal of the Royal Meteorological Society},
+  \textbf{n/a~(n/a)}, \doi{10.1002/qj.3803}.
+
+\bibitem[{Osborn and Jones(2014)Osborn, and Jones}]{osborn2014}
+Osborn, T.~J., and P.~D. Jones, 2014: The {{CRUTEM4}} land-surface air
+  temperature data set: Construction, previous versions and dissemination via
+  {{Google Earth}}. \textit{Earth System Science Data}, \textbf{6~(1)}, 61--68,
+  \doi{10.5194/essd-6-61-2014}.
+
+\bibitem[{Smith et~al.(2008)Smith, Reynolds, Peterson,, and
+  Lawrimore}]{smith2008}
+Smith, T.~M., R.~W. Reynolds, T.~C. Peterson, and J.~Lawrimore, 2008:
+  Improvements to {{NOAA}}'s {{Historical Merged Land}}\textendash{{Ocean
+  Surface Temperature Analysis}} (1880\textendash 2006). \textit{J. Climate},
+  \textbf{21~(10)}, 2283--2296, \doi{10.1175/2007JCLI2100.1}.
+
+\bibitem[{Vose et~al.(2012)}]{vose2012}
+Vose, R.~S., and Coauthors, 2012: {{NOAA}}'s {{Merged Land}}\textendash{{Ocean
+  Surface Temperature Analysis}}. \textit{Bull. Amer. Meteor. Soc.},
+  \textbf{93~(11)}, 1677--1685, \doi{10.1175/BAMS-D-11-00241.1}.
+
+\bibitem[{Wilks(2016)}]{wilks2016}
+Wilks, D.~S., 2016: ``{{The Stippling Shows Statistically Significant Grid
+  Points}}'': {{How Research Results}} are {{Routinely Overstated}} and
+  {{Overinterpreted}}, and {{What}} to {{Do}} about {{It}}. \textit{Bull. Amer.
+  Meteor. Soc.}, \textbf{97~(12)}, 2263--2273, \doi{10.1175/BAMS-D-15-00267.1}.
+
+\bibitem[{Xie and Arkin(1997)Xie, and Arkin}]{xie1997}
+Xie, P., and P.~A. Arkin, 1997: Global {{Precipitation}}: {{A}} 17-{{Year
+  Monthly Analysis Based}} on {{Gauge Observations}}, {{Satellite Estimates}},
+  and {{Numerical Model Outputs}}. \textit{Bull. Amer. Meteor. Soc.},
+  \textbf{78~(11)}, 2539--2558,
+  \doi{10.1175/1520-0477(1997)078<2539:GPAYMA>2.0.CO;2}.
+
+\end{thebibliography}

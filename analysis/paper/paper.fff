@@ -9,11 +9,6 @@
 \efloatseparator
  
 \begin{figure}
-\includegraphics{trends-1} \caption[Trends for each index at each level]{Trends for each index at each level. Shading indicates the 95\% confidence interval.}\label{fig:trends}
-\end{figure}
-\efloatseparator
- 
-\begin{figure}
 \includegraphics{cor-lev-1} \caption[Correlation between the Symmetric and Asymmetric SAM at each level]{Correlation between the Symmetric and Asymmetric SAM at each level.}\label{fig:cor-lev}
 \end{figure}
 \efloatseparator
@@ -35,4 +30,19 @@
  
 \begin{figure}
 \includegraphics{wave-amplitude-30-1} \caption[Planteray wave amplitude for the regression patterns at 30 hPa]{Planteray wave amplitude for the regression patterns at 30 hPa.}\label{fig:wave-amplitude-30}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\includegraphics{A1-1} \appendcaption{A1}{Lag-correlation between Symmetric and Asymmetric SAM at each level.}\label{fig:A1}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\includegraphics{A2-1} \appendcaption{A2}{Foutier spectrum}\label{fig:A2}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\includegraphics{A3-1} \appendcaption{A3}{Trends for each index at each level. Shading indicates the 95\% confidence interval.}\label{fig:A3}
 \end{figure}

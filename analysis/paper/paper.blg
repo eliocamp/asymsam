@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2020)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: paper.aux
+The style file: ametsoc2014.bst
+Database file #1: AsymSAM.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Warning--empty year in hersbach; set to ????
+You've used 7 entries,
+            3493 wiz_defined-function locations,
+            744 strings with 7684 characters,
+and the built_in function-call counts, 8094 in all, are:
+= -- 1024
+> -- 177
+< -- 4
++ -- 126
+- -- 45
+* -- 412
+:= -- 778
+add.period$ -- 14
+call.type$ -- 7
+change.case$ -- 48
+chr.to.int$ -- 7
+cite$ -- 8
+duplicate$ -- 879
+empty$ -- 433
+format.name$ -- 64
+if$ -- 1630
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 70
+newline$ -- 32
+num.names$ -- 28
+pop$ -- 343
+preamble$ -- 1
+purify$ -- 41
+quote$ -- 0
+skip$ -- 500
+stack$ -- 0
+substring$ -- 451
+swap$ -- 773
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 63
+warning$ -- 1
+while$ -- 39
+width$ -- 0
+write$ -- 94
+(There was 1 warning)

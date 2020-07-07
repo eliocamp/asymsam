@@ -1,5 +1,5 @@
 ---
-twocol: TRUE  #  Use FALSE for submission. 
+twocol: FALSE  #  Use FALSE for submission. 
 title: Title here
 author1: 
   name: Elio Campitelli
@@ -12,11 +12,13 @@ extra_authors:
 abstract: |
   Enter the text of your abstract here. This is a sample American Meteorological Society (AMS) \LaTeX\ template.  This document provides authors with instructions on the use of the AMS \LaTeX\ template.  Authors should refer to the file amspaper.tex to review the actual \LaTeX\ code used to create this document. The template.tex file should be modified by authors for their own manuscript.
 statement: |
-  This is significant becasue... 
-bibliography: references.bib
+  This is significant becasue I wrote it.
+bibliography: AsymSAM.bib
 output: 
   rticles::ams_article:
     latex_engine: "xelatex"
+header-includes: 
+ - \usepackage{gensymb}
 ---
 
 ```{r setup, include=FALSE}
@@ -166,8 +168,8 @@ knitr::opts_chunk$set(
   message = FALSE,
   echo = FALSE,
   comment = "#>",
-  fig.path = "",
-  cache.extra = 2,
+  cache.path = "../cache/",
+  cache.extra = 3,
   dpi = 300
 )
 
@@ -177,10 +179,11 @@ library(ggplot2)
 library(magrittr)
 library(ggperiodic)
 library(asymsam)
+library(latex2exp)
 
-theme_set(theme_asymsam(base_size = 9))
+theme_set(theme_asymsam(base_size = 10))
 ZeroBreaks <- AnchorBreaks(0, NULL, 0)
-axis_labs_smol <- theme(axis.text = element_text(size = 7))
+axis_labs_smol <- theme(axis.text = element_text(size = 6))
 lev.lab <- AddSuffix(" hPa")
 
 guide_colorstrip_bottom <- function(width = 25, height = 0.5, ...) {
@@ -202,8 +205,8 @@ main_levs <- c(700, 300, 30)
 
 # Introduction 
 
-blabalblba introdocction. SAM... yada yada circulation.. 
-`r paste(stringi::stri_rand_lipsum(3), collapse = "\n\n")`
+yada yada SAM yada yada circulation.. yada yada so important. yada yada many impacts. 
+
 
 ```{r read-hgt}
 hgt <- ReadNetCDF(ERA5(), 
@@ -221,27 +224,30 @@ SAM <- hgt[lat <= -20] %>%
   .[, hgt := hgt_a*sqrt(cos(lat*pi/180))] %>% 
   .[, .(eof = list(eof_flip(EOF(hgt ~ time | lon + lat, n = 1, data = .SD)))), 
     by = .(lev)]
+
+dims <- hgt[lat <= -20] %>% 
+  .[, .(x = uniqueN(lon), y = uniqueN(lat), t = uniqueN(time))]
 ```
 
 
 # Methods
 
-### Data
+### Data 
 
-We used monthly geopotential height at 2.5 longitude by 2.5 latitude resolution from ERA5 [@hersbach]. 
+We used monthly geopotential height at 2.5 longitude by 2.5 latitude resolution from ERA5 [@hersbach] for the period 1979 to 2018 (inclusive).
 
-Monthly temperature NOAA Global Surface Temperature (NOAAGlobalTemp) 5.0 degree latitude x 5.0 degree longitude global grid [@vose2012; @smith2008].
+Monthly temperature NOAA Global Surface Temperature (NOAAGlobalTemp) 5.0 degree latitude x 5.0 degree longitude global grid [@vose2012; @smith2008]. The same analysis was carried out using CRUTEM4 [@osborn2014] (not shown). 
 
 We used monthly precipitation data from CPC Merged Analysis of Precipitation [@xie1997] 2.5 degree latitude x 2.5 degree longitude.  
 
 
 ### Definition of indexes
 
+We defined the Southern Annular Mode (SAM) as the leading EOF of the monthly anomalies of geopotential field at 700 hPa south of 20\degree S (citation?). The EOF was performed by computing the Singular Value Decomposition of the data matrix consisting in `r dims$t` rows and  `r dims$x*dims$y` columns (`r dims$x` points of longitude and `r dims$y` points of latitude). The values where weighted by the square root of the cosine of latitude to account for the non-equal area of each gridpoint [@chung1999]. This same method was used at the rest of the levels considered in this paper. 
 
+To separate between the zonally symmetric and asymmetric components of the SAM, we computed the zonal mean and anomalies of the full SAM spatial pattern. The results are shown in Figure\ \ref{fig:method} for 700hPa. The full spatial signal ($\mathrm{EOF_1}(\lambda, \phi)$) is the sum of the zonally asymmetric ($\mathrm{EOF_1^*}(\lambda, \phi)$) and symmetric ($[\mathrm{EOF_1}](\lambda, \phi)$) components. We then compute the "Full", "Asymmetric" and "Symmetric" indexes, by regressing each geopotential field on these patterns (weighting by the cosine of latitude).
 
-
-
-`r paste(stringi::stri_rand_lipsum(4, FALSE), collapse = "\n\n")`
+The three indexes are normalised by dividing them by the standard deviation of the "Full" index at each level. This means that comparing the magnitude between indexes is meaningful, but it also means that not every index will have unit standard deviation. 
 
 ```{r method, fig.cap = "Spatial patterns of the first EOF of 700 hPa geopotential height. Full field (left), zonally asymmetric component (middle) and zonally symmetric component (right). Arbitrary units.", fig.width=6, fig.height=3, fig.env="figure*"}
 sam_sep <- SAM[, eof[[1]]$right, by = .(lev)] %>% 
@@ -253,12 +259,21 @@ lab_sam <-  c(full = "Full",
               asym = "Asymmetric",
               sym  = "Symmetric")
 
+lab_eof <- c(full = TeX("$\\mathrm{EOF_1}(\\lambda, \\phi)$"),
+             asym = TeX("$\\mathrm{EOF_1}^*(\\lambda, \\phi)$"), 
+             sym  = TeX("$\\[\\mathrm{EOF_1}\\](\\lambda, \\phi)$"))
+
 sam_sep %>% 
   .[lev == 700] %>%
   rm_singleton() %>% 
   melt(id.vars = c("lon", "lat")) %>% 
   .[variable == "sym", value := value + rnorm(.N, 0, sd = 1e-6)] %>%
-  .[, variable := factor(variable, levels = names(lab_sam), ordered = TRUE)] %>% 
+  .[, variable := factor(variable, levels = names(lab_sam), ordered = TRUE)] -> sam_plot
+
+
+levels(sam_plot$variable) <- lab_eof
+
+sam_plot %>% 
   periodic(lon = c(0, 360)) %>%
   ggplot(aes(lon, lat)) +
   # geom_contour(aes(z = value, linetype = factor(-sign(..level..))), global.breaks = FALSE) +
@@ -269,9 +284,14 @@ sam_sep %>%
   scale_y_latitude(limits = c(NA, -20), labels = NULL) +
   scale_fill_divergent(guide = "none") +
   coord_polar() +
-  facet_grid(~variable, labeller = labeller(variable = lab_sam, lev = lev.lab)) +
+  facet_grid(~variable, labeller = labeller(variable = label_parsed, lev = lev.lab)) +
   axis_labs_smol
 ```
+
+
+### Significance
+
+We adjusted p-values for False Detection Rate following @wilks2016. 
 
 
 # Results
@@ -287,7 +307,7 @@ if (file.exists(indexes_file)) {
 indexes_wide <- dcast(indexes, + lev + time ~ term, value.var = "estimate_norm")
 ```
 
-`r paste(stringi::stri_rand_lipsum(2, FALSE), collapse = "\n\n")`
+
 
 ```{r asymsam-timeseries, fig.cap = "Time series for the asymmetric SAM and symmetric SAM.", fig.width=6, fig.height=3, fig.env="figure*"}
 indexes %>% 
@@ -302,17 +322,6 @@ indexes %>%
 ```
 
 
-`r paste(stringi::stri_rand_lipsum(2, FALSE), collapse = "\n\n")`
-
-`r paste(stringi::stri_rand_lipsum(2, FALSE), collapse = "\n\n")`
-
-
-
-
-`r paste(stringi::stri_rand_lipsum(1, FALSE), collapse = "\n\n")`
-
-
-
 ```{r cor-lev, fig.cap = "Correlation between the Symmetric and Asymmetric SAM at each level.", fig.width=3, fig.height=3.5}
 indexes_wide[, cor(asym, sym), by = lev] %>% 
   ggplot(aes(lev, V1)) +
@@ -321,8 +330,6 @@ indexes_wide[, cor(asym, sym), by = lev] %>%
   scale_y_continuous("Correlation", limits = c(0, 1)) + 
   coord_flip()
 ```
-
-`r paste(stringi::stri_rand_lipsum(2, FALSE), collapse = "\n\n")`
 
 ```{r cross-correlation, fig.cap = "Cross correlation between levels of the Full, Asymmetric and Symmetric SAM.", fig.width = 6, fig.height=4, fig.env="figure*"}
 tri <- matrix(c(1000, 1000, 1000, 1, 1, 1, 1000, 1000), ncol = 2, byrow = TRUE) %>% 
@@ -349,8 +356,6 @@ indexes %>%
   facet_grid(. ~ term, labeller = labeller(term = lab_sam)) +
   theme(panel.spacing.x = unit(2, "lines"), strip.placement = "outside")
 ```
-
-`r paste(stringi::stri_rand_lipsum(2, FALSE), collapse = "\n\n")`
 
 ```{r compute-regr-pattern}
 indexes_2d_yearly <- hgt[lev %in% main_levs] %>% 
@@ -426,7 +431,6 @@ indexes_2d %>%
   axis_labs_smol
 ```
 
-`r paste(stringi::stri_rand_lipsum(2, FALSE), collapse = "\n\n")`
 
 ```{r wave-amplitude-700, fig.cap = "Planteray wave amplitude for the regression patterns at 700 hPa.", fig.width=6, fig.height=4}
 indexes_2d %>% 
@@ -440,8 +444,6 @@ indexes_2d %>%
   coord_flip() +
   facet_grid(term~season, labeller = labeller(term = lab_sam), scales = "free_x")
 ```
-
-`r paste(stringi::stri_rand_lipsum(1, FALSE), collapse = "\n\n")`
 
 
 ```{r 2d-regr-30, fig.cap = "Seasonal regression patterns of geopotential height at 30 hPa with the Full, Asymmetric and Symmetric SAM. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices, not of two simple regressions involving each index by itsef.", fig.width =10, fig.height=7, fig.env = "sidewaysfigure"}
@@ -468,8 +470,6 @@ indexes_2d %>%
   axis_labs_smol
 ```
 
-`r paste(stringi::stri_rand_lipsum(2, FALSE), collapse = "\n\n")`
-
 ```{r wave-amplitude-30, fig.cap = "Planteray wave amplitude for the regression patterns at 30 hPa.", fig.width=6, fig.height=4}
 indexes_2d %>% 
   .[ lev == 30 & lat < -20] %>%
@@ -482,7 +482,6 @@ indexes_2d %>%
   coord_flip() +
   facet_grid(term~season, labeller = labeller(term = lab_sam), scales = "free_x") 
 ```
-`r paste(stringi::stri_rand_lipsum(1, FALSE), collapse = "\n\n")`
 
 ```{r compute-pp-regr} 
 pp <- CMAP() %>% 
@@ -506,7 +505,7 @@ pp_regr_season <- pp %>%
 
 ```
 
-```{r pp-regr-global, fig.cap = "caption", fig.width =10, fig.height=7, fig.env = "sidewaysfigure"}
+```{r pp-regr-global,  fig.cap = "Regression pattern of precipiation with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas.", fig.width =10, fig.height=7, fig.env = "sidewaysfigure"}
 pp_regr_season %>%
   ggplot(aes(lon, lat)) +
   geom_contour_fill(aes(z = estimate), na.fill = 0, breaks = AnchorBreaks(0, 0.25, 0)) +
@@ -604,13 +603,16 @@ CMAP Precipitation data provided by the NOAA/OAR/ESRL PSL, Boulder, Colorado, US
 
 NOAA Global Surface Temperature (NOAAGlobalTemp) data provided by the NOAA/OAR/ESRL PSL, Boulder, Colorado, USA, from their Web site at https://psl.noaa.gov/ 
 
+
+\bibliography{AsymSAM}
+
 \appendix
 
 \appendixtitle{Extra figures}
 
 
 
-```{r lag-correlation, fig.cap = "Lag-correlation between Symmetric and Asymmetric SAM at each level.", fig.width = 4, fig.height=4, appendix = TRUE}
+```{r A1, fig.cap = "Lag-correlation between Symmetric and Asymmetric SAM at each level.", fig.width = 4, fig.height=4, appendix = TRUE}
 ccf_dt <- function(..., plot = FALSE) {
   stat <- ccf(..., plot = plot)
   list(lag = stat$lag[, 1, 1], 
@@ -657,7 +659,7 @@ indexes %>%
   .[, my_spectrum(estimate_norm, 5), by = .(term, lev)] -> spec
 ```
 
-```{r spectrum, fig.cap = "Foutier spectrum", appendix = TRUE}
+```{r A2, fig.cap = "Foutier spectrum", appendix = TRUE}
 spec %>%
   .[lev %in% c(30, 700)] %>% 
   ggplot(aes(1/freq/12, spec)) +
@@ -674,7 +676,7 @@ spec %>%
 ```
 
 
-```{r trends, fig.cap = "Trends for each index at each level. Shading indicates the 95\\% confidence interval.", fig.width = 3, fig.height=3.5, appendix = TRUE}
+```{r A3, fig.cap = "Trends for each index at each level. Shading indicates the 95\\% confidence interval.", fig.width = 3, fig.height=3.5, appendix = TRUE}
 indexes %>%
   copy() %>% 
   .[, estimate_norm := estimate_norm/sd(estimate_norm), by = .(lev, term)] %>%

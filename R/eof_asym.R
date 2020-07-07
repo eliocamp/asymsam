@@ -26,18 +26,13 @@ eof_asym <- function(value, lon, lat, time, n = 1) {
   indexes <- eof$right %>%
     data[., on = .NATURAL, allow.cartesian = TRUE]
 
-  pcor <- indexes[, partial_cor(value, sym, asym, weights = cos(lat*pi/180)),
-                  keyby = .(time, PC)]
-
   indexes[, rbind(data.table::as.data.table(metR::FitLm(value, full, weights = cos(lat*pi/180), r2 = TRUE)),
-                  data.table::as.data.table(metR::FitLm(value, sym, asym, weights = cos(lat*pi/180), r2 = TRUE))),
+                  data.table::as.data.table(metR::FitLm(value,  sym, weights = cos(lat*pi/180), r2 = TRUE)),
+                  data.table::as.data.table(metR::FitLm(value, asym, weights = cos(lat*pi/180), r2 = TRUE))),
           keyby = .(time, PC)] %>%
     .[term != "(Intercept)"] %>%
     .[, estimate_norm := estimate/stats::sd(estimate[term == "full"]), by = PC] %>%
     .[, term := factor(term, levels = names(lab_sam), ordered = TRUE)] %>%
-    .[term != "full", partial.r.squared := pcor$partial_correlation^2] %>%
-    .[term == "full", partial.r.squared := r.squared] %>%
-    .[, adj.r.squared := NULL] %>%
     .[]
 }
 
