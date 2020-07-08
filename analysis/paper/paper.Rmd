@@ -21,158 +21,20 @@ header-includes:
  - \usepackage{gensymb}
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(fig.path = "",     # AMS required
-                      out.extra = "",    # To force figure labels
-                      echo = FALSE)      # Don't show R code   
-
-
-# This helps to use appendix figures.
-appendcaption <- function (x, options) {
-  `%n%` <- knitr:::`%n%`
-  rw = options$resize.width
-  rh = options$resize.height
-  resize1 = resize2 = ""
-  if (!is.null(rw) || !is.null(rh)) {
-    resize1 = sprintf("\\resizebox{%s}{%s}{", rw %n% "!", 
-                      rh %n% "!")
-    resize2 = "} "
-  }
-  tikz = knitr:::is_tikz_dev(options)
-  a = options$fig.align
-  fig.cur = options$fig.cur %n% 1L
-  fig.num = options$fig.num %n% 1L
-  animate = options$fig.show == "animate"
-  fig.ncol = options$fig.ncol %n% fig.num
-  if (is.null(fig.sep <- options$fig.sep)) {
-    fig.sep = character(fig.num)
-    if (fig.ncol < fig.num) 
-      fig.sep[seq(fig.ncol, fig.num - 1L, fig.ncol)] = "\\newline"
-  }
-  sep.cur = NULL
-  if (!tikz && animate && fig.cur < fig.num) 
-    return("")
-  usesub = length(subcap <- options$fig.subcap) && fig.num > 
-    1
-  ai = options$fig.show != "hold"
-  plot1 = ai || fig.cur <= 1L
-  plot2 = ai || fig.cur == fig.num
-  align1 = if (plot1) 
-    switch(a, left = "\n\n", center = "\n\n{\\centering ", 
-           right = "\n\n\\hfill{}", "\n")
-  align2 = if (plot2) 
-    switch(a, left = "\\hfill{}\n\n", center = "\n\n}\n\n", 
-           right = "\n\n", "")
-  cap = options$fig.cap
-  appendix = !is.null(options$appendix)
-  scap = options$fig.scap
-  fig1 = fig2 = ""
-  mcap = fig.num > 1L && options$fig.show == "asis" && !length(subcap)
-  sub1 = sub2 = ""
-  if (length(cap) && !is.na(cap)) {
-    lab = paste0(options$fig.lp, options$label)
-    if (plot1) {
-      pos = options$fig.pos
-      if (pos != "" && !grepl("^[[{]", pos)) 
-        pos = sprintf("[%s]", pos)
-      fig1 = sprintf("\\begin{%s}%s", options$fig.env, 
-                     pos)
-    }
-    if (usesub) {
-      sub1 = sprintf("\\subfloat[%s%s]{", subcap, knitr:::create_label(lab, 
-                                                               fig.cur, latex = TRUE))
-      sub2 = "}"
-      sep.cur = fig.sep[fig.cur]
-      if (is.na(sep.cur)) 
-        sep.cur = NULL
-    }
-    if (plot2) {
-      if (is.null(scap) && !grepl("[{].*?[:.;].*?[}]", 
-                                  cap)) {
-        scap = strsplit(cap, "[:.;]( |\\\\|$)")[[1L]][1L]
-      }
-      scap = if (is.null(scap) || is.na(scap)) 
-        ""
-      else sprintf("[%s]", scap)
-      if (cap == "") {
-        cap = ""
-      } else if (appendix == TRUE) {
-        cap = sprintf("\\appendcaption{%s}{%s}%s\n", options$label, cap, knitr:::create_label(lab, 
-                                                                  if (mcap) 
-                                                                    fig.cur, latex = TRUE))
-      } else {
-        cap = sprintf("\\caption%s{%s}%s\n", scap, cap, knitr:::create_label(lab, 
-                                                                  if (mcap) 
-                                                                    fig.cur, latex = TRUE))
-      }
-      fig2 = sprintf("%s\\end{%s}\n", cap, options$fig.env)
-    }
-  }
-  else if (knitr:::pandoc_to(c("latex", "beamer"))) {
-    align.env = switch(a, left = "flushleft", center = "center", 
-                       right = "flushright")
-    align1 = if (plot1) 
-      if (a == "default") 
-        "\n"
-    else sprintf("\n\n\\begin{%s}", align.env)
-    align2 = if (plot2) 
-      if (a == "default") 
-        ""
-    else sprintf("\\end{%s}\n\n", align.env)
-  }
-  ow = options$out.width
-  if (animate && identical(ow, "\\maxwidth")) 
-    ow = NULL
-  if (is.numeric(ow)) 
-    ow = paste0(ow, "px")
-  size = paste(c(sprintf("width=%s", ow), sprintf("height=%s", 
-                                                  options$out.height), options$out.extra), collapse = ",")
-  paste0(fig1, align1, sub1, resize1, if (tikz) {
-    sprintf("\\input{%s}", x)
-  }
-  else if (animate) {
-    aniopts = options$aniopts
-    aniopts = if (is.na(aniopts)) 
-      NULL
-    else gsub(";", ",", aniopts)
-    size = paste(c(size, sprintf("%s", aniopts)), collapse = ",")
-    if (nzchar(size)) 
-      size = sprintf("[%s]", size)
-    sprintf("\\animategraphics%s{%s}{%s}{%s}{%s}", size, 
-            1/options$interval, sub(sprintf("%d$", fig.num), 
-                                    "", xfun::sans_ext(x)), 1L, fig.num)
-  }
-  else {
-    if (nzchar(size)) 
-      size = sprintf("[%s]", size)
-    res = sprintf("\\includegraphics%s{%s} ", size, if (getOption("knitr.include_graphics.ext", 
-                                                                  FALSE)) 
-      x
-      else xfun::sans_ext(x))
-    lnk = options$fig.link
-    if (is.null(lnk) || is.na(lnk)) 
-      res
-    else sprintf("\\href{%s}{%s}", lnk, res)
-  }, resize2, sub2, sep.cur, align2, fig2)
-}
-
-
-knitr::knit_hooks$set(plot = appendcaption)
-```
-
-```{r, warning=FALSE, message = FALSE}
+```{r setup, echo = FALSE,warning=FALSE, message = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  cache = TRUE,
-  warning = FALSE,
-  message = FALSE,
-  echo = FALSE,
-  comment = "#>",
-  cache.path = "../cache/",
-  cache.extra = 3,
-  dpi = 300
+	echo = FALSE,
+	fig.path = "",
+	message = FALSE,
+	warning = FALSE,
+	cache = TRUE,
+	cache.extra = 3,
+	cache.path = "../cache/",
+	collapse = TRUE,
+	comment = "#>",
+	dpi = 300,
+	out.extra = ""
 )
-
 library(metR)
 library(data.table)
 library(ggplot2)
@@ -631,52 +493,42 @@ indexes_wide %>%
 ```
 
 
-```{r}
-my_spectrum <- function(data, spans = NULL, R = 1000, ..., probs = 0.95) {
-  mtm <- spec.pgram(data, spans = spans, ..., plot = FALSE)
-  
-  out <- as.data.table(mtm[c("freq", "spec")])
-  
-  out[, boot_null := null_spec(data, spans = spans, R = R, ..., probs = probs)]
-  
-  return(out[])
-}
-
-
-null_spec <- memoise::memoise(function(data, spans, R = 1000, ..., probs = 0.95) {
-  
-  b <- boot::boot(data, function(d, i) spec.pgram(d[i], spans = spans, 
-                                                  ...,
-                                                  plot = FALSE)$spec, 
-                  R = R)
-  
-  apply(b$t, 2, quantile, probs = probs)
-})
-
+```{r compute-spectrums}
 indexes %>% 
-  copy() %>% 
-  # .[, estimate_norm := estimate_norm/sd(estimate_norm), by = .(lev, term)] %>% 
-  .[, my_spectrum(estimate_norm, 5), by = .(term, lev)] -> spec
-```
-
-```{r A2, fig.cap = "Foutier spectrum", appendix = TRUE}
-spec %>%
   .[lev %in% c(30, 700)] %>% 
+  # .[, estimate_norm := estimate_norm/sd(estimate_norm), by = .(lev, term)] %>% 
+  .[, fftspectrum(estimate_norm, 5, B = 5000), by = .(term, lev)] -> spec
+```
+
+```{r A2, fig.cap = "Fourier spectrum of each timeseries. The shading indicates de 95\\% qunatile derived fitting an AR process and bootstrapping 5000 simulated samples.", appendix = TRUE}
+spec %>%
   ggplot(aes(1/freq/12, spec)) +
-  # geom_ribbon(aes(group = interaction(term, rleid(sign(spec - boot_null))), 
-  #                 fill = sign(spec - boot_null),
-  #                 ymin = spec, ymax = boot_null)) +
-    geom_line(aes(color = term)) +
-  geom_line(aes(color = term, y = boot_null)) +
+  geom_area(aes(fill = term, y = ar_spectrum_upp), position = "dodge", alpha = 0.2) +
+  # geom_line(aes(color = term, y = ar_spectrum), alpha = 0.5) +
+  geom_line(aes(color = term)) +
   annotation_logticks(sides = "b") +
-  scale_color_brewer(palette = "Set1") +
-  scale_fill_divergent() +
-  scale_x_log10() +
-  facet_grid(lev ~ .,labeller = labeller(lev = lev.lab))
+  scale_color_brewer(NULL, palette = "Set1", aesthetics = c("color", "fill")) +
+  scale_x_log10("Period (years)") +
+  facet_grid(term ~ lev,labeller = labeller(lev = lev.lab, term = lab_sam))
+```
+
+```{r A3, fig.cap = "Autocorrelation functions of each timeseries", appendix = TRUE}
+acf_dt <- function(...) {
+  a <- acf(..., plot = FALSE)
+  list(acf = as.vector(a$acf),
+       lag = as.vector(a$lag))
+}
+indexes %>% 
+  .[lev %in% c(30, 700)] %>% 
+  .[, acf_dt(estimate_norm), by = .(lev, term)] %>% 
+  ggplot(aes(lag, acf)) +
+  geom_col(aes(fill = term)) +
+  scale_fill_brewer(palette = "Set1") +
+  facet_grid(term ~ lev,labeller = labeller(lev = lev.lab, term = lab_sam))
 ```
 
 
-```{r A3, fig.cap = "Trends for each index at each level. Shading indicates the 95\\% confidence interval.", fig.width = 3, fig.height=3.5, appendix = TRUE}
+```{r A4, fig.cap = "Trends for each index at each level. Shading indicates the 95\\% confidence interval.", fig.width = 3, fig.height=5, appendix = TRUE}
 indexes %>%
   copy() %>% 
   .[, estimate_norm := estimate_norm/sd(estimate_norm), by = .(lev, term)] %>%
@@ -688,8 +540,10 @@ indexes %>%
   setnames("type", "term") %>% 
   ggplot(aes(lev, estimate)) +
   geom_ribbon(aes(ymax = estimate + std.error*1.96, ymin = estimate - std.error*1.96, fill = term), alpha = 0.3) +
-  geom_line(aes(color = term)) + 
+  geom_line(aes(color = term)) +
+  scale_fill_brewer(palette = "Set1", aesthetics = c("color", "fill")) +
   geom_hline(yintercept = 0) +
   scale_x_level() +
-  coord_flip() 
+  coord_flip() +
+  facet_grid(term ~ .,labeller = labeller(term = lab_sam))
 ```

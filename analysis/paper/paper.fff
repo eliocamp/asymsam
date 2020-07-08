@@ -39,10 +39,15 @@
 \efloatseparator
  
 \begin{figure}
-\includegraphics{A2-1} \appendcaption{A2}{Foutier spectrum}\label{fig:A2}
+\includegraphics{A2-1} \appendcaption{A2}{Fourier spectrum of each timeseries. The shading indicates de 95\% qunatile derived fitting an AR process and bootstrapping 5000 simulated samples.}\label{fig:A2}
 \end{figure}
 \efloatseparator
  
 \begin{figure}
-\includegraphics{A3-1} \appendcaption{A3}{Trends for each index at each level. Shading indicates the 95\% confidence interval.}\label{fig:A3}
+\includegraphics{A3-1} \appendcaption{A3}{Autocorrelation functions of each timeseries}\label{fig:A3}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\includegraphics{A4-1} \appendcaption{A4}{Trends for each index at each level. Shading indicates the 95\% confidence interval.}\label{fig:A4}
 \end{figure}

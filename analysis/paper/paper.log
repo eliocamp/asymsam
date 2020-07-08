@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.7)  7 JUL 2020 19:58
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.8)  8 JUL 2020 19:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -719,14 +719,22 @@ Overfull \hbox (1.75386pt too wide) in paragraph at lines 42--42
 [20]
 File: A3-1.pdf Graphic file (type pdf)
 <use A3-1.pdf>
-) [21] (./paper.aux) ) 
+
+Overfull \hbox (1.75386pt too wide) in paragraph at lines 47--47
+[][] |
+ []
+
+[21]
+File: A4-1.pdf Graphic file (type pdf)
+<use A4-1.pdf>
+) [22] (./paper.aux) ) 
 Here is how much of TeX's memory you used:
- 7077 strings out of 481244
- 94367 string characters out of 5922806
- 330659 words of memory out of 5000000
- 24459 multiletter control sequences out of 15000+600000
+ 7084 strings out of 481244
+ 94451 string characters out of 5922806
+ 330668 words of memory out of 5000000
+ 24466 multiletter control sequences out of 15000+600000
  589191 words of font info for 78 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  38i,14n,49p,818b,362s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on paper.pdf (21 pages).
+Output written on paper.pdf (22 pages).

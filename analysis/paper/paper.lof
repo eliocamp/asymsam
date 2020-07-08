@@ -10,5 +10,6 @@
 \contentsline {figure}{\numberline {10}{\ignorespaces Planteray wave amplitude for the regression patterns at 700 hPa}}{17}%
 \contentsline {figure}{\numberline {11}{\ignorespaces Planteray wave amplitude for the regression patterns at 30 hPa}}{18}%
 \contentsline {figure}{\numberline {A1}{\ignorespaces Lag-correlation between Symmetric and Asymmetric SAM at each level.}}{19}%
-\contentsline {figure}{\numberline {A2}{\ignorespaces Foutier spectrum}}{20}%
-\contentsline {figure}{\numberline {A3}{\ignorespaces Trends for each index at each level. Shading indicates the 95\% confidence interval.}}{21}%
+\contentsline {figure}{\numberline {A2}{\ignorespaces Fourier spectrum of each timeseries. The shading indicates de 95\% qunatile derived fitting an AR process and bootstrapping 5000 simulated samples.}}{20}%
+\contentsline {figure}{\numberline {A3}{\ignorespaces Autocorrelation functions of each timeseries}}{21}%
+\contentsline {figure}{\numberline {A4}{\ignorespaces Trends for each index at each level. Shading indicates the 95\% confidence interval.}}{22}%
