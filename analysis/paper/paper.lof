@@ -1,19 +1,19 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Seasonal regression patterns of geopotential height at 700 hPa with the Full, Asymmetric and Symmetric SAM}}{6}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Seasonal regression patterns of geopotential height at 30 hPa with the Full, Asymmetric and Symmetric SAM}}{7}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Regression pattern of precipiation with Asymmetric and Symmetric SAM}}{8}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Regression pattern of surface temperature with Asymmetric and Symmetric SAM}}{9}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Spatial patterns of the first EOF of 700 hPa geopotential height}}{13}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Time series for the asymmetric SAM and symmetric SAM}}{14}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Correlation between the Symmetric and Asymmetric SAM at each level}}{15}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Cross correlation between levels of the Full, Asymmetric and Symmetric SAM}}{16}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Regression patterns of geopotential height at 30, 300 and 700 hPa with the Full, Asymmetric and Symmetric SAM}}{17}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South}}{18}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Planteray wave amplitude for the regression patterns at 700 hPa}}{19}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Planteray wave amplitude for the regression patterns at 30 hPa}}{20}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Seasonal regression patterns of geopotential height at 700 hPa with the Full, Asymmetric and Symmetric SAM}}{7}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Seasonal regression patterns of geopotential height at 30 hPa with the Full, Asymmetric and Symmetric SAM}}{8}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Regression pattern of surface temperature with Asymmetric and Symmetric SAM}}{9}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Regression pattern of precipiation with Asymmetric and Symmetric SAM}}{10}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Spatial patterns of the first EOF of 700 hPa geopotential height}}{14}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Time series for the asymmetric SAM and symmetric SAM}}{15}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Correlation between the Symmetric and Asymmetric SAM at each level}}{16}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Cross correlation between levels of the Full, Asymmetric and Symmetric SAM}}{17}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Regression patterns of geopotential height at 30, 300 and 700 hPa with the Full, Asymmetric and Symmetric SAM}}{18}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Planteray wave amplitude for the regression patterns at 50 and 700 hPa}}{19}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South}}{20}%
 \contentsline {figure}{\numberline {A1}{\ignorespaces Lag-correlation between Symmetric and Asymmetric SAM at each level.}}{21}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Cross-correlation functions for each index and two differnet base levels}}{22}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Cross-correlation functions for each index and two differnet base levels}}{22}%
 \contentsline {figure}{\numberline {A2}{\ignorespaces Fourier spectrum of each timeseries. The shading indicates de 95\% area derived by fitting an AR process to each series and bootstrapping 5000 simulated samples.}}{23}%
 \contentsline {figure}{\numberline {A3}{\ignorespaces Autocorrelation functions of each timeseries}}{24}%
 \contentsline {figure}{\numberline {A4}{\ignorespaces Trends for each index at each level. Shading indicates the 95\% confidence interval.}}{25}%
 \contentsline {figure}{\numberline {A5}{\ignorespaces Regression pattern of precipiation with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas.}}{26}%
 \contentsline {figure}{\numberline {A6}{\ignorespaces Regressions maps resulting from performing one multiple regression (a. and b.) and from performing two simple regressions (c. and d.)}}{27}%
+\contentsline {figure}{\numberline {13}{\ignorespaces }}{28}%

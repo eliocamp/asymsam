@@ -24,17 +24,12 @@
 \efloatseparator
  
 \begin{figure}
-\includegraphics{vertical-regression-1} \caption[Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South]{Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South. Values are standarised by the standard deviation at each level. (this caption needs some love)}\label{fig:vertical-regression}
+\includegraphics{wave-amplitude-1} \caption[Planteray wave amplitude for the regression patterns at 50 and 700 hPa]{Planteray wave amplitude for the regression patterns at 50 and 700 hPa.}\label{fig:wave-amplitude}
 \end{figure}
 \efloatseparator
  
 \begin{figure}
-\includegraphics{wave-amplitude-700-1} \caption[Planteray wave amplitude for the regression patterns at 700 hPa]{Planteray wave amplitude for the regression patterns at 700 hPa.}\label{fig:wave-amplitude-700}
-\end{figure}
-\efloatseparator
- 
-\begin{figure}
-\includegraphics{wave-amplitude-30-1} \caption[Planteray wave amplitude for the regression patterns at 30 hPa]{Planteray wave amplitude for the regression patterns at 30 hPa.}\label{fig:wave-amplitude-30}
+\includegraphics{vertical-regression-1} \caption[Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South]{Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South. (this caption needs some love)}\label{fig:vertical-regression}
 \end{figure}
 \efloatseparator
  
@@ -70,4 +65,9 @@
  
 \begin{figure}
 \includegraphics{A6-1} \appendcaption{A6}{Regressions maps resulting from performing one multiple regression (a. and b.) and from performing two simple regressions (c. and d.)}\label{fig:A6}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\includegraphics{A7-1} \caption[ ]{ }\label{fig:A7}
 \end{figure}
