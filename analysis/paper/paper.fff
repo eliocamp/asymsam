@@ -24,6 +24,11 @@
 \efloatseparator
  
 \begin{figure}
+\includegraphics{vertical-regression-1} \caption[Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South]{Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South. Values are standarised by the standard deviation at each level. (this caption needs some love)}\label{fig:vertical-regression}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
 \includegraphics{wave-amplitude-700-1} \caption[Planteray wave amplitude for the regression patterns at 700 hPa]{Planteray wave amplitude for the regression patterns at 700 hPa.}\label{fig:wave-amplitude-700}
 \end{figure}
 \efloatseparator
@@ -39,7 +44,12 @@
 \efloatseparator
  
 \begin{figure}
-\includegraphics{A2-1} \appendcaption{A2}{Fourier spectrum of each timeseries. The shading indicates de 95\% qunatile derived fitting an AR process and bootstrapping 5000 simulated samples.}\label{fig:A2}
+\includegraphics{ccf-levels-1} \caption[Cross-correlation functions for each index and two differnet base levels]{Cross-correlation functions for each index and two differnet base levels.}\label{fig:ccf-levels}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\includegraphics{A2-1} \appendcaption{A2}{Fourier spectrum of each timeseries. The shading indicates de 95\% area derived by fitting an AR process to each series and bootstrapping 5000 simulated samples.}\label{fig:A2}
 \end{figure}
 \efloatseparator
  
@@ -50,4 +60,14 @@
  
 \begin{figure}
 \includegraphics{A4-1} \appendcaption{A4}{Trends for each index at each level. Shading indicates the 95\% confidence interval.}\label{fig:A4}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\includegraphics{A5-1} \appendcaption{A5}{Regression pattern of precipiation with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas.}\label{fig:A5}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\includegraphics{A6-1} \appendcaption{A6}{Regressions maps resulting from performing one multiple regression (a. and b.) and from performing two simple regressions (c. and d.)}\label{fig:A6}
 \end{figure}

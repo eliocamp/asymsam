@@ -110,7 +110,7 @@ We used monthly precipitation data from CPC Merged Analysis of
 Precipitation \citep{xie1997} 2.5 degree latitude x 2.5 degree
 longitude.
 
-\subsubsection{Definition of indexes}
+\subsubsection{Definition of indices}
 
 We defined the Southern Annular Mode (SAM) as the leading EOF of the
 monthly anomalies of geopotential field at 700 hPa south of 20\degree S
@@ -127,13 +127,13 @@ spatial pattern. The results are shown in Figure~\ref{fig:method} for
 700hPa. The full spatial signal (\(\mathrm{EOF_1}(\lambda, \phi)\)) is
 the sum of the zonally asymmetric (\(\mathrm{EOF_1^*}(\lambda, \phi)\))
 and symmetric (\([\mathrm{EOF_1}](\lambda, \phi)\)) components. We then
-compute the ``Full'', ``Asymmetric'' and ``Symmetric'' indexes, by
+compute the ``Full'', ``Asymmetric'' and ``Symmetric'' indices, by
 regressing each geopotential field on these patterns (weighting by the
 cosine of latitude).
 
-The three indexes are normalised by dividing them by the standard
+The three indices are normalised by dividing them by the standard
 deviation of the ``Full'' index at each level. This means that comparing
-the magnitude between indexes is meaningful, but it also means that not
+the magnitude between indices is meaningful, but it also means that not
 every index will have unit standard deviation.
 
 \begin{figure*}
@@ -151,6 +151,49 @@ We adjusted p-values for False Detection Rate following
 \includegraphics{asymsam-timeseries-1} \caption[Time series for the asymmetric SAM and symmetric SAM]{Time series for the asymmetric SAM and symmetric SAM.}\label{fig:asymsam-timeseries}
 \end{figure*}
 
+Figure\textasciitilde{}\ref{fig:asymsam-timeseries} shows the resulting
+Asymmetric and Symmetric time series corresponding to 700 and 30hPa.
+blablababla
+
+\begin{itemize}
+\item
+  stratosphere clearly nor normally distributed. a lot of values near 0
+  and some relatively high outliers. Especially true int he case of the
+  asymmetric index. High frequency variablity.
+\item
+  In both levels, there's correlation between the series (expected),
+\end{itemize}
+
+Correlations between the Asymmetric and Symmetric series are rather
+constant throught the troposphere, fluctiating between 0.39 and 0.45
+(Figure\textasciitilde{}\ref{fig:cor-lev}). Futhermore, the
+cross-correlation of each series across levels --shown in
+Figure\textasciitilde{}\ref{fig:cross-correlation}-- are high in the
+trosposphere (greater than 0.9) for both indices. This suggests that
+both the Asymmetric and the Symemtric component of the tropospheric SAM
+are highly vertically coherent, both in their individual evolution and
+their temporal relationship. This is to be expected since the SAM is
+mostly equivalent barotropic (citaaaa).
+
+In the stratosphere the situation is different. As can be seen in
+Figure\textasciitilde{}\ref{fig:cor-lev}, the relationship between the
+Asymmetric and Symmetric indices varies with height above 100 hPa. It
+starts to decreese right over the tropopause, reaches a minium of 0.21
+at 20 hPa and then it increases again monotonically with height up to
+the uppermost level of the reanalysis. The cross-correlation across
+levels in the stratosphere is generally weaker than in the troposphere
+(Figure\textasciitilde{}\ref{fig:cross-correlation}). Furthermore, above
+100 hPa, the cross-correlation decreases more rapdily with height for
+the Symmetric SAM than for the Asymmetric SAM as evidenced by the wider
+dark red areas near the diagonal in
+Figure\textasciitilde{}\ref{fig:cross-correlation}b)
+vs.~Figure\textasciitilde{}\ref{fig:cross-correlation}c). Moreover, the
+stratospheric Symmetric SAM seems to be slightly more connected to the
+trosposphere than the Asymmetric SAM; this can be seen by the lower
+correlation values in the top right quadrant of
+Figure\textasciitilde{}\ref{fig:cross-correlation}b) in comparison with
+Figure\textasciitilde{}\ref{fig:cross-correlation}c).
+
 \begin{figure}
 \includegraphics{cor-lev-1} \caption[Correlation between the Symmetric and Asymmetric SAM at each level]{Correlation between the Symmetric and Asymmetric SAM at each level.}\label{fig:cor-lev}
 \end{figure}
@@ -159,27 +202,34 @@ We adjusted p-values for False Detection Rate following
 \includegraphics{cross-correlation-1} \caption[Cross correlation between levels of the Full, Asymmetric and Symmetric SAM]{Cross correlation between levels of the Full, Asymmetric and Symmetric SAM.}\label{fig:cross-correlation}
 \end{figure*}
 
+Figure\textasciitilde{}\ref{fig:cross-correlation}a) show the
+cross-correlation across levels for the Full SAM index. \ldots{}..
+
+To undertand the spatial patterns associated with both indeces we
+regressed monthly geopotential anomalies into both indeces using
+multiple regression (Figure A6 illustrates the difference between
+computing two simple regressions and one multiple regression).
+
 \begin{figure*}
 \includegraphics{2d-regr-1} \caption[Regression patterns of geopotential height at 30, 300 and 700 hPa with the Full, Asymmetric and Symmetric SAM]{Regression patterns of geopotential height at 30, 300 and 700 hPa with the Full, Asymmetric and Symmetric SAM. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices, not of two simple regressions involving each index by itsef.}\label{fig:2d-regr}
 \end{figure*}
 
-Sem tortor mus non tristique augue. Donec vel feugiat sit aliquet lorem
-dui lobortis dolor risus. Proin, ac eu, mauris. Dolor id habitasse,
-curabitur platea ante. Rhoncus volutpat himenaeos vestibulum ut bibendum
-felis non. Ligula placerat ac luctus ad. Ante, lorem volutpat eu dapibus
-pharetra arcu. Sollicitudin eu tortor amet. Maecenas nulla euismod ac
-suspendisse metus. A ac, hendrerit, sit sollicitudin ac primis
-ullamcorper tempor id, mauris. Sem diam, sem curabitur. Risus, nullam
-vel diam hendrerit massa nec non. Donec amet amet ultrices ac taciti
-aliquam. Enim arcu et sed sit.
+Figure\textasciitilde{}\ref{fig:2d-regr} shows the spatial year-long
+regression for selected levels. In the troposphere the Full annular mode
+is clearly ``contaminated'' with well known zonal asymemtries (panels g
+and j) which are succesfully sepparated by our methodology (panels h, i,
+k and l). In the stratosphere, the spatial pattern associated with the
+Full SAM is much more clearly dominated by a zonally symmetric,
+monopolar structure (panels a and d) that is, however, not perfectly
+centered in the south pole. The monopoloe obtained by multiple
+regression with the Asymmetric and Symmetric SAM (panels c and f in
+Figure\textasciitilde{}\ref{fig:2d-regr}) is much more symmetric and the
+shift from total symmetry is captured by the regression pattern of the
+Asymmetric SAM as a wave-1 pattern (panels b and e).
 
-Ligula sed sociosqu imperdiet magna curabitur, et, elit lobortis ut,
-sed. Placerat id eros quis vivamus sed, in felis. Egestas phasellus at
-sagittis sed senectus malesuada. Vestibulum at pretium elementum id,
-facilisi. Porttitor luctus vel tempus diam nec per, nibh nisi. Viverra
-turpis nisl sed nec varius, et ridiculus in amet. Amet sapien nec
-convallis arcu dis et mauris dolor. Vestibulum, in, in tincidunt tellus
-risus class quisque, augue feugiat.
+\begin{figure}
+\includegraphics{vertical-regression-1} \caption[Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South]{Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South. Values are standarised by the standard deviation at each level. (this caption needs some love)}\label{fig:vertical-regression}
+\end{figure}
 
 \begin{sidewaysfigure}
 \includegraphics{2d-regr-700-1} \caption[Seasonal regression patterns of geopotential height at 700 hPa with the Full, Asymmetric and Symmetric SAM]{Seasonal regression patterns of geopotential height at 700 hPa with the Full, Asymmetric and Symmetric SAM. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices, not of two simple regressions involving each index by itsef.}\label{fig:2d-regr-700}
@@ -225,7 +275,11 @@ https://psl.noaa.gov/
 \end{figure}
 
 \begin{figure}
-\includegraphics{A2-1} \appendcaption{A2}{Fourier spectrum of each timeseries. The shading indicates de 95\% qunatile derived fitting an AR process and bootstrapping 5000 simulated samples.}\label{fig:A2}
+\includegraphics{ccf-levels-1} \caption[Cross-correlation functions for each index and two differnet base levels]{Cross-correlation functions for each index and two differnet base levels.}\label{fig:ccf-levels}
+\end{figure}
+
+\begin{figure}
+\includegraphics{A2-1} \appendcaption{A2}{Fourier spectrum of each timeseries. The shading indicates de 95\% area derived by fitting an AR process to each series and bootstrapping 5000 simulated samples.}\label{fig:A2}
 \end{figure}
 
 \begin{figure}
@@ -234,6 +288,14 @@ https://psl.noaa.gov/
 
 \begin{figure}
 \includegraphics{A4-1} \appendcaption{A4}{Trends for each index at each level. Shading indicates the 95\% confidence interval.}\label{fig:A4}
+\end{figure}
+
+\begin{figure}
+\includegraphics{A5-1} \appendcaption{A5}{Regression pattern of precipiation with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas.}\label{fig:A5}
+\end{figure}
+
+\begin{figure}
+\includegraphics{A6-1} \appendcaption{A6}{Regressions maps resulting from performing one multiple regression (a. and b.) and from performing two simple regressions (c. and d.)}\label{fig:A6}
 \end{figure}
 
 

@@ -19,7 +19,7 @@ fftspectrum <- function(x, spans = NULL, B = 10000, ..., probs = 0.95) {
   # rho <- a$ar
   # var <- a$var.pred
   out[, ar_spectrum := arspectrum(mtm$freq, ar$ar, ar$var.pred)]
-  out[, ar_spectrum_upp := null_ar_spectrum(B = B, length(x), ar, spans = spans, ..., probs = probs)]
+  out[, c(scales::percent(probs)) := null_ar_spectrum(B = B, length(x), ar, spans = spans, ..., probs = probs)]
 
   return(out[])
 }
@@ -40,8 +40,7 @@ null_ar_spectrum_ <- function(B = 100, n, ar, spans = NULL, ..., probs = 0.95) {
     spec.pgram(y, spans = spans, plot = FALSE)$spec
 
   }, numeric(nfreq))
-
-  apply(boots, 1, quantile, probs = probs)
+  data.table::as.data.table(t(apply(boots, 1, quantile, probs = probs)))
 }
 
 null_ar_spectrum <- memoise::memoise(null_ar_spectrum_)

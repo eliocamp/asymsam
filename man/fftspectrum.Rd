@@ -4,13 +4,15 @@
 \alias{fftspectrum}
 \title{FFT spectrum}
 \usage{
-fftspectrum(x, spans = NULL, ..., probs = 0.95)
+fftspectrum(x, spans = NULL, B = 10000, ..., probs = 0.95)
 }
 \arguments{
 \item{x}{numeric vector}
 
 \item{spans}{vector of odd integers giving the widths of modified Daniell
 smoothers to be used to smooth the periodogram}
+
+\item{B}{number of bootstrap samples.}
 
 \item{...}{other arguments passed to \code{\link[stats:spec.pgram]{stats::spec.pgram()}}}
 }

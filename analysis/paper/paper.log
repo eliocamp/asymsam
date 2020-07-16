@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.8)  8 JUL 2020 19:38
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.8)  15 JUL 2020 21:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -634,107 +634,137 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 [3]
 \openout4 = `paper.fff'.
 
-(paper.fff)
+(paper.fff) [4]
 File: 2d-regr-700-1.pdf Graphic file (type pdf)
 <use 2d-regr-700-1.pdf>
 
-Overfull \hbox (88.26825pt too wide) in paragraph at lines 185--185
+Overfull \hbox (88.26825pt too wide) in paragraph at lines 235--235
 [][] |
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.5pt on input line 185.
+(Font)              scaled to size 10.5pt on input line 235.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 10.5pt on input line 185.
+(Font)              scaled to size 10.5pt on input line 235.
 File: 2d-regr-30-1.pdf Graphic file (type pdf)
 <use 2d-regr-30-1.pdf>
 
-Overfull \hbox (88.26825pt too wide) in paragraph at lines 193--193
+Overfull \hbox (88.26825pt too wide) in paragraph at lines 243--243
 [][] |
  []
 
 File: pp-regr-global-1.pdf Graphic file (type pdf)
 <use pp-regr-global-1.pdf>
 
-Overfull \hbox (88.26825pt too wide) in paragraph at lines 201--201
+Overfull \hbox (88.26825pt too wide) in paragraph at lines 251--251
 [][] |
  []
 
 File: regr-air-season-1.pdf Graphic file (type pdf)
 <use regr-air-season-1.pdf>
 
-Overfull \hbox (88.26825pt too wide) in paragraph at lines 205--205
+Overfull \hbox (88.26825pt too wide) in paragraph at lines 255--255
 [][] |
  []
 
-[4] [5] [6] [7] [8]
-Underfull \hbox (badness 7649) in paragraph at lines 213--216
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[5] [6] [7] [8] [9]
+Underfull \hbox (badness 7649) in paragraph at lines 263--266
 []\T1/ntxtlf/m/n/12 NOAA Global Sur-face Tem-per-a-ture (NOAA-Glob-al-Temp) dat
 a pro-vided by the
  []
 
-(./paper.bbl [9]) AED endfloat: Processing end Figures and Tables [10] (./paper
-.lof
+(./paper.bbl [10]) AED endfloat: Processing end Figures and Tables [11] (./pape
+r.lof
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 10.5pt on input line 1.
 )
 \tf@lof=\write5
 \openout5 = `paper.lof'.
 
-[11
+[12
 
 
 ] (./paper.fff
 File: method-1.pdf Graphic file (type pdf)
 <use method-1.pdf>
-[12]
+[13]
 File: asymsam-timeseries-1.pdf Graphic file (type pdf)
 <use asymsam-timeseries-1.pdf>
-[13]
+[14]
 File: cor-lev-1.pdf Graphic file (type pdf)
 <use cor-lev-1.pdf>
-[14]
+[15]
 File: cross-correlation-1.pdf Graphic file (type pdf)
 <use cross-correlation-1.pdf>
-[15]
+[16]
 File: 2d-regr-1.pdf Graphic file (type pdf)
 <use 2d-regr-1.pdf>
-[16]
+[17]
+File: vertical-regression-1.pdf Graphic file (type pdf)
+<use vertical-regression-1.pdf>
+[18]
 File: wave-amplitude-700-1.pdf Graphic file (type pdf)
 <use wave-amplitude-700-1.pdf>
-[17]
+[19]
 File: wave-amplitude-30-1.pdf Graphic file (type pdf)
 <use wave-amplitude-30-1.pdf>
-[18]
+[20]
 File: A1-1.pdf Graphic file (type pdf)
 <use A1-1.pdf>
-[19]
-File: A2-1.pdf Graphic file (type pdf)
-<use A2-1.pdf>
-
-Overfull \hbox (1.75386pt too wide) in paragraph at lines 42--42
-[][] |
- []
-
-[20]
-File: A3-1.pdf Graphic file (type pdf)
-<use A3-1.pdf>
+[21]
+File: ccf-levels-1.pdf Graphic file (type pdf)
+<use ccf-levels-1.pdf>
 
 Overfull \hbox (1.75386pt too wide) in paragraph at lines 47--47
 [][] |
  []
 
-[21]
+[22]
+File: A2-1.pdf Graphic file (type pdf)
+<use A2-1.pdf>
+
+Overfull \hbox (1.75386pt too wide) in paragraph at lines 52--52
+[][] |
+ []
+
+[23]
+File: A3-1.pdf Graphic file (type pdf)
+<use A3-1.pdf>
+
+Overfull \hbox (1.75386pt too wide) in paragraph at lines 57--57
+[][] |
+ []
+
+[24]
 File: A4-1.pdf Graphic file (type pdf)
 <use A4-1.pdf>
-) [22] (./paper.aux) ) 
+[25]
+File: A5-1.pdf Graphic file (type pdf)
+<use A5-1.pdf>
+
+Overfull \hbox (1.75386pt too wide) in paragraph at lines 67--67
+[][] |
+ []
+
+[26]
+File: A6-1.pdf Graphic file (type pdf)
+<use A6-1.pdf>
+
+Overfull \hbox (1.75386pt too wide) in paragraph at lines 72--72
+[][] |
+ []
+
+) [27] (./paper.aux) ) 
 Here is how much of TeX's memory you used:
- 7084 strings out of 481244
- 94451 string characters out of 5922806
- 330668 words of memory out of 5000000
- 24466 multiletter control sequences out of 15000+600000
+ 7114 strings out of 481244
+ 94990 string characters out of 5922806
+ 330706 words of memory out of 5000000
+ 24496 multiletter control sequences out of 15000+600000
  589191 words of font info for 78 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  38i,14n,49p,818b,362s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on paper.pdf (22 pages).
+Output written on paper.pdf (27 pages).

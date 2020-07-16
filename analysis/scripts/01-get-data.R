@@ -108,7 +108,15 @@ if (!force && file.exists(asymsam::data_path("raw", file))) {
 }
 
 
-# if (zip) {
-#   utils::zip(zipfile = asymsam::data_path("raw", "data_raw.zip"),
-#              files = data_path("raw", unlist(files)))
-# }
+for (y in seq(1979, 2018)) {
+  url <- paste0("ftp://ftp.cdc.noaa.gov/Datasets/ncep.reanalysis.dailyavgs/pressure/hgt.", y, ".nc")
+  dir.create(asymsam::data_path("raw", "ncep"), )
+  file <- asymsam::data_path("raw", "ncep", paste0("hgt.daily.", y, ".nc"))
+  if (!file.exists(file)) {
+    download.file(url, destfile = file)
+  }
+}
+
+ncepfiles <- list.files(asymsam::data_path("raw", "ncep"), full.names = TRUE)
+
+asymsam::nc_concatenate(ncepfiles, asymsam::data_path("raw", "ncep.daily.nc"), overwrite = TRUE)
