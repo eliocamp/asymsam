@@ -18,6 +18,11 @@
 \end{figure*}
 \efloatseparator
  
+\begin{figure}
+\includegraphics{trends-1} \caption[Trends for each index at each level]{Trends for each index at each level. Shading indicates the 95\% confidence interval.}\label{fig:trends}
+\end{figure}
+\efloatseparator
+ 
 \begin{figure*}
 \includegraphics{2d-regr-1} \caption[Regression patterns of geopotential height at 30, 300 and 700 hPa with the Full, Asymmetric and Symmetric SAM]{Regression patterns of geopotential height at 30, 300 and 700 hPa with the Full, Asymmetric and Symmetric SAM. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices, not of two simple regressions involving each index by itsef.}\label{fig:2d-regr}
 \end{figure*}
@@ -50,11 +55,6 @@
  
 \begin{figure}
 \includegraphics{A3-1} \appendcaption{A3}{Autocorrelation functions of each timeseries}\label{fig:A3}
-\end{figure}
-\efloatseparator
- 
-\begin{figure}
-\includegraphics{A4-1} \appendcaption{A4}{Trends for each index at each level. Shading indicates the 95\% confidence interval.}\label{fig:A4}
 \end{figure}
 \efloatseparator
  

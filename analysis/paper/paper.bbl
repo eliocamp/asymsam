@@ -1,4 +1,4 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{8}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \renewcommand{\UrlFont}{\rmfamily}
@@ -13,6 +13,12 @@
 Chung, C., and S.~Nigam, 1999: Weighting of geophysical data in {{Principal
   Component Analysis}}. \textit{Journal of Geophysical Research: Atmospheres},
   \textbf{104~(D14)}, 16\,925--16\,928, \doi{10.1029/1999JD900234}.
+
+\bibitem[{Fogt and Marshall(2020)Fogt, and Marshall}]{fogt2020}
+Fogt, R.~L., and G.~J. Marshall, 2020: The {{Southern Annular Mode}}:
+  {{Variability}}, trends, and climate impacts across the {{Southern
+  Hemisphere}}. \textit{WIREs Climate Change}, \textbf{11~(4)}, e652,
+  \doi{10.1002/wcc.652}.
 
 \bibitem[{Hersbach et~al.()}]{hersbach}
 Hersbach, H., and Coauthors, ????: The {{ERA5}} global reanalysis.

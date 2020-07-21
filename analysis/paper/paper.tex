@@ -155,6 +155,7 @@ We adjusted p-values for False Detection Rate following
 
 Figure \ref{fig:asymsam-timeseries} shows the resulting Asymmetric and
 Symmetric time series corresponding to 700 and 30hPa. blablababla
+\#FIXME
 
 \begin{itemize}
 \item
@@ -201,11 +202,24 @@ with Figure \ref{fig:cross-correlation}c).
 \end{figure*}
 
 Figure \ref{fig:cross-correlation}a) show the cross-correlation across
-levels for the Full SAM index. \ldots{}..
+levels for the Full SAM index. \#FIXME
+
+\begin{figure}
+\includegraphics{trends-1} \caption[Trends for each index at each level]{Trends for each index at each level. Shading indicates the 95\% confidence interval.}\label{fig:trends}
+\end{figure}
+
+Figure \ref{fig:trends} shows normalised decadal trends for each index
+for the whole period along with a 95\% interval in shading. There is a
+statistically significant increase in positive SAM in the tropostphere
+(panel a), which has been already documented in other studies (e.g.
+\citet{fogt2020}). Panels b and c of Figure \ref{fig:trends} show that
+this increase is evident only in the Symmetric component. This
+distinction should prove useful when attributing trends in other
+variables such as temperature and precipitation to trends in the SAM.
 
 \subsection{Spatial patterns}
 
-To undertand the spatial patterns associated with both indeces we
+To undertand the spatial patterns associated with both indeces, we
 regressed monthly geopotential anomalies into both indeces using
 multiple regression (Figure A6 illustrates the difference between
 computing two simple regressions and one multiple regression).
@@ -258,19 +272,49 @@ of the regression coefficient corresponding to the middle row of Figure
 South. Below 100 hPa, anomalies are completely vertical, while above
 they show an important westerly tilt with height.
 
-\begin{sidewaysfigure}
-\includegraphics{2d-regr-700-1} \caption[Seasonal regression patterns of geopotential height at 700 hPa with the Full, Asymmetric and Symmetric SAM]{Seasonal regression patterns of geopotential height at 700 hPa with the Full, Asymmetric and Symmetric SAM. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices, not of two simple regressions involving each index by itsef.}\label{fig:2d-regr-700}
-\end{sidewaysfigure}
+\subsection{Impacts}
+
+\subsubsection{Temperature}
 
 \begin{sidewaysfigure}
-\includegraphics{2d-regr-30-1} \caption[Seasonal regression patterns of geopotential height at 30 hPa with the Full, Asymmetric and Symmetric SAM]{Seasonal regression patterns of geopotential height at 30 hPa with the Full, Asymmetric and Symmetric SAM. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices, not of two simple regressions involving each index by itsef.}\label{fig:2d-regr-30}
+\includegraphics{regr-air-season-1} \caption[Regression pattern of surface temperature with Asymmetric and Symmetric SAM]{Regression pattern of surface temperature with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas. Gray areas have more than 15\% of missing data.}\label{fig:regr-air-season}
 \end{sidewaysfigure}
 
-\subsubsection{Impacts}
+Figure \ref{fig:regr-air-season} shows regression coefficients of each
+index at 700 hPa with surface temperature for each trimester. It is
+evident that the Asymmetric and Symmetric SAM indices are associated
+with overall distinct temperature patterns which can be obscured when
+using the Full SAM index. The Symmetric SAM signal is weaker than the
+Asymmetric SAM, as evidenced by the relatively smaller and les
+sstatistically significant regression coefficients in row 3 of Figure
+\ref{fig:regr-air-season} compared with row 2.
 
-\begin{sidewaysfigure}
-\includegraphics{regr-air-season-1} \caption[Regression pattern of surface temperature with Asymmetric and Symmetric SAM]{Regression pattern of surface temperature with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas.}\label{fig:regr-air-season}
-\end{sidewaysfigure}
+In DJF (column a), the strong negative signal in the tropical Pacific in
+panel a.1 is mostly associated with the Asymmetric component (panel
+a.2), as is it largely absent in the Symmetric component (panel a.3).
+Furthermore, the Asymmetric SAM is also asociated with low temperature
+anomalies in the Indian ocean, but this signal is obscured by the
+Symmetric variability and thus lost in the Full SAM. Over the
+continents, the Asymmetric SAM is assoiated with negative temperature
+anomalies which, again, mostly disappear in the Full SAM regression.
+
+The patterns seen in MAM and JJA (columns b and c) are not robustly
+significant in the sense that there are no areas with p-values below
+0.05 when controlling for FDR following \citet{wilks2016}. Nevertheless,
+it is interesting to note that in both trimesters, the sign of the
+regression is consistently flipped between the Asymmetric and Symmetric
+regressions. In South America, for example, the Asymmetric SAM is
+associated with positive temperature anomalies in MAM and negative
+temperature anomales in JJA, while the oposite is the case for the
+Symemtric SAM.
+
+Finally, in SON (column d), there is no significant temperature signal
+associated with the Symmetric SAM (panel d.3), while the Asymmetric SAM
+shows a relatively robust signal in the equatorial Pacitic, Australia,
+and even Southeast South America. This strong signals are reduced in
+intensity in panel a.3.
+
+\subsubsection{Precipitation}
 
 \begin{sidewaysfigure}
 \includegraphics{pp-regr-global-1} \caption[Regression pattern of precipiation with Asymmetric and Symmetric SAM]{Regression pattern of precipiation with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas.}\label{fig:pp-regr-global}
@@ -307,10 +351,6 @@ https://psl.noaa.gov/
 
 \begin{figure}
 \includegraphics{A3-1} \appendcaption{A3}{Autocorrelation functions of each timeseries}\label{fig:A3}
-\end{figure}
-
-\begin{figure}
-\includegraphics{A4-1} \appendcaption{A4}{Trends for each index at each level. Shading indicates the 95\% confidence interval.}\label{fig:A4}
 \end{figure}
 
 \begin{figure}

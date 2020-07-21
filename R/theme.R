@@ -12,6 +12,8 @@ theme_asymsam <- function(base_size = 16) {
       # strip.background = ggplot2::element_rect(fill = NA, color = "gray30"),
       # text = element_text(family = font_rc),
       legend.position = "bottom", legend.box = "vertical",
+      tagger.panel.tag.background = ggplot2::element_rect(color = NA),
+      strip.text = element_text(size = 12),
       # panel.spacing.y = grid::unit(5, "mm"),
       # panel.spacing.x = grid::unit(5, "mm"),
       # legend.spacing = grid::unit(2, "mm"),
