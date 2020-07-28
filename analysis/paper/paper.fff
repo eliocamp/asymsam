@@ -69,5 +69,10 @@
 \efloatseparator
  
 \begin{figure}
-\includegraphics{A7-1} \caption[ ]{ }\label{fig:A7}
+\includegraphics{A7-1} \appendcaption{A7}{ }\label{fig:A7}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\includegraphics{A8-1} \appendcaption{A8}{Decadal trends of SAM indices for each season. }\label{fig:A8}
 \end{figure}

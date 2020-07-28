@@ -10,9 +10,9 @@ affiliation: "CIMA UBA blablabla"
 extra_authors: 
   - name: Carolina Vera
 abstract: |
-Enter the text of your abstract here. This is a sample American Meteorological Society (AMS) \LaTeX\ template.  This document provides authors with instructions on the use of the AMS \LaTeX\ template.  Authors should refer to the file amspaper.tex to review the actual \LaTeX\ code used to create this document. The template.tex file should be modified by authors for their own manuscript.
+  Enter the text of your abstract here. This is a sample American Meteorological Society (AMS) \LaTeX\ template.  This document provides authors with instructions on the use of the AMS \LaTeX\ template.  Authors should refer to the file amspaper.tex to review the actual \LaTeX\ code used to create this document. The template.tex file should be modified by authors for their own manuscript.
 statement: |
-This is significant becasue I wrote it.
+  This is significant becasue I wrote it.
 bibliography: AsymSAM.bib
 output: 
   rticles::ams_article:
@@ -28,7 +28,7 @@ knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE,
   cache = TRUE,
-  cache.extra = 41,
+  cache.extra = 42,
   cache.path = "../cache/",
   collapse = TRUE,
   comment = "#>",
@@ -293,7 +293,61 @@ indices %>%
 
 Figure \ref{fig:trends} shows normalised decadal trends for each index for the whole period along with a 95% interval in shading. There is a statistically significant increase in positive SAM in the tropostphere (panel a), which has been already documented in other studies (e.g. @fogt2020). Panels b and c of Figure \ref{fig:trends} show that this increase is evident only in the Symmetric component. This distinction should prove useful when attributing trends in other variables such as temperature and precipitation to trends in the SAM. 
 
+```{r}
+constants <- indices_wide %>% 
+  .[, FitLm(full, asym, sym), by = .(lev)] %>% 
+  rm_intercept() %>% 
+  setnames("estimate", "constant") 
+
+
+constants %>% 
+  .[term == "asym"] %>% 
+  ggplot(aes(lev, constant)) +
+  geom_line() +
+  scale_x_level() +
+  coord_flip()
+
+asymmetry <- constants[indices, on = .NATURAL] %>% 
+  .[term == "full", constant := 1] %>%
+  # .[, estimate_norm := estimate_norm*constant] %>%
+  dcast(lev + time ~ term, value.var = "estimate_norm") %>% 
+  .[, asymmetry := atan(abs(asym)/abs(sym))/(pi/2)]
+
+asymmetry %>% 
+  .[, median(asymmetry), by = .(lev, month(time))] %>% 
+  ggplot(aes(month, lev)) +
+  geom_contour_fill(aes(z = V1)) +
+  scale_fill_divergent(midpoint = 0.5) +
+  scale_y_level()
+
+asymmetry %>% 
+  .[lev %in% main_levs] %>% 
+  ggplot(aes(time, asymmetry))  +
+  geom_line() +
+  facet_grid(lev~.)
+
+asymmetry %>% 
+  # .[lev %in% main_levs] %>% 
+  .[, FitLm(asymmetry, time, se = TRUE), by = lev] %>% 
+  rm_intercept() %>% 
+  # .[, term := NULL] %>% 
+  .[, estimate := estimate*3600*24*365*10] %>% 
+  .[, std.error := std.error*3600*24*365*10] %>% 
+  # setnames("type", "term") %>% 
+  ggplot(aes(lev, estimate)) +
+  geom_ribbon(aes(ymax = estimate + std.error*1.96, ymin = estimate - std.error*1.96), alpha = 0.3) +
+  geom_line() +
+  scale_fill_brewer(palette = "Set1", aesthetics = c("color", "fill")) +
+  geom_hline(yintercept = 0) +
+  scale_x_level() +
+  scale_y_continuous("Standard deviations per decade") +
+  coord_flip() +
+  tag_facets() 
+
+```
+
 ## Spatial patterns
+
 
 ```{r compute-regr-pattern}
 indices_2d_yearly <- hgt[lev %in% c(main_levs)] %>% 
@@ -306,6 +360,7 @@ indices_2d_yearly <- hgt[lev %in% c(main_levs)] %>%
   periodic(lon = c(0, 360)) %>% 
   .[, term := factor(term, levels = names(lab_sam), ordered = TRUE)] 
 ```
+
 
 To undertand the spatial patterns associated with both indeces, we regressed monthly geopotential anomalies into both indeces using multiple regression (Figure A6 illustrates the difference between computing two simple regressions and one multiple regression). 
 
