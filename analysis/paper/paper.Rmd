@@ -758,7 +758,7 @@ pp_regr_season %>%
   scale_fill_divergent("Precipitation", guide = guide_colorstrip_bottom(), 
                        breaks = AnchorBreaks(0, 0.25, 0)) +
   # coord_polar() +
-  ggalt::coord_proj("+proj=moll +lon_0=-60") +
+  # ggalt::coord_proj("+proj=moll +lon_0=-60") +
   facet_grid(season~term, labeller = labeller(term = lab_sam)) +
   tag_facets() +
   axis_labs_smol 

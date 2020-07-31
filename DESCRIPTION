@@ -34,9 +34,11 @@ Imports:
     ecmwfr,
     purrr,
     widyr,
-    ncdf4, 
+    ncdf4,
     udunits2,
-    tagger
+    tagger,
+    rticles,
+    latex2exp
 Suggests: devtools,
     git2r,
     knitr,
