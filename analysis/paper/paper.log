@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.21)  28 JUL 2020 12:01
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.21)  6 AUG 2020 16:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -635,135 +635,97 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 \openout4 = `paper.fff'.
 
 (paper.fff) [4]
-File: unnamed-chunk-1-1.pdf Graphic file (type pdf)
-<use unnamed-chunk-1-1.pdf>
-File: unnamed-chunk-1-2.pdf Graphic file (type pdf)
-<use unnamed-chunk-1-2.pdf>
-File: unnamed-chunk-1-3.pdf Graphic file (type pdf)
-<use unnamed-chunk-1-3.pdf>
-File: unnamed-chunk-1-4.pdf Graphic file (type pdf)
-<use unnamed-chunk-1-4.pdf>
-
-Overfull \hbox (11.75386pt too wide) in paragraph at lines 220--222
-[][]|
- []
-
-
-Overfull \hbox (1.75386pt too wide) in paragraph at lines 220--222
-[]|
- []
-
-
-Overfull \hbox (1.75386pt too wide) in paragraph at lines 220--222
-[]|
- []
-
-
-Overfull \hbox (1.75386pt too wide) in paragraph at lines 220--222
-[] |
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[5]
-Overfull \vbox (16.99841pt too high) has occurred while \output is active []
-
-[6]
-Overfull \vbox (16.99841pt too high) has occurred while \output is active []
-
-[7]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[8]
+[5] [6]
 File: regr-air-season-1.pdf Graphic file (type pdf)
 <use regr-air-season-1.pdf>
 
-Overfull \hbox (88.26825pt too wide) in paragraph at lines 283--283
+Overfull \hbox (88.26825pt too wide) in paragraph at lines 293--293
 [][] |
  []
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.5pt on input line 283.
+(Font)              scaled to size 10.5pt on input line 293.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 10.5pt on input line 283.
-[9] [10]
+(Font)              scaled to size 10.5pt on input line 293.
+[7] [8]
 File: pp-regr-global-1.pdf Graphic file (type pdf)
 <use pp-regr-global-1.pdf>
 
-Overfull \hbox (88.26825pt too wide) in paragraph at lines 323--323
+Overfull \hbox (88.26825pt too wide) in paragraph at lines 335--335
 [][] |
  []
 
 
-Underfull \hbox (badness 7649) in paragraph at lines 331--334
+Underfull \hbox (badness 7649) in paragraph at lines 343--346
 []\T1/ntxtlf/m/n/12 NOAA Global Sur-face Tem-per-a-ture (NOAA-Glob-al-Temp) dat
 a pro-vided by the
  []
 
-(./paper.bbl [11] [12]) [13] AED endfloat: Processing end Figures and Tables [1
-4] (./paper.lof
+(./paper.bbl [9] [10]) [11] AED endfloat: Processing end Figures and Tables [12
+] (./paper.lof
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 10.5pt on input line 1.
 )
 \tf@lof=\write5
 \openout5 = `paper.lof'.
 
-[15
+[13
 
 
 ] (./paper.fff
 File: method-1.pdf Graphic file (type pdf)
 <use method-1.pdf>
-[16]
+[14]
 File: asymsam-timeseries-1.pdf Graphic file (type pdf)
 <use asymsam-timeseries-1.pdf>
-[17]
+[15]
 File: cor-lev-1.pdf Graphic file (type pdf)
 <use cor-lev-1.pdf>
-[18]
+[16]
 File: cross-correlation-1.pdf Graphic file (type pdf)
 <use cross-correlation-1.pdf>
-[19]
+[17]
 File: trends-1.pdf Graphic file (type pdf)
 <use trends-1.pdf>
-[20]
+[18]
 File: 2d-regr-1.pdf Graphic file (type pdf)
 <use 2d-regr-1.pdf>
-[21]
+[19]
 File: wave-amplitude-1.pdf Graphic file (type pdf)
 <use wave-amplitude-1.pdf>
-[22]
+[20]
 File: vertical-regression-1.pdf Graphic file (type pdf)
 <use vertical-regression-1.pdf>
-[23]
+[21]
 File: A1-1.pdf Graphic file (type pdf)
 <use A1-1.pdf>
-[24]
-File: ccf-levels-1.pdf Graphic file (type pdf)
-<use ccf-levels-1.pdf>
+[22]
+File: A2 ccf-levels-1.pdf Graphic file (type pdf)
+<use A2 ccf-levels-1.pdf>
 
 Overfull \hbox (1.75386pt too wide) in paragraph at lines 47--47
 [][] |
  []
 
-[25]
-File: A2-1.pdf Graphic file (type pdf)
-<use A2-1.pdf>
+[23]
+File: A3-1.pdf Graphic file (type pdf)
+<use A3-1.pdf>
 
 Overfull \hbox (1.75386pt too wide) in paragraph at lines 52--52
 [][] |
  []
 
-[26]
-File: A3-1.pdf Graphic file (type pdf)
-<use A3-1.pdf>
+[24]
+File: A4-1.pdf Graphic file (type pdf)
+<use A4-1.pdf>
 
 Overfull \hbox (1.75386pt too wide) in paragraph at lines 57--57
 [][] |
  []
 
-[27]
+[25]
 File: A5-1.pdf Graphic file (type pdf)
 <use A5-1.pdf>
 
@@ -771,7 +733,7 @@ Overfull \hbox (1.75386pt too wide) in paragraph at lines 62--62
 [][] |
  []
 
-[28]
+[26]
 File: A6-1.pdf Graphic file (type pdf)
 <use A6-1.pdf>
 
@@ -779,7 +741,7 @@ Overfull \hbox (1.75386pt too wide) in paragraph at lines 67--67
 [][] |
  []
 
-[29]
+[27]
 File: A7-1.pdf Graphic file (type pdf)
 <use A7-1.pdf>
 
@@ -787,7 +749,7 @@ Overfull \hbox (1.75386pt too wide) in paragraph at lines 72--72
 [][] |
  []
 
-[30]
+[28]
 File: A8-1.pdf Graphic file (type pdf)
 <use A8-1.pdf>
 
@@ -795,14 +757,14 @@ Overfull \hbox (1.75386pt too wide) in paragraph at lines 77--77
 [][] |
  []
 
-) [31] (./paper.aux) ) 
+) [29] (./paper.aux) ) 
 Here is how much of TeX's memory you used:
- 7132 strings out of 481679
- 95330 string characters out of 5931678
- 332459 words of memory out of 5000000
- 24079 multiletter control sequences out of 15000+600000
+ 7107 strings out of 481679
+ 94722 string characters out of 5931678
+ 332457 words of memory out of 5000000
+ 24054 multiletter control sequences out of 15000+600000
  591941 words of font info for 83 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  44i,14n,49p,818b,362s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on paper.pdf (31 pages).
+Output written on paper.pdf (29 pages).

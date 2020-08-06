@@ -150,31 +150,35 @@ We adjusted p-values for False Detection Rate following
 \subsection{Temporal evolution}
 
 \begin{figure*}
-\includegraphics{asymsam-timeseries-1} \caption[Time series for the asymmetric SAM and symmetric SAM]{Time series for the asymmetric SAM and symmetric SAM.}\label{fig:asymsam-timeseries}
+\includegraphics{asymsam-timeseries-1} \caption[Time series for the asymmetric SAM and symmetric SAM and density estimates]{Time series for the asymmetric SAM and symmetric SAM and density estimates.}\label{fig:asymsam-timeseries}
 \end{figure*}
 
 Figure \ref{fig:asymsam-timeseries} shows the resulting Asymmetric and
-Symmetric time series corresponding to 700 and 30hPa. blablababla
-\#FIXME
+Symmetric time series corresponding to 700 and 30hPa. \#FIXME
 
-\begin{itemize}
-\item
-  stratosphere clearly nor normally distributed. a lot of values near 0
-  and some relatively high outliers. Especially true int he case of the
-  asymmetric index. High frequency variablity.
-\item
-  In both levels, there's correlation between the series (expected),
-\end{itemize}
+At first glance the series can be distinguished by their distributions.
+Whereas the tropospheric incides are aproximately normally distributed,
+the stratospheric indices are more long-tailed; that is, extreme values
+(both negative and positive) abound. The Asymmetric series have both
+more variability in the higher frequencies than the Symmetric series.
 
-Correlations between the Asymmetric and Symmetric series are rather
-constant throught the troposphere, fluctiating between 0.39 and 0.45
-(Figure \ref{fig:cor-lev}). Futhermore, the cross-correlation of each
-series across levels --shown in Figure \ref{fig:cross-correlation}-- are
-high in the trosposphere (greater than 0.9) for both indices. This
-suggests that both the Asymmetric and the Symemtric component of the
-tropospheric SAM are highly vertically coherent, both in their
-individual evolution and their temporal relationship. This is to be
-expected since the SAM is mostly equivalent barotropic (citaaaa).
+The stratospheric Symmetric SAM varies strongly with a two-year period,
+which can be seen using spectral methods (Figure A3) or in the
+autocorrelation structure (Figure A4). There is a local peak at 2 years
+in the periodigram of the tropospheric Symmetric SAM also, although it's
+not statistically significant. In the troposphere the most significant
+peak of variability is found in the Asymmetric index at around 3.6
+months.
+
+Correlations between the Asymmetric and Symmetric series are constant
+throught the troposphere, fluctiating between 0.39 and 0.45 (Figure
+\ref{fig:cor-lev}). Futhermore, the cross-correlation of each series
+across levels --shown in Figure \ref{fig:cross-correlation}-- are high
+in the trosposphere (greater than 0.9) for both indices. This suggests
+that both the Asymmetric and the Symemtric component of the tropospheric
+SAM are highly vertically coherent, both in their individual evolution
+and their temporal relationship. This is to be expected since the SAM is
+mostly equivalent barotropic (citaaaa).
 
 In the stratosphere the situation is different. As can be seen in Figure
 \ref{fig:cor-lev}, the relationship between the Asymmetric and Symmetric
@@ -202,7 +206,16 @@ with Figure \ref{fig:cross-correlation}c).
 \end{figure*}
 
 Figure \ref{fig:cross-correlation}a) show the cross-correlation across
-levels for the Full SAM index. \#FIXME
+levels for the Full, Symmetric and Asymmetric SAM indices. The high
+values below 100 hPa in panel reflects the vertical (zero-lag) coherency
+of the tropospheric SAM. Above 100 hPa correlation between levels falls
+of rapidly, indicating less coherent (zero-lag) variability. At the same
+time, there is a non negligible correlation between the troposphere and
+the lower-to-middle stratosphere. By examining panels b and c we see
+that the Asymemtric and Symmetric SAM share the smae high level of
+coherency in the tropospherem but that the Asymmetric SAM is relatively
+more coherent in the stratosphere. The tropospheric-stratospheric
+connection is only present in the Symmetric SAM.
 
 \begin{figure}
 \includegraphics{trends-1} \caption[Trends for each index at each level]{Trends for each index at each level. Shading indicates the 95\% confidence interval.}\label{fig:trends}
@@ -216,9 +229,6 @@ statistically significant increase in positive SAM in the tropostphere
 this increase is evident only in the Symmetric component. This
 distinction should prove useful when attributing trends in other
 variables such as temperature and precipitation to trends in the SAM.
-
-\includegraphics{unnamed-chunk-1-1} \includegraphics{unnamed-chunk-1-2}
-\includegraphics{unnamed-chunk-1-3} \includegraphics{unnamed-chunk-1-4}
 
 \subsection{Spatial patterns}
 
@@ -319,6 +329,8 @@ intensity in panel a.3.
 
 \subsubsection{Precipitation}
 
+??
+
 \begin{sidewaysfigure}
 \includegraphics{pp-regr-global-1} \caption[Regression pattern of precipiation with Asymmetric and Symmetric SAM]{Regression pattern of precipiation with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas.}\label{fig:pp-regr-global}
 \end{sidewaysfigure}
@@ -345,15 +357,15 @@ https://psl.noaa.gov/
 \end{figure}
 
 \begin{figure}
-\includegraphics{ccf-levels-1} \caption[Cross-correlation functions for each index and two differnet base levels]{Cross-correlation functions for each index and two differnet base levels.}\label{fig:ccf-levels}
+\includegraphics{A2 ccf-levels-1} \caption[Cross-correlation functions for each index and two differnet base levels]{Cross-correlation functions for each index and two differnet base levels.}\label{fig:A2 ccf-levels}
 \end{figure}
 
 \begin{figure}
-\includegraphics{A2-1} \appendcaption{A2}{Fourier spectrum of each timeseries. The shading indicates de 95\% area derived by fitting an AR process to each series and bootstrapping 5000 simulated samples.}\label{fig:A2}
+\includegraphics{A3-1} \appendcaption{A3}{Fourier spectrum of each timeseries. The shading indicates de 95\% area derived by fitting an AR process to each series and bootstrapping 5000 simulated samples.}\label{fig:A3}
 \end{figure}
 
 \begin{figure}
-\includegraphics{A3-1} \appendcaption{A3}{Autocorrelation functions of each timeseries}\label{fig:A3}
+\includegraphics{A4-1} \appendcaption{A4}{Autocorrelation functions of each timeseries}\label{fig:A4}
 \end{figure}
 
 \begin{figure}
@@ -361,11 +373,11 @@ https://psl.noaa.gov/
 \end{figure}
 
 \begin{figure}
-\includegraphics{A6-1} \appendcaption{A6}{Regressions maps resulting from performing one multiple regression (a. and b.) and from performing two simple regressions (c. and d.)}\label{fig:A6}
+\includegraphics{A6-1} \appendcaption{A6}{Regressions maps resulting from performing one multiple regression (column a) and from performing two simple regressions (column b)}\label{fig:A6}
 \end{figure}
 
 \begin{figure}
-\includegraphics{A7-1} \appendcaption{A7}{ }\label{fig:A7}
+\includegraphics{A7-1} \appendcaption{A7}{Zonal waves derives from the regression maps from performing one multiple regression (column a) and from performing two simple regressions (column b)}\label{fig:A7}
 \end{figure}
 
 \begin{figure}

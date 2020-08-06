@@ -4,7 +4,7 @@
 \efloatseparator
  
 \begin{figure*}
-\includegraphics{asymsam-timeseries-1} \caption[Time series for the asymmetric SAM and symmetric SAM]{Time series for the asymmetric SAM and symmetric SAM.}\label{fig:asymsam-timeseries}
+\includegraphics{asymsam-timeseries-1} \caption[Time series for the asymmetric SAM and symmetric SAM and density estimates]{Time series for the asymmetric SAM and symmetric SAM and density estimates.}\label{fig:asymsam-timeseries}
 \end{figure*}
 \efloatseparator
  
@@ -44,17 +44,17 @@
 \efloatseparator
  
 \begin{figure}
-\includegraphics{ccf-levels-1} \caption[Cross-correlation functions for each index and two differnet base levels]{Cross-correlation functions for each index and two differnet base levels.}\label{fig:ccf-levels}
+\includegraphics{A2 ccf-levels-1} \caption[Cross-correlation functions for each index and two differnet base levels]{Cross-correlation functions for each index and two differnet base levels.}\label{fig:A2 ccf-levels}
 \end{figure}
 \efloatseparator
  
 \begin{figure}
-\includegraphics{A2-1} \appendcaption{A2}{Fourier spectrum of each timeseries. The shading indicates de 95\% area derived by fitting an AR process to each series and bootstrapping 5000 simulated samples.}\label{fig:A2}
+\includegraphics{A3-1} \appendcaption{A3}{Fourier spectrum of each timeseries. The shading indicates de 95\% area derived by fitting an AR process to each series and bootstrapping 5000 simulated samples.}\label{fig:A3}
 \end{figure}
 \efloatseparator
  
 \begin{figure}
-\includegraphics{A3-1} \appendcaption{A3}{Autocorrelation functions of each timeseries}\label{fig:A3}
+\includegraphics{A4-1} \appendcaption{A4}{Autocorrelation functions of each timeseries}\label{fig:A4}
 \end{figure}
 \efloatseparator
  
@@ -64,12 +64,12 @@
 \efloatseparator
  
 \begin{figure}
-\includegraphics{A6-1} \appendcaption{A6}{Regressions maps resulting from performing one multiple regression (a. and b.) and from performing two simple regressions (c. and d.)}\label{fig:A6}
+\includegraphics{A6-1} \appendcaption{A6}{Regressions maps resulting from performing one multiple regression (column a) and from performing two simple regressions (column b)}\label{fig:A6}
 \end{figure}
 \efloatseparator
  
 \begin{figure}
-\includegraphics{A7-1} \appendcaption{A7}{ }\label{fig:A7}
+\includegraphics{A7-1} \appendcaption{A7}{Zonal waves derives from the regression maps from performing one multiple regression (column a) and from performing two simple regressions (column b)}\label{fig:A7}
 \end{figure}
 \efloatseparator
  
