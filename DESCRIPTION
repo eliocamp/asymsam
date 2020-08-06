@@ -38,6 +38,7 @@ Imports:
     udunits2,
     tagger,
     rticles,
+    rsoi,
     latex2exp
 Suggests: devtools,
     git2r,
@@ -45,5 +46,6 @@ Suggests: devtools,
     rmarkdown 
 Remotes: eliocamp/metR@dev,
     eliocamp/tagger,
-    tidyverse/ggplot2
+    tidyverse/ggplot2,
+    boshek/rsoi
 VignetteBuilder: knitr
