@@ -64,6 +64,15 @@ CMAP <- function() {
    return(file)
 }
 
+#' @export
+#' @rdname data_locations
+CPCC <- function() {
+   file <- data_path("raw", "precip.mon.total.v2018.nc")
+   checkmate::assert_access(file, access = "r")
+   class(file) <- c("nc_file", class(file))
+   return(file)
+}
+
 
 #' @export
 #' @rdname data_locations

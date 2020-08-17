@@ -9,7 +9,7 @@
 \efloatseparator
  
 \begin{figure}
-\includegraphics{cor-lev-1} \caption[Correlation between the Symmetric and Asymmetric SAM at each level]{Correlation between the Symmetric and Asymmetric SAM at each level.}\label{fig:cor-lev}
+\includegraphics{cor-lev-1} \caption[Correlation between the Symmetric and Asymmetric SAM at each level for lag zero and lag -1 (Asymmetric leads Symmetric)]{Correlation between the Symmetric and Asymmetric SAM at each level for lag zero and lag -1 (Asymmetric leads Symmetric).}\label{fig:cor-lev}
 \end{figure}
 \efloatseparator
  
@@ -18,9 +18,9 @@
 \end{figure*}
 \efloatseparator
  
-\begin{figure}
-\includegraphics{trends-1} \caption[Trends for each index at each level]{Trends for each index at each level. Shading indicates the 95\% confidence interval.}\label{fig:trends}
-\end{figure}
+\begin{figure*}
+\includegraphics{trends-1} \caption[Decadal normalised trends for each index at each level for annual (row a) and seasonal values (rows b-e) for the period 1979-2018]{Decadal normalised trends for each index at each level for annual (row a) and seasonal values (rows b-e) for the period 1979-2018. Shading indicates the 95\% confidence interval.}\label{fig:trends}
+\end{figure*}
 \efloatseparator
  
 \begin{figure*}
@@ -34,8 +34,23 @@
 \efloatseparator
  
 \begin{figure}
-\includegraphics{vertical-regression-1} \caption[Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South]{Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South. (this caption needs some love)}\label{fig:vertical-regression}
+\includegraphics{vertical-regression-1} \caption[Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South]{Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South. (\#FIXME this caption needs some love)}\label{fig:vertical-regression}
 \end{figure}
+\efloatseparator
+ 
+\begin{figure*}
+\includegraphics{pp-regr-global-africa-1} \caption[Regression pattern of precipiation with Asymmetric and Symmetric SAM]{Regression pattern of precipiation with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas. Africa}\label{fig:pp-regr-global-africa}
+\end{figure*}
+\efloatseparator
+ 
+\begin{figure*}
+\includegraphics{pp-regr-global-oceania-1} \caption[Same but for oceania]{Same but for oceania}\label{fig:pp-regr-global-oceania}
+\end{figure*}
+\efloatseparator
+ 
+\begin{figure*}
+\includegraphics{pp-regr-global-america-1} \caption[Same but for america]{Same but for america}\label{fig:pp-regr-global-america}
+\end{figure*}
 \efloatseparator
  
 \begin{figure}
@@ -59,11 +74,6 @@
 \efloatseparator
  
 \begin{figure}
-\includegraphics{A5-1} \appendcaption{A5}{Regression pattern of precipiation with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas.}\label{fig:A5}
-\end{figure}
-\efloatseparator
- 
-\begin{figure}
 \includegraphics{A6-1} \appendcaption{A6}{Regressions maps resulting from performing one multiple regression (column a) and from performing two simple regressions (column b)}\label{fig:A6}
 \end{figure}
 \efloatseparator
@@ -74,5 +84,5 @@
 \efloatseparator
  
 \begin{figure}
-\includegraphics{A8-1} \appendcaption{A8}{Decadal trends of SAM indices for each season. }\label{fig:A8}
+\includegraphics{A8-1} \appendcaption{A8}{Pattern cross-correlation \#FIXME!}\label{fig:A8}
 \end{figure}

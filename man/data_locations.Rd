@@ -7,6 +7,7 @@
 \alias{ERA5}
 \alias{OLR}
 \alias{CMAP}
+\alias{CPCC}
 \alias{NOAATemp}
 \alias{HadCRUT}
 \alias{GISTEMP}
@@ -23,6 +24,8 @@ ERA5()
 OLR()
 
 CMAP()
+
+CPCC()
 
 NOAATemp()
 
