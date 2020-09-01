@@ -66,6 +66,15 @@ CMAP <- function() {
 
 #' @export
 #' @rdname data_locations
+GPCP <- function() {
+   file <- data_path("raw", "gpcp.precip.mon.mean.nc")
+   checkmate::assert_access(file, access = "r")
+   class(file) <- c("nc_file", class(file))
+   return(file)
+}
+
+#' @export
+#' @rdname data_locations
 CPCC <- function() {
    file <- data_path("raw", "precip.mon.total.v2018.nc")
    checkmate::assert_access(file, access = "r")

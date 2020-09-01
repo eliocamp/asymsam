@@ -39,13 +39,20 @@ Imports:
     tagger,
     rticles,
     rsoi,
-    latex2exp
+    latex2exp,
+    proj4,
+    data.table,
+    forcats,
+    ggforce,
+    ggridges,
+    raster
 Suggests: devtools,
     git2r,
     knitr,
     rmarkdown 
-Remotes: eliocamp/metR@dev,
+Remotes: eliocamp/metR@isoband,
     eliocamp/tagger,
+    eliocamp/rticles@AMS-V5,
     tidyverse/ggplot2,
     boshek/rsoi
 VignetteBuilder: knitr

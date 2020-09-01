@@ -3,47 +3,48 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: paper.aux
 The style file: ametsoc2014.bst
 Database file #1: AsymSAM.bib
+Warning--I didn't find a database entry for "hersbach"
+Warning--I didn't find a database entry for "fogt2011"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Warning--empty year in hersbach; set to ????
-You've used 8 entries,
+You've used 13 entries,
             3493 wiz_defined-function locations,
-            751 strings with 7882 characters,
-and the built_in function-call counts, 8942 in all, are:
-= -- 1116
-> -- 201
-< -- 5
-+ -- 141
-- -- 51
-* -- 462
-:= -- 872
-add.period$ -- 16
-call.type$ -- 8
-change.case$ -- 55
-chr.to.int$ -- 8
-cite$ -- 9
-duplicate$ -- 966
-empty$ -- 487
-format.name$ -- 74
-if$ -- 1802
+            790 strings with 8159 characters,
+and the built_in function-call counts, 14809 in all, are:
+= -- 1842
+> -- 369
+< -- 8
++ -- 249
+- -- 93
+* -- 768
+:= -- 1429
+add.period$ -- 26
+call.type$ -- 13
+change.case$ -- 95
+chr.to.int$ -- 13
+cite$ -- 13
+duplicate$ -- 1590
+empty$ -- 794
+format.name$ -- 129
+if$ -- 2994
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 80
-newline$ -- 35
-num.names$ -- 32
-pop$ -- 374
+missing$ -- 133
+newline$ -- 50
+num.names$ -- 52
+pop$ -- 619
 preamble$ -- 1
-purify$ -- 47
+purify$ -- 82
 quote$ -- 0
-skip$ -- 546
+skip$ -- 919
 stack$ -- 0
-substring$ -- 488
-swap$ -- 841
+substring$ -- 789
+swap$ -- 1383
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 72
-warning$ -- 1
-while$ -- 44
+type$ -- 117
+warning$ -- 0
+while$ -- 71
 width$ -- 0
-write$ -- 106
-(There was 1 warning)
+write$ -- 166
+(There were 2 warnings)

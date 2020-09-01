@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{13}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \renewcommand{\UrlFont}{\rmfamily}
@@ -20,16 +20,40 @@ Fogt, R.~L., and G.~J. Marshall, 2020: The {{Southern Annular Mode}}:
   Hemisphere}}. \textit{WIREs Climate Change}, \textbf{11~(4)}, e652,
   \doi{10.1002/wcc.652}.
 
-\bibitem[{Hersbach et~al.()}]{hersbach}
-Hersbach, H., and Coauthors, ????: The {{ERA5}} global reanalysis.
-  \textit{Quarterly Journal of the Royal Meteorological Society},
-  \textbf{n/a~(n/a)}, \doi{10.1002/qj.3803}.
+\bibitem[{Gillett et~al.(2006)Gillett, Kell,, and Jones}]{gillett2006}
+Gillett, N.~P., T.~D. Kell, and P.~D. Jones, 2006: Regional climate impacts of
+  the {{Southern Annular Mode}}. \textit{Geophysical Research Letters},
+  \textbf{33~(23)}, \doi{10.1029/2006GL027721}.
+
+\bibitem[{Hendon et~al.(2007)Hendon, Thompson,, and Wheeler}]{hendon2007}
+Hendon, H.~H., D.~W.~J. Thompson, and M.~C. Wheeler, 2007: Australian
+  {{Rainfall}} and {{Surface Temperature Variations Associated}} with the
+  {{Southern Hemisphere Annular Mode}}. \textit{J. Climate}, \textbf{20~(11)},
+  2452--2467, \doi{10.1175/JCLI4134.1}.
+
+\bibitem[{Hosking et~al.(2013)Hosking, Orr, Marshall, Turner,, and
+  Phillips}]{hosking2013}
+Hosking, J.~S., A.~Orr, G.~J. Marshall, J.~Turner, and T.~Phillips, 2013: The
+  {{Influence}} of the {{Amundsen}}\textendash{{Bellingshausen Seas Low}} on
+  the {{Climate}} of {{West Antarctica}} and {{Its Representation}} in
+  {{Coupled Climate Model Simulations}}. \textit{J. Climate}, \textbf{26~(17)},
+  6633--6648, \doi{10.1175/JCLI-D-12-00813.1}.
 
 \bibitem[{Osborn and Jones(2014)Osborn, and Jones}]{osborn2014}
 Osborn, T.~J., and P.~D. Jones, 2014: The {{CRUTEM4}} land-surface air
   temperature data set: Construction, previous versions and dissemination via
   {{Google Earth}}. \textit{Earth System Science Data}, \textbf{6~(1)}, 61--68,
   \doi{10.5194/essd-6-61-2014}.
+
+\bibitem[{Raphael(2004)}]{raphael2004}
+Raphael, M.~N., 2004: A zonal wave 3 index for the {{Southern Hemisphere}}.
+  \textit{Geophysical Research Letters}, \textbf{31~(23)},
+  \doi{10.1029/2004GL020365}.
+
+\bibitem[{Silvestri and Vera(2009)Silvestri, and Vera}]{silvestri2009}
+Silvestri, G., and C.~Vera, 2009: Nonstationary {{Impacts}} of the {{Southern
+  Annular Mode}} on {{Southern Hemisphere Climate}}. \textit{J. Climate},
+  \textbf{22~(22)}, 6142--6148, \doi{10.1175/2009JCLI3036.1}.
 
 \bibitem[{Smith et~al.(2008)Smith, Reynolds, Peterson,, and
   Lawrimore}]{smith2008}
@@ -48,6 +72,12 @@ Wilks, D.~S., 2016: ``{{The Stippling Shows Statistically Significant Grid
   Points}}'': {{How Research Results}} are {{Routinely Overstated}} and
   {{Overinterpreted}}, and {{What}} to {{Do}} about {{It}}. \textit{Bull. Amer.
   Meteor. Soc.}, \textbf{97~(12)}, 2263--2273, \doi{10.1175/BAMS-D-15-00267.1}.
+
+\bibitem[{Wolter and Timlin(2011)Wolter, and Timlin}]{wolter2011}
+Wolter, K., and M.~S. Timlin, 2011: El {{Ni\~no}}/{{Southern Oscillation}}
+  behaviour since 1871 as diagnosed in an extended multivariate {{ENSO}} index
+  ({{MEI}}.ext). \textit{International Journal of Climatology},
+  \textbf{31~(7)}, 1074--1087, \doi{10.1002/joc.2336}.
 
 \bibitem[{Xie and Arkin(1997)Xie, and Arkin}]{xie1997}
 Xie, P., and P.~A. Arkin, 1997: Global {{Precipitation}}: {{A}} 17-{{Year

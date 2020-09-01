@@ -11,11 +11,12 @@ geom_qmap(
   size = 0.2,
   fill = NA,
   wrap = c(0, 360),
+  weighting = 0.7,
   keep = 0.015,
   ...
 )
 
-map_simple(wrap = c(0, 360), keep = 0.015)
+map_simple(wrap = c(0, 360), keep = 0.015, weighting = 0.7)
 }
 \arguments{
 \item{subset}{a function that will be applied to the map data.}

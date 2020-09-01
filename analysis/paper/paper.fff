@@ -29,7 +29,7 @@
 \efloatseparator
  
 \begin{figure}
-\includegraphics{wave-amplitude-1} \caption[Planteray wave amplitude for the regression patterns at 50 and 700 hPa]{Planteray wave amplitude for the regression patterns at 50 and 700 hPa.}\label{fig:wave-amplitude}
+\includegraphics{wave-amplitude-1} \caption[Planteray wave amplitude for the regression patterns at 50 and 700 hPa]{Planteray wave amplitude for the regression patterns at 50 and 700 hPa. Note the varying x axis.}\label{fig:wave-amplitude}
 \end{figure}
 \efloatseparator
  
@@ -39,17 +39,22 @@
 \efloatseparator
  
 \begin{figure*}
-\includegraphics{pp-regr-global-africa-1} \caption[Regression pattern of precipiation with Asymmetric and Symmetric SAM]{Regression pattern of precipiation with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas. Africa}\label{fig:pp-regr-global-africa}
+\includegraphics{regr-air-season-1} \caption[Regression pattern of surface temperature with Asymmetric and Symmetric SAM]{Regression pattern of surface temperature with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas. Gray areas have more than 15\% of missing data.}\label{fig:regr-air-season}
 \end{figure*}
 \efloatseparator
  
 \begin{figure*}
-\includegraphics{pp-regr-global-oceania-1} \caption[Same but for oceania]{Same but for oceania}\label{fig:pp-regr-global-oceania}
+\includegraphics{pp-regr-oceania-1} \caption[Same but for oceania]{Same but for oceania}\label{fig:pp-regr-oceania}
 \end{figure*}
 \efloatseparator
  
 \begin{figure*}
-\includegraphics{pp-regr-global-america-1} \caption[Same but for america]{Same but for america}\label{fig:pp-regr-global-america}
+\includegraphics{pp-regr-america-1} \caption[Same but for america]{Same but for america}\label{fig:pp-regr-america}
+\end{figure*}
+\efloatseparator
+ 
+\begin{figure*}
+\includegraphics{regr-ice-1} \caption[Seasonal regression of SAM indices with sea ice concentration]{Seasonal regression of SAM indices with sea ice concentration. \#FIXME}\label{fig:regr-ice}
 \end{figure*}
 \efloatseparator
  

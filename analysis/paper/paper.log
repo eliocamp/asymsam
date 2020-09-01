@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.8.12)  17 AUG 2020 18:33
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.8.12)  31 AUG 2020 22:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -189,11 +189,38 @@ Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
 \rotFPbot=\skip63
 \rot@float@box=\box91
 \rot@mess@toks=\toks16
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/endfloat/endfloat.sty
+Package: endfloat 2019/04/15 v2.7 LaTeX2e package puts figures and tables at en
+d (jdm)
+\c@posttable=\count183
+\efloat@postttt=\write3
+\@ef@tttopen=\count184
+\c@postfigure=\count185
+\efloat@postfff=\write4
+\@ef@fffopen=\count186
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2005/11/02 line numbers on paragraphs v4.41
+Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.
+\linenopenalty=\count187
+\output=\toks17
+\linenoprevgraf=\count188
+\linenumbersep=\dimen146
+\linenumberwidth=\dimen147
+\c@linenumber=\count189
+\c@pagewiselinenumber=\count190
+\c@LN@truepage=\count191
+\c@internallinenumber=\count192
+\c@internallinenumbers=\count193
+\quotelinenumbersep=\dimen148
+\bframerule=\dimen149
+\bframesep=\dimen150
+\bframebox=\box92
+LaTeX Info: Redefining \\ on input line 3056.
 )
-\c@extraauth=\count183
-\c@loopnum=\count184
-\thanksnum=\count185
-\savethanksnum=\count186
+\c@extraauth=\count194
+\c@loopnum=\count195
+\thanksnum=\count196
+\savethanksnum=\count197
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2020/01/20 v2.17e AMS math features
 \@mathmargin=\skip64
@@ -202,49 +229,49 @@ For additional information on amsmath, use the `?' option.
 Package: amstext 2000/06/29 v2.01 AMS text
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks17
-\ex@=\dimen146
+\@emptytoks=\toks18
+\ex@=\dimen151
 )) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen147
+\pmbraise@=\dimen152
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count187
+\inf@bad=\count198
 LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count188
-\leftroot@=\count189
+\uproot@=\count199
+\leftroot@=\count266
 LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count190
-\DOTSCASE@=\count191
+\classnum@=\count267
+\DOTSCASE@=\count268
 LaTeX Info: Redefining \ldots on input line 486.
 LaTeX Info: Redefining \dots on input line 489.
 LaTeX Info: Redefining \cdots on input line 610.
-\Mathstrutbox@=\box92
-\strutbox@=\box93
-\big@size=\dimen148
+\Mathstrutbox@=\box93
+\strutbox@=\box94
+\big@size=\dimen153
 LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count192
-\c@MaxMatrixCols=\count193
+\macc@depth=\count269
+\c@MaxMatrixCols=\count270
 \dotsspace@=\muskip17
-\c@parentequation=\count194
-\dspbrk@lvl=\count195
-\tag@help=\toks18
-\row@=\count196
-\column@=\count197
-\maxfields@=\count198
-\andhelp@=\toks19
-\eqnshift@=\dimen149
-\alignsep@=\dimen150
-\tagshift@=\dimen151
-\tagwidth@=\dimen152
-\totwidth@=\dimen153
-\lineht@=\dimen154
-\@envbody=\toks20
+\c@parentequation=\count271
+\dspbrk@lvl=\count272
+\tag@help=\toks19
+\row@=\count273
+\column@=\count274
+\maxfields@=\count275
+\andhelp@=\toks20
+\eqnshift@=\dimen154
+\alignsep@=\dimen155
+\tagshift@=\dimen156
+\tagwidth@=\dimen157
+\totwidth@=\dimen158
+\lineht@=\dimen159
+\@envbody=\toks21
 \multlinegap=\skip65
 \multlinetaggap=\skip66
-\mathdisplay@stack=\toks21
+\mathdisplay@stack=\toks22
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
@@ -312,19 +339,19 @@ LaTeX Info: Redefining \textsw on input line 47.
 LaTeX Info: Redefining \textssc on input line 48.
 LaTeX Info: Redefining \textulc on input line 49.
 )
-\ntx@fs=\dimen155
+\ntx@fs=\dimen160
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/ho
 me/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks22
-\XKV@tempa@toks=\toks23
+\XKV@toks=\toks23
+\XKV@tempa@toks=\toks24
 )
-\XKV@depth=\count199
+\XKV@depth=\count276
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2020/07/15 v2.5i e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count266
+Package: etoolbox 2020/08/24 v2.5j e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count277
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
 LaTeX Font Info:    Trying to load font information for T1+ntxtlf on input line
@@ -333,12 +360,12 @@ LaTeX Font Info:    Trying to load font information for T1+ntxtlf on input line
 File: t1ntxtlf.fd 2015/01/17 v1.0 font definition file for T1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.85pt on input line 112.
+(Font)              scaled to size 12.0pt on input line 112.
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 LaTeX Font Info:    Changing ? sub-encoding to TS1/0 on input line 75.
 )
-\ntxt@cntz=\count267
+\ntxt@cntz=\count278
 LaTeX Font Info:    Redeclaring math symbol \mathsterling on input line 263.
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/newtx/newtxmath.sty
 Package: newtxmath 2020/08/04 v1.629
@@ -351,12 +378,12 @@ Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/oberdiek/centernot.sty
 Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
 )
-\tx@cntz=\count268
+\tx@cntz=\count279
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/kastrup/binhex.tex)
-\tx@Isdigit=\count269
-\tx@IsAlNum=\count270
-\tx@tA=\toks24
-\tx@tB=\toks25
+\tx@Isdigit=\count280
+\tx@IsAlNum=\count281
+\tx@tA=\toks25
+\tx@tB=\toks26
 \tx@su=\read2
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 360.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -436,7 +463,7 @@ LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 LaTeX Font Info:    Overwriting symbol font `largesymbolsTXA' in version `bold'
 
 (Font)                  U/ntxexa/m/n --> U/ntxexa/b/n on input line 629.
-\tx@sbptoks=\toks26
+\tx@sbptoks=\toks27
 LaTeX Font Info:    Redeclaring math delimiter \lfloor on input line 851.
 LaTeX Font Info:    Redeclaring math delimiter \rfloor on input line 852.
 LaTeX Font Info:    Redeclaring math delimiter \lceil on input line 853.
@@ -450,12 +477,12 @@ LaTeX Font Info:    Redeclaring math delimiter \vert on input line 864.
 LaTeX Font Info:    Redeclaring math accent \dot on input line 935.
 LaTeX Font Info:    Redeclaring math accent \ddot on input line 936.
 LaTeX Font Info:    Redeclaring math accent \vec on input line 1999.
-\ntx@numstart=\count271
-\ntx@UCstart=\count272
-\ntx@lcstart=\count273
-\ntx@tmpc=\count274
-\ntx@imath=\count275
-\ntx@jmath=\count276
+\ntx@numstart=\count282
+\ntx@UCstart=\count283
+\ntx@lcstart=\count284
+\ntx@tmpc=\count285
+\ntx@imath=\count286
+\ntx@jmath=\count287
 LaTeX Info: Redefining \Bbbk on input line 2510.
 LaTeX Info: Redefining \not on input line 2659.
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/was/gensymb.sty
@@ -467,13 +494,13 @@ Package: caption 2020/05/30 v3.4k Customizing captions (AR)
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2020/07/20 v1.12b caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 61.
-\captionmargin=\dimen156
-\captionmargin@=\dimen157
-\captionwidth=\dimen158
-\caption@tempdima=\dimen159
-\caption@indent=\dimen160
-\caption@parindent=\dimen161
-\caption@hangindent=\dimen162
+\captionmargin=\dimen161
+\captionmargin@=\dimen162
+\captionwidth=\dimen163
+\caption@tempdima=\dimen164
+\caption@indent=\dimen165
+\caption@parindent=\dimen166
+\caption@hangindent=\dimen167
 Package caption Info: Unknown document class (or package),
 (caption)             standard defaults will be used.
 Package caption Info: \@makecaption = \long macro:#1#2->\ifx \@captype \xtable 
@@ -492,31 +519,31 @@ Package caption Warning: Unknown document class (or package),
 (caption)                standard defaults will be used.
 See the caption package documentation for explanation.
 
-\c@caption@flags=\count277
-\c@continuedfloat=\count278
+\c@caption@flags=\count288
+\c@continuedfloat=\count289
 Package caption Info: rotating package is loaded.
 )
-\c@KVtest=\count279
+\c@KVtest=\count290
 \sf@farskip=\skip67
-\sf@captopadj=\dimen163
+\sf@captopadj=\dimen168
 \sf@capskip=\skip68
 \sf@nearskip=\skip69
-\c@subfigure=\count280
-\c@subfigure@save=\count281
-\c@lofdepth=\count282
-\c@subtable=\count283
-\c@subtable@save=\count284
-\c@lotdepth=\count285
+\c@subfigure=\count291
+\c@subfigure@save=\count292
+\c@lofdepth=\count293
+\c@subtable=\count294
+\c@subtable@save=\count295
+\c@lotdepth=\count296
 \sf@top=\skip70
 \sf@bottom=\skip71
 )
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xdvipd
 fmx.def
 File: l3backend-xdvipdfmx.def 2020-08-07 L3 backend support: xdvipdfmx
-\g__graphics_track_int=\count286
-\l__pdf_internal_box=\box94
-\g__pdf_backend_object_int=\count287
-\g__pdf_backend_annotation_int=\count288
+\g__graphics_track_int=\count297
+\l__pdf_internal_box=\box95
+\g__pdf_backend_object_int=\count298
+\g__pdf_backend_annotation_int=\count299
 ) (./paper.aux)
 \openout1 = `paper.aux'.
 
@@ -565,8 +592,8 @@ e 68.
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
 LaTeX Font Info:    ... okay on input line 68.
-\c@mv@tabular=\count289
-\c@mv@boldtabular=\count290
+\c@mv@tabular=\count300
+\c@mv@boldtabular=\count301
 \symgns@font=\mathgroup12
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
 (Font)                  TS1/ntxtlf/m/n --> TS1/ntxtlf/b/n on input line 68.
@@ -582,33 +609,39 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 71.
+(Font)              scaled to size 14.4pt on input line 71.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 71.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 9.85pt on input line 71.
-LaTeX Font Info:    Calculating math sizes for size <9.85> on input line 71.
+(Font)              scaled to size 14.4pt on input line 71.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.0pt on input line 71.
+LaTeX Font Info:    Trying to load font information for T1+qhv on input line 71
+.
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/tex-gyre/t1qhv.fd
+File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
+)
+LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
+(Font)              scaled to size 4.49997pt on input line 71.
 LaTeX Font Info:    Trying to load font information for OT1+ntxtlf on input lin
 e 71.
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/newtx/ot1ntxtlf.fd
 File: ot1ntxtlf.fd 2015/01/17 v1.0 font definition file for OT1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.85pt on input line 71.
+(Font)              scaled to size 12.0pt on input line 71.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.19046pt on input line 71.
+(Font)              scaled to size 8.8pt on input line 71.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.41753pt on input line 71.
+(Font)              scaled to size 6.6pt on input line 71.
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 7
 1.
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9.85> not available
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 71.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.19046> not available
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8.8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 71.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5.41753> not available
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6.6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 71.
 LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 
 71.
@@ -631,237 +664,196 @@ e 71.
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.85pt on input line 71.
+(Font)              scaled to size 12.0pt on input line 71.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.19046pt on input line 71.
+(Font)              scaled to size 8.8pt on input line 71.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.41753pt on input line 71.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.19046pt on input line 71.
+(Font)              scaled to size 6.6pt on input line 71.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 8.5pt on input line 71.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 8.5pt on input line 71.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 9.85pt on input line 71.
+(Font)              scaled to size 12.0pt on input line 71.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.8pt on input line 71.
+[1]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 8.5pt on input line 71.
-LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 71.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.5pt on input line 71.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.20496pt on input line 71.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 4.67502pt on input line 71.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8.5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 71.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6.20496> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 71.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <4.67502> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 71.
-LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.5pt on input line 71.
-LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.20496pt on input line 71.
-LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 4.67502pt on input line 71.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.20496pt on input line 71.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 71.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 71.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 71.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 71.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 71.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6.2> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 71.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5.5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 71.
-LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 71.
-LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 71.
-LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 71.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 71.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 8.0pt on input line 71.
-
-Overfull \hbox (17.26387pt too wide) in paragraph at lines 71--71
-[][]\T1/ntxtlf/m/it/8 Corresponding au-thor\T1/ntxtlf/m/n/8 : Elio Campitelli,e
-lio.campitelli@cima.fcen.uba.ar| 
- []
-
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.0pt on input line 71.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.5pt on input line 83.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.5pt on input line 83.
-LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 9.85pt on input line 92.
-
-Overfull \vbox (3.04538pt too high) has occurred while \output is active []
-
-File: method-1.pdf Graphic file (type pdf)
-<use method-1.pdf>
-File: asymsam-timeseries-1.pdf Graphic file (type pdf)
-<use asymsam-timeseries-1.pdf>
-
-Underfull \vbox (badness 1546) has occurred while \output is active []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
-Make it at least 33.10863pt.
-We now make it that large for the rest of the document.
-This may cause the page layout to be inconsistent, however.
-
-[1
-
-
-]
-Underfull \vbox (badness 4608) has occurred while \output is active []
-
-File: cor-lev-1.pdf Graphic file (type pdf)
-<use cor-lev-1.pdf>
-File: cross-correlation-1.pdf Graphic file (type pdf)
-<use cross-correlation-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+(Font)              scaled to size 12.0pt on input line 71.
 [2]
-File: trends-1.pdf Graphic file (type pdf)
-<use trends-1.pdf>
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
+(Font)              scaled to size 12.0pt on input line 92.
 
-Underfull \hbox (badness 1107) in paragraph at lines 253--257
-[]\T1/ntxtlf/m/n/9.85 This sug-gests that both the Asym-met-ric and the
- []
-
-File: 2d-regr-1.pdf Graphic file (type pdf)
-<use 2d-regr-1.pdf>
-
-Overfull \hbox (37.88876pt too wide) in paragraph at lines 265--265
-[][] 
- []
-
-
-Underfull \hbox (badness 2253) in paragraph at lines 268--276
-[]\T1/ntxtlf/m/n/9.85 Figure 6[] shows the spa-tial year-long re-gres-sion
- []
+Package natbib Warning: Citation `hersbach' on page 3 undefined on input line 1
+02.
 
 [3]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+\openout4 = `paper.fff'.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[4]
-File: wave-amplitude-1.pdf Graphic file (type pdf)
-<use wave-amplitude-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-File: vertical-regression-1.pdf Graphic file (type pdf)
-<use vertical-regression-1.pdf>
-
+(paper.fff) [4]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [5]
-File: regr-air-season-1.pdf Graphic file (type pdf)
-<use regr-air-season-1.pdf>
-
-Overfull \hbox (88.26825pt too wide) in paragraph at lines 352--352
-[][] 
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [6]
-File: pp-regr-global-africa-1.pdf Graphic file (type pdf)
-<use pp-regr-global-africa-1.pdf>
-File: pp-regr-global-oceania-1.pdf Graphic file (type pdf)
-<use pp-regr-global-oceania-1.pdf>
-File: pp-regr-global-america-1.pdf Graphic file (type pdf)
-<use pp-regr-global-america-1.pdf>
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Underfull \hbox (badness 1107) in paragraph at lines 407--411
-[]\T1/ntxtlf/m/n/9.85 This sug-gests that both the Asym-met-ric and the
+[7]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[8]
+
+Package natbib Warning: Citation `fogt2011' on page 9 undefined on input line 3
+50.
+
+[9]
+Underfull \vbox (badness 1215) has occurred while \output is active []
+
+[10]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[11]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[12]
+Underfull \hbox (badness 7649) in paragraph at lines 516--519
+[]\T1/ntxtlf/m/n/12 NOAA Global Sur-face Tem-per-a-ture (NOAA-Glob-al-Temp) dat
+a pro-vided by the
  []
 
+(./paper.bbl [13] [14]) [15]
 
-Underfull \hbox (badness 1997) in paragraph at lines 417--420
-\T1/ntxtlf/m/n/9.85 Boul-der, Col-orado, USA, from their Web site at
- []
+Package natbib Warning: There were undefined citations.
 
-(./paper.bbl
+AED endfloat: Processing end Figures and Tables [16] (./paper.lof
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 10.5pt on input line 1.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 15.
-) [7]
+(Font)              scaled to size 10.5pt on input line 1.
+)
+\tf@lof=\write5
+\openout5 = `paper.lof'.
+
+[17
+
+
+] (./paper.fff
+File: method-1.pdf Graphic file (type pdf)
+<use method-1.pdf>
+[18]
+File: asymsam-timeseries-1.pdf Graphic file (type pdf)
+<use asymsam-timeseries-1.pdf>
+[19]
+File: cor-lev-1.pdf Graphic file (type pdf)
+<use cor-lev-1.pdf>
+[20]
+File: cross-correlation-1.pdf Graphic file (type pdf)
+<use cross-correlation-1.pdf>
+[21]
+File: trends-1.pdf Graphic file (type pdf)
+<use trends-1.pdf>
+[22]
+File: 2d-regr-1.pdf Graphic file (type pdf)
+<use 2d-regr-1.pdf>
+
+Overfull \hbox (37.88876pt too wide) in paragraph at lines 27--27
+[][] |
+ []
+
+[23]
+File: wave-amplitude-1.pdf Graphic file (type pdf)
+<use wave-amplitude-1.pdf>
+[24]
+File: vertical-regression-1.pdf Graphic file (type pdf)
+<use vertical-regression-1.pdf>
+[25]
+File: regr-air-season-1.pdf Graphic file (type pdf)
+<use regr-air-season-1.pdf>
+[26]
+File: pp-regr-oceania-1.pdf Graphic file (type pdf)
+<use pp-regr-oceania-1.pdf>
+[27]
+File: pp-regr-america-1.pdf Graphic file (type pdf)
+<use pp-regr-america-1.pdf>
+[28]
+File: regr-ice-1.pdf Graphic file (type pdf)
+<use regr-ice-1.pdf>
+
+LaTeX Warning: Text page 29 contains only floats.
+
+[29
+
+
+
+
+
+
+
+
+
+
+
+
+]
 File: A1-1.pdf Graphic file (type pdf)
 <use A1-1.pdf>
-
-Overfull \hbox (61.07927pt too wide) in paragraph at lines 430--430
-[][] 
- []
-
+[30]
 File: A2 ccf-levels-1.pdf Graphic file (type pdf)
 <use A2 ccf-levels-1.pdf>
 
-Overfull \hbox (241.75386pt too wide) in paragraph at lines 434--434
-[][] 
+Overfull \hbox (1.75386pt too wide) in paragraph at lines 67--67
+[][] |
  []
 
+[31]
 File: A3-1.pdf Graphic file (type pdf)
 <use A3-1.pdf>
 
-Overfull \hbox (241.75386pt too wide) in paragraph at lines 438--438
-[][] 
+Overfull \hbox (1.75386pt too wide) in paragraph at lines 72--72
+[][] |
  []
 
+[32]
 File: A4-1.pdf Graphic file (type pdf)
 <use A4-1.pdf>
 
-Overfull \hbox (241.75386pt too wide) in paragraph at lines 442--442
-[][] 
+Overfull \hbox (1.75386pt too wide) in paragraph at lines 77--77
+[][] |
  []
 
+[33]
 File: A6-1.pdf Graphic file (type pdf)
 <use A6-1.pdf>
 
-Overfull \hbox (241.75386pt too wide) in paragraph at lines 446--446
-[][] 
+Overfull \hbox (1.75386pt too wide) in paragraph at lines 82--82
+[][] |
  []
 
+[34]
 File: A7-1.pdf Graphic file (type pdf)
 <use A7-1.pdf>
 
-Overfull \hbox (241.75386pt too wide) in paragraph at lines 450--450
-[][] 
+Overfull \hbox (1.75386pt too wide) in paragraph at lines 87--87
+[][] |
  []
 
+[35]
 File: A8-1.pdf Graphic file (type pdf)
 <use A8-1.pdf>
 
-Overfull \hbox (241.75386pt too wide) in paragraph at lines 454--454
-[][] 
+Overfull \hbox (1.75386pt too wide) in paragraph at lines 92--92
+[][] |
  []
 
-[8
-
-] [9] [10] [11] [12] [13] [14
-
-
-] (./paper.aux) ) 
+) [36] (./paper.aux) ) 
 Here is how much of TeX's memory you used:
- 8040 strings out of 481666
- 113639 string characters out of 5931477
- 354929 words of memory out of 5000000
- 25007 multiletter control sequences out of 15000+600000
- 635704 words of font info for 165 fonts, out of 8000000 for 9000
+ 8465 strings out of 481666
+ 119581 string characters out of 5931477
+ 357329 words of memory out of 5000000
+ 25415 multiletter control sequences out of 15000+600000
+ 588905 words of font info for 82 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 64i,14n,102p,818b,414s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,14n,102p,818b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on paper.pdf (14 pages).
+Output written on paper.pdf (36 pages).

@@ -1,19 +1,19 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Regression pattern of surface temperature with Asymmetric and Symmetric SAM}}{10}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Spatial patterns of the first EOF of 700 hPa geopotential height}}{15}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Time series for the asymmetric SAM and symmetric SAM and density estimates}}{16}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Correlation between the Symmetric and Asymmetric SAM at each level for lag zero and lag -1 (Asymmetric leads Symmetric)}}{17}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Cross correlation between levels of the Full, Asymmetric and Symmetric SAM}}{18}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Decadal normalised trends for each index at each level for annual (row a) and seasonal values (rows b-e) for the period 1979-2018}}{19}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Regression patterns of geopotential height at 30, 300 and 700 hPa with the Full, Asymmetric and Symmetric SAM}}{20}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Planteray wave amplitude for the regression patterns at 50 and 700 hPa}}{21}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South}}{22}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Regression pattern of precipiation with Asymmetric and Symmetric SAM}}{23}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Same but for oceania}}{24}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Same but for america}}{25}%
-\contentsline {figure}{\numberline {A1}{\ignorespaces Lag-correlation between Symmetric and Asymmetric SAM at each level.}}{26}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Cross-correlation functions for each index and two differnet base levels}}{27}%
-\contentsline {figure}{\numberline {A3}{\ignorespaces Fourier spectrum of each timeseries. The shading indicates de 95\% area derived by fitting an AR process to each series and bootstrapping 5000 simulated samples.}}{28}%
-\contentsline {figure}{\numberline {A4}{\ignorespaces Autocorrelation functions of each timeseries}}{29}%
-\contentsline {figure}{\numberline {A6}{\ignorespaces Regressions maps resulting from performing one multiple regression (column a) and from performing two simple regressions (column b)}}{30}%
-\contentsline {figure}{\numberline {A7}{\ignorespaces Zonal waves derives from the regression maps from performing one multiple regression (column a) and from performing two simple regressions (column b)}}{31}%
-\contentsline {figure}{\numberline {A8}{\ignorespaces Pattern cross-correlation \#FIXME!}}{32}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Spatial patterns of the first EOF of 700 hPa geopotential height}}{18}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Time series for the asymmetric SAM and symmetric SAM and density estimates}}{19}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Correlation between the Symmetric and Asymmetric SAM at each level for lag zero and lag -1 (Asymmetric leads Symmetric)}}{20}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Cross correlation between levels of the Full, Asymmetric and Symmetric SAM}}{21}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Decadal normalised trends for each index at each level for annual (row a) and seasonal values (rows b-e) for the period 1979-2018}}{22}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Regression patterns of geopotential height at 30, 300 and 700 hPa with the Full, Asymmetric and Symmetric SAM}}{23}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Planteray wave amplitude for the regression patterns at 50 and 700 hPa}}{24}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South}}{25}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Regression pattern of surface temperature with Asymmetric and Symmetric SAM}}{26}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Same but for oceania}}{27}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Same but for america}}{28}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Seasonal regression of SAM indices with sea ice concentration}}{29}%
+\contentsline {figure}{\numberline {A1}{\ignorespaces Lag-correlation between Symmetric and Asymmetric SAM at each level.}}{30}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Cross-correlation functions for each index and two differnet base levels}}{31}%
+\contentsline {figure}{\numberline {A3}{\ignorespaces Fourier spectrum of each timeseries. The shading indicates de 95\% area derived by fitting an AR process to each series and bootstrapping 5000 simulated samples.}}{32}%
+\contentsline {figure}{\numberline {A4}{\ignorespaces Autocorrelation functions of each timeseries}}{33}%
+\contentsline {figure}{\numberline {A6}{\ignorespaces Regressions maps resulting from performing one multiple regression (column a) and from performing two simple regressions (column b)}}{34}%
+\contentsline {figure}{\numberline {A7}{\ignorespaces Zonal waves derives from the regression maps from performing one multiple regression (column a) and from performing two simple regressions (column b)}}{35}%
+\contentsline {figure}{\numberline {A8}{\ignorespaces Pattern cross-correlation \#FIXME!}}{36}%

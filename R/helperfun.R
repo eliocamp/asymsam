@@ -16,7 +16,6 @@
 # # library(RColorBrewer)
 # enableJIT(0)
 #
-# # source(here::here("scripts/eof_methods.R"))
 #
 #
 # # Repetir vector en negativo

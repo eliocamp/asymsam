@@ -10,7 +10,7 @@
 
 %% Start with one of the following:
 % DOUBLE-SPACED VERSION FOR SUBMISSION TO THE AMS
-\documentclass[twocol]{ametsocV5}
+\documentclass[]{ametsocV5}
 
 
 % TWO-COLUMN JOURNAL PAGE LAYOUT---FOR AUTHOR USE ONLY
@@ -99,8 +99,7 @@ many impacts.
 \subsubsection{Data}
 
 We used monthly geopotential height at 2.5 longitude by 2.5 latitude
-resolution from ERA5 \citep{hersbach} for the period 1979 to 2018
-(inclusive).
+resolution from ERA5 \citep{hersbach} for the period 1979 to 2018.
 
 Monthly temperature NOAA Global Surface Temperature (NOAAGlobalTemp) 5.0
 degree latitude x 5.0 degree longitude global grid
@@ -266,7 +265,7 @@ multiple regression
 \end{figure*}
 
 Figure \ref{fig:2d-regr} shows the spatial year-long regression \#FIXME.
-Column a are regressinos using the Full SAM, while columns b and c are
+Column a are regressinos using the Full SAM, while columns 2 and 3 are
 regression coefficients computed in a multiple regression of
 geopotential height on the Asymmetric and Symmetric indices at the same
 time. Thus, they are to be interpreted as the patterns associated with
@@ -278,22 +277,25 @@ In the stratosphere, the spatial pattern associated with the Full SAM is
 more clearly dominated by a zonally symmetric, monopolar structure
 (panel a.1) which is, however, not perfectly centered in the south pole.
 The monopole obtained by multiple regression with the Asymmetric and
-Symmetric SAM (panel c.1) is much more symmetric and the shift from
+Symmetric SAM (panel a.3) is much more symmetric and the shift from
 total symmetry is captured by the regression pattern of the Asymmetric
 SAM as a wave-1 with maximum anomalies above the Belinghausen Sea on the
 Western Hemisphere and and Davids Sea in the Eastern Hemisphere (panel
-b.1).
+a.2).
 
-In the troposphere, panel a.2 show the well known zonally symmetrical
+In the troposphere, panel b.1 shows the well known zonally symmetrical
 annular mode \emph{contaminated} with zonal asymmetries in the form of a
 wave-3. The regression using the Asymmetric and Symmetric SAM indices
 successfully disentangle both structures. The Asymmetric component gives
 rise to a cleaner zonal wave (panel b.2) and the Symemtric component is
 assosiated with an trully annular mode, almost devoid of zonal
-asymmetries (panel c.2). \#FIXME (agregar algo más?)
+asymmetries (panel b.3). note that the wave-3 pattern observed in panel
+b.2 is rotated by half a wavelength from the average position of the
+mean wave-3 pattern and asociated with \citet{raphael2004}'s ZW3 index
+(see Figure 1 from that paper). \#FIXME (agregar algo más?)
 
 \begin{figure}
-\includegraphics{wave-amplitude-1} \caption[Planteray wave amplitude for the regression patterns at 50 and 700 hPa]{Planteray wave amplitude for the regression patterns at 50 and 700 hPa.}\label{fig:wave-amplitude}
+\includegraphics{wave-amplitude-1} \caption[Planteray wave amplitude for the regression patterns at 50 and 700 hPa]{Planteray wave amplitude for the regression patterns at 50 and 700 hPa. Note the varying x axis.}\label{fig:wave-amplitude}
 \end{figure}
 
 The amplitude of each zonal wave number at each latitude at 50 hPa and
@@ -301,13 +303,12 @@ The amplitude of each zonal wave number at each latitude at 50 hPa and
 zero represents the amplitude of the zonal mean. Comparing between rows,
 this Figure quantifies the relatively clean separation between the
 zonally symmetric and zonally asymmetric structures, as its evident how
-the mixture of waves of the Full field (first row) is very similar to
-the sum of the waves of the Asymmetric and Symmetric field (second and
-third row, respectively). The second row of Figure
-\ref{fig:wave-amplitude} shows that the Asymmetric SAM is overwhelmingly
-dominated by wave 1 in the stratosphere (panel b), while in the
-troposphere it is composed of zonal waves 3 to 1 in decreasing level of
-importance.
+the mixture of waves of the Full field (column a) is very similar to the
+sum of the waves of the Asymmetric and Symmetric field (columns b and c,
+respectively). Column b of Figure \ref{fig:wave-amplitude} shows that
+the Asymmetric SAM is overwhelmingly dominated by wave 1 in the
+stratosphere (panel b.1), while in the troposphere it is composed of
+zonal waves 3 to 1 in decreasing level of importance (panel b.2).
 
 \begin{figure}
 \includegraphics{vertical-regression-1} \caption[Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South]{Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South. (\#FIXME this caption needs some love)}\label{fig:vertical-regression}
@@ -344,13 +345,22 @@ between levels of each segment of the atmosphere is greater than 0.9
 tropospheric pattern is maximised by the 300 hPa Asymmetric SAM index
 and the stratospheric pattern increased monotonically with height.
 
+The wave-3 pattern from Figure \ref{fig:2d-regr} panel b.2 is very
+similar to the teleconnection pattern associated with the ENSO. Indeed,
+\citet{fogt2011} showed that there is a significant relationship between
+the SAM and the ENSO. The correlation between the full SAM and the ENSO
+as measured by the Multivariate Enso Index \citep{wolter2011} is -0.19.
+This relationship is captured entirely the Asymmetric SAM, as this index
+has a partial correlation of -0.27 with the MEI, whereas the Symmetric
+SAM has null partial correlation with the MEI.
+
 \subsection{Impacts}
 
 \subsubsection{Temperature}
 
-\begin{sidewaysfigure}
+\begin{figure*}
 \includegraphics{regr-air-season-1} \caption[Regression pattern of surface temperature with Asymmetric and Symmetric SAM]{Regression pattern of surface temperature with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas. Gray areas have more than 15\% of missing data.}\label{fig:regr-air-season}
-\end{sidewaysfigure}
+\end{figure*}
 
 Figure \ref{fig:regr-air-season} shows regression coefficients of each
 index at 700 hPa with surface temperature for each trimester. It is
@@ -388,26 +398,115 @@ intensity in panel a.3.
 
 \subsubsection{Precipitation}
 
-??
+Regression of the SAM indicies with seasonal mean precipitation are
+shown Figures \ref{fig:pp-regr-oceania} and \ref{fig:pp-regr-america}
+for Australia and New Zealand, and South America respectively. (We
+didn't detect any significant signal in South Africa.)
 
 \begin{figure*}
-\includegraphics{pp-regr-global-africa-1} \caption[Regression pattern of precipiation with Asymmetric and Symmetric SAM]{Regression pattern of precipiation with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas. Africa}\label{fig:pp-regr-global-africa}
+\includegraphics{pp-regr-oceania-1} \caption[Same but for oceania]{Same but for oceania}\label{fig:pp-regr-oceania}
 \end{figure*}
+
+In Australia (Figure \ref{fig:pp-regr-oceania}), the annual-level
+regression shows that the Full SAM is associated with a statistically
+significant increase in precipitation in the Southeastern region (panel
+a.1), which reproduces the results from \citet{gillett2006}. The
+separation between Asymmetric and Symmetric SAM suggest that this
+increase is explained by the Symmetric SAM only in the East coast (panel
+c.1), which is consistent with the increased easterly flow clearly seen
+in relation with this index. The Asymmetric SAM appears related to
+increased precipitation in the West coast of Southeastern Australia
+(panel b.2), explained by the anomalous \emph{westerly} circulation
+transporting moist air to the continent.
+
+The seasonal-level regressions show statistically significant anomalies
+only in SON, with a pattern similar to the annual-level regression
+(panel a.5). Panels b.5 and c.5 don't show a clear separation between
+the Asymmetric and Symmetric SAM. If anything, the positive and more
+significant regression coefficients in panel b.5 vs pane c.5 would
+suggest more influence of the Asymmetric than the Symmetric SAM, going
+against the interpretation gathered from the annual-level regressions.
+This Spring signal is broadly consistent with \citet{hendon2007}, but
+whereas \citet{hendon2007} also detected a strong signal in Summer,
+panel a.2 shows no statistically significant association (although the
+coeffcients have the consistent sign).
 
 \begin{figure*}
-\includegraphics{pp-regr-global-oceania-1} \caption[Same but for oceania]{Same but for oceania}\label{fig:pp-regr-global-oceania}
+\includegraphics{pp-regr-america-1} \caption[Same but for america]{Same but for america}\label{fig:pp-regr-america}
 \end{figure*}
+
+In South America (Figure \ref{fig:pp-regr-america}) , the annual-level
+regression shows that the SAM is associated with statistically
+significant precipitation decreases both in Southeastern South America
+and Southern Chile (panel a.1). Both signals were observed by
+\citet{silvestri2009} and the former also by \citet{gillett2006}. Panels
+b.1 and c.1 show a remarkable clean separation between the Asymmeric SAM
+--associated with the signal located in Southestern South America-- and
+the Symmetric SAM --associated with the signal in Chile. This separation
+is consistent with the mechanisms responsible for these effects. In
+Southeastern South America, anomalous meridional winds lead to less
+precipitation by inhibiting moisture convergence from the South American
+Low Level Jet \citep{silvestri2009}. In Southern Chile, the reduced
+westerly flow reduce moisture transport from the Pacific Ocean (cita??).
+The is a small area of increased precipitation with SAM near central
+Argentina which is also present in the station-based analysis by
+\citet{gillett2006} and that is explained by the Asymmmetric SAM.
+
+The negative relationship between precipiation and SAM index in
+Southeastern South America and Southern Chile is evident in all seasons
+except Winter (although not always stastitically significant) and it
+appears to maximise in Autumn.
+
+\subsubsection{Sea ice}
 
 \begin{figure*}
-\includegraphics{pp-regr-global-america-1} \caption[Same but for america]{Same but for america}\label{fig:pp-regr-global-america}
+\includegraphics{regr-ice-1} \caption[Seasonal regression of SAM indices with sea ice concentration]{Seasonal regression of SAM indices with sea ice concentration. \#FIXME}\label{fig:regr-ice}
 \end{figure*}
 
-\subsection{Conclusiones}
+Regressions between the Full SAM index and Antarctic Sea Ice
+Concentrations (Figure \ref{fig:regr-ice}) show a great deal of
+variability across seasons. The only statistically significant signal is
+in Spring, when we observe negative concentraion anomalies in the
+Northen Weddell Sea (panel a.4) explained by the Asymmetric SAM (panel
+b.4). Both in Winter and in Spring the Asymmetric SAM is associated with
+bigger Sea Ice Concentration anomalies in West Antarctica than East
+Antarctica, with generally decreased concentration East of the Antarctic
+Peninsula and increased concentration to the West, as expected from the
+anomalous circulation correlated with this index. The Symmetric SAM
+signal appears more evenly distributed accross the whole ice sheet.
+
+\subsection{Conclusions}
+
+\citet{silvestri2009} showed that impacts linked to the SAM changed
+rather dramatically before and after 1980, and that this change can be
+explained by changes in the regional-scale structure of the SAM-related
+circulation. In particular, the decreased in precipitation in South
+America (Figure \ref{fig:pp-regr-america} panel a.1) was absent or even
+switched sign.
+
+\citet{silvestri2009} also thowed
+
+Therefore, is very likely that if we were to repeat this analysis using
+pre-satellite data, the resulting Asymmetric SAM would look very
+differnt.
 
 This suggests that both the Asymmetric and the Symemtric component of
 the tropospheric SAM are highly vertically coherent, both in their
 individual evolution and their temporal relationship. This is to be
 expected since the SAM is mostly equivalent barotropic (citaaaa).
+
+\citet{hosking2013} observed a pattern similar to the one near the
+Amundsen Sea in panel a.4 associated with the strengthening of the ASL.
+The positive anomalies of SIC near the Amundsen sea being inconsistent
+with the anomalies of meridional wind associated with the ASL. Row 4 in
+Figure \ref{fig:regr-ice} might shed some light to resolve this mistery.
+The SAM is evidently related to the ASL through it's Asymmetric
+component, and since the ASymmetric SAM is correlated with the Symmetric
+SAM, the ALS will be rleated to the symemtric SAM. Consiering the
+similarities between the the SIC anomalies observed by
+\citet{hosking2013} (in its Figure 7) and Figure \ref{fig:regr-ice}
+panel a.4, it is very likely that what was observed in that paper was a
+residual effect of the SAM. \#FIXME!!
 
 \acknowledgments
 
