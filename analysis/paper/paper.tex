@@ -94,21 +94,25 @@ This is significant becasue I wrote it.
 yada yada SAM yada yada circulation.. yada yada so important. yada yada
 many impacts.
 
+\citet{fogt2012} studied the characteristics of the asymmetric structure
+of the SAM. It computed the zonally anomalous component of mean sea
+level pressure (MSLP) composites for positive and negative SAM events
+and created two indices by projecting MSLP fields ontno them. However,
+the use of composites leads to some issues that affects the
+interpretability of the results. First, they can be dependent on the
+choice of threshold used to define positive and negative events.
+Secondly, by discarting data that don't meet the threshold, they don't
+use all the information avaiable. Due to the realtive short timeframe
+used, this leads to some composites being composed of as little as 4
+years. Third, the resulting composites corresponding to each polarity
+and season are derived from the average of different amount of fields
+and from different years. This last issue is particularly important in
+light of the changing structure of the SAM before and after 1980
+\citep{silvestri2009}. In \citet{fogt2012}, the DJF SAM+ composite uses
+only 7 years, 5 of which are later than 1988, whereas all of the 8 years
+used for their DJF SAM- composite are from earlier than 1988.
+
 \section{Methods}
-
-\subsubsection{Data}
-
-We used monthly geopotential height at 2.5 longitude by 2.5 latitude
-resolution from ERA5 \citep{hersbach} for the period 1979 to 2018.
-
-Monthly temperature NOAA Global Surface Temperature (NOAAGlobalTemp) 5.0
-degree latitude x 5.0 degree longitude global grid
-\citep{vose2012, smith2008}. The same analysis was carried out using
-CRUTEM4 \citep{osborn2014} (not shown).
-
-We used monthly precipitation data from CPC Merged Analysis of
-Precipitation \citep{xie1997} 2.5 degree latitude x 2.5 degree
-longitude. CPCC: {[}schneider2015{]} \#FIXME
 
 \subsubsection{Definition of indices}
 
@@ -139,6 +143,20 @@ every index will have unit standard deviation.
 \begin{figure*}
 \includegraphics{method-1} \caption[Spatial patterns of the first EOF of 700 hPa geopotential height]{Spatial patterns of the first EOF of 700 hPa geopotential height. Full field (left), zonally asymmetric component (middle) and zonally symmetric component (right). Arbitrary units.}\label{fig:method}
 \end{figure*}
+
+\subsubsection{Data}
+
+We used monthly geopotential height at 2.5 longitude by 2.5 latitude
+resolution from ERA5 \citep{hersbach2020} for the period 1979 to 2018.
+
+Monthly temperature NOAA Global Surface Temperature (NOAAGlobalTemp) 5.0
+degree latitude x 5.0 degree longitude global grid
+\citep{vose2012, smith2008}. The same analysis was carried out using
+CRUTEM4 \citep{osborn2014} (not shown).
+
+We used monthly precipitation data from CPC Merged Analysis of
+Precipitation \citep{xie1997} 2.5 degree latitude x 2.5 degree
+longitude. CPCC: {[}schneider2015{]} \#FIXME
 
 \subsubsection{Significance}
 
@@ -246,13 +264,17 @@ when we see the inverse. This change is restricted to the Winter months:
 the linear trend for JJA starting in 1990 for the Asymmetric component
 at 50hPa is \(0.37 \pm 0.22\).
 
-These results point to very different behaviours between the
-stratospheric and tropospheric SAM. \#FIXME
+Figure \ref{fig:r-squared-trend} shows decadal trends for the explained
+variance of each index. There is no evidencie of a significant trend in
+the stratosphere. In the troposphere, there is a positive trend for the
+Asymmetric SAM and no significant trend for the Symmetric SAM. This
+suggest that the SAM has become more asymmetric in the period from 1979
+to 2018. The change is slight, though; of the order of 1\% icreased
+explained variance per decade.
 
-This suggests that both the Asymmetric and the Symemtric component of
-the tropospheric SAM are highly vertically coherent, both in their
-individual evolution and their temporal relationship. This is to be
-expected since the SAM is mostly equivalent barotropic (citaaaa).
+\begin{figure}
+\includegraphics{r-squared-trend-1} \caption[Decadal trends for explained variance of each index at each level for the period 1979-2018]{Decadal trends for explained variance of each index at each level for the period 1979-2018. Shading indicates the 95\% confidence interval.}\label{fig:r-squared-trend}
+\end{figure}
 
 \subsection{Spatial patterns}
 
@@ -341,9 +363,9 @@ anomalies are very similar to the wave-1 structure with maximum near 10
 hPa in panel a. Conversely, for any tropospheric (below 100 hPa) index,
 the result is very similar to panel b. The pattern cross-correlation
 between levels of each segment of the atmosphere is greater than 0.9
-(Figure A\#fixme). The patterns mainly change in amplitude. The
-tropospheric pattern is maximised by the 300 hPa Asymmetric SAM index
-and the stratospheric pattern increased monotonically with height.
+(Figure A8). The patterns mainly change in amplitude. The tropospheric
+pattern is maximised by the 300 hPa Asymmetric SAM index and the
+stratospheric pattern increased monotonically with height.
 
 The wave-3 pattern from Figure \ref{fig:2d-regr} panel b.2 is very
 similar to the teleconnection pattern associated with the ENSO. Indeed,
@@ -435,27 +457,35 @@ coeffcients have the consistent sign).
 \includegraphics{pp-regr-america-1} \caption[Same but for america]{Same but for america}\label{fig:pp-regr-america}
 \end{figure*}
 
-In South America (Figure \ref{fig:pp-regr-america}) , the annual-level
+In South America (Figure \ref{fig:pp-regr-america}), the annual-level
 regression shows that the SAM is associated with statistically
-significant precipitation decreases both in Southeastern South America
-and Southern Chile (panel a.1). Both signals were observed by
-\citet{silvestri2009} and the former also by \citet{gillett2006}. Panels
-b.1 and c.1 show a remarkable clean separation between the Asymmeric SAM
---associated with the signal located in Southestern South America-- and
-the Symmetric SAM --associated with the signal in Chile. This separation
-is consistent with the mechanisms responsible for these effects. In
-Southeastern South America, anomalous meridional winds lead to less
+significant precipitation decrease in Southeastern South America (SESA)
+and Southern Chile and non-significant increase in South Brazil, near
+the South Atlantic Convergence Zone (SACZ) (panel a.1).
+
+Panels b.1 and c.1 show a remarkably clean separation between the
+Asymmeric SAM --associated with the Southeastern South American and
+Southern Brazilian signals-- and the Symmetric SAM --associated with the
+signal in Southern Chile. This separation is consistent with the
+mechanisms responsible for these effects. In Southern Chile, the reduced
+westerly flow reduce moisture transport from the Pacific Ocean (cita??
+\#FIXME).
+
+In Southeastern South America, anomalous meridional winds lead to less
 precipitation by inhibiting moisture convergence from the South American
-Low Level Jet \citep{silvestri2009}. In Southern Chile, the reduced
-westerly flow reduce moisture transport from the Pacific Ocean (cita??).
-The is a small area of increased precipitation with SAM near central
+Low Level Jet \citep{silvestri2009}. The increased precipiation in the
+South Atlantic Convergence Zone, on the other hand, appears to be
+related to modulation of the anomalous SAM circulation in SACZ events
+which lead to more frequent and intense SACZ events during positive SAM
+\citep{rosso2018}.
+
+There is a small area of increased precipitation with SAM near central
 Argentina which is also present in the station-based analysis by
 \citet{gillett2006} and that is explained by the Asymmmetric SAM.
 
-The negative relationship between precipiation and SAM index in
-Southeastern South America and Southern Chile is evident in all seasons
-except Winter (although not always stastitically significant) and it
-appears to maximise in Autumn.
+Except during Winter, the seasonal-level regression all show these
+similar patterns although not as cleanly and only in some cases
+statistically significant.
 
 \subsubsection{Sea ice}
 
@@ -477,36 +507,74 @@ signal appears more evenly distributed accross the whole ice sheet.
 
 \subsection{Conclusions}
 
+We presented a method to systematically separate the zonally asymmetric
+and zonally symmetric components of the SAM. By itself, the spatial
+structure and temporal evolution of the SAM shows a strong separation
+between the stratosphere SAMs. The first EOF in the stratosphere is
+monopolar in nature while the first EOF in the troposphere is a proper
+annular mode. Their repespective departures from the zonal mean are also
+different: a zonal wave 1 dominates the stratospheric SAM, waves 3 and 2
+dominate the tropospheric SAM. Furthermore, there is little temporal
+correlation between the tropospheric and stratospheric time series.
+
+The zonal asymmetric component of the SAM at each level is even more
+decupled between the troposphere and the stratosphere. Their temporal
+evolution shows essentialy zero correlation (Figure
+\ref{fig:cross-correlation}) and the signal associated with the
+stratospheric Asymmetric SAM is completely restricted to the
+stratosphere (Figure \ref{fig:vertical-regression} panel a).
+Geopotential height anomalies associated with the tropospheric
+Asymmetric SAM, on the other hand, do extend to the stratosphere, but
+those anomalies do not project strongly into the stratospheric
+Asymmetric SAM.
+
+We show that the observed positive trends towards positive SAM is
+restricted to the tropospheric SAM and is explained by the Symmetric
+component (Figure \textbackslash{}ref\{fig:trends{]}). However, the
+degree of asymmetry appears to have increased slightly in the last 40
+years, as the Asymmetric SAM explains an increasingly proportion of the
+variance (Figure \ref{fig:r-squared-trend}).
+
+In terms of impacts, we see that ..Temperature\ldots{} \#FIXME
+
+The patterns of SAM-associated precipitation anomalies are similarly
+well separated. In South America, we show that negative anomalies
+observed in Chile related to the SAM are well explained by the Symmetric
+compomnet, while the precipitation dipole in Southern South America and
+the South Atlantic Convergence Zone is explained by the Asymmetric
+component.
+
+\subsubsection{Limitations}
+
+Our method assumes linearity in the asymmetric component of the SAM.
+That is, assumes that zonal symmetries associated with positive SAM are
+oposite and equal to the ones associated with negatie SAM.
+\citet{fogt2012}'s composites suggest that this might not be entirely
+valid, although we argue that much of that apparent non-linearity is due
+to the heterogenous nature of the selected years for constructing the
+composites. Using our data (from 1979 to 2018), seasonal composites of
+zonal anomalies of 700 hPa geopotential height for for SAM+ and SAM-
+show pattern linear correlations greater than -0.7 for all seasons and
+are visually very linear (Figure A9). Therefore, we belive that our
+method is at the very least a reasonable approximation of the fenomenon.
+
+We also asumed that the structure of the SAM zonal anomalies is stable
+in all seasons. Again, this is not unreasonable, as geopotential zonal
+anomalies computed by projecting the first EOF \emph{of each season} are
+very similar to each other (Figure A10).
+
 \citet{silvestri2009} showed that impacts linked to the SAM changed
-rather dramatically before and after 1980, and that this change can be
-explained by changes in the regional-scale structure of the SAM-related
-circulation. In particular, the decreased in precipitation in South
-America (Figure \ref{fig:pp-regr-america} panel a.1) was absent or even
-switched sign.
+rather dramatically before and after 1980. In particular, the negative
+relationship with precipitation in South America (consistent with Figure
+\ref{fig:pp-regr-america} panel a.1) was absent in some areas and
+switched sign in other in the earlier period. The correlation between
+ENSO and SAM is similarly non-stationary, also disapearing before 1973.
 
-\citet{silvestri2009} also thowed
-
-Therefore, is very likely that if we were to repeat this analysis using
-pre-satellite data, the resulting Asymmetric SAM would look very
-differnt.
-
-This suggests that both the Asymmetric and the Symemtric component of
-the tropospheric SAM are highly vertically coherent, both in their
-individual evolution and their temporal relationship. This is to be
-expected since the SAM is mostly equivalent barotropic (citaaaa).
-
-\citet{hosking2013} observed a pattern similar to the one near the
-Amundsen Sea in panel a.4 associated with the strengthening of the ASL.
-The positive anomalies of SIC near the Amundsen sea being inconsistent
-with the anomalies of meridional wind associated with the ASL. Row 4 in
-Figure \ref{fig:regr-ice} might shed some light to resolve this mistery.
-The SAM is evidently related to the ASL through it's Asymmetric
-component, and since the ASymmetric SAM is correlated with the Symmetric
-SAM, the ALS will be rleated to the symemtric SAM. Consiering the
-similarities between the the SIC anomalies observed by
-\citet{hosking2013} (in its Figure 7) and Figure \ref{fig:regr-ice}
-panel a.4, it is very likely that what was observed in that paper was a
-residual effect of the SAM. \#FIXME!!
+Seeing as both the ENSO-SAM relationship and most of the precipitation
+imacts in South America are captured by the Asymmetric SAM, the results
+presented here are most likely period-dependent. Therefore, is very
+likely that if we were to repeat this analysis using pre-satellite data,
+the resulting Asymmetric SAM would look very different.
 
 \acknowledgments
 
@@ -542,15 +610,15 @@ https://psl.noaa.gov/
 \end{figure}
 
 \begin{figure}
-\includegraphics{A6-1} \appendcaption{A6}{Regressions maps resulting from performing one multiple regression (column a) and from performing two simple regressions (column b)}\label{fig:A6}
-\end{figure}
-
-\begin{figure}
-\includegraphics{A7-1} \appendcaption{A7}{Zonal waves derives from the regression maps from performing one multiple regression (column a) and from performing two simple regressions (column b)}\label{fig:A7}
-\end{figure}
-
-\begin{figure}
 \includegraphics{A8-1} \appendcaption{A8}{Pattern cross-correlation \#FIXME!}\label{fig:A8}
+\end{figure}
+
+\begin{figure}
+\includegraphics{A9-1} \caption[700 hPa Geopotetnial height zonal anomalies of composites of positive and negative SAM months selected using 1 standard deviation as threshhold]{700 hPa Geopotetnial height zonal anomalies of composites of positive and negative SAM months selected using 1 standard deviation as threshhold. Numbers in the column headers are pattern correlation between SAM+ and SAM- composites and number of monthly fields used to construct the composites.}\label{fig:A9}
+\end{figure}
+
+\begin{figure}
+\includegraphics{A10-1} \caption[Zonal of projection of 700 hPa onto the first EOF of each season]{Zonal of projection of 700 hPa onto the first EOF of each season.}\label{fig:A10}
 \end{figure}
 
 

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.8.12)  31 AUG 2020 22:24
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.8.12)  1 SEP 2020 19:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -684,13 +684,15 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 12.0pt on input line 92.
 
-Package natbib Warning: Citation `hersbach' on page 3 undefined on input line 1
-02.
+Underfull \vbox (badness 2961) has occurred while \output is active []
 
 [3]
 \openout4 = `paper.fff'.
 
-(paper.fff) [4]
+(paper.fff)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[4]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [5]
@@ -703,30 +705,25 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [8]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Package natbib Warning: Citation `fogt2011' on page 9 undefined on input line 3
-50.
-
-[9]
-Underfull \vbox (badness 1215) has occurred while \output is active []
-
-[10]
+[9] [10]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [11]
+Underfull \vbox (badness 1215) has occurred while \output is active []
+
+[12] [13]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[12]
-Underfull \hbox (badness 7649) in paragraph at lines 516--519
+[14]
+Underfull \hbox (badness 7649) in paragraph at lines 584--587
 []\T1/ntxtlf/m/n/12 NOAA Global Sur-face Tem-per-a-ture (NOAA-Glob-al-Temp) dat
 a pro-vided by the
  []
 
-(./paper.bbl [13] [14]) [15]
-
-Package natbib Warning: There were undefined citations.
-
-AED endfloat: Processing end Figures and Tables [16] (./paper.lof
+(./paper.bbl [15] [16]) [17] AED endfloat: Processing end Figures and Tables [1
+8] (./paper.lof
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.5pt on input line 1.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
@@ -735,54 +732,58 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 \tf@lof=\write5
 \openout5 = `paper.lof'.
 
-[17
+[19
 
 
 ] (./paper.fff
 File: method-1.pdf Graphic file (type pdf)
 <use method-1.pdf>
-[18]
+[20]
 File: asymsam-timeseries-1.pdf Graphic file (type pdf)
 <use asymsam-timeseries-1.pdf>
-[19]
+[21]
 File: cor-lev-1.pdf Graphic file (type pdf)
 <use cor-lev-1.pdf>
-[20]
+[22]
 File: cross-correlation-1.pdf Graphic file (type pdf)
 <use cross-correlation-1.pdf>
-[21]
+[23]
 File: trends-1.pdf Graphic file (type pdf)
 <use trends-1.pdf>
-[22]
+[24]
+File: r-squared-trend-1.pdf Graphic file (type pdf)
+<use r-squared-trend-1.pdf>
+[25]
 File: 2d-regr-1.pdf Graphic file (type pdf)
 <use 2d-regr-1.pdf>
 
-Overfull \hbox (37.88876pt too wide) in paragraph at lines 27--27
+Overfull \hbox (37.88876pt too wide) in paragraph at lines 32--32
 [][] |
  []
 
-[23]
+[26]
 File: wave-amplitude-1.pdf Graphic file (type pdf)
 <use wave-amplitude-1.pdf>
-[24]
+[27]
 File: vertical-regression-1.pdf Graphic file (type pdf)
 <use vertical-regression-1.pdf>
-[25]
+[28]
 File: regr-air-season-1.pdf Graphic file (type pdf)
 <use regr-air-season-1.pdf>
-[26]
+[29]
 File: pp-regr-oceania-1.pdf Graphic file (type pdf)
 <use pp-regr-oceania-1.pdf>
-[27]
+[30]
 File: pp-regr-america-1.pdf Graphic file (type pdf)
 <use pp-regr-america-1.pdf>
-[28]
+[31]
 File: regr-ice-1.pdf Graphic file (type pdf)
 <use regr-ice-1.pdf>
 
-LaTeX Warning: Text page 29 contains only floats.
+LaTeX Warning: Text page 32 contains only floats.
 
-[29
+[32
+
 
 
 
@@ -798,62 +799,42 @@ LaTeX Warning: Text page 29 contains only floats.
 ]
 File: A1-1.pdf Graphic file (type pdf)
 <use A1-1.pdf>
-[30]
+[33]
 File: A2 ccf-levels-1.pdf Graphic file (type pdf)
 <use A2 ccf-levels-1.pdf>
-
-Overfull \hbox (1.75386pt too wide) in paragraph at lines 67--67
-[][] |
- []
-
-[31]
+[34]
 File: A3-1.pdf Graphic file (type pdf)
 <use A3-1.pdf>
 
-Overfull \hbox (1.75386pt too wide) in paragraph at lines 72--72
-[][] |
- []
-
-[32]
-File: A4-1.pdf Graphic file (type pdf)
-<use A4-1.pdf>
-
-Overfull \hbox (1.75386pt too wide) in paragraph at lines 77--77
-[][] |
- []
-
-[33]
-File: A6-1.pdf Graphic file (type pdf)
-<use A6-1.pdf>
-
-Overfull \hbox (1.75386pt too wide) in paragraph at lines 82--82
-[][] |
- []
-
-[34]
-File: A7-1.pdf Graphic file (type pdf)
-<use A7-1.pdf>
-
-Overfull \hbox (1.75386pt too wide) in paragraph at lines 87--87
+Overfull \hbox (37.88876pt too wide) in paragraph at lines 77--77
 [][] |
  []
 
 [35]
+File: A4-1.pdf Graphic file (type pdf)
+<use A4-1.pdf>
+[36]
 File: A8-1.pdf Graphic file (type pdf)
 <use A8-1.pdf>
+[37]
+File: A9-1.pdf Graphic file (type pdf)
+<use A9-1.pdf>
 
-Overfull \hbox (1.75386pt too wide) in paragraph at lines 92--92
+Overfull \hbox (37.88876pt too wide) in paragraph at lines 92--92
 [][] |
  []
 
-) [36] (./paper.aux) ) 
+[38]
+File: A10-1.pdf Graphic file (type pdf)
+<use A10-1.pdf>
+) [39] (./paper.aux) ) 
 Here is how much of TeX's memory you used:
- 8465 strings out of 481666
- 119581 string characters out of 5931477
+ 8482 strings out of 481666
+ 119928 string characters out of 5931477
  357329 words of memory out of 5000000
- 25415 multiletter control sequences out of 15000+600000
+ 25432 multiletter control sequences out of 15000+600000
  588905 words of font info for 82 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  64i,14n,102p,818b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on paper.pdf (36 pages).
+Output written on paper.pdf (39 pages).

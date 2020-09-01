@@ -29,7 +29,7 @@ knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE,
   cache = TRUE,
-  cache.extra = 41,
+  cache.extra = 42,
   cache.path = "../cache/",
   collapse = TRUE,
   comment = "#>",
@@ -45,7 +45,7 @@ library(asymsam)
 library(latex2exp)
 library(tagger)
 
-theme_set(theme_asymsam(base_size = 10))
+theme_set(theme_asymsam(base_size = 9))
 ZeroBreaks <- AnchorBreaks(0, NULL, 0)
 axis_labs_smol <- theme(axis.text = element_text(size = 6))
 lev.lab <- AddSuffix(" hPa")
@@ -88,6 +88,9 @@ lab_sam <-  c(full = "Full",
 yada yada SAM yada yada circulation.. yada yada so important. yada yada many impacts. 
 
 
+@fogt2012 studied the characteristics of the asymmetric structure of the SAM. It computed the zonally anomalous component of mean sea level pressure (MSLP) composites for positive and negative SAM events and created two indices by projecting MSLP fields ontno them. However, the use of composites leads to some issues that affects the interpretability of the results. First, they can be dependent on the choice of threshold used to define positive and negative events. Secondly, by discarting data that don't meet the threshold, they don't use all the information avaiable. Due to the realtive short timeframe used, this leads to some composites being composed of as little as 4 years. Third, the resulting composites corresponding to each polarity and season are derived from the average of different amount of fields and from different years. This last issue is particularly important in light of the changing structure of the SAM before and after 1980 [@silvestri2009]. In @fogt2012, the DJF SAM+ composite uses only 7 years, 5 of which are later than 1988, whereas all of the 8 years used for their DJF SAM- composite are from earlier than 1988. 
+
+
 ```{r read-hgt}
 hgt <- ReadNetCDF(ERA5(), 
                   subset = list(time = c("1979-01-01", "2018-12-31"),
@@ -111,15 +114,6 @@ dims <- hgt[lat <= -20] %>%
 ```
 
 # Methods
-
-### Data 
-
-We used monthly geopotential height at 2.5 longitude by 2.5 latitude resolution from ERA5 [@hersbach] for the period 1979 to 2018.
-
-Monthly temperature NOAA Global Surface Temperature (NOAAGlobalTemp) 5.0 degree latitude x 5.0 degree longitude global grid [@vose2012; @smith2008]. The same analysis was carried out using CRUTEM4 [@osborn2014] (not shown). 
-
-We used monthly precipitation data from CPC Merged Analysis of Precipitation [@xie1997] 2.5 degree latitude x 2.5 degree longitude. CPCC: [schneider2015]  #FIXME
-
 
 ### Definition of indices
 
@@ -165,6 +159,16 @@ sam_plot %>%
   no_grid +
   tag_facets()
 ```
+
+
+
+### Data 
+
+We used monthly geopotential height at 2.5 longitude by 2.5 latitude resolution from ERA5 [@hersbach2020.] for the period 1979 to 2018.
+
+Monthly temperature NOAA Global Surface Temperature (NOAAGlobalTemp) 5.0 degree latitude x 5.0 degree longitude global grid [@vose2012; @smith2008]. The same analysis was carried out using CRUTEM4 [@osborn2014] (not shown). 
+
+We used monthly precipitation data from CPC Merged Analysis of Precipitation [@xie1997] 2.5 degree latitude x 2.5 degree longitude. CPCC: [schneider2015]  #FIXME
 
 
 ### Significance
@@ -378,11 +382,24 @@ trends_text <- local[, paste0(signif(estimate, 2), " \\pm ", signif(std.error*1.
 
 We stress that these are only linear trends during the whole period and the absence of a statistically significant signal should not be taken as evidence of no sistematic change. In particular, going back to Figure \ref{fig:asymsam-timeseries}, we can see an evident change in the stratospheric Asymemtric component (red line in panel a) between the 90's, when we see a dominance of extreme negative values, and the 00's, when we see the inverse. This change is restricted to the Winter months: the linear trend for JJA starting in 1990 for the Asymmetric component at 50hPa is $`r trends_text[term == "asym" & lev == 50 & season == "JJA"]$V1`$.
 
-These results point to very different behaviours between the stratospheric and tropospheric SAM. #FIXME
+Figure \ref{fig:r-squared-trend} shows decadal trends for the explained variance of each index. There is no evidencie of a significant trend in the stratosphere. In the troposphere, there is a positive trend for the Asymmetric SAM and no significant trend for the Symmetric SAM. This suggest that the SAM has become more asymmetric in the period from 1979 to 2018. The change is slight, though; of the order of 1% icreased explained variance per decade. 
 
-This suggests that both the Asymmetric and the Symemtric component of the tropospheric SAM are highly vertically coherent, both in their individual evolution and their temporal relationship. This is to be expected since the SAM is mostly equivalent barotropic (citaaaa). 
-
-
+```{r r-squared-trend, fig.height=5, fig.width=3, fig.cap = "Decadal trends for explained variance of each index at each level for the period 1979-2018. Shading indicates the 95\\% confidence interval."}
+indices %>% 
+  .[term != "full"] %>% 
+  .[, FitLm(r.squared, time, se = TRUE), by = .(lev, type = term)] %>% 
+  rm_intercept() %>%
+  .[, estimate := estimate*3600*24*365*10] %>% 
+  .[, std.error := std.error*3600*24*365*10] %>% 
+  ggplot(aes(lev, estimate)) +
+  geom_hline(yintercept = 0) +
+  geom_ribbon(aes(fill = type, ymin = estimate - 1.96*std.error, ymax = estimate + 1.96*std.error), alpha = 0.2) +
+  geom_line(aes(color = type)) +
+  scale_x_level() +
+  scale_y_continuous("Trend in R^2") +
+  scale_fill_brewer(NULL, palette = "Dark2", aesthetics = c("color", "fill"), labels = lab_sam) +
+  coord_flip() 
+```
 
 ## Spatial patterns
 
@@ -544,7 +561,7 @@ The geopotential anomalies associated with the stratospheric SAM (panel a) are c
 
 The tropospheric asymmetric SAM has significant signals that extend upwards the uppermost levels of the reanalysis. In the troposphere, the wave-3 structure is equivalent barotropic with maximum amplitude at roughly 250 hPa. #FIXME moaaaaar.
 
-Interestingly, the structures shown in Figure \ref{fig:vertical-regression} are surprisignly robust to the choice of index level. For any stratospheric (above 100 hPa) index, the resulting anomalies are very similar to the wave-1 structure with maximum near 10 hPa in panel a. Conversely, for any tropospheric (below 100 hPa) index, the result is very similar to panel b. The pattern cross-correlation between levels of each segment of the atmosphere is greater than 0.9 (Figure A#fixme). The patterns mainly change in amplitude. The tropospheric pattern is maximised by the 300 hPa Asymmetric SAM index and the stratospheric pattern increased monotonically with height. 
+Interestingly, the structures shown in Figure \ref{fig:vertical-regression} are surprisignly robust to the choice of index level. For any stratospheric (above 100 hPa) index, the resulting anomalies are very similar to the wave-1 structure with maximum near 10 hPa in panel a. Conversely, for any tropospheric (below 100 hPa) index, the result is very similar to panel b. The pattern cross-correlation between levels of each segment of the atmosphere is greater than 0.9 (Figure A8). The patterns mainly change in amplitude. The tropospheric pattern is maximised by the 300 hPa Asymmetric SAM index and the stratospheric pattern increased monotonically with height. 
 
 
 ```{r enso-cor}
@@ -611,7 +628,8 @@ air_regr <- air %>%
   .[, rbind(as.data.table(FitLm(air, asym, sym, se = TRUE)),
             as.data.table(FitLm(air, full, se = TRUE))),
     by = .(lon, lat, season(time))] %>% 
-  rm_intercept() 
+  rm_intercept() %>% 
+  .[, term := factor(term, levels = names(lab_sam), ordered = TRUE)] 
 ```
 
 
@@ -626,17 +644,20 @@ air_regr %>%
   # .[, term := factor(term, levels = names(lab_sam), ordered = TRUE)] %>%
   periodic(lon = c(0, 360)) %>% 
   ggplot(aes(lon, lat)) +
-  geom_contour_fill(aes(z = estimate), na.fill = 0,
+  geom_contour_fill(aes(z = estimate), 
                     breaks = AnchorBreaks(0, 0.15, 0)) +
-  geom_contour_tanaka(aes(z = estimate), na.fill = 0,
+  geom_contour_tanaka(aes(z = estimate),
                       breaks = AnchorBreaks(0, 0.15, 0)) +
   # geom_raster(aes(fill = estimate)) +
   geom_contour_fill(aes(z = p.value), breaks = c(0, 0.05), color = "black", fill = "gray50", alpha = 0.2) +
-  geom_contour_fill(aes(z = as.numeric(is.na(estimate))), breaks = c(0.5, 2), fill = "gray", color = "gray30") +
+  geom_contour_fill(aes(z = as.numeric(is.na(estimate))), breaks = c(0.5, 2), fill = "gray") +
+  geom_contour2(aes(z = as.numeric(is.na(estimate))), breaks = c(0.5, 2), color = "gray50") +
   geom_qmap(~.x[lat <= 0]) +
   scale_x_longitude() +
   scale_y_latitude(labels = NULL, limits = c(NA, 0)) +
-  scale_fill_divergent("Surface temperature",  limits = c(-0.8, .8), oob = scales::squish,
+  scale_fill_divergent("Surface temperature",  
+                       limits = c(-0.8, .8), 
+                       oob = scales::squish,
                        guide = guide_colorstrip_bottom(), breaks = AnchorBreaks(0, 0.15, 0)) +
   coord_polar() +
   facet_grid(season ~ term, labeller = labeller(term = lab_sam, lev = lev.lab)) +
@@ -659,7 +680,7 @@ Finally, in SON (column d), there is no significant temperature signal associate
 
 Regression of the SAM indicies with seasonal mean precipitation are shown Figures \ref{fig:pp-regr-oceania} and \ref{fig:pp-regr-america} for Australia and New Zealand, and South America respectively. (We didn't detect any significant signal in South Africa.)
 
-```{r}
+```{r calc-indices2d-seasonal}
 indices_2d_seasonal <- hgt[lev %in% 700] %>% 
   indices_wide[., on = .NATURAL, allow.cartesian = TRUE] %>% 
   .[, lapply(.SD, mean, na.rm = TRUE), by = .(lon, lat, time = seasonally(time))] %>% 
@@ -765,7 +786,7 @@ plot_pp <- function(this_continent, data = pp_regr) {
     geom_contour2(data = indices_2d %>% copy() %>% add_continent() %>% .[continent == this_continent],
                   color = "gray50", size = 0.2, global.breaks = FALSE, 
                 aes(z = estimate, linetype = factor(-sign(..level..)))) +
-    geom_qmap(~.x %>% add_continent() %>% .[continent == this_continent], keep = 0.015, weighting = 0.9) +
+    geom_qmap(~.x[lat <= 10], keep = 0.015, weighting = 0.9) +
     scale_x_longitude(breaks = NULL) +
     scale_y_latitude(breaks = NULL) +
     scale_fill_divergent("Precipitation", 
@@ -790,7 +811,7 @@ plot_pp <- function(this_continent, data = pp_regr) {
 ```
 
 
-```{r pp-regr-oceania, dependson=plot_pp,  fig.cap = "Same but for oceania", fig.width = 6, fig.height = 6.5, fig.env = "figure*"}
+```{r pp-regr-oceania, dependson="def-plot_pp",  fig.cap = "Same but for oceania", fig.width = 6, fig.height = 6.5, fig.env = "figure*"}
 plot_pp("oceania") 
 ```
 
@@ -800,14 +821,20 @@ In Australia (Figure \ref{fig:pp-regr-oceania}), the annual-level regression sho
 The seasonal-level regressions show statistically significant anomalies only in SON, with a pattern similar to the annual-level regression (panel a.5). Panels b.5 and c.5 don't show a clear separation between the Asymmetric and Symmetric SAM. If anything, the positive and more significant regression coefficients in panel b.5 vs pane c.5 would suggest more influence of the Asymmetric than the Symmetric SAM, going against the interpretation gathered from the annual-level regressions. This Spring signal is broadly consistent with @hendon2007, but whereas @hendon2007 also detected a strong signal in Summer, panel a.2 shows no statistically significant association (although the coeffcients have the consistent sign). 
 
 
-```{r pp-regr-america, dependson = plot_pp, fig.cap = "Same but for america", fig.width = 6, fig.height = 7.6, fig.env = "figure*"}
+```{r pp-regr-america, dependson = "def-plot_pp", fig.cap = "Same but for america", fig.width = 6, fig.height = 7.6, fig.env = "figure*"}
 plot_pp("america")
 
 ```
 
-In South America (Figure \ref{fig:pp-regr-america}) , the annual-level regression shows that the SAM is associated with statistically significant precipitation decreases both in Southeastern South America and Southern Chile (panel a.1). Both signals were observed by @silvestri2009 and the former also by @gillett2006. Panels b.1 and c.1 show a remarkable clean separation between the Asymmeric SAM --associated with the signal located in Southestern South America-- and the Symmetric SAM --associated with the signal in Chile. This separation is consistent with the mechanisms responsible for these effects. In Southeastern South America, anomalous meridional winds lead to less precipitation by inhibiting moisture convergence from the South American Low Level Jet [@silvestri2009]. In Southern Chile, the reduced westerly flow reduce moisture transport from the Pacific Ocean (cita??). The is a small area of increased precipitation with SAM near central Argentina which is also present in the station-based analysis by @gillett2006 and that is explained by the Asymmmetric SAM.
+In South America (Figure \ref{fig:pp-regr-america}), the annual-level regression shows that the SAM is associated with statistically significant precipitation decrease in Southeastern South America (SESA) and Southern Chile and non-significant increase in South Brazil, near the South Atlantic Convergence Zone (SACZ) (panel a.1). 
 
-The negative relationship between precipiation and SAM index in Southeastern South America and Southern Chile is evident in all seasons except Winter (although not always stastitically significant) and it appears to maximise in Autumn.
+Panels b.1 and c.1 show a remarkably clean separation between the Asymmeric SAM --associated with the Southeastern South American and Southern Brazilian signals-- and the Symmetric SAM --associated with the signal in Southern Chile. This separation is consistent with the mechanisms responsible for these effects. In Southern Chile, the reduced westerly flow reduce moisture transport from the Pacific Ocean (cita?? #FIXME). 
+
+In Southeastern South America, anomalous meridional winds lead to less precipitation by inhibiting moisture convergence from the South American Low Level Jet [@silvestri2009]. The increased precipiation in the South Atlantic Convergence Zone, on the other hand, appears to be related to modulation of the anomalous SAM circulation in SACZ events which lead to more frequent and intense SACZ events during positive SAM [@rosso2018]. 
+
+There is a small area of increased precipitation with SAM near central Argentina which is also present in the station-based analysis by @gillett2006 and that is explained by the Asymmmetric SAM.
+
+Except during Winter, the seasonal-level regression all show these similar patterns although not as cleanly and only in some cases statistically significant. 
 
 ### Sea ice
 
@@ -851,7 +878,7 @@ ice_regr %>%
   .[estimate != 0] %>% 
   
   ggplot(aes(lon, lat)) +
-  scattermore::geom_scattermore(aes(color = estimate)) +
+  scattermore::geom_scattermore(aes(color = estimate), pixels = c(256, 256)) +
   stat_subset(aes(subset = pval < 0.01 & is.cross(x, y, 3)),
               geom = "point", size = 0.01, alpha = .6) +
   geom_contour2(data = indices_2d_seasonal[lat <= -50], color = "gray50", size = 0.3,
@@ -872,6 +899,7 @@ ice_regr %>%
   axis_labs_smol
 ```
 
+
 Regressions between the Full SAM index and Antarctic Sea Ice Concentrations (Figure \ref{fig:regr-ice}) show a great deal of variability across seasons. The only statistically significant signal is in Spring, when we observe negative concentraion anomalies in the Northen Weddell Sea (panel a.4) explained by the Asymmetric SAM (panel b.4). Both in Winter and in Spring the Asymmetric SAM is associated with bigger Sea Ice Concentration anomalies in West Antarctica than East Antarctica, with generally decreased concentration East of the Antarctic Peninsula and increased concentration to the West, as expected from the anomalous circulation correlated with this index. The Symmetric SAM signal appears more evenly distributed accross the whole ice sheet. 
 
 
@@ -879,17 +907,30 @@ Regressions between the Full SAM index and Antarctic Sea Ice Concentrations (Fig
 
 ## Conclusions
 
-@silvestri2009 showed that impacts linked to the SAM changed rather dramatically before and after 1980, and that this change can be explained by changes in the regional-scale structure of the SAM-related circulation. In particular, the decreased in precipitation in South America (Figure \ref{fig:pp-regr-america} panel a.1) was absent or even switched sign. 
+We presented a method to systematically separate the zonally asymmetric and zonally symmetric components of the SAM. 
+By itself, the spatial structure and temporal evolution of the SAM shows a strong separation between the stratosphere SAMs. The first EOF in the stratosphere is monopolar in nature while the first EOF in the troposphere is a proper annular mode. Their repespective departures from the zonal mean are also different: a zonal wave 1 dominates the stratospheric SAM, waves 3 and 2 dominate the tropospheric SAM. Furthermore, there is little temporal correlation between the tropospheric and stratospheric time series. 
 
-@silvestri2009 also thowed 
+The zonal asymmetric component of the SAM at each level is even more decupled between the troposphere and the stratosphere. Their temporal evolution shows essentialy zero correlation (Figure \ref{fig:cross-correlation}) and the signal associated with the stratospheric Asymmetric SAM is completely restricted to the stratosphere (Figure \ref{fig:vertical-regression} panel a). Geopotential height anomalies associated with the tropospheric Asymmetric SAM, on the other hand, do extend to the stratosphere, but those anomalies do not project strongly into the stratospheric Asymmetric SAM. 
 
-Therefore, is very likely that if we were to repeat this analysis using pre-satellite data, the resulting Asymmetric SAM would look very differnt. 
-
-
-This suggests that both the Asymmetric and the Symemtric component of the tropospheric SAM are highly vertically coherent, both in their individual evolution and their temporal relationship. This is to be expected since the SAM is mostly equivalent barotropic (citaaaa). 
+We show that the observed positive trends towards positive SAM is restricted to the tropospheric SAM and is explained by the Symmetric component (Figure \ref{fig:trends]). However, the degree of asymmetry appears to have increased slightly in the last 40 years, as the Asymmetric SAM explains an increasingly proportion of the variance (Figure \ref{fig:r-squared-trend}).
 
 
-@hosking2013 observed a pattern similar to the one near the Amundsen Sea in panel a.4 associated with the strengthening of the ASL. The positive anomalies of SIC near the Amundsen sea being inconsistent with the anomalies of meridional wind associated with the ASL. Row 4 in Figure \ref{fig:regr-ice} might shed some light to resolve this mistery. The SAM is evidently related to the ASL through it's Asymmetric component, and since the ASymmetric SAM is correlated with the Symmetric SAM, the ALS will be rleated to the symemtric SAM. Consiering the similarities between the the SIC anomalies observed by @hosking2013 (in its Figure 7) and Figure \ref{fig:regr-ice} panel a.4, it is very likely that what was observed in that paper was a residual effect of the SAM. #FIXME!!
+In terms of impacts, we see that ..Temperature... #FIXME
+
+The patterns of SAM-associated precipitation anomalies are similarly well separated. In South America, we show that negative anomalies observed in Chile related to the SAM are well explained by the Symmetric compomnet, while the precipitation dipole in Southern South America and the South Atlantic Convergence Zone is explained by the Asymmetric component. 
+
+<!-- @hosking2013 observed a pattern similar to the one near the Amundsen Sea in panel a.4 associated with the strengthening of the ASL. The positive anomalies of SIC near the Amundsen sea being inconsistent with the anomalies of meridional wind associated with the ASL. Row 4 in Figure \ref{fig:regr-ice} might shed some light to resolve this mistery. The SAM is evidently related to the ASL through it's Asymmetric component, and since the ASymmetric SAM is correlated with the Symmetric SAM, the ALS will be rleated to the symemtric SAM. Consiering the similarities between the the SIC anomalies observed by @hosking2013 (in its Figure 7) and Figure \ref{fig:regr-ice} panel a.4, it is very likely that what was observed in that paper was a residual effect of the SAM. #FIXME!! -->
+
+
+### Limitations
+
+Our method assumes linearity in the asymmetric component of the SAM. That is, assumes that zonal symmetries associated with positive SAM are oposite and equal to the ones associated with negatie SAM. @fogt2012's composites suggest that this might not be entirely valid, although we argue that much of that apparent non-linearity is due to the heterogenous nature of the selected years for constructing the composites. Using our data (from 1979 to 2018), seasonal composites of zonal anomalies of 700 hPa geopotential height for for SAM+ and SAM- show pattern linear correlations greater than -0.7 for all seasons and are visually very linear (Figure A9). Therefore, we belive that our method is at the very least a reasonable approximation of the fenomenon. 
+
+We also asumed that the structure of the SAM zonal anomalies is stable in all seasons. Again, this is not unreasonable, as geopotential zonal anomalies computed by projecting the first EOF *of each season* are very similar to each other (Figure A10).
+
+@silvestri2009 showed that impacts linked to the SAM changed rather dramatically before and after 1980. In particular, the negative relationship with precipitation in South America (consistent with Figure \ref{fig:pp-regr-america} panel a.1) was absent in some areas and switched sign in other in the earlier period. The correlation between ENSO and SAM is similarly non-stationary, also disapearing before 1973. 
+
+Seeing as both the ENSO-SAM relationship and most of the precipitation imacts in South America are captured by the Asymmetric SAM, the results presented here are most likely period-dependent. Therefore, is very likely that if we were to repeat this analysis using pre-satellite data, the resulting Asymmetric SAM would look very different. 
 
 
 
@@ -929,7 +970,7 @@ indices_wide %>%
 ```
 
 
-```{r A2 ccf-levels, fig.cap = "Cross-correlation functions for each index and two differnet base levels."}
+```{r A2 ccf-levels, fig.cap = "Cross-correlation functions for each index and two differnet base levels.", fig.height=5, fig.width=6}
 ccf_dt <- function(...) {
   a <- ccf(..., plot = FALSE)
   list(acf = as.vector(a$acf),
@@ -964,13 +1005,13 @@ indices %>%
   .[, fftspectrum(estimate, c(3, 5), B = 5000, probs = c(0.025, 0.975)), by = .(term, lev)] -> spec
 ```
 
-```{r A3, fig.cap = "Fourier spectrum of each timeseries. The shading indicates de 95\\% area derived by fitting an AR process to each series and bootstrapping 5000 simulated samples.", appendix = TRUE}
+```{r A3, fig.cap = "Fourier spectrum of each timeseries. The shading indicates de 95\\% area derived by fitting an AR process to each series and bootstrapping 5000 simulated samples.", appendix = TRUE, fig.height=4, fig.width=7}
 spec %>%
   # .[term != "full"] %>% 
   ggplot(aes(1/freq/12, spec)) +
-  geom_ribbon(aes(fill = term, ymin = `2%`, ymax = `98%`), position = "dodge", alpha = 0.1) +
-  geom_line(aes(color = term, y = ar_spectrum), alpha = 0.15) +
-  geom_line(aes(color = term)) +
+  geom_ribbon(aes(ymin = `2%`, ymax = `98%`), position = "dodge", alpha = 0.1) +
+  geom_line(aes(y = ar_spectrum), alpha = 0.15) +
+  geom_line() +
   annotation_logticks(sides = "b") +
   scale_color_brewer(NULL, palette = "Dark2", aesthetics = c("color", "fill")) +
   scale_x_log10("Period (years)", sec.axis = sec_axis(~.*12)) +
@@ -978,7 +1019,7 @@ spec %>%
   tag_facets() 
 ```
 
-```{r A4, fig.cap = "Autocorrelation functions of each timeseries", appendix = TRUE}
+```{r A4, fig.cap = "Autocorrelation functions of each timeseries", appendix = TRUE, fig.width=4, fig.height=4}
 acf_dt <- function(...) {
   a <- acf(..., plot = FALSE)
   list(acf = as.vector(a$acf),
@@ -997,61 +1038,7 @@ indices %>%
 
 
 
-```{r A6, appendix = TRUE, fig.cap = "Regressions maps resulting from performing one multiple regression (column a) and from performing two simple regressions (column b)"}
-regr_dif <- hgt[lev %in% 700] %>% 
-  indices_wide[., on = .NATURAL, allow.cartesian = TRUE] %>% 
-  .[,  rbind(idcol = "regression", multiple = as.data.table(FitLm(hgt_a, sym, asym)),
-             single = rbind(as.data.table(FitLm(hgt_a, sym)),
-                            as.data.table(FitLm(hgt_a, asym)))),
-    by = .(lon, lat)]
-
-regr_dif %>% 
-  rm_intercept() %>% 
-  periodic(lon = c(0, 360)) %>% 
-  .[, term := factor(term, levels = names(lab_sam), ordered = TRUE)] %>% 
-  .[lat <= -20] %>% 
-  ggplot(aes(lon, lat)) +
-  geom_contour_fill(aes(z = estimate), breaks = ZeroBreaks, global.breaks = FALSE) +
-  # geom_contour2(aes(z = estimate, linetype = factor(-sign(..level..))), 
-  # size = 0.3,
-  # global.breaks = FALSE) +
-  geom_contour_tanaka(aes(z = estimate),
-                      breaks = ZeroBreaks,
-                      size = 0.3,
-                      global.breaks = FALSE) +
-  geom_qmap(~.x[lat <= -20]) +
-  # geom_contour2(data = ~.x[dataset == "NCEP"], aes(z = V1)) +
-  scale_x_longitude() +
-  scale_y_latitude(limits = c(NA, -20), labels = NULL) +
-  scale_fill_divergent(NULL, guide = guide_colorstrip_bottom(), 
-                       limits = c(-85, 85),
-                       oob = scales::squish,
-                       breaks = MakeBreaks(binwidth = 20, exclude = 0)) +
-  scale_linetype(guide = "none") +
-  coord_polar() +
-  facet_grid(term ~ regression, labeller = labeller(term = lab_sam, lev = lev.lab)) +
-  tag_facets("cr") +
-  axis_labs_smol 
-```
-
-```{r A7, appendix = TRUE, fig.cap = "Zonal waves derives from the regression maps from performing one multiple regression (column a) and from performing two simple regressions (column b)"}
-regr_dif %>% 
-  rm_intercept() %>% 
-  .[lat < -20] %>%
-  # .[lev %in% c(50, 700)] %>% 
-  .[, FitWave(estimate, 0:3), by = .(lat, regression, term)] %>% 
-  ggplot(aes(lat, amplitude)) +
-  geom_line(aes(color = factor(k))) +
-  scale_color_brewer("Wave-number", palette = "Dark2") +
-  scale_y_continuous("Amplitude") +
-  scale_x_latitude(ticks = 15) +
-  coord_flip() +
-  facet_grid(term~regression, labeller = labeller(term = lab_sam, lev = lev.lab), scales = "free_x") +
-  tag_facets("cr", position = "tr")
-```
-
-
-```{r A8, appendix = TRUE, fig.cap = "Pattern cross-correlation \\#FIXME!"}
+```{r A8, appendix = TRUE, fig.cap = "Pattern cross-correlation \\#FIXME!", fig.height=4, fig.width=4}
 vertical_regr %>% 
   .[term == "asym"] %>% 
   copy() %>% 
@@ -1071,5 +1058,74 @@ vertical_regr %>%
   scale_y_level(minor_breaks = logbreaks) +
   coord_equal() +
   theme(panel.spacing.x = unit(2, "lines"), strip.placement = "outside") 
+```
+
+
+```{r A9, fig.cap = "700 hPa Geopotetnial height zonal anomalies of composites of positive and negative SAM months selected using 1 standard deviation as threshhold. Numbers in the column headers are pattern correlation between SAM+ and SAM- composites and number of monthly fields used to construct the composites.", apendix = TRUE, fig.height = 5, fig.width = 7}
+composites <- hgt[lev == 700] %>%
+  indices_wide[., on = .NATURAL] %>% 
+  .[, sign := ifelse(abs(full) > sd(full), sign(full), 0), by = season(time)] %>% 
+  .[, .(hgt = mean(hgt_a), n = .N), by = .(lon, lat, sign, season(time))] %>% 
+  .[, z := Anomaly(hgt), by = .(lat, sign, season)] 
+
+composites_cors <- composites %>% 
+  dcast(season + lat + lon ~ sign, value.var = "z") %>% 
+  .[, .(cor = cor(`-1`, `1`)), by = season]
+
+tags <- composites[order(sign, season)][sign != 0, paste0("n: ", unique(n)), by = .(sign, season)]
+
+composites %>% 
+  .[sign != 0] %>% 
+  composites_cors[., on = "season"] %>% 
+  .[order(season)] %>% 
+  .[, season_text := paste0(season, "\ncor: ", signif(cor, 2))] %>% 
+  .[, season_text := factor(season_text, levels = unique(season_text), ordered = TRUE)] %>% 
+  periodic(lon = c(0, 360)) %>% 
+  ggplot(aes(lon, lat)) +
+  geom_contour_fill(aes(z = z), breaks = AnchorBreaks(0,exclude = 0), global.breaks = FALSE) +
+  geom_contour_tanaka(aes(z = z), breaks = AnchorBreaks(0,exclude = 0), global.breaks = FALSE) +
+  
+  geom_qmap(~.x[lat <= 0]) +
+  scale_x_longitude() +
+  scale_y_latitude(limits = c(NA, -20), labels = NULL) +
+  scale_fill_divergent(NULL, guide = guide_colorstrip_bottom(),
+                       breaks = AnchorBreaks(0, binwidth = 15, exclude = 0)) +
+  coord_polar() +
+  axis_labs_smol +
+  no_grid +
+  facet_grid(sign~season_text, labeller = labeller(sign = c("-1" = "SAM-", "1" = "SAM+"))) +
+  tag_facets(tag_pool = tags$V1, tag_suffix = "")
+  
+```
+
+```{r A10, fig.cap = "Zonal of projection of 700 hPa onto the first EOF of each season.",  apendix = TRUE, fig.width=4, fig.height=4}
+set.seed(42)
+SAM_season <- hgt[lat <= -20] %>% 
+  .[lev == 700] %>% 
+  .[, hgt := hgt_a*sqrt(cos(lat*pi/180))] %>% 
+  .[, season := season(time)] %>% 
+  .[, .(eof = list(EOF(hgt ~ time | lon + lat, n = 1, data = .SD))), 
+    by = .(season)]
+
+SAM_season[, eof[[1]]$left, by = season] %>% 
+  copy() %>% 
+  setnames("hgt", "EOF") %>% 
+  .[, EOF := EOF/sd(EOF), by = .(season)] %>% 
+  hgt[., on = "time"] %>% 
+  .[, .(proj = sum(EOF*hgt_a)), by = .(lon, lat, season)] %>% 
+  .[season == "DJF", proj := -proj] %>% 
+  .[, proj_z := Anomaly(proj), by = .(lat, season)] %>% 
+   periodic(lon = c(0, 360)) %>% 
+  ggplot(aes(lon, lat)) +
+  geom_contour_fill(aes(z = proj_z), breaks = AnchorBreaks(0,exclude = 0), global.breaks = FALSE) +
+  geom_contour_tanaka(aes(z = proj_z), breaks = AnchorBreaks(0,exclude = 0), global.breaks = FALSE) +
+  geom_qmap(~.x[lat <= 0]) +
+  scale_x_longitude() +
+  scale_y_latitude(limits = c(NA, -20), labels = NULL) +
+  scale_fill_divergent(NULL, guide = "none") +
+  coord_polar() +
+  axis_labs_smol +
+  no_grid +
+  facet_wrap(.~season)
 ```
 
