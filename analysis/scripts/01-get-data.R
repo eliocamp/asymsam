@@ -14,6 +14,7 @@ files <- list(aao = "aao.csv",
               NOAAGlobalTemp = "air.mon.anom.nc",
               cmap = "precip.mon.mean.nc",
               hadcrut = "HadCRUT.4.6.0.0.median.nc",
+              cpcc = "precip.mon.total.v2018.nc",
               era5 =  "era5.z.mon.mean.nc")
 
 dir.create(asymsam::data_path("raw"), recursive = TRUE, showWarnings = FALSE)
@@ -67,6 +68,18 @@ if (!force && file.exists(asymsam::data_path("raw", file))) {
 } else {
   download.file(url, destfile = asymsam::data_path("raw", file))
 }
+
+# Download CMAP -----------------------------------------------------------
+url <- "ftp://ftp.cdc.noaa.gov/Datasets/gpcc/full_v2018/precip.mon.total.v2018.nc"
+file <- files$cpcc
+
+if (!force && file.exists(asymsam::data_path("raw", file))) {
+  message("File already exists.")
+} else {
+  download.file(url, destfile = asymsam::data_path("raw", file))
+}
+
+
 
 # Download ERA5 -----------------------------------------------------------
 user <- Sys.getenv("CDSUSER", NA)

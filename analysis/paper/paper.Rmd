@@ -1,5 +1,5 @@
 ---
-twocol: FALSE  #  Use FALSE for submission. 
+twocol: TRUE  #  Use FALSE for submission. 
 title: Title here
 author1: 
   name: Elio Campitelli
@@ -19,6 +19,7 @@ output:
     latex_engine: "xelatex"
 header-includes: 
  - \usepackage{gensymb}
+ - \usepackage{subfig}
 ---
 
 ```{r setup, echo = FALSE,warning=FALSE, message = FALSE}
@@ -62,6 +63,15 @@ knitr::opts_hooks$set(invisible = function(options) {
 })
 
 main_levs <- c(700, 300, 30, 50)
+
+combine_lists <- function(...) {
+  X <- list(...)
+  names <- names(X[[1]])
+  names(names) <- names
+  lapply(names, function(n) {
+    unlist(lapply(X, function(x) x[[n]]))
+  })
+}
 ```
 
 
@@ -102,7 +112,7 @@ We used monthly geopotential height at 2.5 longitude by 2.5 latitude resolution 
 
 Monthly temperature NOAA Global Surface Temperature (NOAAGlobalTemp) 5.0 degree latitude x 5.0 degree longitude global grid [@vose2012; @smith2008]. The same analysis was carried out using CRUTEM4 [@osborn2014] (not shown). 
 
-We used monthly precipitation data from CPC Merged Analysis of Precipitation [@xie1997] 2.5 degree latitude x 2.5 degree longitude.  
+We used monthly precipitation data from CPC Merged Analysis of Precipitation [@xie1997] 2.5 degree latitude x 2.5 degree longitude. CPCC: [schneider2015]  #FIXME
 
 
 ### Definition of indices
@@ -113,7 +123,7 @@ To separate between the zonally symmetric and asymmetric components of the SAM, 
 
 The three indices are normalised by dividing them by the standard deviation of the "Full" index at each level. This means that comparing the magnitude between indices is meaningful, but it also means that not every index will have unit standard deviation. 
 
-```{r method, fig.cap = "Spatial patterns of the first EOF of 700 hPa geopotential height. Full field (left), zonally asymmetric component (middle) and zonally symmetric component (right). Arbitrary units.", fig.width=6, fig.height=3, fig.env="figure*"}
+```{r method, fig.cap = "Spatial patterns of the first EOF of 700 hPa geopotential height. Full field (left), zonally asymmetric component (middle) and zonally symmetric component (right). Arbitrary units.", fig.width=6, fig.height=2.5, fig.env="figure*"}
 sam_sep <- SAM[, eof[[1]]$right, by = .(lev)] %>% 
   setnames("hgt", "full") %>% 
   .[, c("sym", "asym") := list(mean(full), Anomaly(full)), by = .(lat, lev)] %>% 
@@ -147,7 +157,7 @@ sam_plot %>%
   scale_y_latitude(limits = c(NA, -20), labels = NULL) +
   scale_fill_divergent(guide = "none") +
   coord_polar() +
-  facet_grid(lev~variable, labeller = labeller(variable = label_parsed, lev = lev.lab)) +
+  facet_grid(.~variable, labeller = labeller(variable = label_parsed, lev = lev.lab)) +
   axis_labs_smol +
   tag_facets()
 ```
@@ -175,48 +185,87 @@ if (file.exists(indices_file)) {
 indices_wide <- dcast(indices, + lev + time ~ term, value.var = "estimate_norm")
 ```
 
+```{r}
+# indices %>% 
+#   copy() %>% 
+#   .[lev %in% c(50, 700)] %>% 
+#   .[, cumestimate := cumsum(estimate_norm), by = .(lev, term, season(time))] %>% 
+#   
+#   
+#   ggplot(aes(time, cumestimate)) +
+#   geom_line(aes(color = term)) +
+#   # ggridges::geom_vridgeline(stat="ydensity", scale = -4e8, fill = NA,
+#   #                           aes(color = term, width = ..density.., x = min(time - 1e7))) +
+#   scale_color_brewer(NULL, palette = "Dark2", labels = lab_sam) +
+#   scale_y_continuous(NULL) +
+#   # scale_x_datetime(NULL, expand = c(0, 0)) +
+#   facet_grid(lev~season(time), labeller = labeller(lev = lev.lab)) +
+#   tag_facets()
+
+```
+
 
 
 ```{r asymsam-timeseries, fig.cap = "Time series for the asymmetric SAM and symmetric SAM and density estimates.", fig.width=6, fig.height=3, fig.env="figure*"}
 indices %>% 
-  .[lev %in% c(30, 700) & term != "full"] %>% 
+  .[lev %in% c(50, 700) & term != "full"] %>% 
   # .[, estimate_norm := estimate_norm/sd(estimate_norm), by = .(lev, term)] %>% 
   ggplot(aes(time, estimate_norm)) +
   geom_line(aes(color = term)) +
   ggridges::geom_vridgeline(stat="ydensity", scale = -4e8, fill = NA,
                             aes(color = term, width = ..density.., x = min(time - 1e7))) +
-  scale_color_brewer(NULL, palette = "Set1", labels = lab_sam) +
+  # geom_smooth(aes(color = term), method = "loess", n = 481, span = 10*12/481, method.args = list(degree = 1)) +
+  # geom_point(data = ~.x[lev == 50][time == as.Date("1987-11-01") & term == "sym" | 
+  #                         time == as.Date("1987-08-01") & term == "asym"]) +
+  ggforce::geom_mark_circle(data = ~.x[lev == 50][time == as.Date("1987-11-01") & term == "sym" | 
+                                                    time == as.Date("1987-08-01") & term == "asym"],
+                            expand = unit(2, "mm")) +
+  scale_color_brewer(NULL, palette = "Dark2", labels = lab_sam) +
   scale_y_continuous(NULL) +
   # scale_x_datetime(NULL, expand = c(0, 0)) +
-  facet_grid(lev~., labeller = labeller(lev = lev.lab), scales = "free") +
+  facet_grid(lev~., labeller = labeller(lev = lev.lab)) +
   tag_facets()
 ```
 
 
-Figure \ref{fig:asymsam-timeseries} shows the resulting Asymmetric and Symmetric time series corresponding to 700 and 30hPa.  #FIXME
+Figure \ref{fig:asymsam-timeseries} shows the resulting Asymmetric and Symmetric time series corresponding to 700 and 50hPa.  #FIXME
 
 At first glance the series can be distinguished by their distributions. Whereas the tropospheric incides are aproximately normally distributed, the stratospheric indices are more long-tailed; that is, extreme values (both negative and positive) abound. The Asymmetric series have both more variability in the higher frequencies than the Symmetric series.
 
-The stratospheric Symmetric SAM varies strongly with  a two-year period, which can be seen using spectral methods (Figure A3) or in the autocorrelation structure (Figure A4). There is a local peak at 2 years in the periodigram of the tropospheric Symmetric SAM also, although it's not statistically significant. In the troposphere the most significant peak of variability is found in the Asymmetric index at around `r 12*.3` months. 
+The stratospheric Symmetric SAM varies strongly witha two-year period, which can be seen using spectral methods (Figure A3) or in the autocorrelation structure (Figure A4). There is a local peak at 2 years in the periodigram of the tropospheric Symmetric SAM also, although it's not statistically significant. In the troposphere the most significant peak of variability is found in the Asymmetric index at around `r 12*.3` months. 
 
 ```{r compute-cors}
-cors <- indices_wide[, cor(asym, sym), by = lev] 
+ccf_dt <- function(..., plot = FALSE) {
+  stat <- ccf(..., plot = plot)
+  list(lag = stat$lag[, 1, 1], 
+       acf = stat$acf[, 1, 1])
+}
+
+cors <- indices_wide %>% 
+  .[, ccf_dt(asym, sym, lag.max = 5), by = .(lev)]
 ```
 
-Correlations between the Asymmetric and Symmetric series are constant throught the troposphere, fluctiating between `r signif(cors[lev >= 100, min(V1)], 2)` and `r signif(cors[lev >= 100, max(V1)], 2)` (Figure \ref{fig:cor-lev}). Futhermore, the cross-correlation of each series across levels --shown in Figure \ref{fig:cross-correlation}-- are high in the trosposphere (greater than 0.9) for both indices. This suggests that both the Asymmetric and the Symemtric component of the tropospheric SAM are highly vertically coherent, both in their individual evolution and their temporal relationship. This is to be expected since the SAM is mostly equivalent barotropic (citaaaa). 
+From Figure \ref{fig:asymsam-timeseries} we can see that the Asymemtric and Symmetric time series appear to be correlated. Moreover, looking at the extremes in the stratosphere, the Symmetric serie appears to lag the Asymmetric series (see, for example, the positive events on late 1987 marked with a circle). We show these correlations, across all the levels of the reanalysis and for zero and -1 lag (Asymmetric index leading the Symmetric index), in Figure \ref{fig:cor-lev}. 
 
-In the stratosphere the situation is different. As can be seen in Figure \ref{fig:cor-lev}, the relationship between the Asymmetric and Symmetric indices varies with height above 100 hPa. It starts to decreese right over the tropopause, reaches a minium of `r signif(min(cors$V1), 2)` at `r cors[which.min(V1), lev]` hPa and then it increases again monotonically with height up to the uppermost level of the reanalysis. The cross-correlation across levels in the stratosphere is generally weaker than in the troposphere (Figure \ref{fig:cross-correlation}). Furthermore, above 100 hPa, the cross-correlation decreases more rapdily with height for the Symmetric SAM than for the Asymmetric SAM as evidenced by the wider dark red areas near the diagonal in Figure \ref{fig:cross-correlation}b) vs.  Figure \ref{fig:cross-correlation}c). Moreover, the stratospheric Symmetric SAM seems to be slightly more connected to the trosposphere than the Asymmetric SAM; this can be seen by the lower correlation values in the top right quadrant of Figure \ref{fig:cross-correlation}b) in comparison with Figure \ref{fig:cross-correlation}c).
-
-```{r cor-lev, fig.cap = "Correlation between the Symmetric and Asymmetric SAM at each level.", fig.width=3, fig.height=3}
+```{r cor-lev, fig.cap = "Correlation between the Symmetric and Asymmetric SAM at each level for lag zero and lag -1 (Asymmetric leads Symmetric).", fig.width=3, fig.height=3}
 cors %>% 
-  ggplot(aes(lev, V1)) +
-  geom_line() +
+  .[lag %in% c(0, -1)] %>% 
+  ggplot(aes(lev, acf)) +
+  geom_line(aes(color = factor(lag, levels = c(0, -1), ordered = TRUE),
+                linetype = factor(lag, levels = c(0, -1), ordered = TRUE))) +
   scale_x_level() +
   scale_y_continuous("Correlation", limits = c(0, 1)) + 
+  scale_linetype_manual(NULL, values = c(1, 5), labels = c("0" = "Zero-lag", 
+                                                         "-1" = "Asymmetric leads\nSymmetric (1 month)")) +
+  scale_color_brewer(NULL, palette = "Dark2", labels = c("0" = "Zero-lag", 
+                                                         "-1" = "Asymmetric leads\nSymmetric (1 month)")) +
   coord_flip()
 ```
 
-```{r cross-correlation, fig.cap = "Cross correlation between levels of the Full, Asymmetric and Symmetric SAM.", fig.width = 6, fig.height=4, fig.env="figure*"}
+
+Zero-lag correlations between the Asymmetric and Symmetric series are relatively constant throught the troposphere, fluctiating between `r signif(cors[lag == 0 & lev >= 100, min(acf)], 2)` and `r signif(cors[lag == 0 & lev >= 100, max(acf)], 2)`. One-month-lag correlations are similarly constant but significantly reduced, hovering around `r signif(cors[lag == -1 &lev > 500][, mean(acf)], 2)`. In the stratosphere, zero-lag correlations drop to a minimum of `r signif(cors[lag == 0 & lev < 100][which.min(acf)]$acf, 2)` at `r cors[lag == 0 & lev < 100][which.min(acf)]$lev` hPa and then it increases again monotonically with height up to the uppermost level of the reanalysis. At the same time, one-month-lag correlations increase with height. 
+
+```{r cross-correlation, fig.cap = "Cross correlation between levels of the Full, Asymmetric and Symmetric SAM.", fig.width = 6, fig.height=3, fig.env="figure*"}
 tri <- matrix(c(1000, 1000, 1000, 1, 1, 1, 1000, 1000), ncol = 2, byrow = TRUE) %>% 
   as.data.table() %>% 
   setnames(., colnames(.), c("item1", "item2"))
@@ -226,11 +275,13 @@ logbreaks <- function(range) {
   ticks$value[ticks$end == 0.2]
 }
 
-indices %>% 
+crosscor <- indices %>% 
   copy() %>% 
-  .[, widyr::pairwise_cor(.SD, lev, time, estimate, diag = FALSE), by = .(term)] %>% 
+  .[, widyr::pairwise_cor(.SD, lev, time, estimate, diag = FALSE), by = .(term)] 
+crosscor %>% 
   ggplot(aes(item2, item1)) +
   geom_contour_fill(aes(z = correlation), na.fill = .99, breaks = MakeBreaks(binwidth = 0.1)) +
+  geom_contour_tanaka(aes(z = correlation), size = 0.1, na.fill = .99, breaks = MakeBreaks(binwidth = 0.1)) +
   geom_text_contour(aes(z = correlation), na.fill = .99, breaks = MakeBreaks(binwidth = 0.1), 
                     color = "white", rotate = FALSE, stroke.color = "black", stroke = 0.2, 
                     skip = 1, size = 2) +
@@ -247,7 +298,8 @@ indices %>%
 ```
 
 
-Figure \ref{fig:cross-correlation}a) show the cross-correlation across levels for the Full, Symmetric and Asymmetric SAM indices. The high values below 100 hPa in panel reflects the vertical (zero-lag) coherency of the tropospheric SAM. Above 100 hPa correlation between levels falls of rapidly, indicating less coherent (zero-lag) variability. At the same time, there is a non negligible correlation between the troposphere and the lower-to-middle stratosphere. By examining panels b and c we see that the Asymemtric and Symmetric SAM  share the smae high level of coherency in the tropospherem but that the Asymmetric SAM is relatively more coherent in the stratosphere. The tropospheric-stratospheric connection is only present in the Symmetric SAM. 
+Figure \ref{fig:cross-correlation}a) shows (zero-lag) cross-correlation across levels for the Full, Symmetric and Asymmetric SAM indices. For the Full SAM (panel a), high values below 100 hPa reflect the vertical (zero-lag) coherency throughout the troposfere. Above 100 hPa correlation between levels falls off more rapidly, indicating less coherent (zero-lag) variability. Still there is a non negligible correlation between the troposphere and the lower-to-middle stratosphere. Examining panels b and c, we see that the Asymemtric and Symmetric SAM  share the same high level of coherency in the troposphere but they differ in their stratospheric behaviour. As evidenced by the wider dark red areas near the diagonal in Figure \ref{fig:cross-correlation}b) vs.  Figure \ref{fig:cross-correlation}c), stratospheric coherency is stronger for the Asymmetric SAM than the Symemtric SAM. The stratospheric Symmetric SAM seems to connect more strongly to the trosposphere than the Asymmetric SAM; this can be seen by the lower correlation values in the top right left of Figure \ref{fig:cross-correlation}b) in comparison with Figure \ref{fig:cross-correlation}c).
+
 
 <!-- ```{r} -->
 <!-- indices_wide %>%  -->
@@ -260,7 +312,7 @@ Figure \ref{fig:cross-correlation}a) show the cross-correlation across levels fo
 <!--   ggplot(aes(lev, estimate)) + -->
 <!--   geom_ribbon(aes(ymax = estimate + std.error*1.96, ymin = estimate - std.error*1.96), alpha = 0.3) + -->
 <!--   geom_line() + -->
-<!--   scale_fill_brewer(palette = "Set1", aesthetics = c("color", "fill")) + -->
+<!--   scale_fill_brewer(palette = "Dark2", aesthetics = c("color", "fill")) + -->
 <!--   geom_hline(yintercept = 0) + -->
 <!--   scale_x_level() + -->
 <!--   scale_y_continuous("Standard deviations per decade") + -->
@@ -271,30 +323,64 @@ Figure \ref{fig:cross-correlation}a) show the cross-correlation across levels fo
 
 
 
-```{r trends, fig.cap = "Trends for each index at each level. Shading indicates the 95\\% confidence interval.", fig.width = 6, fig.height=3}
-indices %>%
+
+```{r trends, fig.cap = "Decadal normalised trends for each index at each level for annual (row a) and seasonal values (rows b-e) for the period 1979-2018. Shading indicates the 95\\% confidence interval.", fig.width = 6, fig.height=4, fig.env="figure*"}
+annual_trend <- indices %>%
   copy() %>% 
   .[, estimate_norm := estimate_norm/sd(estimate_norm), by = .(lev, term)] %>%
   .[, FitLm(estimate_norm, time, se = TRUE), by = .(lev, type = term)] %>% 
   rm_intercept() %>% 
   .[, term := NULL] %>% 
+  .[, season := "Annual"]
+
+
+indices %>% 
+  copy() %>% 
+  # .[time > as.Date("1990-01-01")] %>%
+  .[, season := season(time)] %>% 
+  .[, estimate_norm := estimate_norm/sd(estimate_norm), by = .(lev, term)] %>% 
+  .[, FitLm(estimate_norm, time, se = TRUE), by = .(type = term, lev, season)] %>% 
+  rm_intercept() %>% 
+  .[, term := NULL] %>% 
+  rbind(annual_trend) %>% 
   .[, estimate := estimate*3600*24*365*10] %>% 
   .[, std.error := std.error*3600*24*365*10] %>% 
   setnames("type", "term") %>% 
+  .[, season := forcats::fct_relevel(season, "Annual")] %>% 
   ggplot(aes(lev, estimate)) +
   geom_ribbon(aes(ymax = estimate + std.error*1.96, ymin = estimate - std.error*1.96), alpha = 0.3) +
   geom_line() +
-  scale_fill_brewer(palette = "Set1", aesthetics = c("color", "fill")) +
+  scale_fill_brewer(palette = "Dark2", aesthetics = c("color", "fill")) +
   geom_hline(yintercept = 0) +
   scale_x_level() +
   scale_y_continuous("Standard deviations per decade") +
   coord_flip() +
-  facet_grid(~ term,labeller = labeller(term = lab_sam)) +
-  tag_facets() 
+  facet_grid(season ~ term,labeller = labeller(term = lab_sam)) +
+  tag_facets("rc") 
 ```
 
+Figure \ref{fig:trends} shows normalised decadal trends for each index for the whole period 1979-2918 along with the 95% confidence interval in shading for the whole year (row a) and separed by trimesters (rows b through e). As documented by #FIXME (e.g. @fogt2020), there is a statistically significant increase towards more positive SAM (panel a.1), which is XX only in Summer and Autumn (panels b.1 and c.1). We observe these increases mainly in the troposphere, reaching their maximum at at 100 hPa in Summer. By separating the SAM signal in its Asymmetric and Symmetric parts, we can not only see that these trends are almost entirely due to the Symmetric component (columns 2 vs. columns 3), but in some cases the trends become more clear. In Summer, the Asymmetric SAM has a statistically non significant negative trend in the middle troposphere that obscures the signal; as a result, trends computed using only the Symmetric component are more clear (compare the shading region in panel b.1 and b.3). In Autumn, using the Symmetric SAM reveals a statistically significant positive trend in the stratosphere that is not significant using the Full index. 
 
-Figure \ref{fig:trends} shows normalised decadal trends for each index for the whole period along with a 95% interval in shading. There is a statistically significant increase in positive SAM in the tropostphere (panel a), which has been already documented in other studies (e.g. @fogt2020). Panels b and c of Figure \ref{fig:trends} show that this increase is evident only in the Symmetric component. This distinction should prove useful when attributing trends in other variables such as temperature and precipitation to trends in the SAM. 
+```{r regression-90}
+local <- indices %>%
+  .[time >= as.Date("1990-01-01")] %>% 
+  .[, estimate_norm := estimate_norm/sd(estimate_norm), by = .(lev, term)] %>%
+  .[, FitLm(estimate_norm, time, se = TRUE), by = .(lev, type = term, season(time))] %>% 
+  rm_intercept() %>% 
+  .[, term := NULL] %>% 
+  .[, estimate := estimate*3600*24*365*10] %>% 
+  .[, std.error := std.error*3600*24*365*10] 
+
+trends_text <- local[, paste0(signif(estimate, 2), " \\pm ", signif(std.error*1.96, 2)), 
+                     by = .(term = type, season, lev)]
+```
+
+We stress that these are only linear trends during the whole period and the absence of a statistically significant signal should not be taken as evidence of no sistematic change. In particular, going back to Figure \ref{fig:asymsam-timeseries}, we can see an evident change in the stratospheric Asymemtric component (red line in panel a) between the 90's, when we see a dominance of extreme negative values, and the 00's, when we see the inverse. This change is restricted to the Winter months: the linear trend for JJA starting in 1990 for the Asymmetric component at 50hPa is $`r trends_text[term == "asym" & lev == 50 & season == "JJA"]$V1`$.
+
+These results point to very different behaviours between the stratospheric and tropospheric SAM. #FIXME
+
+This suggests that both the Asymmetric and the Symemtric component of the tropospheric SAM are highly vertically coherent, both in their individual evolution and their temporal relationship. This is to be expected since the SAM is mostly equivalent barotropic (citaaaa). 
+
 
 
 ## Spatial patterns
@@ -303,8 +389,8 @@ Figure \ref{fig:trends} shows normalised decadal trends for each index for the w
 ```{r compute-regr-pattern}
 indices_2d_yearly <- hgt[lev %in% c(main_levs)] %>% 
   indices_wide[., on = .NATURAL, allow.cartesian = TRUE] %>% 
-  .[, rbind(as.data.table(FitLm(hgt_a, sym, asym, se = TRUE)),
-            as.data.table(FitLm(hgt_a, full, se = TRUE))),
+  .[, combine_lists(FitLm(hgt_a, sym, asym, se = TRUE),
+                    FitLm(hgt_a, full, se = TRUE)),
     by = .(lon, lat, lev)] %>% 
   rm_intercept() %>% 
   .[, p.val := Pvaluate(estimate, std.error, df, "fdr"), by = .(term, lev)] %>% 
@@ -313,25 +399,20 @@ indices_2d_yearly <- hgt[lev %in% c(main_levs)] %>%
 ```
 
 
-To undertand the spatial patterns associated with both indeces, we regressed monthly geopotential anomalies into both indeces using multiple regression (Figure A6 illustrates the difference between computing two simple regressions and one multiple regression). 
+To undertand the spatial patterns associated with both indeces, we regressed monthly geopotential anomalies into both indeces using multiple regression 
 
 
-```{r 2d-regr, fig.cap = "Regression patterns of geopotential height at 30, 300 and 700 hPa with the Full, Asymmetric and Symmetric SAM. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices, not of two simple regressions involving each index by itsef.", fig.env = "figure*", fig.width=6, fig.height=7}
+```{r 2d-regr, fig.cap = "Regression patterns of geopotential height at 30, 300 and 700 hPa with the Full, Asymmetric and Symmetric SAM. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices, not of two simple regressions involving each index by itsef.", fig.env = "figure*", fig.width=7, fig.height=5}
 indices_2d_yearly %>% 
   .[lat <= -20] %>% 
+  .[lev %in% c(50, 700)] %>% 
   ggplot(aes(lon, lat)) +
   geom_contour_fill(aes(z = estimate), breaks = ZeroBreaks, global.breaks = FALSE) +
-  # geom_contour2(aes(z = estimate, linetype = factor(-sign(..level..))), 
-  # size = 0.3,
-  # global.breaks = FALSE) +
   geom_contour_tanaka(aes(z = estimate),
                       breaks = ZeroBreaks,
                       size = 0.3,
                       global.breaks = FALSE) +
   geom_qmap(~.x[lat <= -20]) +
-  # geom_contour2(aes(z = p.val), breaks = 0.01) +
-  # stat_subset(aes(subset = p.val <= 0.01 & is.cross(lon, lat, 2)), geom = "point", size = 0.5, alpha = 0.3) +
-  # geom_hline(yintercept = c(-65, -40)) +
   scale_x_longitude() +
   scale_y_latitude(limits = c(NA, -20), labels = NULL) +
   scale_fill_divergent(NULL, guide = guide_colorstrip_bottom(), 
@@ -340,12 +421,18 @@ indices_2d_yearly %>%
                        breaks = MakeBreaks(binwidth = 20, exclude = 0)) +
   scale_linetype(guide = "none") +
   coord_polar() +
-  facet_grid(term ~ lev, labeller = labeller(term = lab_sam, lev = lev.lab)) +
-  tag_facets() +
+  facet_grid(lev ~ term, labeller = labeller(term = lab_sam, lev = lev.lab)) +
+  tag_facets("rc") +
   axis_labs_smol 
 ```
 
-Figure \ref{fig:2d-regr} shows the spatial year-long regression for selected levels. In the troposphere the Full annular mode is clearly "contaminated" with well known zonal asymemtries (panels g and j) which are succesfully sepparated by our methodology (panels h, i, k and l). In the stratosphere, the spatial pattern associated with the Full SAM is much more clearly dominated by a zonally symmetric, monopolar structure (panels a and d) that is, however, not perfectly centered in the south pole. The monopoloe obtained by multiple regression with the Asymmetric and Symmetric SAM (panels c and f in Figure \ref{fig:2d-regr}) is much more symmetric and the shift from total symmetry is captured by the regression pattern of the Asymmetric SAM as a wave-1 pattern (panels b and e).
+Figure \ref{fig:2d-regr} shows the spatial year-long regression #FIXME. Column a are regressinos using the Full SAM, while columns b and c are regression coefficients computed in a multiple regression of geopotential height on the Asymmetric and Symmetric indices at the same time. Thus, they are to be interpreted as the patterns associated with each index, controling for the (linear) effect of the other. (Figure A6 #FIXME illustrates the difference between computing two simple regressions and one multiple regression.)
+
+In the stratosphere, the spatial pattern associated with the Full SAM is more clearly dominated by a zonally symmetric, monopolar structure (panel a.1) which is, however, not perfectly centered in the south pole. The monopole obtained by multiple regression with the Asymmetric and Symmetric SAM (panel c.1) is much more symmetric and the shift from total symmetry is captured by the regression pattern of the Asymmetric SAM as a wave-1 with maximum anomalies above the Belinghausen Sea on the Western Hemisphere and and Davids Sea in the Eastern Hemisphere (panel b.1).
+
+In the troposphere, panel a.2 show the well known zonally symmetrical annular mode *contaminated* with zonal asymmetries in the form of a wave-3. The regression using the Asymmetric and Symmetric SAM indices successfully disentangle both structures. The Asymmetric component gives rise to a cleaner zonal wave (panel b.2) and the Symemtric component is assosiated with an trully annular mode, almost devoid of zonal asymmetries (panel c.2).  #FIXME (agregar algo más?)
+
+
 
 ```{r wave-amplitude, fig.cap = "Planteray wave amplitude for the regression patterns at 50 and 700 hPa.", fig.width=3, fig.height=4}
 indices_2d_yearly %>% 
@@ -354,54 +441,87 @@ indices_2d_yearly %>%
   .[, FitWave(estimate, 0:3), by = .(lat, lev, term)] %>% 
   ggplot(aes(lat, amplitude)) +
   geom_line(aes(color = factor(k))) +
-  scale_color_brewer("Wave-number", palette = "Set1") +
+  scale_color_brewer("Wave-number", palette = "Dark2") +
   scale_y_continuous("Amplitude") +
-  scale_x_latitude(ticks = 15) +
+  scale_x_latitude(ticks = 20) +
   coord_flip() +
   facet_grid(term~lev, labeller = labeller(term = lab_sam, lev = lev.lab), scales = "free_x") +
   tag_facets(position = "tr")
 ```
 
+The amplitude of each zonal wave number at each latitude at 50 hPa and 700 hPa is shown in Figure \ref{fig:wave-amplitude}, where wave number zero represents the amplitude of the zonal mean. Comparing between rows, this Figure quantifies the relatively clean separation between the zonally symmetric and zonally asymmetric structures, as its evident how the mixture of waves of the Full field (first row) is very similar to the sum of the waves of the Asymmetric and Symmetric field (second and third row, respectively). The second row of Figure \ref{fig:wave-amplitude} shows that the Asymmetric SAM is overwhelmingly dominated by wave 1 in the stratosphere (panel b), while in the troposphere it is composed of zonal waves 3 to 1 in decreasing level of importance. 
 
-The amplitude of each zonal wave number at each latitude at 50 hPa and 700 hPa is shown in Figure \ref{fig:wave-amplitude}, where wave number zero represents the zonal mean. Comparing between rows, this Figure quantifies the relatively clean separation between the zonally symmetric and zonally asymmetric structures, as its evident how the mixture of waves of the Full field (first row) is very similar to the sum of the waves of the Asymmetric and Symmetric field (second and third row, respectively). The second row of Figure \ref{fig:wave-amplitude} shows that the Asymmetric SAM is overwhelmingly dominated by wave 1 in the stratosphere (panel b), while in the stratosphere it is composed of zonal waves 3 to 1 in decreasing level of importance. 
 
 
-```{r vertical-regression, fig.cap = "Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South. (this caption needs some love)", fig.width = 4, fig.height=3}
-ReadNetCDF(ERA5(), 
-           subset = list(time = c("1979-01-01", "2018-12-31"),
-                         latitude = c(-65, -40)),
-           vars = c(hgt = "z")) %>% 
+```{r compute-vertical-regression}
+# vertical_regr <- ReadNetCDF(ERA5(), 
+#            subset = list(time = c("1979-01-01", "2018-12-31"),
+#                          latitude = c(-65, -40)),
+#            vars = c(hgt = "z")) %>% 
+#   normalise_coords() %>% 
+#   .[, .(hgt = weighted.mean(hgt, w = cos(lat*pi/180))), by = .(lon, lev, time)] %>% 
+#   .[, hgt := hgt/9.8] %>% 
+#   .[, hgt_a := hgt - mean(hgt), by = .(lon, lev, month(time))] %>% 
+#   indices_wide[., on = .NATURAL, allow.cartesian = TRUE] %>% 
+#   .[, FitLm(hgt_a, sym, asym, se = TRUE),
+#     by = .(lon, lev)] %>% 
+#   rm_intercept() %>% 
+#   .[, p.val := Pvaluate(estimate, std.error, df, "fdr"), by = .(term, lev)] %>% 
+#   periodic(lon = c(0, 360)) %>% 
+#   .[, term := factor(term, levels = names(lab_sam), ordered = TRUE)] 
+
+indices_wide %>% 
+  copy() %>% 
+  setnames("lev", "index_level") -> indices_for_regr
+
+vertical_regr <- ReadNetCDF(ERA5(), 
+                            subset = list(time = c("1979-01-01", "2018-12-31"),
+                                          latitude = c(-65, -40)),
+                            vars = c(hgt = "z")) %>% 
   normalise_coords() %>% 
   .[, .(hgt = weighted.mean(hgt, w = cos(lat*pi/180))), by = .(lon, lev, time)] %>% 
   .[, hgt := hgt/9.8] %>% 
   .[, hgt_a := hgt - mean(hgt), by = .(lon, lev, month(time))] %>% 
-  indices_wide[., on = .NATURAL, allow.cartesian = TRUE] %>% 
-  .[, FitLm(hgt_a, sym, asym, se = TRUE),
-    by = .(lon, lev)] %>% 
+  indices_for_regr[., on = .NATURAL, allow.cartesian = TRUE] %>% 
+  .[, combine_lists(FitLm(hgt_a, full, se = TRUE),
+                    FitLm(hgt_a, sym, asym, se = TRUE)),
+    by = .(lon, lev, index_level)] %>% 
   rm_intercept() %>% 
-  .[, p.val := Pvaluate(estimate, std.error, df, "fdr"), by = .(term, lev)] %>% 
+  .[, p.val := Pvaluate(estimate, std.error, df, "fdr"), by = .(term, index_level, lev)] %>% 
   periodic(lon = c(0, 360)) %>% 
-  .[, term := factor(term, levels = names(lab_sam), ordered = TRUE)] -> vertical_regr
+  .[, term := factor(term, levels = names(lab_sam), ordered = TRUE)] 
+```
 
+
+```{r vertical-regression, fig.cap = "Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South. (\\#FIXME this caption needs some love)", fig.width = 3, fig.height=3}
 vertical_regr %>% 
-  copy() %>% 
-  .[term == "asym"] %>% 
-  # .[, estimate := estimate/sd(estimate), by = .(lev, term)] %>%
+  .[index_level %in% c(50, 700)] %>% 
+  .[term == "asym"] %>%
   ggplot(aes(lon, lev)) +
   geom_contour_fill(aes(z = estimate), breaks = AnchorBreaks(0, 10, 0)) +
   geom_contour_tanaka(aes(z = estimate),
                       breaks = AnchorBreaks(0, 10, 0),
                       size = 0.3,
                       global.breaks = FALSE) +
+  # geom_contour2(aes(z = p.val), breaks = 0.01) +
   scale_fill_divergent(NULL, guide = guide_colorstrip_bottom(18), 
                        oob = scales::squish,
                        breaks = MakeBreaks(binwidth = 10, exclude = 0)) +
   scale_y_level() +
-  # geom_hline(yintercept = 300) +
-  scale_x_longitude(ticks = 60) 
+  scale_x_longitude(ticks = 60)  +
+  facet_grid(index_level~., labeller = labeller(index_level = lev.lab)) +
+  tag_facets(position = "bl") 
 ```
 
-From Figure \ref{fig:2d-regr} it appears that the vertical structure of the Asymmetric SAM is equivalent barotropic in the troposphere but baroclinic in the stratosphere. Anomalies are centerd in the same locations in the troposphere (panels h and k), but show westerly displacement in the stratosphere (panesl b and e). This is expanded in Figure \ref{fig:vertical-regression}, which shows a vertical crossection of the regression coefficient corresponding to the middle row of Figure \ref{fig:2d-regr}, area-weighted averaged between 65 and 40 degrees South. Below 100 hPa, anomalies are completely vertical, while above they show an important westerly tilt with height.
+
+To analyse the vertical structure of the geopotential anomalies asociated with the asymetric SAM index, we show a vertical cross section of regressions of mean geopotential height between 65ªS and 40ªS for the 50 hPa Asymmetric SAM index (panel a) and for the 700 hPa Asymmetric SAM index (panel b) (Figure \ref{fig:vertical-regression}). 
+
+The geopotential anomalies associated with the stratospheric SAM (panel a) are clearly constrained to the stratosphere, which underscores the disconnect between the stratospheric and tropospheric symetric SAM. The vertical structure this signal tilts about 60ª to the West between 100 hPa and 1 hPa, suggesting baroclinic processes and polarward transport of heat (#FIXME is this ok?). Interestingly, the signal in the stratosphere maximises near 10 hPa despite using the 50 hPa index for the regression. 
+
+The tropospheric asymmetric SAM has significant signals that extend upwards the uppermost levels of the reanalysis. In the troposphere, the wave-3 structure is equivalent barotropic with maximum amplitude at roughly 250 hPa. #FIXME moaaaaar.
+
+Interestingly, the structures shown in Figure \ref{fig:vertical-regression} are surprisignly robust to the choice of index level. For any stratospheric (above 100 hPa) index, the resulting anomalies are very similar to the wave-1 structure with maximum near 10 hPa in panel a. Conversely, for any tropospheric (below 100 hPa) index, the result is very similar to panel b. The pattern cross-correlation between levels of each segment of the atmosphere is greater than 0.9 (Figure A#fixme). The patterns mainly change in amplitude. The tropospheric pattern is maximised by the 300 hPa Asymmetric SAM index and the stratospheric pattern increased monotonically with height. 
+
 
 
 <!-- ```{r compute-regr-pattern-season} -->
@@ -541,52 +661,121 @@ Finally, in SON (column d), there is no significant temperature signal associate
 
 
 ```{r compute-pp-regr} 
-pp <- CMAP() %>% 
-  ReadNetCDF(subset = list(lat = c(-90, -20))) %>% 
-  normalise_coords() %>% 
-  .[, precip := Anomaly(precip), by = .(lon, lat)]
+# pp <- CMAP() %>% 
+#   ReadNetCDF(subset = list(lat = c(-90, -20))) %>% 
+#   normalise_coords() %>% 
+#   .[, precip := Anomaly(precip), by = .(lon, lat)]
+
+continents <- list(africa  = list(lon = c(0, 60),
+                                  lat = c(-40, 0)),
+                   oceania = list(lon = c(100, 180),
+                                  lat = c(-50, -5)),
+                   america = list(lon = c(265, 325),
+                                  lat = c(-60, -10)))
 
 
-pp_regr_season <- pp %>% 
+add_continent <- function(dt) {
+  dt[, continent := fcase(lon %between% continents$africa$lon & 
+                            lat %between% continents$africa$lat, "africa",
+                          lon %between% continents$oceania$lon & 
+                            lat %between% continents$oceania$lat, "oceania",
+                          lon %between% continents$america$lon &
+                            lat %between% continents$america$lat, "america")] %>% 
+    .[, continent := factor(continent, levels = c("africa", "oceania", "america"), ordered = TRUE)] %>% 
+    .[]
+}
+
+
+
+pp_regr_season <- CPCC() %>% 
+  ReadNetCDF(subset = list(lon = lapply(continents, function(x) x$lon),
+                           lat = lapply(continents, function(x) x$lat))) %>% 
+  na.omit() %>% 
+  normalise_coords() %>%
+  .[, days := lubridate::days_in_month(time[1]), by = time] %>% 
+  .[, precip := precip/days] %>% 
   # .[, air := Anomaly(air), by = .(lon, lat)] %>%
   .[indices_wide[lev == 700], on = .NATURAL] %>% 
   rm_singleton() %>% 
-  .[, lapply(.SD, mean, na.rm = TRUE), by = .(lon, lat, time = seasonally(time))] %>%
-  .[, nas := mean(is.na(precip)), by = .(lon, lat, season(time))] %>% 
+  add_continent() %>% 
+  .[!is.na(continent)] %>% 
+  .[, lapply(.SD, mean, na.rm = TRUE), by = .(lon, lat, continent, time = seasonally(time))] %>%
+  .[, `:=`(precip_a = Anomaly(precip),
+           precip_a_p = log(precip) - log(mean(precip, na.rm = TRUE))),
+    by = .(lon, lat, season(time))] %>% 
+  .[, nas := mean(is.na(precip)), by = .(lon,  lat, season(time))] %>% 
   .[nas >= 0.15, precip := NA] %>% 
-  .[, rbind(as.data.table(FitLm(precip, asym, sym, se = TRUE)),
-            as.data.table(FitLm(precip, full, se = TRUE))),
+  na.omit() %>% 
+  .[is.finite(precip_a_p)] %>% 
+  .[, combine_lists(FitLm(precip_a, asym, sym, se = TRUE),
+                    FitLm(precip_a, full, se = TRUE)),
     by = .(lon, lat, season(time))] %>% 
   rm_intercept()
 
+filter_sa <- function(data, lons = c(265, 325), lats = c(-80, -10)) {
+  data[is.sa(data, lons = lons, lats = lats)]
+}
+
 ```
 
-```{r pp-regr-global,  fig.cap = "Regression pattern of precipiation with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas.", fig.width =10, fig.height=7, fig.env = "sidewaysfigure"}
-pp_regr_season %>%
-  .[, p.value := Pvaluate(estimate, std.error, df, "fdr"), by = .(season, term)] %>% 
-  ggplot(aes(lon, lat)) +
-  geom_contour_fill(aes(z = estimate), na.fill = 0, breaks = AnchorBreaks(0, 0.25, 0)) +
-  geom_contour2(aes(z = p.value), breaks = 0.01) +
-  geom_contour_fill(aes(z = as.numeric(is.na(estimate))), breaks = 1) +
-  stat_subset(aes(subset = p.value <= 0.01 & is.cross(lon, lat)), size = 0.4, alpha = 0.3) +
-  geom_qmap(~.x[lat <= -20]) +
-  scale_x_longitude() +
-  scale_y_latitude(labels = NULL) +
-  scale_fill_divergent("Precipitation", guide = guide_colorstrip_bottom(), 
-                       breaks = AnchorBreaks(0, 0.25, 0)) +
-  coord_polar() +
-  facet_grid(term ~ season, labeller = labeller(term = lab_sam, lev = lev.lab)) +
-  tag_facets() +
-  axis_labs_smol
+```{r def-plot_pp}
+plot_pp <- function(this_continent) {
+  pp_regr_season %>%
+    add_continent() %>% 
+    # .[lat <= -10] %>% 
+    .[continent == this_continent] %>%
+    .[, p.value := Pvaluate(estimate, std.error, df, "none"), by = .(season, continent, term)] %>%
+    .[, p.value2 := Pvaluate(estimate, std.error, df, "fdr"), by = .(season, continent, term)] %>%
+    ggplot(aes(lon, lat)) +
+    geom_contour_fill(aes(z = estimate), na.fill = 0, breaks = AnchorBreaks(0, 0.5, 0)) +
+    # geom_raster(aes(fill = estimate/30)) +
+    geom_contour2(aes(z = p.value2), breaks = 0.01) +
+    # geom_contour_fill(aes(z = as.numeric(is.na(estimate))), breaks = 1) +
+    # stat_subset(aes(subset = p.value <= 0.01 & is.cross(lon, lat, 1)), size = 0.4, alpha = 0.3) +
+    geom_qmap(~.x %>% add_continent() %>% .[continent == this_continent], keep = 0.015, weighting = 0.9) +
+    scale_x_longitude(ticks = 15) +
+    scale_y_latitude(ticks = 15, labels = NULL) +
+    scale_fill_divergent("Precipitation", 
+                         limits = c(-3.4, 3.4),
+                         oob = scales::squish,
+                         guide = guide_colorstrip_bottom(), 
+                         breaks = AnchorBreaks(0, 0.5, 0)) +
+    coord_quickmap(xlim = continents[[this_continent]]$lon, 
+                   ylim = continents[[this_continent]]$lat) +
+    facet_grid(term ~ season, labeller = labeller(term = lab_sam, lev = lev.lab)) +
+    tag_facets(position = "br") +
+    axis_labs_smol
+}
+```
+
+```{r pp-regr-global-africa,  fig.cap = "Regression pattern of precipiation with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas. Africa", fig.width = 6, fig.height = 4.5, fig.env = "figure*"}
+plot_pp("africa") 
+
 ```
 
 
+```{r pp-regr-global-oceania,  fig.cap = "Same but for oceania", fig.width = 6, fig.height = 4.5, fig.env = "figure*"}
+plot_pp("oceania") +
+  tag_facets(position = "bl") 
+
+```
+
+```{r pp-regr-global-america,  fig.cap = "Same but for america", fig.width = 6, fig.height = 6, fig.env = "figure*"}
+plot_pp("america")
+
+```
 
 
+## Conclusiones
+
+
+
+
+This suggests that both the Asymmetric and the Symemtric component of the tropospheric SAM are highly vertically coherent, both in their individual evolution and their temporal relationship. This is to be expected since the SAM is mostly equivalent barotropic (citaaaa). 
 
 
 \acknowledgments
-CMAP Precipitation data provided by the NOAA/OAR/ESRL PSL, Boulder, Colorado, USA, from their Web site at https://psl.noaa.gov/
+CMAP Precipitation data provided by the NOAA/OAR/ESRL PSL, Boulder, Colorado, USA, from their Web site at https://psl.noaa.gov/ #FIXME
 
 NOAA Global Surface Temperature (NOAAGlobalTemp) data provided by the NOAA/OAR/ESRL PSL, Boulder, Colorado, USA, from their Web site at https://psl.noaa.gov/ 
 
@@ -664,7 +853,7 @@ spec %>%
   geom_line(aes(color = term, y = ar_spectrum), alpha = 0.15) +
   geom_line(aes(color = term)) +
   annotation_logticks(sides = "b") +
-  scale_color_brewer(NULL, palette = "Set1", aesthetics = c("color", "fill")) +
+  scale_color_brewer(NULL, palette = "Dark2", aesthetics = c("color", "fill")) +
   scale_x_log10("Period (years)", sec.axis = sec_axis(~.*12)) +
   facet_grid(lev ~ term,labeller = labeller(lev = lev.lab, term = lab_sam), scales = "free") +
   tag_facets() 
@@ -681,44 +870,11 @@ indices %>%
   .[, acf_dt(estimate_norm), by = .(lev, term)] %>% 
   ggplot(aes(lag, acf)) +
   geom_col(aes(fill = term)) +
-  scale_fill_brewer(palette = "Set1") +
+  scale_fill_brewer(palette = "Dark2") +
   facet_grid(term ~ lev,labeller = labeller(lev = lev.lab, term = lab_sam)) +
   tag_facets(position = "tr") 
 ```
 
-
-
-```{r A5, fig.cap = "Regression pattern of precipiation with Asymmetric and Symmetric SAM. P-values smaller than 0.05 (controlling for Flase Detection Rate) as hatched areas.", appendix = TRUE}
-
-is.sa <- function(data, lons = c(265, 325), lats = c(-80, -10)) {
-  data[, lon %between% lons & lat %between% lats]
-}
-
-filter_sa <- function(data, lons = c(265, 325), lats = c(-80, -10)) {
-  data[is.sa(data, lons = lons, lats = lats)]
-}
-
-pp_regr_season %>% 
-  filter_sa() %>% 
-  .[, lon := ConvertLongitude(lon)] %>% 
-  .[, p.value := Pvaluate(estimate, std.error, df, "fdr"), by = .(season, term)] %>% 
-  ggplot(aes(lon, lat)) +
-  # geom_raster(aes(fill = estimate)) +
-  geom_contour_fill(aes(z = estimate), na.fill = 0, breaks = AnchorBreaks(0, 0.25, 0)) +
-  geom_contour2(aes(z = p.value), breaks = 0.01) +
-  geom_contour_fill(aes(z = as.numeric(is.na(estimate))), breaks = 1) +
-  stat_subset(aes(subset = p.value <= 0.01 & is.cross(lon, lat)), size = 0.4, alpha = 0.3) +
-  geom_qmap(~filter_sa(.x)[, lon := ConvertLongitude(lon)], keep = 0.02) +
-  scale_x_longitude() +
-  scale_y_latitude() +
-  scale_fill_divergent("Precipitation", guide = guide_colorstrip_bottom(), 
-                       breaks = AnchorBreaks(0, 0.25, 0)) +
-  # coord_polar() +
-  # ggalt::coord_proj("+proj=moll +lon_0=-60") +
-  facet_grid(season~term, labeller = labeller(term = lab_sam)) +
-  tag_facets() +
-  axis_labs_smol 
-```
 
 
 
@@ -767,7 +923,7 @@ regr_dif %>%
   .[, FitWave(estimate, 0:3), by = .(lat, regression, term)] %>% 
   ggplot(aes(lat, amplitude)) +
   geom_line(aes(color = factor(k))) +
-  scale_color_brewer("Wave-number", palette = "Set1") +
+  scale_color_brewer("Wave-number", palette = "Dark2") +
   scale_y_continuous("Amplitude") +
   scale_x_latitude(ticks = 15) +
   coord_flip() +
@@ -776,25 +932,25 @@ regr_dif %>%
 ```
 
 
-```{r A8, appendix = TRUE, fig.cap = "Decadal trends of SAM indices for each season. "}
-indices %>% 
+```{r A8, appendix = TRUE, fig.cap = "Pattern cross-correlation \\#FIXME!"}
+vertical_regr %>% 
+  .[term == "asym"] %>% 
   copy() %>% 
-  .[, season := season(time)] %>% 
-  .[, estimate_norm := estimate_norm/sd(estimate_norm), by = .(lev, term)] %>% 
-  .[, FitLm(estimate_norm, time, se = TRUE), by = .(type = term, lev, season)] %>% 
-  rm_intercept() %>% 
-  .[, term := NULL] %>% 
-  .[, estimate := estimate*3600*24*365*10] %>% 
-  .[, std.error := std.error*3600*24*365*10] %>% 
-  setnames("type", "term") %>% 
-  ggplot(aes(lev, estimate)) +
-  geom_ribbon(aes(ymax = estimate + std.error*1.96, ymin = estimate - std.error*1.96), alpha = 0.3) +
-  geom_line() +
-  scale_fill_brewer(palette = "Set1", aesthetics = c("color", "fill")) +
-  geom_hline(yintercept = 0) +
-  scale_x_level() +
-  scale_y_continuous("Standard deviations per decade") +
-  coord_flip() +
-  facet_grid(season ~ term,labeller = labeller(term = lab_sam)) +
-  tag_facets() 
+  .[, id := interaction(lev, lon)] %>% 
+  widyr::pairwise_cor(index_level, id, estimate) %>% 
+  ggplot(aes(item2, item1)) +
+  geom_contour_fill(aes(z = correlation), na.fill = .99, breaks = MakeBreaks(binwidth = 0.1)) +
+  geom_contour_tanaka(aes(z = correlation), size = 0.1, na.fill = .99, breaks = MakeBreaks(binwidth = 0.1)) +
+  geom_text_contour(aes(z = correlation), na.fill = .99, breaks = MakeBreaks(binwidth = 0.1), 
+                    color = "white", rotate = FALSE, stroke.color = "black", stroke = 0.2, 
+                    skip = 1, size = 4) +
+  geom_polygon(data = tri, fill = "white") +
+  scale_fill_divergent("Cross-correlation", 
+                       breaks = MakeBreaks(binwidth = 0.1),
+                       guide = guide_colorstrip_bottom()) +
+  scale_x_level(minor_breaks = logbreaks, position = "top") +
+  scale_y_level(minor_breaks = logbreaks) +
+  coord_equal() +
+  theme(panel.spacing.x = unit(2, "lines"), strip.placement = "outside") 
 ```
+
