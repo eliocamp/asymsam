@@ -422,7 +422,7 @@ indices_2d_yearly <- hgt[lev %in% c(main_levs)] %>%
 ```
 
 
-```{r 2d-regr, fig.cap = "Regression patterns of geopotential height at 30, 300 and 700 hPa with the Full, Asymmetric and Symmetric SAM. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices, not of two simple regressions involving each index by itsef. Points marked on panel b.2 are the location of the reference points used by \\cite{raphael04} for its Zonal Wave 3 index.", fig.env = "figure*", fig.width=7, fig.height=5}
+```{r 2d-regr, fig.cap = "Regression patterns of geopotential height at 30, 300 and 700 hPa with the Full, Asymmetric and Symmetric SAM. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices, not of two simple regressions involving each index by itsef. Points marked on panel b.2 are the location of the reference points used by \\cite{raphael2004} for its Zonal Wave 3 index.", fig.env = "figure*", fig.width=7, fig.height=5}
 indices_2d_yearly %>% 
   .[lat <= -20] %>% 
   .[lev %in% c(50, 700)] %>% 
@@ -435,7 +435,7 @@ indices_2d_yearly %>%
   geom_qmap(~.x[lat <= -20]) +
   geom_point(data = data.frame(lon = ConvertLongitude(c(50, 166, -76)),
                                lat = -49, term = "asym", lev = 700), 
-             shape = 21, color = "black", fill = "#de3e80") +
+             shape = 21, size = 2.5, color = "black", fill = "#de3e80") +
   scale_x_longitude() +
   scale_y_latitude(limits = c(NA, -20), labels = NULL) +
   scale_fill_divergent(NULL, guide = guide_colorstrip_bottom(), 

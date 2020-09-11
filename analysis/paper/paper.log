@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.9.4)  4 SEP 2020 17:38
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.9.4)  7 SEP 2020 10:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -775,14 +775,6 @@ Overfull \hbox (37.88876pt too wide) in paragraph at lines 32--32
 [][] |
  []
 
-
-Package natbib Warning: Citation `raphael04' on page 27 undefined on input line
- 32.
-
-
-Package natbib Warning: Citation `raphael04' on page 27 undefined on input line
- 32.
-
 [27]
 File: wave-amplitude-1.pdf Graphic file (type pdf)
 <use wave-amplitude-1.pdf>
@@ -857,6 +849,6 @@ Here is how much of TeX's memory you used:
  25604 multiletter control sequences out of 15000+600000
  592036 words of font info for 84 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 64i,14n,103p,818b,413s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,14n,103p,818b,397s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on paper.pdf (40 pages).

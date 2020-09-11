@@ -3,11 +3,10 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: paper.aux
 The style file: ametsoc2014.bst
 Database file #1: AsymSAM.bib
-Warning--I didn't find a database entry for "raphael04"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 You've used 16 entries,
             3493 wiz_defined-function locations,
-            811 strings with 9544 characters,
+            810 strings with 9535 characters,
 and the built_in function-call counts, 18157 in all, are:
 = -- 2258
 > -- 452
@@ -46,4 +45,3 @@ warning$ -- 0
 while$ -- 88
 width$ -- 0
 write$ -- 202
-(There was 1 warning)
