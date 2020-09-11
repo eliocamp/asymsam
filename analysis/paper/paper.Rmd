@@ -88,7 +88,6 @@ lab_sam <-  c(full = "Full",
 
 yada yada SAM yada yada circulation.. yada yada so important. yada yada many impacts. 
 
-
 @fogt2012 studied the characteristics of the asymmetric structure of the SAM. It computed the zonally anomalous component of mean sea level pressure (MSLP) composites for positive and negative SAM events and created two indices by projecting MSLP fields ontno them. However, the use of composites leads to some issues that affects the interpretability of the results. First, they can be dependent on the choice of threshold used to define positive and negative events. Secondly, by discarting data that don't meet the threshold, they don't use all the information avaiable. Due to the realtive short timeframe used, this leads to some composites being composed of as little as 4 years. Third, the resulting composites corresponding to each polarity and season are derived from the average of different amount of fields and from different years. This last issue is particularly important in light of the changing structure of the SAM before and after 1980 [@silvestri2009]. In @fogt2012, the DJF SAM+ composite uses only 7 years, 5 of which are later than 1988, whereas all of the 8 years used for their DJF SAM- composite are from earlier than 1988. 
 
 
@@ -120,9 +119,9 @@ dims <- hgt[lat <= -20] %>%
 
 We defined the Southern Annular Mode (SAM) as the leading EOF of the monthly anomalies of geopotential field at 700 hPa south of 20\degree S (citation?). The EOF was performed by computing the Singular Value Decomposition of the data matrix consisting in `r dims$t` rows and  `r dims$x*dims$y` columns (`r dims$x` points of longitude and `r dims$y` points of latitude). The values where weighted by the square root of the cosine of latitude to account for the non-equal area of each gridpoint [@chung1999]. This same method was used at the rest of the levels considered in this paper. 
 
-To separate between the zonally symmetric and asymmetric components of the SAM, we computed the zonal mean and anomalies of the full SAM spatial pattern. The results are shown in Figure\ \ref{fig:method} for 700hPa. The full spatial signal ($\mathrm{EOF_1}(\lambda, \phi)$) is the sum of the zonally asymmetric ($\mathrm{EOF_1^*}(\lambda, \phi)$) and symmetric ($[\mathrm{EOF_1}](\lambda, \phi)$) components. We then compute the "Full", "Asymmetric" and "Symmetric" indices, by regressing each geopotential field on these patterns (weighting by the cosine of latitude).
+To separate between the zonally symmetric and asymmetric components of the SAM, we computed the zonal mean and anomalies of the full SAM spatial pattern, as shown in Figure\ \ref{fig:method} for 700hPa. The full spatial signal ($\mathrm{EOF_1}(\lambda, \phi)$) is the sum of the zonally asymmetric ($\mathrm{EOF_1^*}(\lambda, \phi)$) and symmetric ($[\mathrm{EOF_1}](\lambda, \phi)$) components. We then compute the "Full", "Asymmetric" and "Symmetric" indices, by regressing each geopotential field on the respective patterns (weighting by the cosine of latitude). The three indices are normalised by dividing them by the standard deviation of the "Full" index at each level. As a result, the magnitude between indices is comparable. However, only "Full" index will have unit standard deviation per definition. 
 
-The three indices are normalised by dividing them by the standard deviation of the "Full" index at each level. This means that comparing the magnitude between indices is meaningful, but it also means that not every index will have unit standard deviation. 
+
 
 ```{r method, fig.cap = "Spatial patterns of the first EOF of 700 hPa geopotential height. Full field (left), zonally asymmetric component (middle) and zonally symmetric component (right). Arbitrary units.", fig.width=6, fig.height=2.5, fig.env="figure*"}
 sam_sep <- SAM[, eof[[1]]$right, by = .(lev)] %>% 
@@ -165,11 +164,7 @@ sam_plot %>%
 
 ### Data 
 
-We used monthly geopotential height at 2.5 longitude by 2.5 latitude resolution from ERA5 [@hersbach2020.] for the period 1979 to 2018.
-
-Monthly temperature NOAA Global Surface Temperature (NOAAGlobalTemp) 5.0 degree latitude x 5.0 degree longitude global grid [@vose2012; @smith2008]. The same analysis was carried out using CRUTEM4 [@osborn2014] (not shown). 
-
-We used monthly precipitation data from CPC Merged Analysis of Precipitation [@xie1997] 2.5 degree latitude x 2.5 degree longitude. CPCC: [schneider2015]  #FIXME
+We used monthly geopotential height at 2.5 longitude by 2.5 latitude resolution from ERA5 [@hersbach2020.] for the period 1979 to 2018. Monthly temperature NOAA Global Surface Temperature (NOAAGlobalTemp) 5.0 degree latitude x 5.0 degree longitude global grid [@vose2012; @smith2008]. The same analysis was carried out using CRUTEM4 [@osborn2014] (not shown). We used monthly precipitation data from CPC Merged Analysis of Precipitation [@xie1997] 2.5 degree latitude x 2.5 degree longitude. CPCC: [schneider2015]  #FIXME
 
 
 ### Regressions
@@ -235,8 +230,7 @@ indices %>%
   tag_facets()
 ```
 
-
-Figure \ref{fig:asymsam-timeseries} shows the Asymmetric and Symmetric time series corresponding to 700 and 50hPa. At first glance the series can be distinguished by their distributions. Whereas the tropospheric incides are aproximately normally distributed, the stratospheric indices are more long-tailed; that is, extreme values (both negative and positive) abound. The Asymmetric series have both more variability in the higher frequencies than the Symmetric series.
+The temporal evolution of the Assymmetric and Symmetric SAM was firstly asssesed. Figure \ref{fig:asymsam-timeseries} shows the corresponding time series for 700 and 50hPa and their corresponding density estimates. Month-to-month variability is evident for both indices, with noisy variations in the low frequency. At first glance the series can be distinguished by their distributions. Whereas the tropospheric indices are aproximately normally distributed, the stratospheric indices are more long-tailed; that is, extreme values (both negative and positive) abound. The Asymmetric series have both more variability in the higher frequencies than the Symmetric series.
 
 The stratospheric Symmetric SAM varies strongly witha two-year period, which can be seen using spectral methods (Figure A3) or in the autocorrelation structure (Figure A4). There is a local peak at 2 years in the periodigram of the tropospheric Symmetric SAM also, although it's not statistically significant. In the troposphere the most significant peak of variability is found in the Asymmetric index at around `r 12*.3` months. 
 
@@ -251,7 +245,7 @@ cors <- indices_wide %>%
   .[, ccf_dt(asym, sym, lag.max = 5), by = .(lev)]
 ```
 
-From Figure \ref{fig:asymsam-timeseries} we can see that the Asymemtric and Symmetric time series appear to be correlated. Moreover, looking at the extremes in the stratosphere, the Symmetric serie appears to lag the Asymmetric series (see, for example, the positive events on late 1987 marked with a circle). We show these correlations, across all the levels of the reanalysis and for zero and -1 lag (Asymmetric index leading the Symmetric index), in Figure \ref{fig:cor-lev}. 
+From Figure \ref{fig:asymsam-timeseries} we can see that the Asymemtric and Symmetric time series appear to be correlated. Moreover, looking at the extremes in the stratosphere, the Symmetric serie appears to lag the Asymmetric series (see, for example, the positive events on late 1987 marked with a circle). We show these correlations, across all the levels of the reanalysis for zero and -1 lag (Asymmetric index leading the Symmetric index), in Figure \ref{fig:cor-lev}. Zero-lag correlations between the Asymmetric and Symmetric series are relatively constant throught the troposphere, fluctiating between `r signif(cors[lag == 0 & lev >= 100, min(acf)], 2)` and `r signif(cors[lag == 0 & lev >= 100, max(acf)], 2)`. One-month-lag correlations are similarly constant but significantly reduced to around `r signif(cors[lag == -1 &lev > 500][, mean(acf)], 2)`. In the stratosphere, zero-lag correlations drop to a minimum of `r signif(cors[lag == 0 & lev < 100][which.min(acf)]$acf, 2)` at `r cors[lag == 0 & lev < 100][which.min(acf)]$lev` hPa and then it increases again monotonically with height up to the uppermost level of the reanalysis. At the same time, one-month-lag correlations increase with height. As a consequence, statospheric Assymmetric index tend to precede corresponding Symmetric index. 
 
 ```{r cor-lev, fig.cap = "Correlation between the Symmetric and Asymmetric SAM at each level for lag zero and lag -1 (Asymmetric leads Symmetric).", fig.width=3, fig.height=3}
 cors %>% 
@@ -268,8 +262,6 @@ cors %>%
   coord_flip()
 ```
 
-
-Zero-lag correlations between the Asymmetric and Symmetric series are relatively constant throught the troposphere, fluctiating between `r signif(cors[lag == 0 & lev >= 100, min(acf)], 2)` and `r signif(cors[lag == 0 & lev >= 100, max(acf)], 2)`. One-month-lag correlations are similarly constant but significantly reduced, hovering around `r signif(cors[lag == -1 &lev > 500][, mean(acf)], 2)`. In the stratosphere, zero-lag correlations drop to a minimum of `r signif(cors[lag == 0 & lev < 100][which.min(acf)]$acf, 2)` at `r cors[lag == 0 & lev < 100][which.min(acf)]$lev` hPa and then it increases again monotonically with height up to the uppermost level of the reanalysis. At the same time, one-month-lag correlations increase with height. 
 
 ```{r cross-correlation, fig.cap = "Cross correlation between levels of the Full, Asymmetric and Symmetric SAM.", fig.width = 6, fig.height=3, fig.env="figure*"}
 tri <- matrix(c(1000, 1000, 1000, 1, 1, 1, 1000, 1000), ncol = 2, byrow = TRUE) %>% 
@@ -305,7 +297,7 @@ crosscor %>%
 ```
 
 
-Figure \ref{fig:cross-correlation}a) shows (zero-lag) cross-correlation across levels for the Full, Symmetric and Asymmetric SAM indices. For the Full SAM (panel a), high values below 100 hPa reflect the vertical (zero-lag) coherency throughout the troposfere. Above 100 hPa correlation between levels falls off more rapidly, indicating less coherent (zero-lag) variability. Still there is a non negligible correlation between the troposphere and the lower-to-middle stratosphere. Examining panels b and c, we see that the Asymemtric and Symmetric SAM  share the same high level of coherency in the troposphere but they differ in their stratospheric behaviour. As evidenced by the wider dark red areas near the diagonal in Figure \ref{fig:cross-correlation}b) vs.  Figure \ref{fig:cross-correlation}c), stratospheric coherency is stronger for the Asymmetric SAM than the Symemtric SAM. The stratospheric Symmetric SAM seems to connect more strongly to the trosposphere than the Asymmetric SAM; this can be seen by the lower correlation values in the top right left of Figure \ref{fig:cross-correlation}b) in comparison with Figure \ref{fig:cross-correlation}c).
+Figure \ref{fig:cross-correlation}a) shows (zero-lag) cross-correlation across levels for the Full, Symmetric and Asymmetric SAM indices. For the Full SAM (panel a), high values below 100 hPa reflect the vertical (zero-lag) coherency throughout the troposfere. Above 100 hPa correlation between levels falls off more rapidly, indicating less coherent (zero-lag) variability. Therefore, there is a non negligible correlation between the troposphere and the lower-to-middle stratosphere. Examining panels b and c, we see that the Asymemtric and Symmetric SAM  share the same high level of coherency in the troposphere but they differ in their stratospheric behaviour. Stratospheric coherency is stronger for the Asymmetric SAM than the Symemtric SAM. The stratospheric Symmetric SAM seems to connect more strongly to the trosposphere than the Asymmetric SAM.
 
 
 <!-- ```{r} -->
@@ -366,7 +358,7 @@ indices %>%
   tag_facets("rc") 
 ```
 
-Figure \ref{fig:trends} shows normalised decadal trends for each index for the whole period 1979-2918 along with the 95% confidence interval in shading for the whole year (row a) and separed by trimesters (rows b through e). As previously documented (e.g. @fogt2020), there is a statistically significant increase towards more positive SAM (panel a.1), which is evident only in Summer and Autumn (panels b.1 and c.1). We observe these increases mainly in the troposphere, reaching their maximum at at 100 hPa in Summer. By separating the SAM signal in its Asymmetric and Symmetric parts, we can not only see that these trends are almost entirely due to the Symmetric component (columns 2 vs. columns 3), but in some cases the trends become more clear. In Summer, the Asymmetric SAM has a statistically non significant negative trend in the middle troposphere that obscures the signal; as a result, trends computed using only the Symmetric component are more clear (compare the shading region in panel b.1 and b.3). In Autumn, using the Symmetric SAM reveals a statistically significant positive trend in the stratosphere that is not significant using the Full index. 
+The trends for each of the indices (Full, Symmetric, Assymetric) were evaluate for the whole period 1979-2018 at each level (Figure \ref{fig:trends}) for the whole year and separed by trimesters. As previously documented (e.g. @fogt2020), there is a statistically significant increase towards more positive SAM (panel a.1), which is evident only in Summer and Autumn (panels b.1 and c.1). We observe these increases mainly in the troposphere, reaching their maximum at at 100 hPa in Summer. By separating the SAM signal in its Asymmetric and Symmetric parts, we can not only see that these trends are almost entirely due to the Symmetric component (columns 2 vs. columns 3), but in some cases the trends become more clear. In Summer, the Asymmetric SAM has a statistically non significant negative trend in the middle troposphere that obscures the signal; as a result, trends computed using only the Symmetric component are more clear (compare the shading region in panel b.1 and b.3). In Autumn, using the Symmetric SAM reveals a statistically significant positive trend in the stratosphere that is not significant using the Full index. 
 
 ```{r regression-90}
 local <- indices %>%
@@ -422,7 +414,7 @@ indices_2d_yearly <- hgt[lev %in% c(main_levs)] %>%
 ```
 
 
-```{r 2d-regr, fig.cap = "Regression patterns of geopotential height at 30, 300 and 700 hPa with the Full, Asymmetric and Symmetric SAM. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices, not of two simple regressions involving each index by itsef. Points marked on panel b.2 are the location of the reference points used by \\cite{raphael2004} for its Zonal Wave 3 index.", fig.env = "figure*", fig.width=7, fig.height=5}
+```{r 2d-regr, fig.cap = "Regression patterns of geopotential height at 30, 300 and 700 hPa with the Full, Asymmetric and Symmetric SAM. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices, not of two simple regressions involving each index by itsef. Points marked on panel b.2 are the location of the reference points used by \\cite{raphael04} for its Zonal Wave 3 index.", fig.env = "figure*", fig.width=7, fig.height=5}
 indices_2d_yearly %>% 
   .[lat <= -20] %>% 
   .[lev %in% c(50, 700)] %>% 
@@ -452,9 +444,9 @@ indices_2d_yearly %>%
 
 To show if, and to what extent, the Asymmetric and Symmetric SAM inidices indeed capture the asymmetric and symmetric compoment of the SAM respectively, we computed the spatial regression of geopotential height anomalies on these indices and the Full SAM index. Figure \ref{fig:2d-regr} shows these regressions. Regression coefficients in column a are computed using the Full SAM. Regression coefficients in columns b and c are computed using multiple regression using the Asymmetric and Symmetric indices at the same time. Thus, they are to be interpreted as the patterns associated with each index, removing the variability (linearly) explained by the other index.
 
-In the stratosphere, the spatial pattern associated with the Full SAM is more clearly dominated by a zonally symmetric, monopolar structure (panel a.1) which is, however, not perfectly centered in the south pole. The monopole obtained by multiple regression with the Asymmetric and Symmetric SAM (panel c.1) is much more symmetric and the shift from total symmetry is captured by the regression pattern of the Asymmetric SAM as a wave-1 with maximum anomalies above the Belinghausen Sea on the Western Hemisphere and and Davids Sea in the Eastern Hemisphere (panel b.1). 
+In the stratosphere, the spatial pattern associated with the Full SAM is more clearly dominated by a zonally symmetric, monopolar structure (panel a.1) which is, however, not perfectly centered in the South Pole. The monopole obtained by multiple regression with the Asymmetric and Symmetric SAM (panel c.1) is much more symmetric and the shift from total symmetry is captured by the regression pattern of the Asymmetric SAM as a wave-1 with maximum anomalies above the Belinghausen Sea on the Western Hemisphere and and Davids Sea in the Eastern Hemisphere (panel b.1). 
 
-In the troposphere, panel a.2 shows the well known zonally symmetrical annular mode *contaminated* with zonal asymmetries in the form of a wave-3. The regression using the Asymmetric and Symmetric SAM indices successfully disentangle both structures. The Asymmetric component gives rise to a cleaner zonal wave (panel b.2) and the Symemtric component is assosiated with an trully annular mode, almost devoid of zonal asymmetries (panel c.2). The wave-3 pattern observed in panel b.2 is rotated by half a wavelength from the average position of the mean wave-3 pattern asociated with @raphael2004's ZW3 index, whose reference locations are marked with points in the figure. Thus, the tropospheric Asymmetric SAM index responds to zonal displacements in the position of the wave-3 pattern. 
+In the troposphere, panel a.2 shows the well known zonally symmetrical annular mode *contaminated* with zonal asymmetries in the form of a wave-3. The regression using the Asymmetric and Symmetric SAM indices successfully disentangle both structures. The Asymmetric component gives rise to a cleaner zonal wave (panel b.2) and the Symemtric component is assosiated with an trully annular mode, almost devoid of zonal asymmetries (panel c.2). The wave-3 pattern observed in panel b.2 is rotated by half a wavelength from the average position of the mean wave-3 pattern asociated with @raphael2004's ZW3 index, whose reference locations are marked with points in the figure. Thus, the tropospheric Asymmetric SAM index responds to zonal displacements in the position of the climatological wave-3 pattern, previously described in the literature (e.g. ....). 
 
 
 ```{r compute-raphael}
@@ -491,7 +483,7 @@ indices_2d_yearly %>%
   theme(strip.text = element_text(size = 7))
 ```
 
-The amplitude of each zonal wave number at each latitude at 50 hPa and 700 hPa is shown in Figure \ref{fig:wave-amplitude}, where wave number zero represents the amplitude of the zonal mean. Comparing between rows, this Figure quantifies the relatively clean separation between the zonally symmetric and zonally asymmetric structures, as its evident how the mixture of waves of the Full field (column a) is very similar to the sum of the waves of the Asymmetric and Symmetric field (columns b and c, respectively). Column b of Figure \ref{fig:wave-amplitude} shows that the Asymmetric SAM is overwhelmingly dominated by wave 1 in the stratosphere (panel b.1), while in the troposphere it is composed of zonal waves 3 to 1 in decreasing level of importance (panel b.2). 
+The amplitude of first zonal wave numbers at each latitude at 50 hPa and 700 hPa is shown in Figure \ref{fig:wave-amplitude}, where wave number zero represents the amplitude of the zonal mean. This Figure quantifies the relatively clean separation between the zonally symmetric and zonally asymmetric structures, as its evident how the mixture of waves of the Full field (column a) is very similar to the sum of the waves of the Asymmetric and Symmetric field (columns b and c, respectively). Column b of Figure \ref{fig:wave-amplitude} shows that the Asymmetric SAM is overwhelmingly dominated by wave 1 in the stratosphere (panel b.1), while in the troposphere it is composed of zonal waves 3 to 1 in decreasing level of importance (panel b.2). 
 
 
 
@@ -558,9 +550,7 @@ vertical_regr %>%
 ```
 
 
-To analyse the vertical structure of the geopotential anomalies asociated with the asymetric SAM index, we show a vertical cross section of regressions of mean geopotential height between 65ªS and 40ªS for the 50 hPa Asymmetric SAM index (panel a) and for the 700 hPa Asymmetric SAM index (panel b) (Figure \ref{fig:vertical-regression}). 
-
-The geopotential anomalies associated with the stratospheric SAM (panel a) are clearly constrained to the stratosphere, which underscores the disconnect between the stratospheric and tropospheric Asymmetric SAM. The vertical structure this signal tilts about 60ª to the West between 100 hPa and 1 hPa, suggesting baroclinic processes and polarward transport of heat (#FIXME is this ok?). Interestingly, the signal in the stratosphere maximises near 10 hPa despite using the 50 hPa index for the regression. 
+To analyse the vertical structure of the geopotential anomalies asociated with the asymetric SAM index, we show a vertical cross section of regressions of mean geopotential height between 65ªS and 40ªS for the 50 hPa Asymmetric SAM index (panel a) and for the 700 hPa Asymmetric SAM index (panel b) (Figure \ref{fig:vertical-regression}). The geopotential anomalies associated with the stratospheric SAM (panel a) are clearly constrained to the stratosphere, which underscores the uncoupling between the stratospheric and tropospheric Asymmetric SAM. The vertical structure of this signal tilts about 60ª to the West between 100 hPa and 1 hPa, suggesting baroclinic processes and poleward transport of heat (#FIXME is this ok?). Interestingly, the signal in the stratosphere maximises near 10 hPa despite using the 50 hPa index for the regression. 
 
 The tropospheric Asymmetric SAM (panel b) has significant signals that extend upwards to the uppermost levels of the reanalysis. In the troposphere, the wave-3 structure is equivalent barotropic with maximum amplitude at roughly 250 hPa. The anomalies are much more intense in the Western hemisphere, where they extent into the stratosphere. In the Eastern hemisphere the wave-3 signal is weaker and confined to the troosphere while negative anomalies dominate in the stratosphere. So, while the tropospheric Asymmetric SAM index is associated with stratospheric geopotential anomalies, these do not project strongly onto the stratospheric Asymmetric SAM.
 
@@ -670,7 +660,7 @@ air_regr %>%
 
 Figure \ref{fig:regr-air-season} shows regression coefficients of each index at 700 hPa with surface temperature for each trimester. It is evident that the Asymmetric and Symmetric SAM indices are associated with overall distinct temperature patterns which can be obscured when using the Full SAM index. The Symmetric SAM signal is weaker than the Asymmetric SAM, as evidenced by the relatively smaller and les sstatistically significant regression coefficients in row 3 of Figure \ref{fig:regr-air-season} compared with row 2. 
 
-In DJF (row 1), the strong negative signal in the tropical Pacific in panel a.1 is mostly associated with the Asymmetric component (panel b.1), as is it largely absent in the Symmetric component (panel c.1). Furthermore, the Asymmetric SAM is also asociated with low temperature anomalies in the Indian ocean, but this signal is obscured by the Symmetric variability and thus lost in the Full SAM. Over the continents, the Asymmetric SAM is assoiated with negative temperature anomalies which, again, mostly disappear in the Full SAM regression. Temperature regression with the Symmetric SAM (panel c.1) shows a ring of negative anomalies around Antarctica surrounded by positive anomalies. This pattern of anomalies is consistent with thermal wind balance and the intesification and pole-ward migration of the westerlies commonly linked to the SAM. 
+In DJF (row 1), the strong negative signal in the tropical Pacific in panel a.1 is mostly associated with the Asymmetric component (panel b.1), as is it largely absent in the Symmetric component (panel c.1). Furthermore, the Asymmetric SAM is also asociated with low temperature anomalies in the Indian ocean, but this signal is obscured by the Symmetric variability and thus lost in the Full SAM. Over the continents, the Asymmetric SAM is associated with negative temperature anomalies that disappear in the Full SAM regression. Temperature regression with the Symmetric SAM (panel c.1) shows a ring of negative anomalies around Antarctica surrounded by positive anomalies. This pattern of anomalies is consistent with thermal wind balance and the intesification and poleward migration of the westerlies commonly linked to the SAM. 
 
 The patterns seen in MAM and JJA (rows 2 and 3) are not robustly significant in the sense that there are no areas with p-values below 0.05 when controlling for FDR following @wilks2016. Nevertheless, it is interesting to note that in both trimesters, the sign of the regression is consistently flipped between the Asymmetric and Symmetric regressions. In South America, for example, the Asymmetric SAM is associated with positive temperature anomalies in MAM and negative temperature anomales in JJA, while the oposite is the case for the Symemtric SAM. 
 
@@ -680,7 +670,7 @@ Finally, in SON (row 4) there is no significant temperature signal associated wi
 ### Precipitation
 
 
-Regression of the SAM indicies with seasonal mean precipitation are shown Figures \ref{fig:pp-regr-oceania} and \ref{fig:pp-regr-america} for Australia and New Zealand, and South America respectively. (We didn't detect any significant signal in South Africa.)
+Regression of the SAM indicies with seasonal mean precipitation are shown Figures \ref{fig:pp-regr-oceania} and \ref{fig:pp-regr-america} for Australasia and South America respectively. South Africa is not shown because any significant signal in South Africa was detected.
 
 ```{r calc-indices2d-seasonal}
 indices_2d_seasonal <- hgt[lev %in% 700] %>% 
@@ -819,7 +809,7 @@ plot_pp("oceania")
 ```
 
 
-In Australia (Figure \ref{fig:pp-regr-oceania}), the annual-level regression shows that the Full SAM is associated with a statistically significant increase in precipitation in the Southeastern region (panel a.1), which reproduces the results from @gillett2006. The separation between Asymmetric and Symmetric SAM suggest that this increase is explained by the Symmetric SAM only in the East coast (panel c.1), which is consistent with the increased easterly flow clearly seen in relation with this index. The Asymmetric SAM appears related to increased precipitation in the West coast of Southeastern Australia (panel b.2), explained by the anomalous *westerly* circulation transporting moist air to the continent. 
+In Australia, the annual regression shows that the Full SAM is associated with a statistically significant increase in precipitation in the Southeastern region (Figure \ref{fig:pp-regr-oceania} panel a.1), which reproduces the results from @gillett2006. The separation between Asymmetric and Symmetric SAM suggest that this increase is explained by the Symmetric SAM only in the East coast (panel c.1), which is consistent with the increased easterly flow clearly seen in relation with this index. The Asymmetric SAM appears related to increased precipitation in the West coast of Southeastern Australia (panel b.2), explained by the anomalous *westerly* circulation transporting moist air to the continent. 
 
 The seasonal-level regressions show statistically significant anomalies only in SON, with a pattern similar to the annual-level regression (panel a.5). Panels b.5 and c.5 don't show a clear separation between the Asymmetric and Symmetric SAM. If anything, the positive and more significant regression coefficients in panel b.5 vs pane c.5 would suggest more influence of the Asymmetric than the Symmetric SAM, going against the interpretation gathered from the annual-level regressions. This Spring signal is broadly consistent with @hendon2007, but whereas @hendon2007 also detected a strong signal in Summer, panel a.2 shows no statistically significant association (although the coeffcients have the consistent sign). 
 
@@ -906,9 +896,9 @@ Regressions between the Full SAM index and Antarctic Sea Ice Concentrations (Fig
 
 ## Conclusions
 
-We presented a method to systematically separate the zonally asymmetric and zonally symmetric components of the SAM into two indices. As expected, they are significantly correlated with each other, but they also have their own unique dynamics such as differnet vertical coherence patterns, variability and long term trends.
+In this study, we presented a novel method to separate the zonally asymmetric and zonally symmetric contributions of the SAM into two indices. As expected, these are significantly correlated between them, but each of them has its own unique dynamics such as differnet vertical coherence patterns, variability and long term trends.
 
-The spatial structure and temporal evolution of the SAM show a strong separation between the stratosphere SAMs. The first EOF in the stratosphere is monopolar in nature while the first EOF in the troposphere is a proper annular mode. Their repespective departures from the zonal mean are also different: a zonal wave 1 dominates the stratospheric SAM; waves 3 and 2 dominate the tropospheric SAM. Furthermore, there is little temporal correlation between the tropospheric and stratospheric time series. 
+The spatial structure and temporal evolution of the SAM show a strong separation between the stratosphere SAMs. The first EOF in the stratosphere has a monopolar structure while the first EOF in the troposphere is a proper annular mode. Their repespective departures from the zonal mean are also different: a zonal wave 1 dominates the stratospheric SAM; waves 3 and 2 dominate the tropospheric SAM. Furthermore, there is little temporal correlation between the tropospheric and stratospheric time series. 
 
 The zonal asymmetric component of the SAM at each level is even more decupled between the troposphere and the stratosphere. Their temporal evolution shows essentialy zero correlation (Figure \ref{fig:cross-correlation}) and the signal associated with the stratospheric Asymmetric SAM is completely restricted to the stratosphere (Figure \ref{fig:vertical-regression} panel a). Geopotential height anomalies associated with the tropospheric Asymmetric SAM, on the other hand, do extend to the stratosphere, but those anomalies do not project strongly into the stratospheric Asymmetric SAM. 
 
@@ -923,7 +913,7 @@ The patterns of SAM-associated precipitation anomalies are similarly well separa
 
 ### Limitations {-}
 
-Our method assumes linearity in the asymmetric component of the SAM. That is, assumes that zonal symmetries associated with positive SAM are oposite and equal to the ones associated with negatie SAM. @fogt2012's composites suggest that this might not be entirely valid, although we argue that much of that apparent non-linearity is due to the heterogenous nature of the selected years for constructing the composites. Using our data (from 1979 to 2018), seasonal composites of zonal anomalies of 700 hPa geopotential height for for SAM+ and SAM- show pattern linear correlations greater than -0.7 for all seasons and are visually very linear (Figure A9). Therefore, we belive that our method is at the very least a reasonable approximation of the fenomenon. 
+Our method assumes linearity in the asymmetric component of the SAM. That is, assumes that zonal symmetries associated with positive SAM are oposite and equal to the ones associated with negatie SAM. @fogt2012's composites suggest that this might not be entirely valid, although we argue that much of that apparent non-linearity is due to the heterogenous nature of the selected years for constructing the composites. Using our data (from 1979 to 2018), seasonal composites of zonal anomalies of 700 hPa geopotential height for for SAM+ and SAM- show spatial pattern correlations greater than -0.7 for all seasons and are visually very linear (Figure A9). Therefore, we belive that our method is at the very least a reasonable approximation of the fenomenon. 
 
 We also asumed that the structure of the SAM zonal anomalies is stable in all seasons. Again, this is not unreasonable, as geopotential zonal anomalies computed by projecting the first EOF *of each season* are very similar to each other (Figure A10).
 
