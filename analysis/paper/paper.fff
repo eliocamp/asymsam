@@ -79,11 +79,6 @@
 \efloatseparator
  
 \begin{figure}
-\includegraphics{A4-1} \appendcaption{A4}{Autocorrelation functions of each timeseries}\label{fig:A4}
-\end{figure}
-\efloatseparator
- 
-\begin{figure}
 \includegraphics{A8-1} \appendcaption{A8}{Pattern cross-correlation \#FIXME!}\label{fig:A8}
 \end{figure}
 \efloatseparator

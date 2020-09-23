@@ -3,45 +3,47 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: paper.aux
 The style file: ametsoc2014.bst
 Database file #1: AsymSAM.bib
+Warning--I didn't find a database entry for "cazes-boezio2003"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 16 entries,
+You've used 31 entries,
             3493 wiz_defined-function locations,
-            810 strings with 9535 characters,
-and the built_in function-call counts, 18157 in all, are:
-= -- 2258
-> -- 452
-< -- 8
-+ -- 304
-- -- 114
-* -- 940
-:= -- 1759
-add.period$ -- 32
-call.type$ -- 16
-change.case$ -- 116
-chr.to.int$ -- 16
-cite$ -- 16
-duplicate$ -- 1953
-empty$ -- 977
-format.name$ -- 156
-if$ -- 3673
+            917 strings with 13391 characters,
+and the built_in function-call counts, 35300 in all, are:
+= -- 4377
+> -- 928
+< -- 16
++ -- 610
+- -- 234
+* -- 1821
+:= -- 3422
+add.period$ -- 62
+call.type$ -- 31
+change.case$ -- 229
+chr.to.int$ -- 31
+cite$ -- 31
+duplicate$ -- 3773
+empty$ -- 1891
+format.name$ -- 313
+if$ -- 7156
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 164
-newline$ -- 59
-num.names$ -- 64
-pop$ -- 753
+missing$ -- 321
+newline$ -- 104
+num.names$ -- 124
+pop$ -- 1447
 preamble$ -- 1
-purify$ -- 100
+purify$ -- 199
 quote$ -- 0
-skip$ -- 1132
+skip$ -- 2244
 stack$ -- 0
-substring$ -- 962
-swap$ -- 1696
+substring$ -- 1842
+swap$ -- 3263
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 144
+type$ -- 276
 warning$ -- 0
-while$ -- 88
+while$ -- 172
 width$ -- 0
-write$ -- 202
+write$ -- 380
+(There was 1 warning)

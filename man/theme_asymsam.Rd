@@ -10,5 +10,5 @@ theme_asymsam(base_size = 16)
 \item{base_size}{base font size, given in pts}
 }
 \description{
-Based on \code{\link[ggplot2:theme_minimal]{ggplot2::theme_minimal()}} but with minimal (wink) modifications.
+Based on \code{\link[ggplot2:ggtheme]{ggplot2::theme_minimal()}} but with minimal (wink) modifications.
 }

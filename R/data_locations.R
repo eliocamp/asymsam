@@ -75,7 +75,7 @@ GPCP <- function() {
 
 #' @export
 #' @rdname data_locations
-CPCC <- function() {
+GPCC <- function() {
    file <- data_path("raw", "precip.mon.total.v2018.nc")
    checkmate::assert_access(file, access = "r")
    class(file) <- c("nc_file", class(file))

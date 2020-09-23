@@ -2,7 +2,6 @@
 % Please edit documentation in R/maps.R
 \name{geom_qmap}
 \alias{geom_qmap}
-\alias{map_simple}
 \title{Quick maps}
 \usage{
 geom_qmap(
@@ -15,8 +14,6 @@ geom_qmap(
   keep = 0.015,
   ...
 )
-
-map_simple(wrap = c(0, 360), keep = 0.015, weighting = 0.7)
 }
 \arguments{
 \item{subset}{a function that will be applied to the map data.}

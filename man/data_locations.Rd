@@ -8,7 +8,7 @@
 \alias{OLR}
 \alias{CMAP}
 \alias{GPCP}
-\alias{CPCC}
+\alias{GPCC}
 \alias{NOAATemp}
 \alias{HadCRUT}
 \alias{GISTEMP}
@@ -28,7 +28,7 @@ CMAP()
 
 GPCP()
 
-CPCC()
+GPCC()
 
 NOAATemp()
 

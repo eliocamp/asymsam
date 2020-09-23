@@ -14,7 +14,7 @@ files <- list(aao = "aao.csv",
               NOAAGlobalTemp = "air.mon.anom.nc",
               cmap = "precip.mon.mean.nc",
               hadcrut = "HadCRUT.4.6.0.0.median.nc",
-              cpcc = "precip.mon.total.v2018.nc",
+              gpcc = "precip.mon.total.v2018.nc",
               gpcp = "gpcp.precip.mon.mean.nc",
               era5 =  "era5.z.mon.mean.nc")
 
@@ -28,6 +28,20 @@ aao <- rsoi::download_aao(use_cache = !force, file = asymsam::data_path("raw", f
   .[, .(time = lubridate::as_datetime(Date), aao = AAO)]
 
 saveRDS(aao, asymsam::data_path("derived", "aao.Rds"))
+
+# Download QBO
+qbourl <- "https://psl.noaa.gov/data/correlation/qbo.data"
+
+qbo <- data.table::fread(qbourl, na.strings = "-999.00", skip = 1, header = FALSE,
+             nrows = 73, col.names = c("year", as.character(1:12))) %>%
+  data.table::melt(id.var = "year", value.name = "qbo") %>%
+  na.omit() %>%
+  .[, time := lubridate::make_datetime(year, variable)] %>%
+  .[, year := NULL] %>%
+  .[, variable := NULL]
+
+saveRDS(qbo, asymsam::data_path("derived", "qbo.Rds"))
+
 
 # Download GISTEMP --------------------------------------------------------
 url <- "ftp://ftp.cdc.noaa.gov/Datasets/gistemp/landonly/1200km/air.2x2.1200.mon.anom.land.nc"
@@ -72,7 +86,7 @@ if (!force && file.exists(asymsam::data_path("raw", file))) {
 
 # Download CMAP -----------------------------------------------------------
 url <- "ftp://ftp.cdc.noaa.gov/Datasets/gpcc/full_v2018/precip.mon.total.v2018.nc"
-file <- files$cpcc
+file <- files$gpcc
 
 if (!force && file.exists(asymsam::data_path("raw", file))) {
   message("File already exists.")
@@ -144,71 +158,71 @@ if (!force && file.exists(asymsam::data_path("raw", file))) {
 #
 # asymsam::nc_concatenate(ncepfiles, asymsam::data_path("raw", "ncep.daily.nc"), overwrite = TRUE)
 
-# Antarctic sea ice
-# from https://nsidc.org/data/G02135
-months <- 1:12
-years <- 1979:2019
-dates <- data.table::CJ(years, months)
-# There are no data from 3 December 1987 to 13 January 1988 due to satellite problems. :sob:
-dates <- dates[!(paste0(years, months) %in% c(198712, 19881))]
-
-make_url <- function(year, month) {
-  month_zero <- formatC(month, width = 2, flag = "0")
-  month_Abb <- month.abb[month]
-
-  file_name <- paste0("S_", paste0(year, month_zero), "_concentration_v3.0.tif")
-  url <- paste0("ftp://sidads.colorado.edu/DATASETS/NOAA/G02135/south/monthly/geotiff/",
-                month_zero, "_", month_Abb, "/", file_name)
-
-  list(file_name,
-       url)
-}
-
-dates[, c("file_name", "url") := make_url(years, months)]
-p <- txtProgressBar(max = 100, style = 3)
-
-end_file <- asymsam::data_path("derived", "ice.Rds")
-if (!file.exists(end_file)) {
-  ices <- lapply(seq_len(nrow(dates)), function(i) {
-    file <- asymsam::data_path("raw", "ice", dates$file_name[i])
-    dir.create(asymsam::data_path("raw", "ice"), showWarnings = FALSE)
-    if (!file.exists(file)) {
-      download.file(dates$url[i], file)
-    }
-    # file
-    ice <- raster::raster(file)
-
-    proj <<- as.character(raster::crs(ice))
-
-    r <- data.table::as.data.table(raster::as.data.frame(ice, xy = TRUE, long = TRUE))
-    r[, layer := NULL]
-    r[, time := lubridate::make_datetime(dates$years[i], dates$months[i])]
-
-
-    no_ice <- c(pole = 2510,
-                coast = 2530,
-                land  = 2540,
-                ocean = 0)
-    # Values from 1-150 (1% to 15% concentration) are statistically irrelevant
-    # because data values less than 15% from passive microwave instruments are too
-    # uncertain to use, so these should be ignored
-    missing <-  c(2550) #
-
-    r <- r[!(value %in% no_ice)]
-    r[value %in% missing, value := NA]
-    r[, value := value/10/100]  # divide by 10 to get percent
-    setTxtProgressBar(p, i/nrow(dates)*100)
-    r[]
-
-  })
-  close(p)
-  ice <- data.table::rbindlist(ices)
-
-
-  ice[, c("lon", "lat") := proj4::project(list(x, y), proj = proj, inverse = TRUE)]
-  ice[, lon := metR::ConvertLongitude(lon)]
-  data.table::setnames(ice, "value", "concentration")
-
-  saveRDS(ice, end_file)
-  saveRDS(proj, asymsam::data_path("derived", "ice_proj.Rds"))
-}
+# # Antarctic sea ice
+# # from https://nsidc.org/data/G02135
+# months <- 1:12
+# years <- 1979:2019
+# dates <- data.table::CJ(years, months)
+# # There are no data from 3 December 1987 to 13 January 1988 due to satellite problems. :sob:
+# dates <- dates[!(paste0(years, months) %in% c(198712, 19881))]
+#
+# make_url <- function(year, month) {
+#   month_zero <- formatC(month, width = 2, flag = "0")
+#   month_Abb <- month.abb[month]
+#
+#   file_name <- paste0("S_", paste0(year, month_zero), "_concentration_v3.0.tif")
+#   url <- paste0("ftp://sidads.colorado.edu/DATASETS/NOAA/G02135/south/monthly/geotiff/",
+#                 month_zero, "_", month_Abb, "/", file_name)
+#
+#   list(file_name,
+#        url)
+# }
+#
+# dates[, c("file_name", "url") := make_url(years, months)]
+# p <- txtProgressBar(max = 100, style = 3)
+#
+# end_file <- asymsam::data_path("derived", "ice.Rds")
+# if (!file.exists(end_file)) {
+#   ices <- lapply(seq_len(nrow(dates)), function(i) {
+#     file <- asymsam::data_path("raw", "ice", dates$file_name[i])
+#     dir.create(asymsam::data_path("raw", "ice"), showWarnings = FALSE)
+#     if (!file.exists(file)) {
+#       download.file(dates$url[i], file)
+#     }
+#     # file
+#     ice <- raster::raster(file)
+#
+#     proj <<- as.character(raster::crs(ice))
+#
+#     r <- data.table::as.data.table(raster::as.data.frame(ice, xy = TRUE, long = TRUE))
+#     r[, layer := NULL]
+#     r[, time := lubridate::make_datetime(dates$years[i], dates$months[i])]
+#
+#
+#     no_ice <- c(pole = 2510,
+#                 coast = 2530,
+#                 land  = 2540,
+#                 ocean = 0)
+#     # Values from 1-150 (1% to 15% concentration) are statistically irrelevant
+#     # because data values less than 15% from passive microwave instruments are too
+#     # uncertain to use, so these should be ignored
+#     missing <-  c(2550) #
+#
+#     r <- r[!(value %in% no_ice)]
+#     r[value %in% missing, value := NA]
+#     r[, value := value/10/100]  # divide by 10 to get percent
+#     setTxtProgressBar(p, i/nrow(dates)*100)
+#     r[]
+#
+#   })
+#   close(p)
+#   ice <- data.table::rbindlist(ices)
+#
+#
+#   ice[, c("lon", "lat") := proj4::project(list(x, y), proj = proj, inverse = TRUE)]
+#   ice[, lon := metR::ConvertLongitude(lon)]
+#   data.table::setnames(ice, "value", "concentration")
+#
+#   saveRDS(ice, end_file)
+#   saveRDS(proj, asymsam::data_path("derived", "ice_proj.Rds"))
+# }

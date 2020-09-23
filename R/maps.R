@@ -8,11 +8,14 @@
 #' @param ... other arguments passed to [ggplot2::geom_polygon()]
 #'
 #' @export
-geom_qmap <- function(subset = identity, color = "black", size = 0.2,
+geom_qmap <- function(subset = identity, color = "gray50", size = 0.2,
                       fill = NA, wrap = c(0, 360), weighting = 0.7,
                       keep = 0.015, ...) {
   lon <- lat <- group <- NULL
-  data <- ggplot2::fortify(map_simple(wrap = wrap, keep  = keep, weighting = weighting)) %>%
+  data <- map_simple(wrap = wrap, keep  = keep, weighting = weighting)
+
+  data <- data %>%
+    fortify() %>%
     data.table::as.data.table() %>%
     .[, c("long", "lat", "group")] %>%
     data.table::setnames("long", "lon")
@@ -27,7 +30,7 @@ geom_qmap <- function(subset = identity, color = "black", size = 0.2,
                         ...)
 }
 
-map_simple_ <- function(wrap = c(0, 360), keep = 0.015, weighting = 0.7) {
+map_simple <- function(wrap = c(0, 360), keep = 0.015, weighting = 0.7) {
   map <- maps::map("world", fill = TRUE,
                    col = "transparent", plot = FALSE, wrap = wrap)
   IDs <- vapply(strsplit(map$names, ":"), function(x) x[1],
@@ -42,9 +45,12 @@ map_simple_ <- function(wrap = c(0, 360), keep = 0.015, weighting = 0.7) {
   map
 }
 
+fortify <- ggplot2::fortify
+
+# zzz.R
+.onLoad <- function(pkgname, libname) {
+  map_simple <<- memoise::memoise(map_simple)
+  fortify <<- memoise::memoise(fortify)
+}
 
 
-
-#' @export
-#' @rdname geom_qmap
-map_simple <- memoise::memoise(map_simple_)

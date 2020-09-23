@@ -13,7 +13,7 @@ ByteCompile: true
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Imports: 
     bookdown,
     here,
@@ -45,7 +45,8 @@ Imports:
     forcats,
     ggforce,
     ggridges,
-    raster
+    raster,
+    patchwork
 Suggests: devtools,
     git2r,
     knitr,
