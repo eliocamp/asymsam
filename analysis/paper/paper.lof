@@ -1,19 +1,17 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Spatial patterns of the first EOF of 700 hPa geopotential height}}{23}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Time series for the asymmetric SAM and symmetric SAM and density estimates}}{24}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Correlation between the Symmetric and Asymmetric SAM at each level for lag zero and lag -1 (Asymmetric leads Symmetric)}}{25}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Cross correlation between levels of the Full, Asymmetric and Symmetric SAM}}{26}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Decadal normalised trends for each index at each level for annual (row a) and seasonal values (rows b-e) for the period 1979-2018}}{27}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Decadal trends for explained variance of each index at each level for the period 1979-2018}}{28}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Regression patterns of geopotential height at 30, 300 and 700 hPa with the Full, Asymmetric and Symmetric SAM}}{29}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Planteray wave amplitude for the regression patterns at 50 and 700 hPa}}{30}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Asymmetric coefficient of the multiple regression of mean monthly geopotential height anomalies between 65 and 40 South}}{31}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Regression pattern of surface temperature with Asymmetric and Symmetric SAM}}{32}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Regression pattern of precipiation with Asymmetric and Symmetric SAM}}{33}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Same but for america}}{34}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Seasonal regression of SAM indices with sea ice concentration}}{35}%
-\contentsline {figure}{\numberline {A1}{\ignorespaces Lag-correlation between Symmetric and Asymmetric SAM at each level.}}{36}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Cross-correlation functions for each index and two differnet base levels}}{37}%
-\contentsline {figure}{\numberline {A3}{\ignorespaces Fourier spectrum of each timeseries. The shading indicates de 95\% area derived by fitting an AR process to each series and bootstrapping 5000 simulated samples.}}{38}%
-\contentsline {figure}{\numberline {A8}{\ignorespaces Pattern cross-correlation \#FIXME!}}{39}%
-\contentsline {figure}{\numberline {15}{\ignorespaces 700 hPa Geopotetnial height zonal anomalies of composites of positive and negative SAM months selected using 1 standard deviation as threshhold}}{40}%
-\contentsline {figure}{\numberline {16}{\ignorespaces Zonal of projection of 700 hPa onto the first EOF of each season}}{41}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Spatial patterns of the first EOF of 700 hPa geopotential height}}{28}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Time series for the Asymmetric SAM and Symmetric SAM indices at (a) 50 hPa and (b) 700 hPa}}{29}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Correlation between the Symmetric SAM and Asymmetric SAM index at each level for lag zero and lag -1 (Symmetric leads Asymmetric)}}{30}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Cross correlation between levels of the (a) Full SAM, (b) Asymmetric SAM, and (c) Symmetric SAM}}{31}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Decadal trends at each level for annual (row 1) and seasonal values (rows 2 to 5) for the period 1979-2018 and for the (column a) Full SAM index, (column b) Asymmetric SAM index, and (column c) Symmetric SAM index}}{32}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Decadal trends of the variance explained by the Asymmetric and Symmetric SAM at each level for the period 1979-2018}}{33}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Regression patterns of geopotential height (meters) at (row 1) 50 hPa and (row 2) 700 hPa with the (column a) Full SAM, (column b) Asymmetric SAM, and (column c) Symmetric SAM}}{34}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Amplitude (meters) of zonal waves of the geopotential height regression patterns in Figure 7\hbox {} for zonal waves with wave-number 0, 1, 2, and 3, where wave-number 0 represents the amplitude of the zonal mean. Note the differnet x axis.\relax }}{35}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Regression between monthly geopotential anomalies (meters) averaged betweeen 65\degree and 40\degree S and the Asymmetric SAM index (extracted from multiple regression including the Symmetric SAM)}}{36}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Regression pattern of season mean surface temperature (Kelvin) with Asymmetric SAM and Symmetric SAM}}{37}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Regression pattern of (row 1) annual and (rows 2 to 5) season mean precipitation anomalies (mm per day, shading) and 700 hPa geopotential height (thin lines, positive values as solid lines and negative values as dashed lines) with (column a) Full SAM, (column (b) Asymmetric SAM and (column c) Symmetric SAM}}{38}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Same as Figure 11\hbox {} but for South America.\relax }}{39}%
+\contentsline {figure}{\numberline {A1}{\ignorespaces Lag-correlation between Asymmetric SAM and Symmetric SAM index at each level. Negative lags imply Symmetric SAM leading Asymmetric SAM and vice versa.}}{40}%
+\contentsline {figure}{\numberline {A3}{\ignorespaces Fourier spectrum of each timeseries computed as Fourier transform smoothed with modified Daniell smoothers with withs 3 and 5. The shading indicates de 95\% confidence area derived by fitting an autorregressive model and computing the spectrum for 5000 simulated samples from the fitted autoregressive model (95\% of the simulated sampels had an amplitude equal or lower). The light line indicates the theoretical expected amplitude from the autorregressive model.}}{41}%
+\contentsline {figure}{\numberline {13}{\ignorespaces 700 hPa Geopotetnial height zonal anomalies (meters) of composites of positive and negative SAM months selected using $\pm 1$ standard deviation as threshhold}}{42}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Regression of 700 hPa geopotential height zonal anomalies (meters) onto the standarised timeseries of the leading EOF computed for each season independently}}{43}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Regression of 700 hPa geopotential height zonal anomalies (meters) onto the standarised timeseries of the leading EOF computed for the periods 1979 to 1998 and 1999 to 2018}}{44}%

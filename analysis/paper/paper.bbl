@@ -1,4 +1,4 @@
-\begin{thebibliography}{31}
+\begin{thebibliography}{36}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \renewcommand{\UrlFont}{\rmfamily}
@@ -8,6 +8,11 @@
   \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
 \providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{Baldwin(2001)}]{baldwin2001a}
+Baldwin, M.~P., 2001: Annular modes in global daily surface pressure.
+  \textit{Geophysical Research Letters}, \textbf{28~(21)}, 4115--4118,
+  \doi{10.1029/2001GL013564}.
 
 \bibitem[{Baldwin and Dunkerton(2001)Baldwin, and Dunkerton}]{baldwin2001}
 Baldwin, M.~P., and T.~J. Dunkerton, 2001: Stratospheric {{Harbingers}} of
@@ -32,10 +37,23 @@ Cai, W., and Coauthors, 2020: Climate impacts of the {{El
   \textit{Nature Reviews Earth \& Environment}, \textbf{1~(4)}, 215--231,
   \doi{10.1038/s43017-020-0040-3}.
 
+\bibitem[{{Cazes-Boezio} et~al.(2003){Cazes-Boezio}, Robertson,, and
+  Mechoso}]{cazes-boezio2003}
+{Cazes-Boezio}, G., A.~W. Robertson, and C.~R. Mechoso, 2003: Seasonal
+  {{Dependence}} of {{ENSO Teleconnections}} over {{South America}} and
+  {{Relationships}} with {{Precipitation}} in {{Uruguay}}. \textit{J. Climate},
+  \textbf{16~(8)}, 1159--1176,
+  \doi{10.1175/1520-0442(2003)16<1159:SDOETO>2.0.CO;2}.
+
 \bibitem[{Chung and Nigam(1999)Chung, and Nigam}]{chung1999}
 Chung, C., and S.~Nigam, 1999: Weighting of geophysical data in {{Principal
   Component Analysis}}. \textit{Journal of Geophysical Research: Atmospheres},
   \textbf{104~(D14)}, 16\,925--16\,928, \doi{10.1029/1999JD900234}.
+
+\bibitem[{Fan(2007)}]{fan2007}
+Fan, K., 2007: Zonal asymmetry of the {{Antarctic Oscillation}}.
+  \textit{Geophysical Research Letters}, \textbf{34~(2)},
+  \doi{10.1029/2006GL028045}.
 
 \bibitem[{Fogt et~al.(2011)Fogt, Bromwich,, and Hines}]{fogt2011}
 Fogt, R.~L., D.~H. Bromwich, and K.~M. Hines, 2011: Understanding the {{SAM}}
@@ -81,6 +99,13 @@ Holton, J.~R., and H.-C. Tan, 1980: The {{Influence}} of the {{Equatorial
   \textit{J. Atmos. Sci.}, \textbf{37~(10)}, 2200--2208,
   \doi{10.1175/1520-0469(1980)037<2200:TIOTEQ>2.0.CO;2}.
 
+\bibitem[{Jones et~al.(2009)Jones, Fogt, Widmann, Marshall, Jones,, and
+  Visbeck}]{jones2009}
+Jones, J.~M., R.~L. Fogt, M.~Widmann, G.~J. Marshall, P.~D. Jones, and
+  M.~Visbeck, 2009: Historical {{SAM Variability}}. {{Part I}}:
+  {{Century}}-{{Length Seasonal Reconstructions}}. \textit{J. Climate},
+  \textbf{22~(20)}, 5319--5345, \doi{10.1175/2009JCLI2785.1}.
+
 \bibitem[{Jones et~al.(2019)Jones, Bromwich, Nicolas, Carrasco, Plavcov{\'a},
   Zou,, and Wang}]{jones2019}
 Jones, M.~E., D.~H. Bromwich, J.~P. Nicolas, J.~Carrasco, E.~Plavcov{\'a},
@@ -114,6 +139,12 @@ Mo, K.~C., and M.~Ghil, 1987: Statistics and {{Dynamics}} of {{Persistent
 Raphael, M.~N., 2004: A zonal wave 3 index for the {{Southern Hemisphere}}.
   \textit{Geophysical Research Letters}, \textbf{31~(23)},
   \doi{10.1029/2004GL020365}.
+
+\bibitem[{Rogers and {van Loon}(1982)Rogers, and {van Loon}}]{rogers1982}
+Rogers, J.~C., and H.~{van Loon}, 1982: Spatial {{Variability}} of {{Sea Level
+  Pressure}} and 500 mb {{Height Anomalies}} over the {{Southern Hemisphere}}.
+  \textit{Mon. Wea. Rev.}, \textbf{110~(10)}, 1375--1392,
+  \doi{10.1175/1520-0493(1982)110<1375:SVOSLP>2.0.CO;2}.
 
 \bibitem[{Ropelewski and Jones(1987)Ropelewski, and Jones}]{ropelewski1987}
 Ropelewski, C.~F., and P.~D. Jones, 1987: An {{Extension}} of the
