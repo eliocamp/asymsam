@@ -1,4 +1,4 @@
-\begin{thebibliography}{36}
+\begin{thebibliography}{42}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \renewcommand{\UrlFont}{\rmfamily}
@@ -18,6 +18,12 @@ Baldwin, M.~P., 2001: Annular modes in global daily surface pressure.
 Baldwin, M.~P., and T.~J. Dunkerton, 2001: Stratospheric {{Harbingers}} of
   {{Anomalous Weather Regimes}}. \textit{Science}, \textbf{294~(5542)},
   581--584, \doi{10.1126/science.1063315}.
+
+\bibitem[{Baldwin and Thompson(2009)Baldwin, and Thompson}]{baldwin2009}
+Baldwin, M.~P., and D.~W.~J. Thompson, 2009: A critical comparison of
+  stratosphere\textendash troposphere coupling indices. \textit{Quarterly
+  Journal of the Royal Meteorological Society}, \textbf{135~(644)}, 1661--1672,
+  \doi{10.1002/qj.479}.
 
 \bibitem[{Bamston et~al.(1997)Bamston, Chelliah,, and Goldenberg}]{bamston1997}
 Bamston, A.~G., M.~Chelliah, and S.~B. Goldenberg, 1997: Documentation of a
@@ -50,10 +56,22 @@ Chung, C., and S.~Nigam, 1999: Weighting of geophysical data in {{Principal
   Component Analysis}}. \textit{Journal of Geophysical Research: Atmospheres},
   \textbf{104~(D14)}, 16\,925--16\,928, \doi{10.1029/1999JD900234}.
 
+\bibitem[{Clem and Fogt(2013)Clem, and Fogt}]{clem2013}
+Clem, K.~R., and R.~L. Fogt, 2013: Varying roles of {{ENSO}} and {{SAM}} on the
+  {{Antarctic Peninsula}} climate in austral spring. \textit{Journal of
+  Geophysical Research: Atmospheres}, \textbf{118~(20)}, 11,481--11,492,
+  \doi{10.1002/jgrd.50860}.
+
 \bibitem[{Fan(2007)}]{fan2007}
 Fan, K., 2007: Zonal asymmetry of the {{Antarctic Oscillation}}.
   \textit{Geophysical Research Letters}, \textbf{34~(2)},
   \doi{10.1029/2006GL028045}.
+
+\bibitem[{Fogt and Bromwich(2006)Fogt, and Bromwich}]{fogt2006}
+Fogt, R.~L., and D.~H. Bromwich, 2006: Decadal {{Variability}} of the {{ENSO
+  Teleconnection}} to the {{High}}-{{Latitude South Pacific Governed}} by
+  {{Coupling}} with the {{Southern Annular Mode}}. \textit{J. Climate},
+  \textbf{19~(6)}, 979--997, \doi{10.1175/JCLI3671.1}.
 
 \bibitem[{Fogt et~al.(2011)Fogt, Bromwich,, and Hines}]{fogt2011}
 Fogt, R.~L., D.~H. Bromwich, and K.~M. Hines, 2011: Understanding the {{SAM}}
@@ -76,6 +94,11 @@ Fogt, R.~L., and G.~J. Marshall, 2020: The {{Southern Annular Mode}}:
 Gillett, N.~P., T.~D. Kell, and P.~D. Jones, 2006: Regional climate impacts of
   the {{Southern Annular Mode}}. \textit{Geophysical Research Letters},
   \textbf{33~(23)}, \doi{10.1029/2006GL027721}.
+
+\bibitem[{Gong and Wang(1999)Gong, and Wang}]{gong1999}
+Gong, D., and S.~Wang, 1999: Definition of {{Antarctic Oscillation}} index.
+  \textit{Geophysical Research Letters}, \textbf{26~(4)}, 459--462,
+  \doi{10.1029/1999GL900003}.
 
 \bibitem[{Hendon et~al.(2007)Hendon, Thompson,, and Wheeler}]{hendon2007}
 Hendon, H.~H., D.~W.~J. Thompson, and M.~C. Wheeler, 2007: Australian
@@ -129,6 +152,18 @@ Katz, R.~W., and B.~G. Brown, 1991: The problem of multiplicity in research on
 Kidson, J.~W., 1988: Interannual {{Variations}} in the {{Southern Hemisphere
   Circulation}}. \textit{J. Climate}, \textbf{1~(12)}, 1177--1198,
   \doi{10.1175/1520-0442(1988)001<1177:IVITSH>2.0.CO;2}.
+
+\bibitem[{Lim et~al.(2016)Lim, Hendon, Arblaster, Delage, Nguyen, Min,, and
+  Wheeler}]{lim2016}
+Lim, E.-P., H.~H. Hendon, J.~M. Arblaster, F.~Delage, H.~Nguyen, S.-K. Min, and
+  M.~C. Wheeler, 2016: The impact of the {{Southern Annular Mode}} on future
+  changes in {{Southern Hemisphere}} rainfall. \textit{Geophysical Research
+  Letters}, \textbf{43~(13)}, 7160--7167, \doi{10.1002/2016GL069453}.
+
+\bibitem[{Marshall(2003)}]{marshall2003}
+Marshall, G.~J., 2003: Trends in the {{Southern Annular Mode}} from
+  {{Observations}} and {{Reanalyses}}. \textit{J. Climate}, \textbf{16~(24)},
+  4134--4143, \doi{10.1175/1520-0442(2003)016<4134:TITSAM>2.0.CO;2}.
 
 \bibitem[{Mo and Ghil(1987)Mo, and Ghil}]{mo1987}
 Mo, K.~C., and M.~Ghil, 1987: Statistics and {{Dynamics}} of {{Persistent

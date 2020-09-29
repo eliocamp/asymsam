@@ -37,8 +37,8 @@
 
 %% May use \\ to break lines in title:
 
-\title{New method to describe the zonal symmetries and asymmetries of the
-Southern Annular Mode}
+\title{Asssesment of zonal symmetric and asymmetric components of the Southern
+Annular Mode using a novel approach}
 
 
 \authors{Elio Campitelli
@@ -101,24 +101,69 @@ This is significant becasue I wrote it.
 
 The Southern Annular Mode (SAM) is the main mode of variability in the
 Southern Hemisphere extratropical circulation \citep{rogers1982} in
-daily, monthly, and decadal timescales {[}\citet{baldwin2001a};
-fogt2006{]} and exerts an important influence in weather conditions such
-as temperature and precipitation anomalies and sea ice concentration
+daily, monthly, and decadal timescales \citep{baldwin2001a, fogt2006}
+and exerts an important influence in weather conditions such as
+temperature and precipitation anomalies and sea ice concentration
 \citep{fogt2020}. Its positive phase is traditionally described as
 anomalously low pressures over Antarctica surrounded by a ring of
 anomalous high pressures in middle-to-high latitudes.
 
-However, computed as the leading Empirical Orthogonal Function (EOF) of
-Sea Level Pressure or low-level geopotential height, the SAM spatial
-structure contains noticeable deviations from this zonally symmetric
-description, particularly in the Pacific Ocean region. These zonal
-asymmetries are not widely studied, but previous work suggest that they
-strongly modulate the regional impacts of the SAM, going as far as
-reversing its relationship between precipitation in South America
-\citep{silvestri2009}. At the very least, the fact that the SAM is not
-entirely zonally symmetric hinders our ability to reconstruct its
-historical variability prior to the availabilty of dense observations in
-the Southern Hemisphere \citep{jones2009}.
+Most authors describe the SAM as a zonally symmetric pattern, a fact
+that is reflected not only in its name, but also in the various methods
+used to characterise it. Of the several different indices presented in
+the literature, many of them are based on zonal means of sea level
+pressure or geopotential height \citep{ho2012}. \citet{gong1999} defined
+the SAM index as the zonal mean sea level pressure differene between
+40\degree S and 60\degree S, which is also the definition used by the
+station-based index in \citet{marshall2003}. \citet{baldwin2009}
+proposed defining the Northern and Annular modes as the leading EOF of
+the zonally averaged geopotential height at each level.
+
+Even though these indices are based on zonal averages, the spatial the
+spatial structure of the SAM computed from them contains noticeable
+deviations from zonal symmetry, particularly in the Pacific Ocean
+region. These zonal asymmetries have not been widely studied, but
+previous work suggest that they strongly modulate the regional impacts
+of the SAM, going as far as reversing its relationship between
+precipitation in South America \citep{silvestri2009}. At the very least,
+the fact that the SAM is not entirely zonally symmetric hinders our
+ability to reconstruct its historical variability prior to the
+availabilty of dense observations in the Southern Hemisphere
+\citep{jones2009}.
+
+At least some of the variabilty associated with the zonal asymmetries of
+the SAM is probably forced by the tropics. In particular, ENSO-like
+variability affects the Southern Hemisphere extratopics through the
+Pacific-South American Pattern \citep{mo1987, kidson1988, karoly1989},
+whose wave train proyects strongly onto the zonal anomalies
+corresponding to the SAM in the Pacific sector. And although the
+relationship between ENSO and SAM is far from simple, tropical
+influences on the SAM have been observed
+\citep{fan2007, fogt2011, clem2013}.
+
+Positive trends in SAM index have been documented by various researchers
+using different indices mostly on boreal Summer and Autumn \citep[ and
+references therein]{fogt2020}. These trends are thought of driven
+primarily by stratospheric ozone depletion and understood in the context
+of zonal mean variables. However, it's not clear how or if the
+asymmetric component responds to this forcing, or whether its variabilty
+could be masking influencing the observed trends independendly.
+
+Similarly unclear are the specific impacts of the zonally asymmetric
+component of the SAM. Positive phase of the SAM is associated with
+generally colder temperatures over Antarctica and warmer temperatures at
+higher latitudes \citep{jones2019} (and viceversa for negative SAM), but
+there are significant deviations from this zonal mean response, notably
+in the Antarctic Peninsula and the South Atlantic \citep{fogt2012}. The
+SAM signal in precipitation behaves similarly, although with even
+greater deviation from zonal symmetry \citep{lim2016}. The importance of
+zonal asymmetries of the SAM in these impacts have been studied in
+certain regions. For example, the SAM-precipitation relationship in
+Southeastern South America and Southern Brazil can be explained by the
+PSA-like zonally asymetric circulation associated with the SAM
+\citep{silvestry2009, rosso2018}. \citet{fan2007} also found that
+precipitation in East Asia was impacted by the variabilty of only the
+Western Hemisphere part of the SAM.
 
 We are not aware of any previous work which quantifies the temporal
 variability of the asymmetric component of the SAM with the exception of
@@ -128,25 +173,41 @@ derived from as little as 4 cases and from imbalanced periods (for
 example, 5 of the 7 cases in their DJF SAM+ composite are from later
 than 1988, whereas all of the 8 years in their DJF SAM- composite are
 from earlier than 1988). This is particularly important due to the
-inhomogeneities in renalysis products prior to the sattelite era and the
+inhomogeneities in renalysis products prior to the satellite era and the
 possible change in the asymmetric structure of the SAM
 \citep{silvestri2009}.
 
+Moreover, \citet{fogt2012} studied the zonal asymmetric component of the
+SAM only in sea level pressure. Zonal asymmetries in the SAM spatial
+pattern are fairly barotropic throughout the troposphere, but they
+change dramatically in the stratosphere \citep{baldwin2009}.
+
 Our objective is, then, to systematically characterise the zonally
-asymmetric component of the SAM variability by constructing two indices
-which aim to capture exclusively the variability of the symmetric and
-asymmetric component each. We then analyse their temporal variability,
-trends and vertical coherence. We study the spatial patterns described
-by the variability exclusive to each index. Finally, we investigate
-theri relationship with temperature and recipitation anomalies.
+asymmetric and symmetric components of the SAM variability. For each
+level, we construct two indices which aim to capture exclusively the
+variability of the symmetric and asymmetric component respectively. We
+assess their vertical structure and coherence, temporal variability and
+trends. We then study the spatial patterns described by the variability
+exclusive to each index. Finally, we investigate their relationship with
+temperature and precipitation anomalies.
+
+In the Section \ref{sec:methods} we describe the methods. In Section
+\ref{sec:results}.\ref{sec:temporal} we describe the temporal
+variability and vertical coherence of the inidices. In Section
+\ref{sec:results}.\ref{sec:spatial}, we analyse the spatial patterns of
+geopotential height associated with them. In Section
+\ref{sec:results}.\ref{sec:impacts}, we study their relationship with
+surface-level tempreature and precipitation.
 
 \section{Methods}
+
+\label{sec:methods}
 
 \subsubsection{Data}
 
 To describe the Southern Annular Mode and its variability we used
-monthly geopotential height at 2.5\degree longitude by
-2.5\degree latitude of horizontal resolution and 37 vertical isobaric
+monthly geopotential height at 2.5\degree~longitude by
+2.5\degree~latitude of horizontal resolution and 37 vertical isobaric
 levels from ERA5 \citep{hersbach2020} for the period 1979 to 2018. We
 restrict our analysis to the post-satellite era to avoid any confounding
 factors arising from the introduction of satellite observations.
@@ -155,8 +216,8 @@ We describe the relationship between the SAM indices and temperature and
 precipitation. We use temperature data from NOAA's Merged Land Ocean
 Global Surface Temperature Analysis V4.0.1 \citep{vose2012, smith2008},
 which blends land and ocean temperature analysis into a monthly global
-grid 5\degree lagitude by 5\degree longitude. For precipitation, we use
-monthly, 0.5\degree latitude by 0.5\degree longitude data from the
+grid 5\degree~ longitude by 5\degree~ latitude For precipitation, we use
+monthly, 0.5\degree~ longitude by 0.5\degree~ latitude data from the
 Global Precipitation Climatology Centre \citep{schneider2015}.
 
 \subsubsection{Definition of indices}
@@ -262,7 +323,11 @@ for each year and each trimester.
 
 \section{Results}
 
+\label{sec:results}
+
 \subsection{Temporal evolution}
+
+\label{sec:temporal}
 
 \begin{figure*}
 \includegraphics{asymsam-timeseries-1} \caption[Time series for the Asymmetric SAM and Symmetric SAM indices at (a) 50 hPa and (b) 700 hPa]{Time series for the Asymmetric SAM and Symmetric SAM indices at (a) 50 hPa and (b) 700 hPa. To the left, probability density estimate of each index. Series are standarised by the standard deviation of the Full SAM at each level.}\label{fig:asymsam-timeseries}
@@ -383,6 +448,8 @@ explained variance per decade.
 
 \subsection{Spatial patterns}
 
+\label{sec:spatial}
+
 \begin{figure*}
 \includegraphics{2d-regr-1} \caption[Regression patterns of geopotential height (meters) at (row 1) 50 hPa and (row 2) 700 hPa with the (column a) Full SAM, (column b) Asymmetric SAM, and (column c) Symmetric SAM]{Regression patterns of geopotential height (meters) at (row 1) 50 hPa and (row 2) 700 hPa with the (column a) Full SAM, (column b) Asymmetric SAM, and (column c) Symmetric SAM. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices, not of two simple regressions involving each index by itsef. Points marked on panel b.2 are the location of the reference points used by \cite{raphael2004} for their Zonal Wave 3 index. }\label{fig:2d-regr}
 \end{figure*}
@@ -488,6 +555,8 @@ the Southern Oscillation Index \citep{ropelewski1987} to conclude that
 these results do not depend on the ENSO index used.
 
 \subsection{Impacts}
+
+\label{sec:impacts}
 
 \begin{figure*}
 \includegraphics{regr-air-season-1} \caption[Regression pattern of season mean surface temperature (Kelvin) with Asymmetric SAM and Symmetric SAM]{Regression pattern of season mean surface temperature (Kelvin) with Asymmetric SAM and Symmetric SAM. Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate. Gray areas in Antarctica are areas with have more than 15\% of missing data.}\label{fig:regr-air-season}
@@ -630,10 +699,9 @@ the anomalous circulation associated with positive values of Asymmetric
 SAM (panel b.1) in the Atlantic is anticyclonic in the South and
 cyclonic in the North. This creates anomalous South-Easterly flow over
 Southeastern South America, which inhibits the flow of the Low Level Jet
-to the region \citep[\citet{zamboni2010}]{silvestri2009}. This same
-pattern was found to be associated with increased precipitation in
-Southern Brazil during South Atlantic Convergence Zone events
-\citep{rosso2018}.
+to the region \citep{silvestri2009, zamboni2010}. This same pattern was
+found to be associated with increased precipitation in Southern Brazil
+during South Atlantic Convergence Zone events \citep{rosso2018}.
 
 There is a small area of increased precipitation with SAM near central
 Argentina which is also present in the station-based analysis by
@@ -659,9 +727,9 @@ changes in SAM variability.
 The two-year periodcty we found in the stratospheric Symmetric SAM might
 point to a link between the SAM and the Quasi Biennial Oscillation.
 There is evidence of influence between the QBO and the Northern Annular
-Mode \citep[e.g.][\citet{watson2014}, \citet{zhang2020}]{holton1980}, so
-it's not unlikely that the SAM would be similarly connected. However
-establishing this link would require further research.
+Mode \citep[e.g.][]{holton1980, watson2014, zhang2020}, so it's not
+unlikely that the SAM would be similarly connected. However establishing
+this link would require further research.
 
 As documented by previous studies, such as \citet{fogt2020} (and
 references therein), we observe a positive trend towards positive SAM in

@@ -3,45 +3,47 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: paper.aux
 The style file: ametsoc2014.bst
 Database file #1: AsymSAM.bib
+Warning--I didn't find a database entry for "silvestry2009"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 36 entries,
+You've used 42 entries,
             3493 wiz_defined-function locations,
-            946 strings with 14347 characters,
-and the built_in function-call counts, 41064 in all, are:
-= -- 5094
-> -- 1082
-< -- 19
-+ -- 710
-- -- 273
-* -- 2115
-:= -- 3976
-add.period$ -- 72
-call.type$ -- 36
-change.case$ -- 267
-chr.to.int$ -- 36
-cite$ -- 36
-duplicate$ -- 4392
-empty$ -- 2196
-format.name$ -- 362
-if$ -- 8325
+            986 strings with 15476 characters,
+and the built_in function-call counts, 48916 in all, are:
+= -- 6111
+> -- 1273
+< -- 24
++ -- 844
+- -- 321
+* -- 2505
+:= -- 4684
+add.period$ -- 84
+call.type$ -- 42
+change.case$ -- 313
+chr.to.int$ -- 42
+cite$ -- 42
+duplicate$ -- 5249
+empty$ -- 2590
+format.name$ -- 429
+if$ -- 9918
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 373
-newline$ -- 119
-num.names$ -- 144
-pop$ -- 1676
+missing$ -- 437
+newline$ -- 137
+num.names$ -- 168
+pop$ -- 2006
 preamble$ -- 1
-purify$ -- 232
+purify$ -- 272
 quote$ -- 0
-skip$ -- 2624
+skip$ -- 3148
 stack$ -- 0
-substring$ -- 2141
-swap$ -- 3801
+substring$ -- 2577
+swap$ -- 4575
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 321
+type$ -- 375
 warning$ -- 0
-while$ -- 199
+while$ -- 235
 width$ -- 0
-write$ -- 440
+write$ -- 512
+(There was 1 warning)
