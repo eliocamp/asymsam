@@ -1,6 +1,6 @@
 ---
 twocol: FALSE  #  Use FALSE for submission. 
-title: New method to describe the zonal symmetries and asymmetries of the Southern Annular Mode
+title: Asssesment of zonal symmetric and asymmetric components of the Southern Annular Mode using a novel approach
 author1: 
   name: Elio Campitelli
   email: elio.campitelli@cima.fcen.uba.ar
@@ -97,13 +97,25 @@ lab_sam <-  c(full = "Full",
 
 # Introduction 
 
-The Southern Annular Mode (SAM) is the main mode of variability in the Southern Hemisphere extratropical circulation [@rogers1982] in daily, monthly, and decadal timescales [@baldwin2001a; fogt2006] and exerts an important influence in weather conditions such as temperature and precipitation anomalies and sea ice concentration [@fogt2020]. Its positive phase is traditionally described as anomalously low pressures over Antarctica surrounded by a ring of anomalous high pressures in middle-to-high latitudes. 
+The Southern Annular Mode (SAM) is the main mode of variability in the Southern Hemisphere extratropical circulation [@rogers1982] in daily, monthly, and decadal timescales [@baldwin2001a; @fogt2006] and exerts an important influence in weather conditions such as temperature and precipitation anomalies and sea ice concentration [@fogt2020]. Its positive phase is traditionally described as anomalously low pressures over Antarctica surrounded by a ring of anomalous high pressures in middle-to-high latitudes. 
 
-However, computed as the leading Empirical Orthogonal Function (EOF) of Sea Level Pressure or low-level geopotential height, the SAM spatial structure contains noticeable deviations from this zonally symmetric description, particularly in the Pacific Ocean region. These zonal asymmetries are not widely studied, but previous work suggest that they strongly modulate the regional impacts of the SAM, going as far as reversing its relationship between precipitation in South America [@silvestri2009]. At the very least, the fact that the SAM is not entirely zonally symmetric hinders our ability to reconstruct its historical variability prior to the availabilty of dense observations in the Southern Hemisphere [@jones2009]. 
+#LEAN: Antes de empezar este parráfo, me parece que deberías describir las maneras en que se suele calcular el SAM en la literatura (algo así creo que habías incluido para la AGU).
+
+However, computed as the leading Empirical Orthogonal Function (EOF) of Sea Level Pressure or low-level geopotential height, the SAM spatial structure contains noticeable deviations from this zonally symmetric description, particularly in the Pacific Ocean region. These zonal asymmetries have not been widely studied, but previous work suggest that they strongly modulate the regional impacts of the SAM, going as far as reversing its relationship between precipitation in South America [@silvestri2009]. At the very least, the fact that the SAM is not entirely zonally symmetric hinders our ability to reconstruct its historical variability prior to the availabilty of dense observations in the Southern Hemisphere [@jones2009]. 
 
 We are not aware of any previous work which quantifies the temporal variability of the asymmetric component of the SAM with the exception of @fogt2012. However, their methods based on composites of positive and negative SAM events leads to some issues, such as spatial patterns derived from as little as 4 cases and from imbalanced periods (for example, 5 of the 7 cases in their DJF SAM+ composite are from later than 1988, whereas all of the 8 years in their DJF SAM- composite are from earlier than 1988). This is particularly important due to the inhomogeneities in renalysis products prior to the sattelite era and the possible change in the asymmetric structure of the SAM [@silvestri2009].
 
-Our objective is, then, to systematically characterise the zonally asymmetric component of the SAM variability by constructing two indices which aim to capture exclusively the variability of the symmetric and asymmetric component each. We then analyse their temporal variability, trends and vertical coherence. We study the spatial patterns described by the variability exclusive to each index. Finally, we investigate theri relationship with temperature and recipitation anomalies. 
+#LEAN: También me parece que faltaría agregar dos parráfos más, uno relacionado con las tendencias del SAM y otro relacionado con los impactos conocidos del SAM.
+
+#LEAN: Otra cosa que no veo y que me parece que sería importante decir es sobre la estructura vertical del SAM (sería bueno también agregar la referencia de Baldwin que es la que inspira un poco el estudio). 
+
+Our objective is, then, to systematically characterise the zonally asymmetric and symmetric components of the SAM variability by constructing two indices which aim to capture exclusively the variability of the symmetric and asymmetric component each. These indices are constructed for each vertical level, so that vertical coherence could be assessed. We analyse their temporal variability and trends. 
+
+#acá puede ser confuso porque cuando hablas de "cada indice" a veces te referis a los indices de todos los niveles verticales, en otro de solo uno que describa la estratósfera y otro la tropósfera y en otro solo al de la troposfera.
+
+We then study the spatial patterns described by the variability exclusive to each index. Finally, we investigate their relationship with temperature and precipitation anomalies. 
+
+#LEAN: Faltaría acá después describir las secciones del trabajo
 
 
 ```{r read-hgt}
