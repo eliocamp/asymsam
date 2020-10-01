@@ -1,4 +1,4 @@
-\begin{thebibliography}{42}
+\begin{thebibliography}{55}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \renewcommand{\UrlFont}{\rmfamily}
@@ -8,6 +8,20 @@
   \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
 \providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{Albers and Campitelli(2020)Albers, and Campitelli}]{albers2020}
+Albers, S., and E.~Campitelli, 2020: Rsoi: {{Import Various Northern}} and
+  {{Southern Hemisphere Climate Indices}}.
+
+\bibitem[{Allaire et~al.(2019)Allaire, Horner, Xie, Marti,, and
+  Porte}]{allaire2019}
+Allaire, J., J.~Horner, Y.~Xie, V.~Marti, and N.~Porte, 2019: \textit{Markdown:
+  {{Render}} Markdown with the c Library 'Sundown'}.
+
+\bibitem[{Arblaster and Meehl(2006)Arblaster, and Meehl}]{arblaster2006}
+Arblaster, J.~M., and G.~A. Meehl, 2006: Contributions of {{External Forcings}}
+  to {{Southern Annular Mode Trends}}. \textit{J. Climate}, \textbf{19~(12)},
+  2896--2905, \doi{10.1175/JCLI3774.1}.
 
 \bibitem[{Baldwin(2001)}]{baldwin2001a}
 Baldwin, M.~P., 2001: Annular modes in global daily surface pressure.
@@ -24,6 +38,11 @@ Baldwin, M.~P., and D.~W.~J. Thompson, 2009: A critical comparison of
   stratosphere\textendash troposphere coupling indices. \textit{Quarterly
   Journal of the Royal Meteorological Society}, \textbf{135~(644)}, 1661--1672,
   \doi{10.1002/qj.479}.
+
+\bibitem[{Baldwin et~al.(2001)}]{baldwin2001b}
+Baldwin, M.~P., and Coauthors, 2001: The quasi-biennial oscillation.
+  \textit{Reviews of Geophysics}, \textbf{39~(2)}, 179--229,
+  \doi{10.1029/1999RG000073}.
 
 \bibitem[{Bamston et~al.(1997)Bamston, Chelliah,, and Goldenberg}]{bamston1997}
 Bamston, A.~G., M.~Chelliah, and S.~B. Goldenberg, 1997: Documentation of a
@@ -43,6 +62,10 @@ Cai, W., and Coauthors, 2020: Climate impacts of the {{El
   \textit{Nature Reviews Earth \& Environment}, \textbf{1~(4)}, 215--231,
   \doi{10.1038/s43017-020-0040-3}.
 
+\bibitem[{Campitelli(2020)}]{campitelli2020}
+Campitelli, E., 2020: {{metR}}: {{Tools}} for {{Easier Analysis}} of
+  {{Meteorological Fields}}.
+
 \bibitem[{{Cazes-Boezio} et~al.(2003){Cazes-Boezio}, Robertson,, and
   Mechoso}]{cazes-boezio2003}
 {Cazes-Boezio}, G., A.~W. Robertson, and C.~R. Mechoso, 2003: Seasonal
@@ -61,6 +84,9 @@ Clem, K.~R., and R.~L. Fogt, 2013: Varying roles of {{ENSO}} and {{SAM}} on the
   {{Antarctic Peninsula}} climate in austral spring. \textit{Journal of
   Geophysical Research: Atmospheres}, \textbf{118~(20)}, 11,481--11,492,
   \doi{10.1002/jgrd.50860}.
+
+\bibitem[{Dowle et~al.(2020)}]{dowle2020}
+Dowle, M., and Coauthors, 2020: Data.table: {{Extension}} of 'data.frame'.
 
 \bibitem[{Fan(2007)}]{fan2007}
 Fan, K., 2007: Zonal asymmetry of the {{Antarctic Oscillation}}.
@@ -89,6 +115,11 @@ Fogt, R.~L., and G.~J. Marshall, 2020: The {{Southern Annular Mode}}:
   {{Variability}}, trends, and climate impacts across the {{Southern
   Hemisphere}}. \textit{WIREs Climate Change}, \textbf{11~(4)}, e652,
   \doi{10.1002/wcc.652}.
+
+\bibitem[{Garreaud(2007)}]{garreaud2007}
+Garreaud, R., 2007: Precipitation and {{Circulation Covariability}} in the
+  {{Extratropics}}. \textit{J. Climate}, \textbf{20~(18)}, 4789--4797,
+  \doi{10.1175/JCLI4257.1}.
 
 \bibitem[{Gillett et~al.(2006)Gillett, Kell,, and Jones}]{gillett2006}
 Gillett, N.~P., T.~D. Kell, and P.~D. Jones, 2006: Regional climate impacts of
@@ -121,6 +152,10 @@ Holton, J.~R., and H.-C. Tan, 1980: The {{Influence}} of the {{Equatorial
   Quasi}}-{{Biennial Oscillation}} on the {{Global Circulation}} at 50 mb.
   \textit{J. Atmos. Sci.}, \textbf{37~(10)}, 2200--2208,
   \doi{10.1175/1520-0469(1980)037<2200:TIOTEQ>2.0.CO;2}.
+
+\bibitem[{Hufkens et~al.(2020)Hufkens, Stauffer,, and Campitelli}]{hufkens2020}
+Hufkens, K., R.~Stauffer, and E.~Campitelli, 2020: Ecmwfr: {{Interface}} to
+  '{{ECMWF}}' and '{{CDS}}' {{Data Web Services}}.
 
 \bibitem[{Jones et~al.(2009)Jones, Fogt, Widmann, Marshall, Jones,, and
   Visbeck}]{jones2009}
@@ -170,6 +205,10 @@ Mo, K.~C., and M.~Ghil, 1987: Statistics and {{Dynamics}} of {{Persistent
   Anomalies}}. \textit{J. Atmos. Sci.}, \textbf{44~(5)}, 877--902,
   \doi{10.1175/1520-0469(1987)044<0877:SADOPA>2.0.CO;2}.
 
+\bibitem[{{R Core Team}(2020)}]{rcoreteam2020}
+{R Core Team}, 2020: \textit{R: {{A}} Language and Environment for Statistical
+  Computing}. {Vienna, Austria}, {R Foundation for Statistical Computing}.
+
 \bibitem[{Raphael(2004)}]{raphael2004}
 Raphael, M.~N., 2004: A zonal wave 3 index for the {{Southern Hemisphere}}.
   \textit{Geophysical Research Letters}, \textbf{31~(23)},
@@ -202,10 +241,21 @@ Schneider, U., A.~Becker, P.~Finger, A.~{Meyer-Christoffer}, B.~Rudolf, and
   MB per decadal gzip compressed NetCDF archive pp.,
   \doi{10.5676/DWD_GPCC/FD_M_V7_050}.
 
+\bibitem[{Sheather and Jones(1991)Sheather, and Jones}]{sheather1991}
+Sheather, S.~J., and M.~C. Jones, 1991: A {{Reliable Data}}-{{Based Bandwidth
+  Selection Method}} for {{Kernel Density Estimation}}. \textit{Journal of the
+  Royal Statistical Society. Series B (Methodological)}, \textbf{53~(3)},
+  683--690.
+
 \bibitem[{Silvestri and Vera(2009)Silvestri, and Vera}]{silvestri2009}
 Silvestri, G., and C.~Vera, 2009: Nonstationary {{Impacts}} of the {{Southern
   Annular Mode}} on {{Southern Hemisphere Climate}}. \textit{J. Climate},
   \textbf{22~(22)}, 6142--6148, \doi{10.1175/2009JCLI3036.1}.
+
+\bibitem[{Simpkins and Karpechko(2012)Simpkins, and Karpechko}]{simpkins2012}
+Simpkins, G.~R., and A.~Y. Karpechko, 2012: Sensitivity of the southern annular
+  mode to greenhouse gas emission scenarios. \textit{Clim Dyn},
+  \textbf{38~(3)}, 563--572, \doi{10.1007/s00382-011-1121-2}.
 
 \bibitem[{Smith et~al.(2008)Smith, Reynolds, Peterson,, and
   Lawrimore}]{smith2008}
@@ -229,6 +279,11 @@ Watson, P. A.~G., and L.~J. Gray, 2014: How {{Does}} the {{Quasi}}-{{Biennial
   Oscillation Affect}} the {{Stratospheric Polar Vortex}}? \textit{J. Atmos.
   Sci.}, \textbf{71~(1)}, 391--409, \doi{10.1175/JAS-D-13-096.1}.
 
+\bibitem[{Wickham(2009)}]{wickham2009}
+Wickham, H., 2009: \textit{Ggplot2: {{Elegant Graphics}} for {{Data
+  Analysis}}}. Use {{R}}!, {Springer-Verlag}, {New York},
+  \doi{10.1007/978-0-387-98141-3}.
+
 \bibitem[{Wilks(2016)}]{wilks2016}
 Wilks, D.~S., 2016: ``{{The Stippling Shows Statistically Significant Grid
   Points}}'': {{How Research Results}} are {{Routinely Overstated}} and
@@ -240,6 +295,10 @@ Wolter, K., and M.~S. Timlin, 2011: El {{Ni\~no}}/{{Southern Oscillation}}
   behaviour since 1871 as diagnosed in an extended multivariate {{ENSO}} index
   ({{MEI}}.ext). \textit{International Journal of Climatology},
   \textbf{31~(7)}, 1074--1087, \doi{10.1002/joc.2336}.
+
+\bibitem[{Xie(2015)}]{xie2015}
+Xie, Y., 2015: \textit{Dynamic Documents with {{R}} and Knitr}. 2nd ed.,
+  {Chapman and Hall/CRC}, {Boca Raton, Florida}.
 
 \bibitem[{Zamboni et~al.(2010)Zamboni, Mechoso,, and Kucharski}]{zamboni2010}
 Zamboni, L., C.~R. Mechoso, and F.~Kucharski, 2010: Relationships between

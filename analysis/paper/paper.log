@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.9.29)  29 SEP 2020 18:09
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.9.29)  1 OCT 2020 19:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -836,11 +836,6 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [3]
-
-Package natbib Warning: Citation `silvestry2009' on page 4 undefined on input l
-ine 164.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [4]
@@ -848,36 +843,36 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [5]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.0pt on input line 204.
+(Font)              scaled to size 9.0pt on input line 212.
 LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
-204.
+212.
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 9.0pt on input line 204.
+(Font)              scaled to size 9.0pt on input line 212.
 [6]
 \openout4 = `paper.fff'.
 
 (paper.fff)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[7]
-Underfull \vbox (badness 2512) has occurred while \output is active []
-
-[8]
-Underfull \vbox (badness 6559) has occurred while \output is active []
+[7] [8]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [9]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[10] [11]
+[10]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[12]
+[11] [12]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[13] [14]
+[13]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[14]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [15]
@@ -886,23 +881,29 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [16]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[17] [18]
+[17]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[19]
+[18] [19]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[20] (./paper.bbl [21] [22] [23] [24] [25]) [26]
+[20]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Package natbib Warning: There were undefined citations.
-
-AED endfloat: Processing end Figures and Tables [27] (./paper.lof
+[21] (./paper.bbl [22] [23] [24] [25] [26] [27] [28]) [29] AED endfloat: Proces
+sing end Figures and Tables [30] (./paper.lof
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.5pt on input line 1.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 10.5pt on input line 1.
+Missing character: There is no – in font ntx-Regular-tlf-t1!
+Missing character: There is no – in font ntx-Regular-tlf-t1!
+Missing character: There is no – in font ntx-Regular-tlf-t1!
+Missing character: There is no – in font ntx-Regular-tlf-t1!
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.5pt on input line 9.
+Missing character: There is no – in font ntx-Regular-tlf-t1!
+Missing character: There is no – in font ntx-Regular-tlf-t1!
 LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 15.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.5pt on input line 15.
@@ -928,58 +929,70 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[28
+[31
 
 
 ])
 \tf@lof=\write5
 \openout5 = `paper.lof'.
 
-[29] (./paper.fff
+[32] (./paper.fff
 File: method-1.pdf Graphic file (type pdf)
 <use method-1.pdf>
-[30]
+Missing character: There is no – in font ntx-Regular-tlf-t1!
+Missing character: There is no – in font ntx-Regular-tlf-t1!
+[33]
 File: asymsam-timeseries-1.pdf Graphic file (type pdf)
 <use asymsam-timeseries-1.pdf>
-[31]
+[34]
 File: cor-lev-1.pdf Graphic file (type pdf)
 <use cor-lev-1.pdf>
-[32]
+Missing character: There is no – in font ntx-Regular-tlf-t1!
+Missing character: There is no – in font ntx-Regular-tlf-t1!
+[35]
 File: cross-correlation-1.pdf Graphic file (type pdf)
 <use cross-correlation-1.pdf>
-[33]
+Missing character: There is no – in font ntx-Regular-tlf-t1!
+Missing character: There is no – in font ntx-Regular-tlf-t1!
+[36]
 File: trends-1.pdf Graphic file (type pdf)
 <use trends-1.pdf>
-[34]
+[37]
 File: r-squared-trend-1.pdf Graphic file (type pdf)
 <use r-squared-trend-1.pdf>
-[35]
+[38]
 File: 2d-regr-1.pdf Graphic file (type pdf)
 <use 2d-regr-1.pdf>
-
-Overfull \hbox (37.88876pt too wide) in paragraph at lines 32--32
-[][] |
- []
-
-[36]
+Missing character: There is no – in font ntx-Regular-tlf-t1!
+Missing character: There is no – in font ntx-Regular-tlf-t1!
+[39]
 File: wave-amplitude-1.pdf Graphic file (type pdf)
 <use wave-amplitude-1.pdf>
-[37]
+[40]
 File: vertical-regression-1.pdf Graphic file (type pdf)
 <use vertical-regression-1.pdf>
-[38]
+Missing character: There is no – in font ntx-Regular-tlf-t1!
+Missing character: There is no – in font ntx-Regular-tlf-t1!
+[41]
 File: regr-air-season-1.pdf Graphic file (type pdf)
 <use regr-air-season-1.pdf>
-[39]
+Missing character: There is no – in font ntx-Regular-tlf-t1!
+Missing character: There is no – in font ntx-Regular-tlf-t1!
+
+LaTeX Warning: Float too large for page by 6.72856pt on input line 48.
+
+[42]
 File: pp-regr-oceania-1.pdf Graphic file (type pdf)
 <use pp-regr-oceania-1.pdf>
-[40]
+Missing character: There is no – in font ntx-Regular-tlf-t1!
+Missing character: There is no – in font ntx-Regular-tlf-t1!
+[43]
 File: pp-regr-america-1.pdf Graphic file (type pdf)
 <use pp-regr-america-1.pdf>
-[41]
+[44]
 File: A1-1.pdf Graphic file (type pdf)
 <use A1-1.pdf>
-[42]
+[45]
 File: A3-1.pdf Graphic file (type pdf)
 <use A3-1.pdf>
 
@@ -987,7 +1000,7 @@ Overfull \hbox (37.88876pt too wide) in paragraph at lines 67--67
 [][] |
  []
 
-[43]
+[46]
 File: A9-1.pdf Graphic file (type pdf)
 <use A9-1.pdf>
 
@@ -995,7 +1008,7 @@ Overfull \hbox (37.88876pt too wide) in paragraph at lines 72--72
 [][] |
  []
 
-[44]
+[47]
 File: A10-1.pdf Graphic file (type pdf)
 <use A10-1.pdf>
 
@@ -1003,17 +1016,17 @@ Overfull \hbox (37.88876pt too wide) in paragraph at lines 77--77
 [][] |
  []
 
-[45]
+[48]
 File: A11-1.pdf Graphic file (type pdf)
 <use A11-1.pdf>
-) [46] (./paper.aux) ) 
+) [49] (./paper.aux) ) 
 Here is how much of TeX's memory you used:
- 9064 strings out of 481648
- 130391 string characters out of 5930961
- 372041 words of memory out of 5000000
- 26012 multiletter control sequences out of 15000+600000
+ 9103 strings out of 481648
+ 131144 string characters out of 5930961
+ 373041 words of memory out of 5000000
+ 26051 multiletter control sequences out of 15000+600000
  608739 words of font info for 123 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 64i,14n,103p,875b,397s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,14n,103p,913b,413s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on paper.pdf (46 pages).
+Output written on paper.pdf (49 pages).

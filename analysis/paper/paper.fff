@@ -1,25 +1,25 @@
 \begin{figure*}
-\includegraphics{method-1} \caption[Spatial patterns of the first EOF of 700 hPa geopotential height]{Spatial patterns of the first EOF of 700 hPa geopotential height. (a) Full field, (b) zonally asymmetric component and (c) zonally symmetric component. Arbitrary units.}\label{fig:method}
+\includegraphics{method-1} \caption[Spatial patterns of the first EOF of 700 hPa geopotential height for 1979–2018 period]{Spatial patterns of the first EOF of 700 hPa geopotential height for 1979–2018 period. (a) Full field, (b) zonally asymmetric component and (c) zonally symmetric component. Arbitrary units.}\label{fig:method}
 \end{figure*}
 \efloatseparator
  
 \begin{figure*}
-\includegraphics{asymsam-timeseries-1} \caption[Time series for the Asymmetric SAM and Symmetric SAM indices at (a) 50 hPa and (b) 700 hPa]{Time series for the Asymmetric SAM and Symmetric SAM indices at (a) 50 hPa and (b) 700 hPa. To the left, probability density estimate of each index. Series are standarised by the standard deviation of the Full SAM at each level.}\label{fig:asymsam-timeseries}
+\includegraphics{asymsam-timeseries-1} \caption[Time series for the Asymmetric SAM and Symmetric SAM indices at (a) 50 hPa and (b) 700 hPa]{Time series for the Asymmetric SAM and Symmetric SAM indices at (a) 50 hPa and (b) 700 hPa. To the left, probability density estimate of each index computed using a gaussian kernel of optimal bindwidth according to \cite{sheather1991}. Series are standarised by the standard deviation of the Full SAM at each level.}\label{fig:asymsam-timeseries}
 \end{figure*}
 \efloatseparator
  
 \begin{figure}
-\includegraphics{cor-lev-1} \caption[Correlation between the Symmetric SAM and Asymmetric SAM index at each level for lag zero and lag -1 (Symmetric leads Asymmetric)]{Correlation between the Symmetric SAM and Asymmetric SAM index at each level for lag zero and lag -1 (Symmetric leads Asymmetric).}\label{fig:cor-lev}
+\includegraphics{cor-lev-1} \caption[Correlation between the Symmetric SAM and Asymmetric SAM index at each level for lag zero and lag -1 (Asymmetric SAM leads Symmetric SAM) for the 1979–2018 period]{Correlation between the Symmetric SAM and Asymmetric SAM index at each level for lag zero and lag -1 (Asymmetric SAM leads Symmetric SAM) for the 1979–2018 period.}\label{fig:cor-lev}
 \end{figure}
 \efloatseparator
  
 \begin{figure*}
-\includegraphics{cross-correlation-1} \caption[Cross correlation between levels of the (a) Full SAM, (b) Asymmetric SAM, and (c) Symmetric SAM]{Cross correlation between levels of the (a) Full SAM, (b) Asymmetric SAM, and (c) Symmetric SAM.}\label{fig:cross-correlation}
+\includegraphics{cross-correlation-1} \caption[Cross correlation between levels of the (a) Full SAM, (b) Asymmetric SAM, and (c) Symmetric SAM for the 1979–2018 period]{Cross correlation between levels of the (a) Full SAM, (b) Asymmetric SAM, and (c) Symmetric SAM for the 1979–2018 period.}\label{fig:cross-correlation}
 \end{figure*}
 \efloatseparator
  
 \begin{figure*}
-\includegraphics{trends-1} \caption[Decadal trends at each level for annual (row 1) and seasonal values (rows 2 to 5) for the period 1979-2018 and for the (column a) Full SAM index, (column b) Asymmetric SAM index, and (column c) Symmetric SAM index]{Decadal trends at each level for annual (row 1) and seasonal values (rows 2 to 5) for the period 1979-2018 and for the (column a) Full SAM index, (column b) Asymmetric SAM index, and (column c) Symmetric SAM index. Shading indicates the 95\% confidence interval.}\label{fig:trends}
+\includegraphics{trends-1} \caption[Decadal linear trends at each level for annual (row 1) and seasonal values (rows 2 to 5) for the period 1979-2018 and for the (column a) Full SAM index, (column b) Asymmetric SAM index, and (column c) Symmetric SAM index]{Decadal linear trends at each level for annual (row 1) and seasonal values (rows 2 to 5) for the period 1979-2018 and for the (column a) Full SAM index, (column b) Asymmetric SAM index, and (column c) Symmetric SAM index. Shading indicates the 95\% confidence interval from a t-distribution.}\label{fig:trends}
 \end{figure*}
 \efloatseparator
  
@@ -29,27 +29,27 @@
 \efloatseparator
  
 \begin{figure*}
-\includegraphics{2d-regr-1} \caption[Regression patterns of geopotential height (meters) at (row 1) 50 hPa and (row 2) 700 hPa with the (column a) Full SAM, (column b) Asymmetric SAM, and (column c) Symmetric SAM]{Regression patterns of geopotential height (meters) at (row 1) 50 hPa and (row 2) 700 hPa with the (column a) Full SAM, (column b) Asymmetric SAM, and (column c) Symmetric SAM. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices, not of two simple regressions involving each index by itsef. Points marked on panel b.2 are the location of the reference points used by \cite{raphael2004} for their Zonal Wave 3 index. }\label{fig:2d-regr}
-\end{figure*}
-\efloatseparator
- 
-\begin{figure}
-\includegraphics{wave-amplitude-1} \caption{Amplitude (meters) of zonal waves of the geopotential height regression patterns in Figure \ref{fig:2d-regr} for zonal waves with wave-number 0, 1, 2, and 3, where wave-number 0 represents the amplitude of the zonal mean. Note the differnet x axis.}\label{fig:wave-amplitude}
-\end{figure}
-\efloatseparator
- 
-\begin{figure}
-\includegraphics{vertical-regression-1} \caption[Regression between monthly geopotential anomalies (meters) averaged betweeen 65\degree and 40\degree S and the Asymmetric SAM index (extracted from multiple regression including the Symmetric SAM)]{Regression between monthly geopotential anomalies (meters) averaged betweeen 65\degree and 40\degree S and the Asymmetric SAM index (extracted from multiple regression including the Symmetric SAM). (a) With the Asymmetric SAM in 50 hPa and (b) in 700 hPa.}\label{fig:vertical-regression}
-\end{figure}
-\efloatseparator
- 
-\begin{figure*}
-\includegraphics{regr-air-season-1} \caption[Regression pattern of season mean surface temperature (Kelvin) with Asymmetric SAM and Symmetric SAM]{Regression pattern of season mean surface temperature (Kelvin) with Asymmetric SAM and Symmetric SAM. Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate. Gray areas in Antarctica are areas with have more than 15\% of missing data.}\label{fig:regr-air-season}
+\includegraphics{2d-regr-1} \caption[Regression of geopotential height (meters) at (row 1) 50 hPa and (row 2) 700 hPa with the (column a) Full SAM, (column b) Asymmetric SAM, and (column c) Symmetric SAM for the 1979–2018 period]{Regression of geopotential height (meters) at (row 1) 50 hPa and (row 2) 700 hPa with the (column a) Full SAM, (column b) Asymmetric SAM, and (column c) Symmetric SAM for the 1979–2018 period. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices. Points marked on panel b.2 are the location of the reference points used by \cite{raphael2004} for their Zonal Wave 3 index. }\label{fig:2d-regr}
 \end{figure*}
 \efloatseparator
  
 \begin{figure*}
-\includegraphics{pp-regr-oceania-1} \caption[Regression pattern of (row 1) annual and (rows 2 to 5) season mean precipitation anomalies (mm per day, shading) and 700 hPa geopotential height (thin lines, positive values as solid lines and negative values as dashed lines) with (column a) Full SAM, (column (b) Asymmetric SAM and (column c) Symmetric SAM]{Regression pattern of (row 1) annual and (rows 2 to 5) season mean precipitation anomalies (mm per day, shading) and 700 hPa geopotential height (thin lines, positive values as solid lines and negative values as dashed lines) with (column a) Full SAM, (column (b) Asymmetric SAM and (column c) Symmetric SAM. thin lines are the Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate.}\label{fig:pp-regr-oceania}
+\includegraphics{wave-amplitude-1} \caption{Amplitude (meters) of zonal waves of the geopotential height regression patterns in Figure \ref{fig:2d-regr} for zonal waves with wave-number 0, 1, 2, and 3, where wave-number 0 represents the amplitude of the zonal mean.}\label{fig:wave-amplitude}
+\end{figure*}
+\efloatseparator
+ 
+\begin{figure}
+\includegraphics{vertical-regression-1} \caption[Regression between monthly geopotential height anomalies (meters) averaged betweeen 65\degree and 40\degree S and the Asymmetric SAM index (extracted from multiple regression including the Symmetric SAM)]{Regression between monthly geopotential height anomalies (meters) averaged betweeen 65\degree and 40\degree S and the Asymmetric SAM index (extracted from multiple regression including the Symmetric SAM). (a) With the Asymmetric SAM in 50 hPa and (b) in 700 hPa for the 1979–2018 period.}\label{fig:vertical-regression}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure*}
+\includegraphics{regr-air-season-1} \caption[Regression of seasonal mean surface temperature (Kelvin) with Asymmetric SAM and Symmetric SAM for the 1979–2018 period]{Regression of seasonal mean surface temperature (Kelvin) with Asymmetric SAM and Symmetric SAM for the 1979–2018 period. Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate. Gray areas in Antarctica are areas with have more than 15\% of missing data.}\label{fig:regr-air-season}
+\end{figure*}
+\efloatseparator
+ 
+\begin{figure*}
+\includegraphics{pp-regr-oceania-1} \caption[Regression of (row 1) annual and (rows 2 to 5) seasonal mean precipitation anomalies (mm per day, shading) and 700 hPa geopotential height (thin lines, positive values as solid lines and negative values as dashed lines) with (column a) Full SAM, (column (b) Asymmetric SAM and (column c) Symmetric SAM for the 1979–2018 period]{Regression of (row 1) annual and (rows 2 to 5) seasonal mean precipitation anomalies (mm per day, shading) and 700 hPa geopotential height (thin lines, positive values as solid lines and negative values as dashed lines) with (column a) Full SAM, (column (b) Asymmetric SAM and (column c) Symmetric SAM for the 1979–2018 period. Thin lines are the Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate.}\label{fig:pp-regr-oceania}
 \end{figure*}
 \efloatseparator
  
@@ -64,7 +64,7 @@
 \efloatseparator
  
 \begin{figure}
-\includegraphics{A3-1} \appendcaption{A3}{Fourier spectrum of each timeseries computed as Fourier transform smoothed with modified Daniell smoothers with withs 3 and 5. The shading indicates de 95\% confidence area derived by fitting an autorregressive model and computing the spectrum for 5000 simulated samples from the fitted autoregressive model (95\% of the simulated sampels had an amplitude equal or lower). The light line indicates the theoretical expected amplitude from the autorregressive model.}\label{fig:A3}
+\includegraphics{A3-1} \appendcaption{A3}{Fourier spectrum of each timeseries computed as Fourier transform smoothed with modified Daniell smoothers with widths 3 and 5. The shading indicates de 95\% confidence area derived by fitting an autorregressive model and computing the spectrum for 5000 simulated samples from the fitted autoregressive model (95\% of the simulated sampels had an amplitude equal or lower). The light line indicates the theoretical expected amplitude from the autorregressive model.}\label{fig:A3}
 \end{figure}
 \efloatseparator
  
