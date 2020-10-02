@@ -222,8 +222,6 @@ To compute the amplitude of the zonal waves we computed the Fourier transform of
 
 We performed all analysis in this paper using the R programming language [@rcoreteam2020], using the data.table package [@dowle2020] and the metR package [@campitelli2020]. All graphics are made using ggplot2 [@wickham2009]. We downloaded data from ranalysis using the ecmwfr package [@hufkens2020] and indices of the ENSO with the rsoi package [@albers2020]. The paper was rendered using knitr and rmarkdown [@xie2015;@allaire2019].
 
-A version-controlled repository of the code used to create this analysis can be found at https://github.com/eliocamp/asymsam.
-
 # Results
 \label{sec:results}
 
@@ -949,6 +947,10 @@ NOAA Global Surface Temperature (NOAAGlobalTemp) data provided by the NOAA/OAR/E
 
 The research was supported by UBACyT20020170100428BA and the CLIMAX Project funded by Belmont Forum/ANR-15-JCL/-0002-01. Elio Campitelli was supported by a PhD grant from CONICET, Argentina.
 
+\datastatement
+All data used in this paper is freely available in their respective sources. ERA5 data can be obtained via the Copernicus Climate Data Store (https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-pressure-levels-monthly-means). NOAAGlobalTemp and GPCC precipitation data can be obtained through the NOAA Physical Sicences Laboratory website (https://psl.noaa.gov/data/gridded/data.noaaglobaltemp.html and https://psl.noaa.gov/data/gridded/data.gpcc.html). The Oceanic Niño Index is avaiable via NOAA's Climate Precidction Center: https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/detrend.nino34.ascii.txt
+
+A version-controlled repository of the code used to create this analysis, including the code used to download the data can be found at https://github.com/eliocamp/asymsam.
 
 \bibliography{AsymSAM,packages}
 
