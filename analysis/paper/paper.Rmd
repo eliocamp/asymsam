@@ -93,7 +93,7 @@ lab_sam <-  c(full = "Full",
               sym  = "Symmetric")
 ```
 
-
+ver
 <!-- The actual document text starts here: -->
 
 # Introduction 
@@ -234,9 +234,6 @@ We computed linear trends by Ordinary Least Squares and the 95% confidence inter
 ### Computation procedures
 
 We performed all analysis in this paper using the R programming language [@rcoreteam2020], using the data.table package [@dowle2020] and the metR package [@campitelli2020]. All graphics are made using ggplot2 [@wickham2009]. We downloaded data from ranalysis using the ecmwfr package [@hufkens2020] and indices of the ENSO with the rsoi package [@albers2020]. The paper was rendered using knitr and rmarkdown [@xie2015;@allaire2019].
-
-A version-controlled repository of the code used to create this analysis can be found at https://github.com/eliocamp/asymsam.
-#LEAN: Ver de mover a dónde debería ir
 
 # Results
 \label{sec:results}
