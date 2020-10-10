@@ -30,6 +30,7 @@
 \usepackage{gensymb}
 \usepackage{subfig}
 \usepackage[inline]{showlabels}
+\usepackage[hidelinks]{hyperref}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -96,7 +97,7 @@ The Southern Annular Mode (SAM) is the main mode of variability in the Southern 
 
 Most authors describe the SAM as a zonally symmetric pattern, a fact that is reflected not only in its name, but also in the various methods used to characterise it. Of the several different indices presented in the literature, many of them are based on zonal means of sea level pressure or geopotential height \citep{ho2012}. \citet{gong1999} defined the SAM index as the zonal mean sea level pressure difference between 40\degree S and 60\degree S, which is also the definition used by the station-based index in \citet{marshall2003}. \citet{baldwin2009} proposed defining the Northern and Annular modes as the leading EOF of the zonally averaged geopotential height at each level.
 
-Even though these indices are based on zonal averages, spatial anomalies of geopotential associated with these indices (either by regressino or composition) contain noticeable deviations from zonal symmetry, particularly in the Pacific Ocean region. These zonal asymmetries have not been widely studied, but previous work suggest that they strongly modulate the regional impacts of the SAM \citep[\citet{fogt2012}, \citet{rosso2018}]{fan2007}, going as far as reversing its relationship between precipitation in South America \citep{silvestri2009}. At the very least, the fact that the SAM is not entirely zonally symmetric hinders our ability to reconstruct its historical variability prior to the availability of dense observations in the Southern Hemisphere \citep{jones2009}.
+Even though these indices are based on zonal averages, spatial anomalies of geopotential associated with them (either by regression or composition) contain noticeable deviations from zonal symmetry, particularly in the Pacific Ocean region. These zonal asymmetries have not been widely studied, but previous work suggest that they strongly modulate the regional impacts of the SAM \citep{fan2007, fogt2012, rosso2018}, going as far as reversing its relationship between precipitation in South America \citep{silvestri2009}. At the very least, the fact that the SAM is not entirely zonally symmetric hinders our ability to reconstruct its historical variability prior to the availability of dense observations in the Southern Hemisphere \citep{jones2009}.
 
 At least some of the variability associated with the zonal asymmetries of the SAM is probably forced by the tropics. In particular, ENSO-like variability affects the Southern Hemisphere extratopics through the Pacific-South American Pattern \citep{mo1987, kidson1988, karoly1989}, whose wave train projects strongly onto the zonal anomalies corresponding to the SAM in the Pacific sector. And although the relationship between ENSO and SAM is far from simple, tropical influences on the SAM have been observed \citep{fan2007, fogt2011, clem2013}. In particular, \citet{fan2007} computed SAM indices of the Western and the Eastern Hemisphere separately and found that they were much more correlated if the (linear) signal of the ENSO was removed. While this relates to temporally coherent variability of the two hemisphere and not necessarily to zonal asymmetries in the associated spatial patterns, it is nonetheless consistent of the ENSO playing a crucial role in zonal asymmetries of the SAM.
 
@@ -106,15 +107,12 @@ Similarly unclear are the specific impacts of the zonally asymmetric component o
 
 We are not aware of any previous work which quantifies the temporal variability of the asymmetric component of the SAM with the exception of \citet{fogt2012}. However, their methods based on composites of positive and negative SAM events leads to some issues, such as spatial patterns derived from as little as 4 cases and from imbalanced periods (for example, 5 of the 7 cases in their DJF SAM+ composite are from later than 1988, whereas all of the 8 years in their DJF SAM- composite are from earlier than 1988). This is particularly important due to the inhomogeneities in reanalysis products prior to the satellite era and the possible change in the asymmetric structure of the SAM \citep{silvestri2009}. Moreover, \citet{fogt2012} studied the zonal asymmetric component of the SAM only in sea level pressure. Zonal asymmetries in the SAM spatial pattern are fairly barotropic throughout the troposphere, but they change dramatically in the stratosphere \citep{baldwin2009}.
 
-Our objective is, then, to systematically characterise the zonally asymmetric and symmetric components of the SAM variability. For each level, we construct two indices which aim to capture exclusively the variability of the symmetric and asymmetric component respectively. We assess their vertical structure and coherence, temporal variability and trends. We then study the spatial patterns described by the variability exclusive to each index. Finally, we investigate the relationship of the SAM at 700 hPa with temperature and precipitation anomalies.
+Our objective is, then, to systematically characterise the zonally asymmetric and symmetric components of the SAM variability. For each level, we construct two indices which aim to capture exclusively the variability of the symmetric and asymmetric component respectively. We assess their vertical structure and coherence, temporal variability and trends. We then study the spatial patterns described by the variability exclusive to each index focusing on 50 hPa as representing the stratosphere and 700 hPa as representing the troposphere. Finally, we investigate the relationship of the SAM at 700 hPa with temperature and precipitation anomalies.
 
-\#LEAN: Te había hecho el comentario antes pero quizás no había sido del todo claro. Me parece que acá hay que distinguir más en cómo se trabaja metodológicamente cada parte con respecto a los niveles atmosféricos. Por ej. para la evaluación de los impactos solamente se está considerando el ínidice troposférico.
+In the Section \ref{methods} we describe the methods. In Section \ref{temporal} we describe the temporal variability and vertical coherence of the indices. In Section \ref{spatial}, we analyse the spatial patterns of geopotential height associated with them. In Section \ref{impacts}, we study their relationship with surface-level temperature and precipitation.
 
-In the Section \ref{sec:methods} we describe the methods. In Section \ref{sec:results}.\ref{sec:temporal} we describe the temporal variability and vertical coherence of the indices. In Section \ref{sec:results}.\ref{sec:spatial}, we analyse the spatial patterns of geopotential height associated with them. In Section \ref{sec:results}.\ref{sec:impacts}, we study their relationship with surface-level temperature and precipitation.
-
-\section{Methods}
-
-\label{sec:methods}
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
 
 \subsubsection{Data}
 
@@ -158,13 +156,11 @@ We computed density probability estimates using a gaussian kernel of optimal bin
 
 We performed all analysis in this paper using the R programming language \citep{rcoreteam2020}, using the data.table package \citep{dowle2020} and the metR package \citep{campitelli2020}. All graphics are made using ggplot2 \citep{wickham2009}. We downloaded data from ranalysis using the ecmwfr package \citep{hufkens2020} and indices of the ENSO with the rsoi package \citep{albers2020}. The paper was rendered using knitr and rmarkdown \citep{xie2015, allaire2019}.
 
-\section{Results}
+\hypertarget{results}{%
+\section{Results}\label{results}}
 
-\label{sec:results}
-
-\subsection{Temporal evolution}
-
-\label{sec:temporal}
+\hypertarget{temporal}{%
+\subsection{Temporal evolution}\label{temporal}}
 
 \begin{figure*}
 \includegraphics{asymsam-timeseries-1} \caption[Time series for the Asymmetric SAM and Symmetric SAM indices at (a) 50 hPa and (b) 700 hPa]{Time series for the Asymmetric SAM and Symmetric SAM indices at (a) 50 hPa and (b) 700 hPa. To the right, probability density estimate of each index. Series are standarised by the standard deviation of the Full SAM at each level.}\label{fig:asymsam-timeseries}
@@ -204,9 +200,8 @@ Figure \ref{fig:r-squared-trend} shows decadal trends for the explained variance
 \includegraphics{r-squared-trend-1} \caption[Decadal trends of the variance explained by the Asymmetric and Symmetric SAM at each level for the period 1979 -- 2018]{Decadal trends of the variance explained by the Asymmetric and Symmetric SAM at each level for the period 1979 -- 2018. Shading indicates the 95\% confidence interval.}\label{fig:r-squared-trend}
 \end{figure}
 
-\subsection{Spatial patterns}
-
-\label{sec:spatial}
+\hypertarget{spatial}{%
+\subsection{Spatial patterns}\label{spatial}}
 
 \begin{figure*}
 \includegraphics{2d-regr-1} \caption[Regression of geopotential height (meters) at (row 1) 50 hPa and (row 2) 700 hPa with the (column a) Full SAM, (column b) Asymmetric SAM, and (column c) Symmetric SAM for the 1979 -- 2018 period]{Regression of geopotential height (meters) at (row 1) 50 hPa and (row 2) 700 hPa with the (column a) Full SAM, (column b) Asymmetric SAM, and (column c) Symmetric SAM for the 1979 -- 2018 period. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices. Points marked on panel b.2 are the location of the reference points used by \cite{raphael2004} for their Zonal Wave 3 index. }\label{fig:2d-regr}
@@ -236,9 +231,8 @@ The tropospheric Asymmetric SAM (panel b) has significant signals that extend up
 
 The wave-3 pattern from Figure \ref{fig:2d-regr} panel b.2 is very similar to the Pacific-South American Pattern \citep{mo1987, kidson1988} which is a teleconnection pattern associated with the ENSO \citep{karoly1989}. Indeed, \citet{fogt2011} showed that there is a significant relationship between the SAM and the ENSO. The correlation between the Full SAM and the ENSO as measured by the Oceanic Niño Index \citep[ONI,][]{bamston1997} is -0.16 (p-value = \ensuremath{2.8\times 10^{-4}}). Consistent with \citet{fan2007}, we show that this relationship is captured entirely by the Asymmetric SAM, as this index has a partial correlation of -0.26 (p-value = \ensuremath{6.3\times 10^{-9}}) with the ONI controlling for the effect of the Symmetric SAM, whereas the Symmetric SAM's partial correlation with the ONI is essentially null (0.019; p-value = 0.67). We performed the same analysis using the Multivariate ENSO Index \citep{wolter2011} and the Southern Oscillation Index \citep{ropelewski1987} to conclude that these results do not depend on the ENSO index used.
 
-\subsection{Surface Impacts}
-
-\label{sec:impacts}
+\hypertarget{impacts}{%
+\subsection{Surface Impacts}\label{impacts}}
 
 \begin{figure*}
 \includegraphics{regr-air-season-1} \caption[Regression of seasonal mean surface temperature (Kelvin) with Asymmetric SAM and Symmetric SAM for the 1979 -- 2018 period]{Regression of seasonal mean surface temperature (Kelvin) with Asymmetric SAM and Symmetric SAM for the 1979 -- 2018 period. Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate. Gray areas in Antarctica are areas with have more than 15\% of missing data.}\label{fig:regr-air-season}

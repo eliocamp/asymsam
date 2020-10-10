@@ -30,6 +30,7 @@ header-includes:
  - \usepackage{gensymb}
  - \usepackage{subfig}
  - \usepackage[inline]{showlabels}
+ - \usepackage[hidelinks]{hyperref}
 ---
 
 ```{r setup, echo = FALSE,warning=FALSE, message = FALSE}
