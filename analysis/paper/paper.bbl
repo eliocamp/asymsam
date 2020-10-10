@@ -1,4 +1,4 @@
-\begin{thebibliography}{55}
+\begin{thebibliography}{59}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \renewcommand{\UrlFont}{\rmfamily}
@@ -121,6 +121,18 @@ Garreaud, R., 2007: Precipitation and {{Circulation Covariability}} in the
   {{Extratropics}}. \textit{J. Climate}, \textbf{20~(18)}, 4789--4797,
   \doi{10.1175/JCLI4257.1}.
 
+\bibitem[{Gillett et~al.(2005)Gillett, Allan,, and Ansell}]{gillett2005}
+Gillett, N.~P., R.~J. Allan, and T.~J. Ansell, 2005: Detection of external
+  influence on sea level pressure with a multi-model ensemble.
+  \textit{Geophysical Research Letters}, \textbf{32~(19)},
+  \doi{10.1029/2005GL023640}.
+
+\bibitem[{Gillett et~al.(2013)Gillett, Fyfe,, and Parker}]{gillett2013}
+Gillett, N.~P., J.~C. Fyfe, and D.~E. Parker, 2013: Attribution of observed sea
+  level pressure trends to greenhouse gas, aerosol, and ozone changes.
+  \textit{Geophysical Research Letters}, \textbf{40~(10)}, 2302--2306,
+  \doi{10.1002/grl.50500}.
+
 \bibitem[{Gillett et~al.(2006)Gillett, Kell,, and Jones}]{gillett2006}
 Gillett, N.~P., T.~D. Kell, and P.~D. Jones, 2006: Regional climate impacts of
   the {{Southern Annular Mode}}. \textit{Geophysical Research Letters},
@@ -200,6 +212,13 @@ Marshall, G.~J., 2003: Trends in the {{Southern Annular Mode}} from
   {{Observations}} and {{Reanalyses}}. \textit{J. Climate}, \textbf{16~(24)},
   4134--4143, \doi{10.1175/1520-0442(2003)016<4134:TITSAM>2.0.CO;2}.
 
+\bibitem[{Marshall et~al.(2004)Marshall, Stott, Turner, Connolley, King,, and
+  Lachlan-Cope}]{marshall2004}
+Marshall, G.~J., P.~A. Stott, J.~Turner, W.~M. Connolley, J.~C. King, and T.~A.
+  Lachlan-Cope, 2004: Causes of exceptional atmospheric circulation changes in
+  the {{Southern Hemisphere}}. \textit{Geophysical Research Letters},
+  \textbf{31~(14)}, \doi{10.1029/2004GL019952}.
+
 \bibitem[{Mo and Ghil(1987)Mo, and Ghil}]{mo1987}
 Mo, K.~C., and M.~Ghil, 1987: Statistics and {{Dynamics}} of {{Persistent
   Anomalies}}. \textit{J. Atmos. Sci.}, \textbf{44~(5)}, 877--902,
@@ -240,6 +259,14 @@ Schneider, U., A.~Becker, P.~Finger, A.~{Meyer-Christoffer}, B.~Rudolf, and
   Precipitation Climatology Centre (GPCC) at Deutscher Wetterdienst}, 20 - 270
   MB per decadal gzip compressed NetCDF archive pp.,
   \doi{10.5676/DWD_GPCC/FD_M_V7_050}.
+
+\bibitem[{Schneider et~al.(2017)Schneider, Finger, {Meyer-Christoffer},
+  Rustemeier, Ziese,, and Becker}]{schneider2017}
+Schneider, U., P.~Finger, A.~{Meyer-Christoffer}, E.~Rustemeier, M.~Ziese, and
+  A.~Becker, 2017: Evaluating the {{Hydrological Cycle}} over {{Land Using}}
+  the {{Newly}}-{{Corrected Precipitation Climatology}} from the {{Global
+  Precipitation Climatology Centre}} ({{GPCC}}). \textit{Atmosphere},
+  \textbf{8~(3)}, 52, \doi{10.3390/atmos8030052}.
 
 \bibitem[{Sheather and Jones(1991)Sheather, and Jones}]{sheather1991}
 Sheather, S.~J., and M.~C. Jones, 1991: A {{Reliable Data}}-{{Based Bandwidth

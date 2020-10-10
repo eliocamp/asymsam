@@ -9,45 +9,45 @@ Warning--missing publisher in albers2020
 Warning--missing publisher in campitelli2020
 Warning--missing publisher in dowle2020
 Warning--missing publisher in hufkens2020
-You've used 55 entries,
+You've used 59 entries,
             3493 wiz_defined-function locations,
-            1050 strings with 18609 characters,
-and the built_in function-call counts, 58723 in all, are:
-= -- 7176
-> -- 1567
+            1072 strings with 19547 characters,
+and the built_in function-call counts, 62519 in all, are:
+= -- 7545
+> -- 1783
 < -- 34
-+ -- 1006
-- -- 396
-* -- 3020
-:= -- 5830
-add.period$ -- 105
-call.type$ -- 55
-change.case$ -- 399
-chr.to.int$ -- 58
-cite$ -- 59
-duplicate$ -- 6229
-empty$ -- 3216
-format.name$ -- 533
-if$ -- 11907
++ -- 1116
+- -- 450
+* -- 3264
+:= -- 6278
+add.period$ -- 113
+call.type$ -- 59
+change.case$ -- 437
+chr.to.int$ -- 62
+cite$ -- 63
+duplicate$ -- 6565
+empty$ -- 3425
+format.name$ -- 595
+if$ -- 12681
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 553
-newline$ -- 176
-num.names$ -- 220
-pop$ -- 2473
+missing$ -- 601
+newline$ -- 188
+num.names$ -- 236
+pop$ -- 2624
 preamble$ -- 1
-purify$ -- 347
+purify$ -- 381
 quote$ -- 0
-skip$ -- 3661
+skip$ -- 3858
 stack$ -- 0
-substring$ -- 2995
-swap$ -- 5275
+substring$ -- 3112
+swap$ -- 5515
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 486
+type$ -- 522
 warning$ -- 4
-while$ -- 290
+while$ -- 307
 width$ -- 0
-write$ -- 650
+write$ -- 698
 (There were 4 warnings)

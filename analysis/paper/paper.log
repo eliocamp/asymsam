@@ -1,40 +1,40 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.9.29)  2 OCT 2020 15:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.10.9)  9 OCT 2020 20:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **paper.tex
 (./paper.tex
-LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-09-24> (./ametsocV5.cls
-\c@section=\count164
-\c@subsection=\count165
-\c@subsubsection=\count166
-\c@paragraph=\count167
-\c@subparagraph=\count168
-\c@figure=\count169
-\c@table=\count170
+LaTeX2e <2020-10-01>
+L3 programming layer <2020-10-05> xparse <2020-03-03> (./ametsocV5.cls
+\c@section=\count175
+\c@subsection=\count176
+\c@subsubsection=\count177
+\c@paragraph=\count178
+\c@subparagraph=\count179
+\c@figure=\count180
+\c@table=\count181
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
-\bibindent=\dimen134
+\bibindent=\dimen138
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cf
 g
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: xetex.def on input line 105.
-(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/graphics-def/xetex.def
-File: xetex.def 2020/08/26 v5.0i Graphics/color driver for xetex
+Package graphics Info: Driver file: pdftex.def on input line 105.
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen135
-\Gin@req@width=\dimen136
+\Gin@req@height=\dimen139
+\Gin@req@width=\dimen140
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf.st
 y
 Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
@@ -63,16 +63,23 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode not found.
+Package pdftexcmds Info: \pdfdraftmode found.
 )
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base
 .sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
 
-Package epstopdf Warning: Drivers other than `pdftex' and `luatex' are not supp
-orted.
-
-)) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/psnfss/helvet.sty
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/psnfss/helvet.sty
 Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
@@ -91,7 +98,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip58
 \bibsep=\skip59
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count171
+\c@NAT@ctr=\count182
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -100,8 +107,9 @@ Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: xetex.def on input line 225.
+Package xcolor Info: Driver file: pdftex.def on input line 225.
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
 Package xcolor Info: Model `RGB' extended on input line 1364.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
@@ -113,29 +121,27 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
-\c@tracingmulticols=\count172
-\mult@box=\box45
-\multicol@leftmargin=\dimen137
-\c@unbalance=\count173
-\c@collectmore=\count174
-\doublecol@number=\count175
-\multicoltolerance=\count176
-\multicolpretolerance=\count177
-\full@width=\dimen138
-\page@free=\dimen139
-\premulticols=\dimen140
-\postmulticols=\dimen141
+\c@tracingmulticols=\count183
+\mult@box=\box47
+\multicol@leftmargin=\dimen141
+\c@unbalance=\count184
+\c@collectmore=\count185
+\doublecol@number=\count186
+\multicoltolerance=\count187
+\multicolpretolerance=\count188
+\full@width=\dimen142
+\page@free=\dimen143
+\premulticols=\dimen144
+\postmulticols=\dimen145
 \multicolsep=\skip60
 \multicolbaselineskip=\skip61
-\partial@page=\box46
-\last@line=\box47
-\maxbalancingoverflow=\dimen142
-\mult@rightbox=\box48
-\mult@grightbox=\box49
-\mult@gfirstbox=\box50
-\mult@firstbox=\box51
-\@tempa=\box52
-\@tempa=\box53
+\partial@page=\box48
+\last@line=\box49
+\maxbalancingoverflow=\dimen146
+\mult@rightbox=\box50
+\mult@grightbox=\box51
+\mult@gfirstbox=\box52
+\mult@firstbox=\box53
 \@tempa=\box54
 \@tempa=\box55
 \@tempa=\box56
@@ -171,58 +177,59 @@ Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \@tempa=\box86
 \@tempa=\box87
 \@tempa=\box88
-\c@minrows=\count178
-\c@columnbadness=\count179
-\c@finalcolumnbadness=\count180
-\last@try=\dimen143
-\multicolovershoot=\dimen144
-\multicolundershoot=\dimen145
-\mult@nat@firstbox=\box89
-\colbreak@box=\box90
-\mc@col@check@num=\count181
+\@tempa=\box89
+\@tempa=\box90
+\c@minrows=\count189
+\c@columnbadness=\count190
+\c@finalcolumnbadness=\count191
+\last@try=\dimen147
+\multicolovershoot=\dimen148
+\multicolundershoot=\dimen149
+\mult@nat@firstbox=\box91
+\colbreak@box=\box92
+\mc@col@check@num=\count192
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/graphics/rotating.sty
 Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
-\c@r@tfl@t=\count182
+\c@r@tfl@t=\count193
 \rotFPtop=\skip62
 \rotFPbot=\skip63
-\rot@float@box=\box91
+\rot@float@box=\box93
 \rot@mess@toks=\toks16
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/endfloat/endfloat.sty
 Package: endfloat 2019/04/15 v2.7 LaTeX2e package puts figures and tables at en
 d (jdm)
-\c@posttable=\count183
+\c@posttable=\count194
 \efloat@postttt=\write3
-\@ef@tttopen=\count184
-\c@postfigure=\count185
+\@ef@tttopen=\count195
+\c@postfigure=\count196
 \efloat@postfff=\write4
-\@ef@fffopen=\count186
+\@ef@fffopen=\count197
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/lineno/lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.
-\linenopenalty=\count187
+\linenopenalty=\count198
 \output=\toks17
-\linenoprevgraf=\count188
-\linenumbersep=\dimen146
-\linenumberwidth=\dimen147
-\c@linenumber=\count189
-\c@pagewiselinenumber=\count190
-\c@LN@truepage=\count191
-\c@internallinenumber=\count192
-\c@internallinenumbers=\count193
-\quotelinenumbersep=\dimen148
-\bframerule=\dimen149
-\bframesep=\dimen150
-\bframebox=\box92
+\linenoprevgraf=\count199
+\linenumbersep=\dimen150
+\linenumberwidth=\dimen151
+\c@linenumber=\count266
+\c@pagewiselinenumber=\count267
+\c@LN@truepage=\count268
+\c@internallinenumber=\count269
+\c@internallinenumbers=\count270
+\quotelinenumbersep=\dimen152
+\bframerule=\dimen153
+\bframesep=\dimen154
+\bframebox=\box94
 LaTeX Info: Redefining \\ on input line 3056.
 )
-\c@extraauth=\count194
-\c@loopnum=\count195
-\thanksnum=\count196
-\savethanksnum=\count197
+\c@extraauth=\count271
+\c@loopnum=\count272
+\thanksnum=\count273
+\savethanksnum=\count274
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2020/01/20 v2.17e AMS math features
+Package: amsmath 2020/09/23 v2.17i AMS math features
 \@mathmargin=\skip64
 For additional information on amsmath, use the `?' option.
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -230,50 +237,50 @@ Package: amstext 2000/06/29 v2.01 AMS text
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks18
-\ex@=\dimen151
+\ex@=\dimen155
 )) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen152
+\pmbraise@=\dimen156
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count198
-LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count199
-\leftroot@=\count266
-LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count267
-\DOTSCASE@=\count268
-LaTeX Info: Redefining \ldots on input line 486.
-LaTeX Info: Redefining \dots on input line 489.
-LaTeX Info: Redefining \cdots on input line 610.
-\Mathstrutbox@=\box93
-\strutbox@=\box94
-\big@size=\dimen153
-LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count269
-\c@MaxMatrixCols=\count270
+\inf@bad=\count275
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count276
+\leftroot@=\count277
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count278
+\DOTSCASE@=\count279
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box95
+\strutbox@=\box96
+\big@size=\dimen157
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count280
+\c@MaxMatrixCols=\count281
 \dotsspace@=\muskip17
-\c@parentequation=\count271
-\dspbrk@lvl=\count272
+\c@parentequation=\count282
+\dspbrk@lvl=\count283
 \tag@help=\toks19
-\row@=\count273
-\column@=\count274
-\maxfields@=\count275
+\row@=\count284
+\column@=\count285
+\maxfields@=\count286
 \andhelp@=\toks20
-\eqnshift@=\dimen154
-\alignsep@=\dimen155
-\tagshift@=\dimen156
-\tagwidth@=\dimen157
-\totwidth@=\dimen158
-\lineht@=\dimen159
+\eqnshift@=\dimen158
+\alignsep@=\dimen159
+\tagshift@=\dimen160
+\tagwidth@=\dimen161
+\totwidth@=\dimen162
+\lineht@=\dimen163
 \@envbody=\toks21
 \multlinegap=\skip65
 \multlinetaggap=\skip66
 \mathdisplay@stack=\toks22
-LaTeX Info: Redefining \[ on input line 2859.
-LaTeX Info: Redefining \] on input line 2860.
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
@@ -339,7 +346,7 @@ LaTeX Info: Redefining \textsw on input line 47.
 LaTeX Info: Redefining \textssc on input line 48.
 LaTeX Info: Redefining \textulc on input line 49.
 )
-\ntx@fs=\dimen160
+\ntx@fs=\dimen164
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/ho
@@ -347,156 +354,20 @@ me/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex
 \XKV@toks=\toks23
 \XKV@tempa@toks=\toks24
 )
-\XKV@depth=\count276
+\XKV@depth=\count287
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2020/08/24 v2.5j e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count277
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count288
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/xstring/xstring.sty (/
 home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/xstring/xstring.tex
-\integerpart=\count278
-Invalid UTF-8 byte or sequence at line 35 replaced by U+FFFD.
-\decimalpart=\count279
-Invalid UTF-8 byte or sequence at line 79 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 79 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 83 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 86 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 102 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 114 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 120 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 125 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 147 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 147 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 147 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 182 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 182 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 182 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 183 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 184 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 185 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 185 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 185 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 189 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 189 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 190 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 190 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 193 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 208 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 208 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 208 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 208 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 208 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 208 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 221 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 221 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 241 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 241 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 241 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 241 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 266 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 284 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 295 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 300 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 300 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 301 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 301 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 301 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 302 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 303 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 332 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 332 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 332 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 332 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 333 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 334 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 334 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 334 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 406 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 406 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 409 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 410 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 428 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 434 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 457 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 457 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 464 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 464 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 466 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 466 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 541 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 541 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 541 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 586 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 586 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 588 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 588 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 595 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 597 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 599 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 602 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 605 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 605 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 610 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 615 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 632 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 632 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 633 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 635 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 637 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 647 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 653 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 678 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 700 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 705 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 715 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 715 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 715 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 719 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 732 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 732 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 741 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 741 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 742 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 742 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 762 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 773 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 773 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 774 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 774 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 774 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 797 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 797 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 810 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 824 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 824 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 831 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 838 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 838 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 846 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 846 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 861 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 862 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 864 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 864 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 908 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 909 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 909 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 934 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 934 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 936 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 936 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 940 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 940 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 962 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 962 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 964 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 965 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 1006 replaced by U+FFFD.
+\integerpart=\count289
+\decimalpart=\count290
 )
 Package: xstring 2019/02/06 v1.83 String manipulations (CT)
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/carlisle/scalefnt.sty) (
 /home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
+Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
 LaTeX Font Info:    Trying to load font information for T1+ntxtlf on input line
  112.
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/newtx/t1ntxtlf.fd
@@ -508,7 +379,7 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 LaTeX Font Info:    Changing ? sub-encoding to TS1/0 on input line 75.
 )
-\ntxt@cntz=\count280
+\ntxt@cntz=\count291
 LaTeX Font Info:    Redeclaring math symbol \mathsterling on input line 316.
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/newtx/newtxmath.sty
 Package: newtxmath 2020/09/19 v1.630
@@ -521,10 +392,10 @@ Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/oberdiek/centernot.sty
 Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
 )
-\tx@cntz=\count281
+\tx@cntz=\count292
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/kastrup/binhex.tex)
-\tx@Isdigit=\count282
-\tx@IsAlNum=\count283
+\tx@Isdigit=\count293
+\tx@IsAlNum=\count294
 \tx@tA=\toks25
 \tx@tB=\toks26
 \tx@su=\read2
@@ -572,6 +443,8 @@ LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
 LaTeX Font Info:    Overwriting symbol font `lettersA' in version `bold'
 (Font)                  U/ntxmia/m/it --> U/ntxmia/b/it on input line 535.
 LaTeX Font Info:    Redeclaring math alphabet \mathfrak on input line 537.
+Now handling font encoding LMS ...
+... no UTF-8 mapping file for font encoding LMS
 LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 556.
 LaTeX Font Info:    Encoding `OMS' has changed to `LMS' for symbol font
 (Font)              `symbols' in the math version `normal' on input line 556.
@@ -589,6 +462,8 @@ LaTeX Font Info:    Overwriting symbol font `AMSm' in version `bold'
 \symsymbolsC=\mathgroup10
 LaTeX Font Info:    Overwriting symbol font `symbolsC' in version `bold'
 (Font)                  U/ntxsyc/m/n --> U/ntxsyc/b/n on input line 601.
+Now handling font encoding LMX ...
+... no UTF-8 mapping file for font encoding LMX
 LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 614.
 LaTeX Font Info:    Encoding `OMX' has changed to `LMX' for symbol font
 (Font)              `largesymbols' in the math version `normal' on input line 6
@@ -620,12 +495,12 @@ LaTeX Font Info:    Redeclaring math delimiter \vert on input line 864.
 LaTeX Font Info:    Redeclaring math accent \dot on input line 935.
 LaTeX Font Info:    Redeclaring math accent \ddot on input line 936.
 LaTeX Font Info:    Redeclaring math accent \vec on input line 1999.
-\ntx@numstart=\count284
-\ntx@UCstart=\count285
-\ntx@lcstart=\count286
-\ntx@tmpc=\count287
-\ntx@imath=\count288
-\ntx@jmath=\count289
+\ntx@numstart=\count295
+\ntx@UCstart=\count296
+\ntx@lcstart=\count297
+\ntx@tmpc=\count298
+\ntx@imath=\count299
+\ntx@jmath=\count300
 LaTeX Info: Redefining \Bbbk on input line 2510.
 LaTeX Info: Redefining \not on input line 2659.
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/was/gensymb.sty
@@ -636,13 +511,13 @@ Package: subfig 2005/06/28 ver: 1.3 subfig package
 Package: caption 2020/09/12 v3.5b Customizing captions (AR)
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2020/09/17 v2.1b caption3 kernel (AR)
-\captionmargin=\dimen161
-\captionmargin@=\dimen162
-\captionwidth=\dimen163
-\caption@tempdima=\dimen164
-\caption@indent=\dimen165
-\caption@parindent=\dimen166
-\caption@hangindent=\dimen167
+\captionmargin=\dimen165
+\captionmargin@=\dimen166
+\captionwidth=\dimen167
+\caption@tempdima=\dimen168
+\caption@indent=\dimen169
+\caption@parindent=\dimen170
+\caption@hangindent=\dimen171
 Package caption Info: Unknown document class (or package),
 (caption)             standard defaults will be used.
 Package caption Info: \@makecaption = \long macro:#1#2->\ifx \@captype \xtable 
@@ -661,21 +536,21 @@ Package caption Warning: Unknown document class (or package),
 (caption)                standard defaults will be used.
 See the caption package documentation for explanation.
 
-\c@caption@flags=\count290
-\c@continuedfloat=\count291
+\c@caption@flags=\count301
+\c@continuedfloat=\count302
 Package caption Info: rotating package is loaded.
 )
-\c@KVtest=\count292
+\c@KVtest=\count303
 \sf@farskip=\skip67
-\sf@captopadj=\dimen168
+\sf@captopadj=\dimen172
 \sf@capskip=\skip68
 \sf@nearskip=\skip69
-\c@subfigure=\count293
-\c@subfigure@save=\count294
-\c@lofdepth=\count295
-\c@subtable=\count296
-\c@subtable@save=\count297
-\c@lotdepth=\count298
+\c@subfigure=\count304
+\c@subfigure@save=\count305
+\c@lofdepth=\count306
+\c@subtable=\count307
+\c@subtable@save=\count308
+\c@lotdepth=\count309
 \sf@top=\skip70
 \sf@bottom=\skip71
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/showlabels/showlabels.st
@@ -683,155 +558,146 @@ y
 Package: showlabels 2016/06/09 v1.8
 Package: `showlabels' v1.8 <2016/06/09>
 with amsmath equation tags
-\SL@labelposition=\count299
+\SL@labelposition=\count310
 )
-(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.
-def
-File: l3backend-xetex.def 2020-09-24 L3 backend support: XeTeX
-\g__graphics_track_int=\count300
-\l__pdf_internal_box=\box95
-\g__pdf_backend_object_int=\count301
-\g__pdf_backend_annotation_int=\count302
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex
+.def
+File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
+\l__kernel_color_stack_int=\count311
+\l__pdf_internal_box=\box97
 ) (./paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 76.
+LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 69.
 LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line
- 76.
+ 69.
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/newtx/omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 76.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 7
-6.
-(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 69.
 LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 
-76.
+69.
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/newtx/untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 69.
 LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line
- 76.
+ 69.
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/newtx/lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 69.
 LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input lin
-e 76.
+e 69.
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/newtx/lmxntxexx.fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 76.
-\c@mv@tabular=\count303
-\c@mv@boldtabular=\count304
+LaTeX Font Info:    ... okay on input line 69.
+\c@mv@tabular=\count312
+\c@mv@boldtabular=\count313
 \symgns@font=\mathgroup12
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
-(Font)                  TS1/ntxtlf/m/n --> TS1/ntxtlf/b/n on input line 76.
-Package gensymb Info: Math companion symbols declared on input line 76.
-LaTeX Info: Redefining \degree on input line 76.
-LaTeX Info: Redefining \celsius on input line 76.
+(Font)                  TS1/ntxtlf/m/n --> TS1/ntxtlf/b/n on input line 69.
+Package gensymb Info: Math companion symbols declared on input line 69.
+LaTeX Info: Redefining \degree on input line 69.
+LaTeX Info: Redefining \celsius on input line 69.
 Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
-erthousand on input line 76.
-LaTeX Info: Redefining \ohm on input line 76.
-Package gensymb Info: Using \textohm for \ohm on input line 76.
-Package gensymb Info: Using \textmu for \micro on input line 76.
+erthousand on input line 69.
+LaTeX Info: Redefining \ohm on input line 69.
+Package gensymb Info: Using \textohm for \ohm on input line 69.
+Package gensymb Info: Using \textmu for \micro on input line 69.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 14.4pt on input line 79.
+(Font)              scaled to size 14.4pt on input line 72.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 14.4pt on input line 79.
+(Font)              scaled to size 14.4pt on input line 72.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 79.
-LaTeX Font Info:    Trying to load font information for T1+qhv on input line 79
+(Font)              scaled to size 5.0pt on input line 72.
+LaTeX Font Info:    Trying to load font information for T1+qhv on input line 72
 .
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/tex-gyre/t1qhv.fd
 File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
 )
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 4.49997pt on input line 79.
+(Font)              scaled to size 4.49997pt on input line 72.
 LaTeX Font Info:    Trying to load font information for OT1+ntxtlf on input lin
-e 79.
+e 72.
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/newtx/ot1ntxtlf.fd
 File: ot1ntxtlf.fd 2015/01/17 v1.0 font definition file for OT1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 79.
+(Font)              scaled to size 12.0pt on input line 72.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.8pt on input line 79.
+(Font)              scaled to size 8.8pt on input line 72.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.6pt on input line 79.
+(Font)              scaled to size 6.6pt on input line 72.
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 7
-9.
+2.
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 79.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8.8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 79.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6.6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 79.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
 LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 
-79.
+72.
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
 )
 LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 
-79.
+72.
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
 )
 LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 
-79.
+72.
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/newtx/untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
 LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
-e 79.
+e 72.
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 79.
+(Font)              scaled to size 12.0pt on input line 72.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.8pt on input line 79.
+(Font)              scaled to size 8.8pt on input line 72.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.6pt on input line 79.
+(Font)              scaled to size 6.6pt on input line 72.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.5pt on input line 79.
+(Font)              scaled to size 8.5pt on input line 72.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 8.5pt on input line 79.
+(Font)              scaled to size 8.5pt on input line 72.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 79.
-Missing character: There is no ‐ in font ntx-Italic-tlf-t1!
+(Font)              scaled to size 12.0pt on input line 72.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.8pt on input line 79.
-[1]
+(Font)              scaled to size 8.8pt on input line 72.
+[1{/home/elio.campitelli/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 12.0pt on input line 79.
+(Font)              scaled to size 12.0pt on input line 72.
 [2]
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 100.
+(Font)              scaled to size 12.0pt on input line 93.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -843,30 +709,36 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [5]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.0pt on input line 212.
+(Font)              scaled to size 9.0pt on input line 117.
 LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
-212.
+117.
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 9.0pt on input line 212.
+(Font)              scaled to size 9.0pt on input line 117.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 [6]
 \openout4 = `paper.fff'.
 
 (paper.fff)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[7] [8]
+[7]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[9]
+[8]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[10]
+[9] [10]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[11] [12]
+[11]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[12]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [13]
@@ -875,53 +747,47 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [14]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[15]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[16]
+[15] [16]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [17]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[18] [19]
+[18]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[20]
+[19] [20]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 859--868
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
 \T1/ntxtlf/m/n/12 (https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysi
 s-era5-pressure-levels-monthly-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 859--868
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
 \T1/ntxtlf/m/n/12 and https://psl.noaa.gov/data/gridded/data.gpcc.html). The Oc
 eanic
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 859--868
-\T1/ntxtlf/m/n/12 Niño In-dex is ava-iable via NOAA's Cli-mate Pre-cid-c-tion C
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
+\T1/ntxtlf/m/n/12 Ni�o In-dex is ava-iable via NOAA's Cli-mate Pre-cid-c-tion C
 en-ter:
  []
 
-[22] (./paper.bbl [23] [24] [25] [26] [27] [28]) [29] AED endfloat: Processing 
-end Figures and Tables [30] (./paper.lof
+(./paper.bbl [23] [24] [25] [26] [27] [28] [29]) [30] AED endfloat: Processing 
+end Figures and Tables [31] (./paper.lof
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.5pt on input line 1.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 10.5pt on input line 1.
-Missing character: There is no – in font ntx-Regular-tlf-t1!
-Missing character: There is no – in font ntx-Regular-tlf-t1!
-Missing character: There is no – in font ntx-Regular-tlf-t1!
-Missing character: There is no – in font ntx-Regular-tlf-t1!
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.5pt on input line 9.
-Missing character: There is no – in font ntx-Regular-tlf-t1!
-Missing character: There is no – in font ntx-Regular-tlf-t1!
 LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 15.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.5pt on input line 15.
@@ -947,104 +813,172 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[31
+[32
 
 
 ])
 \tf@lof=\write5
 \openout5 = `paper.lof'.
 
-[32] (./paper.fff
+[33] (./paper.fff
+<method-1.pdf, id=118, 433.62pt x 180.675pt>
 File: method-1.pdf Graphic file (type pdf)
 <use method-1.pdf>
-Missing character: There is no – in font ntx-Regular-tlf-t1!
-Missing character: There is no – in font ntx-Regular-tlf-t1!
-[33]
+Package pdftex.def Info: method-1.pdf  used on input line 2.
+(pdftex.def)             Requested size: 433.61894pt x 180.67455pt.
+[34 <./method-1.pdf>]
+<asymsam-timeseries-1.pdf, id=128, 433.62pt x 216.81pt>
 File: asymsam-timeseries-1.pdf Graphic file (type pdf)
 <use asymsam-timeseries-1.pdf>
-[34]
+Package pdftex.def Info: asymsam-timeseries-1.pdf  used on input line 7.
+(pdftex.def)             Requested size: 433.61894pt x 216.80946pt.
+[35 <./asymsam-timeseries-1.pdf>]
+<cor-lev-1.pdf, id=137, 216.81pt x 216.81pt>
 File: cor-lev-1.pdf Graphic file (type pdf)
 <use cor-lev-1.pdf>
-Missing character: There is no – in font ntx-Regular-tlf-t1!
-Missing character: There is no – in font ntx-Regular-tlf-t1!
-[35]
+Package pdftex.def Info: cor-lev-1.pdf  used on input line 12.
+(pdftex.def)             Requested size: 216.80946pt x 216.80946pt.
+[36 <./cor-lev-1.pdf>]
+<cross-correlation-1.pdf, id=146, 433.62pt x 216.81pt>
 File: cross-correlation-1.pdf Graphic file (type pdf)
 <use cross-correlation-1.pdf>
-Missing character: There is no – in font ntx-Regular-tlf-t1!
-Missing character: There is no – in font ntx-Regular-tlf-t1!
-[36]
+Package pdftex.def Info: cross-correlation-1.pdf  used on input line 17.
+(pdftex.def)             Requested size: 433.61894pt x 216.80946pt.
+[37 <./cross-correlation-1.pdf>]
+<trends-1.pdf, id=156, 433.62pt x 289.08pt>
 File: trends-1.pdf Graphic file (type pdf)
 <use trends-1.pdf>
-[37]
+Package pdftex.def Info: trends-1.pdf  used on input line 22.
+(pdftex.def)             Requested size: 433.61894pt x 289.07928pt.
+[38 <./trends-1.pdf>]
+<r-squared-trend-1.pdf, id=168, 216.81pt x 216.81pt>
 File: r-squared-trend-1.pdf Graphic file (type pdf)
 <use r-squared-trend-1.pdf>
-[38]
+Package pdftex.def Info: r-squared-trend-1.pdf  used on input line 27.
+(pdftex.def)             Requested size: 216.80946pt x 216.80946pt.
+[39 <./r-squared-trend-1.pdf>]
+<2d-regr-1.pdf, id=181, 433.62pt x 361.35pt>
 File: 2d-regr-1.pdf Graphic file (type pdf)
 <use 2d-regr-1.pdf>
-Missing character: There is no – in font ntx-Regular-tlf-t1!
-Missing character: There is no – in font ntx-Regular-tlf-t1!
-[39]
+Package pdftex.def Info: 2d-regr-1.pdf  used on input line 32.
+(pdftex.def)             Requested size: 433.61894pt x 361.34912pt.
+[40 <./2d-regr-1.pdf>]
+<wave-amplitude-1.pdf, id=190, 433.62pt x 216.81pt>
 File: wave-amplitude-1.pdf Graphic file (type pdf)
 <use wave-amplitude-1.pdf>
-[40]
+Package pdftex.def Info: wave-amplitude-1.pdf  used on input line 37.
+(pdftex.def)             Requested size: 433.61894pt x 216.80946pt.
+[41 <./wave-amplitude-1.pdf>]
+<vertical-regression-1.pdf, id=199, 216.81pt x 216.81pt>
 File: vertical-regression-1.pdf Graphic file (type pdf)
 <use vertical-regression-1.pdf>
-Missing character: There is no – in font ntx-Regular-tlf-t1!
-Missing character: There is no – in font ntx-Regular-tlf-t1!
-[41]
+Package pdftex.def Info: vertical-regression-1.pdf  used on input line 42.
+(pdftex.def)             Requested size: 216.80946pt x 216.80946pt.
+[42 <./vertical-regression-1.pdf>]
+<regr-air-season-1.pdf, id=208, 433.62pt x 578.16pt>
 File: regr-air-season-1.pdf Graphic file (type pdf)
 <use regr-air-season-1.pdf>
-Missing character: There is no – in font ntx-Regular-tlf-t1!
-Missing character: There is no – in font ntx-Regular-tlf-t1!
+Package pdftex.def Info: regr-air-season-1.pdf  used on input line 47.
+(pdftex.def)             Requested size: 433.61894pt x 578.15858pt.
 
-LaTeX Warning: Float too large for page by 6.72856pt on input line 48.
+LaTeX Warning: Float too large for page by 6.72859pt on input line 48.
 
-[42]
+[43 <./regr-air-season-1.pdf>]
+<pp-regr-oceania-1.pdf, id=218, 433.62pt x 469.755pt>
 File: pp-regr-oceania-1.pdf Graphic file (type pdf)
 <use pp-regr-oceania-1.pdf>
-Missing character: There is no – in font ntx-Regular-tlf-t1!
-Missing character: There is no – in font ntx-Regular-tlf-t1!
-[43]
+Package pdftex.def Info: pp-regr-oceania-1.pdf  used on input line 52.
+(pdftex.def)             Requested size: 433.61894pt x 469.75386pt.
+[44 <./pp-regr-oceania-1.pdf>]
+<pp-regr-america-1.pdf, id=227, 433.62pt x 549.05125pt>
 File: pp-regr-america-1.pdf Graphic file (type pdf)
 <use pp-regr-america-1.pdf>
-[44]
+Package pdftex.def Info: pp-regr-america-1.pdf  used on input line 57.
+(pdftex.def)             Requested size: 433.61894pt x 549.04991pt.
+[45 <./pp-regr-america-1.pdf>]
+<A1-1.pdf, id=236, 289.08pt x 289.08pt>
 File: A1-1.pdf Graphic file (type pdf)
 <use A1-1.pdf>
-[45]
+Package pdftex.def Info: A1-1.pdf  used on input line 62.
+(pdftex.def)             Requested size: 289.07928pt x 289.07928pt.
+[46 <./A1-1.pdf>]
+<A2-1.pdf, id=245, 505.89pt x 289.08pt>
+File: A2-1.pdf Graphic file (type pdf)
+<use A2-1.pdf>
+Package pdftex.def Info: A2-1.pdf  used on input line 67.
+(pdftex.def)             Requested size: 505.88875pt x 289.07928pt.
+
+Overfull \hbox (37.88875pt too wide) in paragraph at lines 67--67
+[][] |
+ []
+
+[47 <./A2-1.pdf>]
+<A3-1.pdf, id=258, 505.89pt x 361.35pt>
 File: A3-1.pdf Graphic file (type pdf)
 <use A3-1.pdf>
+Package pdftex.def Info: A3-1.pdf  used on input line 72.
+(pdftex.def)             Requested size: 505.88875pt x 361.34912pt.
 
-Overfull \hbox (37.88876pt too wide) in paragraph at lines 67--67
+Overfull \hbox (37.88875pt too wide) in paragraph at lines 72--72
 [][] |
  []
 
-[46]
-File: A9-1.pdf Graphic file (type pdf)
-<use A9-1.pdf>
+[48 <./A3-1.pdf>]
+<A4-1.pdf, id=267, 505.89pt x 361.35pt>
+File: A4-1.pdf Graphic file (type pdf)
+<use A4-1.pdf>
+Package pdftex.def Info: A4-1.pdf  used on input line 77.
+(pdftex.def)             Requested size: 505.88875pt x 361.34912pt.
 
-Overfull \hbox (37.88876pt too wide) in paragraph at lines 72--72
+Overfull \hbox (37.88875pt too wide) in paragraph at lines 77--77
 [][] |
  []
 
-[47]
-File: A10-1.pdf Graphic file (type pdf)
-<use A10-1.pdf>
+[49 <./A4-1.pdf>]
+<A5-1.pdf, id=277, 505.89pt x 433.62pt>
+File: A5-1.pdf Graphic file (type pdf)
+<use A5-1.pdf>
+Package pdftex.def Info: A5-1.pdf  used on input line 82.
+(pdftex.def)             Requested size: 505.88875pt x 433.61894pt.
 
-Overfull \hbox (37.88876pt too wide) in paragraph at lines 77--77
+Overfull \hbox (37.88875pt too wide) in paragraph at lines 82--82
 [][] |
  []
 
-[48]
-File: A11-1.pdf Graphic file (type pdf)
-<use A11-1.pdf>
-) [49] (./paper.aux) ) 
+[50 <./A5-1.pdf>]
+<A6-1.pdf, id=286, 433.62pt x 361.35pt>
+File: A6-1.pdf Graphic file (type pdf)
+<use A6-1.pdf>
+Package pdftex.def Info: A6-1.pdf  used on input line 87.
+(pdftex.def)             Requested size: 433.61894pt x 361.34912pt.
+) [51 <./A6-1.pdf>] (./paper.aux) ) 
 Here is how much of TeX's memory you used:
- 9103 strings out of 481648
- 131144 string characters out of 5930961
- 373041 words of memory out of 5000000
- 26051 multiletter control sequences out of 15000+600000
- 608739 words of font info for 123 fonts, out of 8000000 for 9000
+ 9282 strings out of 481860
+ 134407 string characters out of 5930022
+ 408876 words of memory out of 5000000
+ 25389 multiletter control sequences out of 15000+600000
+ 615811 words of font info for 140 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 64i,14n,103p,913b,413s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 76i,14n,124p,1350b,430s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/home/elio.campitelli/.TinyTeX/texmf-dist/f
+onts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/home/elio.campitelli/.TinyTeX/texmf-dist
+/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/home/elio.campitelli/.TinyTeX/texmf-dist/
+fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}{/home/elio.campitelli/.TinyTeX/texmf-d
+ist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/home/elio.campitelli/.TinyTeX/texmf-
+dist/fonts/enc/dvips/tex-gyre/q-ec.enc}</home/elio.campitelli/.TinyTeX/texmf-di
+st/fonts/type1/public/newtx/NewTXMI.pfb></home/elio.campitelli/.TinyTeX/texmf-d
+ist/fonts/type1/public/tex-gyre/qhvr.pfb></home/elio.campitelli/.TinyTeX/texmf-
+dist/fonts/type1/public/tex-gyre/qtmr.pfb></home/elio.campitelli/.TinyTeX/texmf
+-dist/fonts/type1/public/txfonts/t1xtt.pfb></home/elio.campitelli/.TinyTeX/texm
+f-dist/fonts/type1/public/newtx/txmiaX.pfb></home/elio.campitelli/.TinyTeX/texm
+f-dist/fonts/type1/public/newtx/txsys.pfb></home/elio.campitelli/.TinyTeX/texmf
+-dist/fonts/type1/public/newtx/ztmb.pfb></home/elio.campitelli/.TinyTeX/texmf-d
+ist/fonts/type1/public/newtx/ztmr.pfb></home/elio.campitelli/.TinyTeX/texmf-dis
+t/fonts/type1/public/newtx/ztmri.pfb>
+Output written on paper.pdf (51 pages, 2696557 bytes).
+PDF statistics:
+ 346 PDF objects out of 1000 (max. 8388607)
+ 234 compressed objects within 3 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-Output written on paper.pdf (49 pages).
