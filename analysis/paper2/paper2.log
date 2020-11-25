@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.11.25)  25 NOV 2020 14:35
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.11.25)  25 NOV 2020 14:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -421,33 +421,33 @@ File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
 Underfull \vbox (badness 4940) has occurred while \output is active []
 
 [2] [3] [4]
-File: figures/method-1.pdf Graphic file (type pdf)
-<use figures/method-1.pdf>
+File: method-1.pdf Graphic file (type pdf)
+<use method-1.pdf>
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 143--143
 [][] 
  []
 
 [5] [6]
-File: figures/asymsam-timeseries-1.pdf Graphic file (type pdf)
-<use figures/asymsam-timeseries-1.pdf>
+File: asymsam-timeseries-1.pdf Graphic file (type pdf)
+<use asymsam-timeseries-1.pdf>
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 181--181
 [][] 
  []
 
 [7]
-File: figures/cor-lev-1.pdf Graphic file (type pdf)
-<use figures/cor-lev-1.pdf>
-File: figures/cross-correlation-1.pdf Graphic file (type pdf)
-<use figures/cross-correlation-1.pdf>
+File: cor-lev-1.pdf Graphic file (type pdf)
+<use cor-lev-1.pdf>
+File: cross-correlation-1.pdf Graphic file (type pdf)
+<use cross-correlation-1.pdf>
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 197--197
 [][] 
  []
 
-File: figures/trends-1.pdf Graphic file (type pdf)
-<use figures/trends-1.pdf>
+File: trends-1.pdf Graphic file (type pdf)
+<use trends-1.pdf>
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 203--203
 [][] 
@@ -457,10 +457,10 @@ Overfull \hbox (95.61894pt too wide) in paragraph at lines 203--203
 Underfull \vbox (badness 1215) has occurred while \output is active []
 
 [10]
-File: figures/r-squared-trend-1.pdf Graphic file (type pdf)
-<use figures/r-squared-trend-1.pdf>
-File: figures/2d-regr-1.pdf Graphic file (type pdf)
-<use figures/2d-regr-1.pdf>
+File: r-squared-trend-1.pdf Graphic file (type pdf)
+<use r-squared-trend-1.pdf>
+File: 2d-regr-1.pdf Graphic file (type pdf)
+<use 2d-regr-1.pdf>
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 222--222
 [][] 
@@ -478,15 +478,15 @@ ne 222.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [11] [12]
-File: figures/wave-amplitude-1.pdf Graphic file (type pdf)
-<use figures/wave-amplitude-1.pdf>
+File: wave-amplitude-1.pdf Graphic file (type pdf)
+<use wave-amplitude-1.pdf>
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 232--232
 [][] 
  []
 
-File: figures/vertical-regression-1.pdf Graphic file (type pdf)
-<use figures/vertical-regression-1.pdf>
+File: vertical-regression-1.pdf Graphic file (type pdf)
+<use vertical-regression-1.pdf>
 
 Underfull \vbox (badness 4266) has occurred while \output is active []
 
@@ -494,8 +494,8 @@ Underfull \vbox (badness 4266) has occurred while \output is active []
 Underfull \vbox (badness 1365) has occurred while \output is active []
 
 [14]
-File: figures/regr-air-season-1.pdf Graphic file (type pdf)
-<use figures/regr-air-season-1.pdf>
+File: regr-air-season-1.pdf Graphic file (type pdf)
+<use regr-air-season-1.pdf>
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 253--253
 [][] 
@@ -508,8 +508,8 @@ LaTeX Warning: Float too large for page by 96.17528pt on input line 254.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [15]
-File: figures/pp-regr-oceania-1.pdf Graphic file (type pdf)
-<use figures/pp-regr-oceania-1.pdf>
+File: pp-regr-oceania-1.pdf Graphic file (type pdf)
+<use pp-regr-oceania-1.pdf>
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 269--269
 [][] 
@@ -519,8 +519,8 @@ Overfull \hbox (95.61894pt too wide) in paragraph at lines 269--269
 LaTeX Warning: Float too large for page by 11.77058pt on input line 270.
 
 [16] [17]
-File: figures/pp-regr-america-1.pdf Graphic file (type pdf)
-<use figures/pp-regr-america-1.pdf>
+File: pp-regr-america-1.pdf Graphic file (type pdf)
+<use pp-regr-america-1.pdf>
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 279--279
 [][] 
@@ -543,38 +543,38 @@ Overfull \hbox (24.25pt too wide) in paragraph at lines 318--319
  []
 
 [23] [24]
-File: figures/A1-1.pdf Graphic file (type pdf)
-<use figures/A1-1.pdf>
-File: figures/A2-1.pdf Graphic file (type pdf)
-<use figures/A2-1.pdf>
+File: A1-1.pdf Graphic file (type pdf)
+<use A1-1.pdf>
+File: A2-1.pdf Graphic file (type pdf)
+<use A2-1.pdf>
 
 Overfull \hbox (167.88876pt too wide) in paragraph at lines 338--338
 [][] 
  []
 
-File: figures/A3-1.pdf Graphic file (type pdf)
-<use figures/A3-1.pdf>
+File: A3-1.pdf Graphic file (type pdf)
+<use A3-1.pdf>
 
 Overfull \hbox (167.88876pt too wide) in paragraph at lines 342--342
 [][] 
  []
 
-File: figures/A4-1.pdf Graphic file (type pdf)
-<use figures/A4-1.pdf>
+File: A4-1.pdf Graphic file (type pdf)
+<use A4-1.pdf>
 
 Overfull \hbox (167.88876pt too wide) in paragraph at lines 346--346
 [][] 
  []
 
-File: figures/A5-1.pdf Graphic file (type pdf)
-<use figures/A5-1.pdf>
+File: A5-1.pdf Graphic file (type pdf)
+<use A5-1.pdf>
 
 Overfull \hbox (167.88876pt too wide) in paragraph at lines 350--350
 [][] 
  []
 
-File: figures/A6-1.pdf Graphic file (type pdf)
-<use figures/A6-1.pdf>
+File: A6-1.pdf Graphic file (type pdf)
+<use A6-1.pdf>
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 354--354
 [][] 
@@ -647,8 +647,8 @@ Type  H <return>  for immediate help.
 l.87 ...mand\NAT@force@numbers{}\NAT@force@numbers
                                                    
 Here is how much of TeX's memory you used:
- 11122 strings out of 479401
- 167944 string characters out of 5878903
+ 11103 strings out of 479401
+ 166870 string characters out of 5878903
  486946 words of memory out of 5000000
  30343 multiletter control sequences out of 15000+600000
  541012 words of font info for 59 fonts, out of 8000000 for 9000

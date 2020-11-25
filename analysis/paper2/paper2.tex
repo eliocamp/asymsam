@@ -140,7 +140,7 @@ Traditionally the Souther Annular Mode (SAM) is defined as de leading Empirical 
 To separate the zonally symmetric and asymmetric components of the SAM, we computed the zonal mean and anomalies of the full SAM spatial pattern, as shown in Figure \ref{fig:method} for 700 hPa. The full spatial signal (\(\mathrm{EOF_1}(\lambda, \phi)\)) is the sum of the zonally asymmetric (\(\mathrm{EOF_1^*}(\lambda, \phi)\)) and symmetric (\([\mathrm{EOF_1}](\lambda, \phi)\)) components. We then compute the ``Full SAM'', ``Asymmetric SAM'' and ``Symmetric SAM'' indices as the regression coefficients of the regression of each monthly geopotential field on the respective patterns (weighting by the cosine of latitude). The three indices are normalized by dividing them by the standard deviation of the ``Full'' index at each level. As a result, the magnitudes between indices are comparable. However, only ``Full'' index will have unit standard deviation per definition. From the regression, we also use the explained variance of each pattern as an indicator of the degree of zonally symmetry or asymmetry of each monthly field.
 
 \begin{figure*}
-\includegraphics{figures/method-1} \caption{Spatial patterns of the first EOF of 700 hPa geopotential height for 1979 -– 2018 period. (a) Full field, (b) zonally asymmetric component and (c) zonally symmetric component. Arbitrary units.}\label{fig:method}
+\includegraphics{method-1} \caption{Spatial patterns of the first EOF of 700 hPa geopotential height for 1979 -– 2018 period. (a) Full field, (b) zonally asymmetric component and (c) zonally symmetric component. Arbitrary units.}\label{fig:method}
 \end{figure*}
 
 Our method assumes linearity in the asymmetric component of the SAM. That means we assume that zonal symmetries associated with positive SAM are almost opposite and of the same magnitude to the ones associated with negative SAM. Fogt, Jones, and Renwick (2012)'s composites (their Figure 4) suggest that this might not be entirely valid, although we argue that much of that apparent non-linearity is due to the heterogenous nature of the selected years for constructing the composites. Using our data (from 1979 to 2018), seasonal composites of zonal anomalies of geopotential height for SAM+ (Full SAM index greater than 1 standard deviation) and SAM- (less than minus 1 standard deviation) show relatively high pattern correlations for all seasons and are visually very linear both for the troposphere (represented by the 700 hPa level) and the stratosphere (represented by the 50 hPa level) (Figures \ref{fig:A3} and \ref{fig:A4}). Therefore, we believe that our method is a reasonable approximation of the phenomenon.
@@ -178,7 +178,7 @@ We performed all analysis in this paper using the R programming language (R Core
 \subsection{Temporal evolution}\label{temporal}}
 
 \begin{figure*}
-\includegraphics{figures/asymsam-timeseries-1} \caption{Time series for the Asymmetric SAM and Symmetric SAM indices at (a) 50 hPa and (b) 700 hPa. To the right, probability density estimate of each index. Series are standarised by the standard deviation of the Full SAM at each level.}\label{fig:asymsam-timeseries}
+\includegraphics{asymsam-timeseries-1} \caption{Time series for the Asymmetric SAM and Symmetric SAM indices at (a) 50 hPa and (b) 700 hPa. To the right, probability density estimate of each index. Series are standarised by the standard deviation of the Full SAM at each level.}\label{fig:asymsam-timeseries}
 \end{figure*}
 
 We first asses the temporal evolution of the Asymmetric SAM and Symmetric SAM. Figure \ref{fig:asymsam-timeseries} shows the corresponding time series for 700 hPa and 50 hPa and their corresponding density estimates. We selected these two levels as representative of the tropospheric and stratospheric variability respectively. As will be shown later, both indices are highly coherent within each atmospheric layer, therefore is reasonable to take one level as representative of each layer.
@@ -190,17 +190,17 @@ The stratospheric Symmetric SAM varies strongly with a two-year period, which ca
 From Figure \ref{fig:asymsam-timeseries} we can see that the Asymmetric SAM and Symmetric SAM time series appear to be correlated. Moreover, looking at the extremes in the stratosphere, the Symmetric SAM series appears to lag the Asymmetric SAM series (see, for example, the positive events on late 1987). We show these correlations, across all the levels of the reanalysis for zero and -1 lag (Asymmetric SAM index leading the Symmetric SAM index), in Figure \ref{fig:cor-lev}. Zero-lag correlations between the Asymmetric SAM and Symmetric SAM series are relatively constant throughout the troposphere, fluctuating between 0.39 and 0.45. One-month-lag correlations are similarly constant but significantly reduced to around 0.17. In the stratosphere, zero-lag correlations drop to a minimum of 0.21 at 20 hPa and then it increases again monotonically with height up to the uppermost level of the reanalysis (although results near the top of the models are to be interpreted with care). At the same time, one-month-lag correlations increase with height. As a consequence, stratospheric Asymmetric SAM index tend to precede corresponding Symmetric SAM index.
 
 \begin{figure}
-\includegraphics{figures/cor-lev-1} \caption{Correlation between the Symmetric SAM and Asymmetric SAM index at each level for lag zero and lag -1 (Asymmetric SAM leads Symmetric SAM) for the 1979 -- 2018 period.}\label{fig:cor-lev}
+\includegraphics{cor-lev-1} \caption{Correlation between the Symmetric SAM and Asymmetric SAM index at each level for lag zero and lag -1 (Asymmetric SAM leads Symmetric SAM) for the 1979 -- 2018 period.}\label{fig:cor-lev}
 \end{figure}
 
 \begin{figure*}
-\includegraphics{figures/cross-correlation-1} \caption{Cross correlation between levels of the (a) Full SAM, (b) Asymmetric SAM, and (c) Symmetric SAM for the 1979 -- 2018 period.}\label{fig:cross-correlation}
+\includegraphics{cross-correlation-1} \caption{Cross correlation between levels of the (a) Full SAM, (b) Asymmetric SAM, and (c) Symmetric SAM for the 1979 -- 2018 period.}\label{fig:cross-correlation}
 \end{figure*}
 
 Figure \ref{fig:cross-correlation}a shows (zero-lag) cross-correlation across levels for the Full, Symmetric and Asymmetric SAM indices. For the Full SAM (panel a), high values below 100 hPa reflect the vertical (zero-lag) coherency throughout the troposphere. Above 100 hPa correlation between levels falls off more rapidly, indicating less coherent (zero-lag) variability. Therefore, there is a non negligible correlation between the troposphere and the lower-to-middle stratosphere. Examining panels b and c, we see that the Asymmetric and Symmetric SAM share the same high level of coherency in the troposphere but they differ in their stratospheric behaviour. Stratospheric coherency is stronger for the Asymmetric SAM than the Symmetric SAM. The stratospheric Symmetric SAM seems to connect more strongly to the troposphere than the Asymmetric SAM.
 
 \begin{figure*}
-\includegraphics{figures/trends-1} \caption{Decadal linear trends at each level for annual (row 1) and seasonal values (rows 2 to 5) for the period 1979 -- 2018 and for the (column a) Full SAM index, (column b) Asymmetric SAM index, and (column c) Symmetric SAM index. Shading indicates the 95\% confidence interval from a t-distribution.}\label{fig:trends}
+\includegraphics{trends-1} \caption{Decadal linear trends at each level for annual (row 1) and seasonal values (rows 2 to 5) for the period 1979 -- 2018 and for the (column a) Full SAM index, (column b) Asymmetric SAM index, and (column c) Symmetric SAM index. Shading indicates the 95\% confidence interval from a t-distribution.}\label{fig:trends}
 \end{figure*}
 
 The linear trends for each of the indices (Full SAM, Symmetric SAM and Asymmetric SAM) were evaluated for the complete period 1979 -- 2018 at each level (Figure \ref{fig:trends}) for the whole year and separated by trimesters. The Full SAM index presents a statistically significant trend (panel a.1) that extends throughout the troposphere up to about 50 hPa and reaches its maximum value at 100 hPa. The seasonal trends (rest of column a) indicate that positive trends are present in Autumn and particularly in Summer, where the 100 hPa maximum is much more defined. In Winter and Spring, we detect no statistically significant trend. This is consistent with the results of previous studies, which find clear positive trends in Summer, weaker in Autumn and no trends in the other seasons (e.g. Fogt and Marshall 2020 and references therein) using indices of the SAM based on surface or near-surface circulation.
@@ -212,14 +212,14 @@ We stress that these are only linear trends during the whole period and the abse
 Figure \ref{fig:r-squared-trend} shows decadal trends for the explained variance of each index. There is no evidence of a significant trend in the stratosphere. In the troposphere, there is a positive trend for the Asymmetric SAM and not significant trend for the Symmetric SAM. This suggest that the SAM has become more asymmetric in the period from 1979 to 2018. However, the change is slight, around 1\% increased explained variance per decade.
 
 \begin{figure}
-\includegraphics{figures/r-squared-trend-1} \caption{Decadal trends of the variance explained by the Asymmetric and Symmetric SAM at each level for the period 1979 -- 2018. Shading indicates the 95\% confidence interval.}\label{fig:r-squared-trend}
+\includegraphics{r-squared-trend-1} \caption{Decadal trends of the variance explained by the Asymmetric and Symmetric SAM at each level for the period 1979 -- 2018. Shading indicates the 95\% confidence interval.}\label{fig:r-squared-trend}
 \end{figure}
 
 \hypertarget{spatial}{%
 \subsection{Spatial patterns}\label{spatial}}
 
 \begin{figure*}
-\includegraphics{figures/2d-regr-1} \caption{Regression of geopotential height (meters) at (row 1) 50 hPa and (row 2) 700 hPa with the (column a) Full SAM, (column b) Asymmetric SAM, and (column c) Symmetric SAM for the 1979 -- 2018 period. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices. Points marked on panel b.2 are the location of the reference points used by \cite{raphael2004} for their Zonal Wave 3 index. }\label{fig:2d-regr}
+\includegraphics{2d-regr-1} \caption{Regression of geopotential height (meters) at (row 1) 50 hPa and (row 2) 700 hPa with the (column a) Full SAM, (column b) Asymmetric SAM, and (column c) Symmetric SAM for the 1979 -- 2018 period. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices. Points marked on panel b.2 are the location of the reference points used by \cite{raphael2004} for their Zonal Wave 3 index. }\label{fig:2d-regr}
 \end{figure*}
 
 To show if, and to what extent, the Asymmetric and Symmetric SAM indices indeed capture the asymmetric and symmetric component of the SAM respectively, we computed the spatial regression of geopotential height anomalies on these indices and the Full SAM index for 700 hPa and 50 hPa levels. Figure \ref{fig:2d-regr} shows these regressions. Regression coefficients in column a are computed using the Full SAM. Regression coefficients in columns b and c are computed using multiple regression using the Asymmetric and Symmetric indices at the same time. Thus, they are to be interpreted as the patterns associated with each index, removing the variability (linearly) explained by the other index.
@@ -229,7 +229,7 @@ In the stratosphere, the spatial pattern associated with the Full SAM is more cl
 In the troposphere, panel a.2 shows the well known combination of zonally symmetrical annular mode with zonal asymmetries in the form of a wave-3 (Fogt, Jones, and Renwick 2012). The regression using the Asymmetric and Symmetric SAM indices successfully disentangle both structures. The Asymmetric SAM index gives rise to a cleaner zonal wave (panel b.2) and the Symmetric SAM index is associated with an annular mode, almost devoid of zonal asymmetries (panel c.2). The wave-3 pattern observed in panel b.2 is rotated by half a wavelength from the average position of the mean wave-3 pattern associated with Raphael (2004)'s ZW3 index, whose reference locations are marked with points in the figure. Thus, the tropospheric Asymmetric SAM index represents a zonal displacement in the position of the climatological wave-3 pattern.
 
 \begin{figure*}
-\includegraphics{figures/wave-amplitude-1} \caption{Amplitude (meters) of zonal waves of the geopotential height regression patterns in Figure \\ref{fig:2d-regr} for zonal waves with wave-number 0, 1, 2, and 3, where wave-number 0 represents the amplitude of the zonal mean.}\label{fig:wave-amplitude}
+\includegraphics{wave-amplitude-1} \caption{Amplitude (meters) of zonal waves of the geopotential height regression patterns in Figure \\ref{fig:2d-regr} for zonal waves with wave-number 0, 1, 2, and 3, where wave-number 0 represents the amplitude of the zonal mean.}\label{fig:wave-amplitude}
 \end{figure*}
 
 The amplitude of the first zonal wave numbers at each latitude at 50 hPa and 700 hPa is shown in Figure \ref{fig:wave-amplitude}, where wave number zero represents the amplitude of the zonal mean. Zonal wave amplitudes of the spatial pattern described by the Full SAM index (column a) are dominated by the zonal mean (wave-number 0) at both levels. However, zonal waves are important, particularly North of 50\degree S, with wave-number 1 clearly dominating at 50 hPa (panel a.1) and a more equal mix of waves at 700 hPa (panel a.2). Column b shows that the Asymmetric SAM is overwhelmingly dominated by wave 1 in the stratosphere (panel b.1), while in the troposphere it is composed of zonal waves 3 to 1 in decreasing level of importance (panel b.2) with negligible amplitude of the zonal mean. The Symmetric SAM, on the other hand, it's almost entirely composed of zonal mean at both levels (column c), with little to now contribution from zonal waves with wave-numbers 1 to 3.
@@ -237,7 +237,7 @@ The amplitude of the first zonal wave numbers at each latitude at 50 hPa and 700
 We can see that the amplitude and latitudinal distribution zonal waves in the Asymmetric SAM on one hand, and the zonal mean in the Symmetric SAM on the other correspond almost exactly to the amplitude and latitudinal distribution in the Full SAM. This confirms the correct decomposition of the SAM in its symmetric and asymmetric components. Looking at panel b.2 from Figure \ref{fig:2d-regr}, it becomes apparent that zonal waves 1 and 2 modulate the amplitude of zonal wave 3, which -- as mentioned before -- is larger in the Western Hemisphere than in the Eastern Hemisphere.
 
 \begin{figure}
-\includegraphics{figures/vertical-regression-1} \caption{Regression between monthly geopotential height anomalies (meters) averaged betweeen 65\degree and 40\degree S and the Asymmetric SAM index (extracted from multiple regression including the Symmetric SAM). (a) With the Asymmetric SAM in 50 hPa and (b) in 700 hPa for the 1979 -- 2018 period.}\label{fig:vertical-regression}
+\includegraphics{vertical-regression-1} \caption{Regression between monthly geopotential height anomalies (meters) averaged betweeen 65\degree and 40\degree S and the Asymmetric SAM index (extracted from multiple regression including the Symmetric SAM). (a) With the Asymmetric SAM in 50 hPa and (b) in 700 hPa for the 1979 -- 2018 period.}\label{fig:vertical-regression}
 \end{figure}
 
 To analyse the vertical structure of the geopotential height anomalies associated with the asymmetric SAM index, we show a vertical cross section of regressions of mean geopotential height between 65\degree S and 40\degree S for the 50 hPa Asymmetric SAM index (panel a) and for the 700 hPa Asymmetric SAM index (panel b) (Figure \ref{fig:vertical-regression}). The geopotential height anomalies associated with the stratospheric Asymmetric SAM (panel a) are clearly constrained to the stratosphere, which underscores the uncoupling between the stratospheric and tropospheric Asymmetric SAM. The vertical structure of this signal tilts about 60\degree to the West between 100 hPa and 1 hPa, suggesting baroclinic processes. Interestingly, the signal in the stratosphere maximises near 10 hPa despite using the 50 hPa index for the regression.
@@ -250,7 +250,7 @@ The wave-3 pattern from Figure \ref{fig:2d-regr} panel b.2 is very similar to th
 \subsection{Surface Impacts}\label{impacts}}
 
 \begin{figure*}
-\includegraphics{figures/regr-air-season-1} \caption{Regression of seasonal mean surface temperature (Kelvin) with Asymmetric SAM and Symmetric SAM for the 1979 -- 2018 period. Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate. Gray areas in Antarctica are areas with have more than 15\% of missing data.}\label{fig:regr-air-season}
+\includegraphics{regr-air-season-1} \caption{Regression of seasonal mean surface temperature (Kelvin) with Asymmetric SAM and Symmetric SAM for the 1979 -- 2018 period. Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate. Gray areas in Antarctica are areas with have more than 15\% of missing data.}\label{fig:regr-air-season}
 \end{figure*}
 
 To see if there are different surface impacts associated with the asymmetric and symmetric SAM circulation we regress surface temperature and precipitation onto each of the three SAM indices at 700 hPa. As shown in previous sections, the three indices are highly coherent in the troposphere, so we select this level to represent the tropospheric circulation for consistency with previous studies.
@@ -266,7 +266,7 @@ Figure \ref{fig:regr-air-season} column b can be partially compared with Figure 
 Regression of the SAM indices with seasonal mean precipitation and 700 hPa geopotential height are shown in Figures \ref{fig:pp-regr-oceania} and \ref{fig:pp-regr-america} for Australasia and South America respectively. South Africa is not shown because no significant signal was detected there.
 
 \begin{figure*}
-\includegraphics{figures/pp-regr-oceania-1} \caption{Regression of (row 1) annual and (rows 2 to 5) seasonal mean precipitation anomalies (mm per day, shading) and 700 hPa geopotential height (thin lines, positive values as solid lines and negative values as dashed lines) with (column a) Full SAM, (column (b) Asymmetric SAM and (column c) Symmetric SAM for the 1979 -- 2018 period. Thin lines are the Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate.}\label{fig:pp-regr-oceania}
+\includegraphics{pp-regr-oceania-1} \caption{Regression of (row 1) annual and (rows 2 to 5) seasonal mean precipitation anomalies (mm per day, shading) and 700 hPa geopotential height (thin lines, positive values as solid lines and negative values as dashed lines) with (column a) Full SAM, (column (b) Asymmetric SAM and (column c) Symmetric SAM for the 1979 -- 2018 period. Thin lines are the Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate.}\label{fig:pp-regr-oceania}
 \end{figure*}
 
 In Australia, the annual regression shows that the Full SAM index is positively associated with precipitation in the Southeastern region (Figure \ref{fig:pp-regr-oceania} panel a.1), which reproduces the results from Gillett, Kell, and Jones (2006). The separation between Asymmetric and Symmetric SAM suggest that this positive anomaly is explained by the Symmetric SAM only in the East coast (panel c.1). Geopotential anomalies associated with this index (black contours) are indicative of easterly flow from the Tasman Sea, which could explain the positive anomalies in precipitation as found by Hendon, Thompson, and Wheeler (2007). The Asymmetric SAM appears related to increased precipitation in the West coast of Southeastern Australia (panel b.2), which could similarly be explained by the anomalous westerly circulation transporting moist air to the continent from the Indian Ocean.
@@ -276,7 +276,7 @@ The seasonal-level regressions show statistically significant anomalies only in 
 In Summer, positive Full SAM index is associated with with positive precipitation anomalies in Western and Eastern Australia, particularly in the North East (panel a.2). The Eastern part being dominated by the relationship with the Symmetric SAM and the Western, by the Asymmetric SAM. In Autumn, the regression with Full SAM shows positive values in the North, similar to Summer, and a broad area of positive values in the North-East to South-West direction. This structure seems to be associated with the Symmetric SAM, while the Northern positive values are associated with the Asymmetric SAM. In Winter we see the same NE to SW aligned anomaly (although with much reduced amplitude) that is also present only in relation with the Symmetric SAM. None of these regression coefficients are statistically significant at the 95\% level. The Spring signal is broadly consistent with Hendon, Thompson, and Wheeler (2007), but whereas Hendon, Thompson, and Wheeler (2007) also detected a strong signal in Summer, panel a.2 shows no statistically significant association (although the coefficients have the consistent sign).
 
 \begin{figure*}
-\includegraphics{figures/pp-regr-america-1} \caption{Same as Figure \\ref{fig:pp-regr-oceania} but for South America.}\label{fig:pp-regr-america}
+\includegraphics{pp-regr-america-1} \caption{Same as Figure \\ref{fig:pp-regr-oceania} but for South America.}\label{fig:pp-regr-america}
 \end{figure*}
 
 In South America (Figure \ref{fig:pp-regr-america}), the annual-level regression shows that positive SAM is associated with statistically significant precipitation decrease in Southeastern South America (SESA) and Southern Chile and non-significant increase in South Brazil, near the South Atlantic Convergence Zone (SACZ) (panel a.1). Panels b.1 and c.1 show a remarkably clean separation between the Asymmetric SAM -- associated with the Southeastern South American and Southern Brazilian signals -- and the Symmetric SAM -- associated with the signal in Southern Chile.
@@ -331,27 +331,27 @@ A version-controlled repository of the code used to create this analysis, includ
 \newpage
 
 \begin{figure}[ht]
-\includegraphics{figures/A1-1} \caption{Lag-correlation between Asymmetric SAM and Symmetric SAM index at each level. Negative lags imply Symmetric SAM leading Asymmetric SAM and vice versa. For the 1979 -- 2018 period.}\label{fig:A1}
+\includegraphics{A1-1} \caption{Lag-correlation between Asymmetric SAM and Symmetric SAM index at each level. Negative lags imply Symmetric SAM leading Asymmetric SAM and vice versa. For the 1979 -- 2018 period.}\label{fig:A1}
 \end{figure}
 
 \begin{figure}
-\includegraphics{figures/A2-1} \caption{Fourier spectrum of each timeseries computed as Fourier transform smoothed with modified Daniell smoothers with widths 3 and 5. The shading indicates de 95\% confidence area derived by fitting an autorregressive model and computing the spectrum for 5000 simulated samples from the fitted autoregressive model (95\% of the simulated sampels had an amplitude equal or lower). The light line indicates the theoretical expected amplitude from the autorregressive model. For the 1979 -- 2018 period.}\label{fig:A2}
+\includegraphics{A2-1} \caption{Fourier spectrum of each timeseries computed as Fourier transform smoothed with modified Daniell smoothers with widths 3 and 5. The shading indicates de 95\% confidence area derived by fitting an autorregressive model and computing the spectrum for 5000 simulated samples from the fitted autoregressive model (95\% of the simulated sampels had an amplitude equal or lower). The light line indicates the theoretical expected amplitude from the autorregressive model. For the 1979 -- 2018 period.}\label{fig:A2}
 \end{figure}
 
 \begin{figure}
-\includegraphics{figures/A3-1} \caption{50 hPa Geopotetnial height zonal anomalies (meters) of composites of positive and negative SAM months selected using $\pm1$ standard deviation as threshhold for the 1979 -- 2018 period. Numbers in the column headers are pattern correlation between SAM+ and SAM- composites and number of monthly fields used to construct the composites.}\label{fig:A3}
+\includegraphics{A3-1} \caption{50 hPa Geopotetnial height zonal anomalies (meters) of composites of positive and negative SAM months selected using $\pm1$ standard deviation as threshhold for the 1979 -- 2018 period. Numbers in the column headers are pattern correlation between SAM+ and SAM- composites and number of monthly fields used to construct the composites.}\label{fig:A3}
 \end{figure}
 
 \begin{figure}
-\includegraphics{figures/A4-1} \caption{700 hPa Geopotetnial height zonal anomalies (meters) of composites of positive and negative SAM months selected using $\pm1$ standard deviation as threshhold for the 1979 -- 2018 period. Numbers in the column headers are pattern correlation between SAM+ and SAM- composites and number of monthly fields used to construct the composites.}\label{fig:A4}
+\includegraphics{A4-1} \caption{700 hPa Geopotetnial height zonal anomalies (meters) of composites of positive and negative SAM months selected using $\pm1$ standard deviation as threshhold for the 1979 -- 2018 period. Numbers in the column headers are pattern correlation between SAM+ and SAM- composites and number of monthly fields used to construct the composites.}\label{fig:A4}
 \end{figure}
 
 \begin{figure}
-\includegraphics{figures/A5-1} \caption{Regression coefficients of 50 hPa and 700 hPa geopotential height zonal anomalies (meters) onto the standarised timeseries of the leading EOF computed for each season independently for the 1979 -- 2018 period.}\label{fig:A5}
+\includegraphics{A5-1} \caption{Regression coefficients of 50 hPa and 700 hPa geopotential height zonal anomalies (meters) onto the standarised timeseries of the leading EOF computed for each season independently for the 1979 -- 2018 period.}\label{fig:A5}
 \end{figure}
 
 \begin{figure}
-\includegraphics{figures/A6-1} \caption{Regression of 50 hPa and 700 hPa geopotential height zonal anomalies (meters) onto the standarised timeseries of the leading EOF computed for the periods 1979 -- 1998 and 1999 -- 2018. Pattern correlation between both fields is 0.86 for the 50 hPa fields and 0.76 for the 700 hPa fields.}\label{fig:A6}
+\includegraphics{A6-1} \caption{Regression of 50 hPa and 700 hPa geopotential height zonal anomalies (meters) onto the standarised timeseries of the leading EOF computed for the periods 1979 -- 1998 and 1999 -- 2018. Pattern correlation between both fields is 0.86 for the 50 hPa fields and 0.76 for the 700 hPa fields.}\label{fig:A6}
 \end{figure}
 
 \hypertarget{refs}{}
