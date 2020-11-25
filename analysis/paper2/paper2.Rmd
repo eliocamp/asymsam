@@ -47,7 +47,7 @@ abstract: |
 bibliography: 
   - AsymSAM
   - packages
-bibstyle: spphys
+bibstyle: spbasic
 # bibstyle options spbasic(default), spphys, spmpsci
 output: 
   bookdown::pdf_book: 
@@ -1203,3 +1203,4 @@ patterns %>%
   no_grid 
 ```
 
+\newpage
