@@ -1,0 +1,538 @@
+% !TeX program = pdfLaTeX
+\documentclass[smallextended]{svjour3}       % onecolumn (second format)
+%\documentclass[twocolumn]{svjour3}          % twocolumn
+%
+\smartqed  % flush right qed marks, e.g. at end of proof
+%
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+
+\usepackage[hyphens]{url} % not crucial - just used below for the URL
+\usepackage{hyperref}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%
+% \usepackage{mathptmx}      % use Times fonts if available on your TeX system
+%
+% insert here the call for the packages your document requires
+%\usepackage{latexsym}
+% etc.
+%
+% please place your own definitions here and don't use \def but
+% \newcommand{}{}
+%
+% Insert the name of "your journal" with
+% \journalname{myjournal}
+%
+
+%% load any required packages here
+
+
+
+% Pandoc citation processing
+
+\usepackage{gensymb}
+\usepackage{subfig}
+\usepackage[inline]{showlabels}
+\usepackage{chngcntr}
+\usepackage{natbib}
+
+\begin{document}
+
+\title{Assessment of zonal symmetric and asymmetric components of the Southern Annular Mode using a novel approach \thanks{The research was supported by UBACyT20020170100428BA and the CLIMAX Project funded by Belmont Forum/ANR-15-JCL/-0002-01. Elio Campitelli was supported by a PhD grant from CONICET, Argentina.} }
+
+
+    \titlerunning{Assessment of zonal symmetric and asymmetric components of the SAM}
+
+\author{  Elio Campitelli \and  Leandro B. Díaz \and  Carolina Vera \and  }
+
+
+\institute{
+        Elio Campitelli \at
+     Universidad de Buenos Aires, Facultad de Ciencias Exactas y Naturales, Departamento de Ciencias de la Atmósfera y los Océanos, Buenos Aires, Argentina
+ CONICET -- Universidad de Buenos Aires, Centro de Investigaciones del Mar y la Atmósfera (CIMA), Buenos Aires, Argentina
+ CNRS -- IRD -- CONICET -- UBA, Instituto Franco‐Argentino para el Estudio del Clima y sus Impactos (UMI 3351 IFAECI), Buenos Aires, Argentina \\
+     \email{\href{mailto:elio.campitelli@cima.fcen.uba.ar}{\nolinkurl{elio.campitelli@cima.fcen.uba.ar}}}  %  \\
+%             \emph{Present address:} of F. Author  %  if needed
+    \and
+        Leandro B. Díaz \at
+     Universidad de Buenos Aires, Facultad de Ciencias Exactas y Naturales, Departamento de Ciencias de la Atmósfera y los Océanos, Buenos Aires, Argentina
+ CONICET -- Universidad de Buenos Aires, Centro de Investigaciones del Mar y la Atmósfera (CIMA), Buenos Aires, Argentina
+ CNRS -- IRD -- CONICET -- UBA, Instituto Franco‐Argentino para el Estudio del Clima y sus Impactos (UMI 3351 IFAECI), Buenos Aires, Argentina \\
+     %  \\
+%             \emph{Present address:} of F. Author  %  if needed
+    \and
+        Carolina Vera \at
+     Universidad de Buenos Aires, Facultad de Ciencias Exactas y Naturales, Departamento de Ciencias de la Atmósfera y los Océanos, Buenos Aires, Argentina
+ CONICET -- Universidad de Buenos Aires, Centro de Investigaciones del Mar y la Atmósfera (CIMA), Buenos Aires, Argentina
+ CNRS -- IRD -- CONICET -- UBA, Instituto Franco‐Argentino para el Estudio del Clima y sus Impactos (UMI 3351 IFAECI), Buenos Aires, Argentina \\
+     %  \\
+%             \emph{Present address:} of F. Author  %  if needed
+    \and
+    }
+
+\date{Received: date / Accepted: date}
+% The correct dates will be entered by the editor
+
+
+\maketitle
+
+\begin{abstract}
+The text of your abstract. 150 -- 250 words.
+\\
+\keywords{
+        Southern Annular Mode \and
+        general circulation \and
+        zonally asymmetric circulation \and
+        El Niño Southern Oscillation \and
+    }
+
+    \subclass{
+                    MSC code 1 \and
+                    MSC code 2 \and
+            }
+
+\end{abstract}
+
+
+\def\spacingset#1{\renewcommand{\baselinestretch}%
+{#1}\small\normalsize} \spacingset{1}
+
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+The Southern Annular Mode (SAM) is the main mode of variability in the Southern Hemisphere extratropical circulation (Rogers and van Loon 1982) in daily, monthly, and decadal timescales (Mark P. Baldwin 2001; Fogt and Bromwich 2006) and exerts an important influence in weather conditions such as temperature and precipitation anomalies and sea ice concentration (e.g. Fogt and Marshall 2020). Its positive phase is traditionally described as anomalously low pressures over Antarctica surrounded by a ring of anomalous high pressures in middle-to-high latitudes.
+
+Most authors describe the SAM as a zonally symmetric pattern, a fact that is reflected not only in its name, but also in the various methods used to characterise it. Of the several different indices presented in the literature, many of them are based on zonal means of sea level pressure or geopotential height (Ho, Kiem, and Verdon-Kidd 2012). Gong and Wang (1999) defined the SAM index as the zonal mean sea level pressure difference between 40\degree S and 60\degree S, which is also the definition used by the station-based index in Marshall (2003). Baldwin and Thompson (2009) proposed defining the Northern and Annular modes as the leading EOF of the zonally averaged geopotential height at each level.
+
+Even though these indices are based on zonal averages, spatial anomalies of geopotential associated with them (either by regression or composition) contain noticeable deviations from zonal symmetry, particularly in the Pacific Ocean region. These zonal asymmetries have not been widely studied, but previous work suggest that they strongly modulate the regional impacts of the SAM (Fan 2007; Fogt, Jones, and Renwick 2012; Rosso et al. 2018), going as far as reversing its relationship between precipitation in South America (Silvestri and Vera 2009). At the very least, the fact that the SAM is not entirely zonally symmetric hinders our ability to reconstruct its historical variability prior to the availability of dense observations in the Southern Hemisphere (Jones et al. 2009).
+
+At least some of the variability associated with the zonal asymmetries of the SAM is probably forced by the tropics. In particular, ENSO-like variability affects the Southern Hemisphere extratopics through the Pacific-South American Pattern (Mo and Ghil 1987; Kidson 1988; Karoly 1989), whose wave train projects strongly onto the zonal anomalies corresponding to the SAM in the Pacific sector. And although the relationship between ENSO and SAM is far from simple, tropical influences on the SAM have been observed (Fan 2007; Fogt, Bromwich, and Hines 2011; Clem and Fogt 2013). In particular, Fan (2007) computed SAM indices of the Western and the Eastern Hemisphere separately and found that they were much more correlated if the (linear) signal of the ENSO was removed. While this relates to temporally coherent variability of the two hemisphere and not necessarily to zonal asymmetries in the associated spatial patterns, it is nonetheless consistent of the ENSO playing a crucial role in zonal asymmetries of the SAM.
+
+Positive trends in SAM index have been documented by various researchers using different indices mostly on boreal Summer and Autumn (e.g. Fogt and Marshall 2020 and references therein). These trends are thought of driven primarily by stratospheric ozone depletion and the increase in greenhouse gases, and understood in the context of zonal mean variables (Marshall et al. 2004; Gillett, Allan, and Ansell 2005; Arblaster and Meehl 2006; Gillett, Fyfe, and Parker 2013). However, it's not clear how or if the asymmetric component responds to this forcing, or whether its variability could be masking influencing the observed trends independently.
+
+Similarly unclear are the specific impacts of the zonally asymmetric component of the SAM. Positive phase of the SAM is associated with generally colder temperatures over Antarctica and warmer temperatures at higher latitudes (Jones et al. 2019) (and vice versa for negative SAM), but there are significant deviations from this zonal mean response, notably in the Antarctic Peninsula and the South Atlantic (Fogt, Jones, and Renwick 2012). The SAM signal in precipitation behaves similarly, although with even greater deviation from zonal symmetry (Lim et al. 2016). The importance of zonal asymmetries of the SAM on these impacts have been studied in certain regions. For example, the SAM-precipitation relationship in Southeastern South America and Southern Brazil can be explained by the PSA-like zonally asymmetric circulation associated with the SAM (Silvestri and Vera 2009; Rosso et al. 2018). Fan (2007) also found that precipitation in East Asia was impacted by the variability of only the Western Hemisphere part of the SAM.
+
+We are not aware of any previous work which quantifies the temporal variability of the asymmetric component of the SAM with the exception of Fogt, Jones, and Renwick (2012). However, their methods based on composites of positive and negative SAM events leads to some issues, such as spatial patterns derived from as little as 4 cases and from imbalanced periods (for example, 5 of the 7 cases in their DJF SAM+ composite are from later than 1988, whereas all of the 8 years in their DJF SAM- composite are from earlier than 1988). This is particularly important due to the inhomogeneities in reanalysis products prior to the satellite era and the possible change in the asymmetric structure of the SAM (Silvestri and Vera 2009). Moreover, Fogt, Jones, and Renwick (2012) studied the zonal asymmetric component of the SAM only in sea level pressure. Zonal asymmetries in the SAM spatial pattern are fairly barotropic throughout the troposphere, but they change dramatically in the stratosphere (Baldwin and Thompson 2009).
+
+Our objective is, then, to systematically characterise the zonally asymmetric and symmetric components of the SAM variability. For each level, we construct two indices which aim to capture exclusively the variability of the symmetric and asymmetric component respectively. We assess their vertical structure and coherence, temporal variability and trends. We then study the spatial patterns described by the variability exclusive to each index focusing on 50 hPa as representing the stratosphere and 700 hPa as representing the troposphere. Finally, we investigate the relationship of the SAM at 700 hPa with temperature and precipitation anomalies.
+
+In the Section \ref{methods} we describe the methods. In Section \ref{temporal} we describe the temporal variability and vertical coherence of the indices. In Section \ref{spatial}, we analyse the spatial patterns of geopotential height associated with them. In Section \ref{impacts}, we study their relationship with surface-level temperature and precipitation.
+
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
+
+\hypertarget{data}{%
+\subsubsection{Data}\label{data}}
+
+To describe the Southern Annular Mode and its variability we used monthly geopotential height at 2.5\degree~longitude by 2.5\degree~latitude of horizontal resolution and 37 vertical isobaric levels from ERA5 (Hersbach et al. 2020) for the period 1979 to 2018. We restrict our analysis to the post-satellite era to avoid any confounding factors arising from the introduction of satellite observations.
+
+To describe the relationship between the SAM indices and temperature and precipitation, we use temperature data from NOAA's Merged Land Ocean Global Surface Temperature Analysis V4.0.1 (Smith et al. 2008; Vose et al. 2012), which blends land and ocean temperature analysis into a monthly global grid 5\degree~longitude by 5\degree~latitude, and monthly rainfall 0.5\degree~longitude by 0.5\degree~latitude data from the Global Precipitation Climatology Centre (Schneider et al. 2015, 2017). The rainfall product uses station-based records, and thus it only has continental coverage.
+
+\hypertarget{definition-of-indices}{%
+\subsubsection{Definition of indices}\label{definition-of-indices}}
+
+Traditionally the Souther Annular Mode (SAM) is defined as de leading Empirical Orthogonal Mode (EOF) of sea level pressure or geopotential height at lower levels (Ho, Kiem, and Verdon-Kidd 2012). Following Mark P. Baldwin and Dunkerton (2001), we extend that definition vertically and use the term SAM to refer to the the leading EOF of the monthly anomalies of geopotential field south of 20\degree S at each level. We performed EOFs by computing the Singular Value Decomposition of the data matrix consisting in 481 rows and 4176 columns (144 points of longitude and 29 points of latitude). We weighted the values by the square root of the cosine of latitude to account for the non-equal area of each gridpoint (Chung and Nigam 1999).
+
+To separate the zonally symmetric and asymmetric components of the SAM, we computed the zonal mean and anomalies of the full SAM spatial pattern, as shown in Figure \ref{fig:method} for 700 hPa. The full spatial signal (\(\mathrm{EOF_1}(\lambda, \phi)\)) is the sum of the zonally asymmetric (\(\mathrm{EOF_1^*}(\lambda, \phi)\)) and symmetric (\([\mathrm{EOF_1}](\lambda, \phi)\)) components. We then compute the ``Full SAM'', ``Asymmetric SAM'' and ``Symmetric SAM'' indices as the regression coefficients of the regression of each monthly geopotential field on the respective patterns (weighting by the cosine of latitude). The three indices are normalized by dividing them by the standard deviation of the ``Full'' index at each level. As a result, the magnitudes between indices are comparable. However, only ``Full'' index will have unit standard deviation per definition. From the regression, we also use the explained variance of each pattern as an indicator of the degree of zonally symmetry or asymmetry of each monthly field.
+
+\begin{figure*}
+\includegraphics{figures/method-1} \caption{Spatial patterns of the first EOF of 700 hPa geopotential height for 1979 -– 2018 period. (a) Full field, (b) zonally asymmetric component and (c) zonally symmetric component. Arbitrary units.}\label{fig:method}
+\end{figure*}
+
+Our method assumes linearity in the asymmetric component of the SAM. That means we assume that zonal symmetries associated with positive SAM are almost opposite and of the same magnitude to the ones associated with negative SAM. Fogt, Jones, and Renwick (2012)'s composites (their Figure 4) suggest that this might not be entirely valid, although we argue that much of that apparent non-linearity is due to the heterogenous nature of the selected years for constructing the composites. Using our data (from 1979 to 2018), seasonal composites of zonal anomalies of geopotential height for SAM+ (Full SAM index greater than 1 standard deviation) and SAM- (less than minus 1 standard deviation) show relatively high pattern correlations for all seasons and are visually very linear both for the troposphere (represented by the 700 hPa level) and the stratosphere (represented by the 50 hPa level) (Figures \ref{fig:A3} and \ref{fig:A4}). Therefore, we believe that our method is a reasonable approximation of the phenomenon.
+
+By computing a single EOF pattern using data for all months we are assuming that the zonal anomalies of the SAM are the same in all seasons -- December to February (DJF), March to May (MAM), June to August (JJA) and September to November (SON). Geopotential zonal anomalies computed by projecting the first EOF of each season independently are very similar to each other in the troposphere (Figure \ref{fig:A5}, row 1) and show pattern correlations between 0.65 (DJF with JJA) and 0.9 (MAM with SON). In the stratosphere (Figure \ref{fig:A5}, row 2), patterns are similar for all trimesters except DJF, when the wave-1 zonal anomalies are rotated 90\degree~in comparison with the rest of the year. Pattern correlations in the stratosphere are between -0.24 (DJF with SON) and 0.95 (MAM with JJA). Based on this, we believe that our initial assumption is not unreasonable throught most of the year with the exception of DJF in the stratosphere.
+
+Finally, we assume that the zonally asymmetric pattern is stationary in time. Silvestri and Vera (2009) suggest that this might not be the case between 1958 and 2004 but the period we analyse is much shorter (1979 -- 2018) so it's unlikely that we could observe significant changes. Moreover, zonal asymmetry of the spatial patterns for the two halves of the period (1979 to 1998 and 1999 to 2018) show no systematic change neither in the stratosphere nor in the troposphere (Figure \ref{fig:A6}).
+
+\hypertarget{regressions}{%
+\subsubsection{Regressions}\label{regressions}}
+
+We perform linear regressions to quantify the association between the SAM indices and other variables. Since the Asymmetric and Symmetric SAM indices are significantly correlated with each other, to capture the variability explained uniquely by each index we use one multiple linear regression instead of two simple linear regressions. To obtain the linear coefficients of a variable \(X\) (geopotential, temperature, precipitation, etc\ldots{}) with the Asymmetric SAM (\(SAM_a\)) and Symmetric SAM (\(SAM_s\)) we fit the equation
+
+\[
+X(\lambda, \phi, t) = \alpha(\lambda, \phi) SAM_a + \beta(\lambda, \phi) SAM_s + X_0(\lambda, \phi) +  \epsilon(\lambda, \phi, t)
+\]
+
+where \(\lambda\) and \(\phi\) are the longitude and latitude, \(t\) is the time, \(\alpha\) and \(\beta\) are the linear regression coefficients, \(X_0\) and \(\epsilon\) are the constant and error terms. From this equation, \(\alpha\) represents the (linear) association of \(X\) with the variability of the Asymmetric SAM that is not explained by the variability of the Symmetric SAM; i.e.~it is proportional to the partial correlation of \(X\) and the Asymmetric SAM, controlling for the effect of the Symmetric SAM and vice versa for \(\beta\). When performing a separate regression for each trimester (DJF, MAM, JJA, SON), we average the relevant variables seasonally for each year and trimester before computing the regression.
+
+At 2.5\degree by 2.5\degree resolution, a single regression field is composed of thousands of regressions. In such case, using p-values to test for significance leads to misleading results (Walker 1914; Katz and Brown 1991). While there are multiple proposed solutions in the literature, Wilks (2016) suggests that adjusting p-values by controlling for the False Discovery Rate (Benjamini and Hochberg 1995) is a simple and effective method to ameliorate this issue. Therefore, p-values showed in regression fields are all adjusted following Benjamini and Hochberg (1995).
+
+We computed linear trends by Ordinary Least Squares and the 95\% confidence interval assuming a t-distribution of the appropriate residual degrees of freedom. To compute the amplitude of the zonal waves we computed the Fourier transform of the spatial field at each latitude circle.
+
+We computed density probability estimates using a gaussian kernel of optimal bindwidth according to Sheather and Jones (1991).
+
+\hypertarget{computation-procedures}{%
+\subsubsection{Computation procedures}\label{computation-procedures}}
+
+We performed all analysis in this paper using the R programming language (R Core Team 2020), using the data.table package (Dowle et al. 2020) and the metR package (Campitelli 2020). All graphics are made using ggplot2 (Wickham 2009). We downloaded data from ranalysis using the ecmwfr package (Hufkens, Stauffer, and Campitelli 2020) and indices of the ENSO with the rsoi package (Albers and Campitelli 2020). The paper was rendered using knitr and rmarkdown (Xie 2015; Allaire et al. 2019).
+
+\hypertarget{results}{%
+\section{Results}\label{results}}
+
+\hypertarget{temporal}{%
+\subsection{Temporal evolution}\label{temporal}}
+
+\begin{figure*}
+\includegraphics{figures/asymsam-timeseries-1} \caption{Time series for the Asymmetric SAM and Symmetric SAM indices at (a) 50 hPa and (b) 700 hPa. To the right, probability density estimate of each index. Series are standarised by the standard deviation of the Full SAM at each level.}\label{fig:asymsam-timeseries}
+\end{figure*}
+
+We first asses the temporal evolution of the Asymmetric SAM and Symmetric SAM. Figure \ref{fig:asymsam-timeseries} shows the corresponding time series for 700 hPa and 50 hPa and their corresponding density estimates. We selected these two levels as representative of the tropospheric and stratospheric variability respectively. As will be shown later, both indices are highly coherent within each atmospheric layer, therefore is reasonable to take one level as representative of each layer.
+
+Month-to-month variability is evident for both indices, with noisy variations in the low frequency. At first glance the series can be distinguished by their distributions. Compared to the tropospheric indices, the stratospheric indices are much more long-tailed; that is, extreme values (both negative and positive) abound. The Asymmetric SAM series have both more variability in the higher frequencies than the Symmetric SAM series.
+
+The stratospheric Symmetric SAM varies strongly with a two-year period, which can be seen by spectral analysis (Figure \ref{fig:A2}). This might suggests a link between stratospheric SAM variability and the Quasi-Biennial Oscillation (M. P. Baldwin et al. 2001). There is a local peak at 2 years in the periodogram of the tropospheric Symmetric SAM also, although it's not statistically significant. In the troposphere the most significant peak of variability is found in the Asymmetric index at around 3.6 months.
+
+From Figure \ref{fig:asymsam-timeseries} we can see that the Asymmetric SAM and Symmetric SAM time series appear to be correlated. Moreover, looking at the extremes in the stratosphere, the Symmetric SAM series appears to lag the Asymmetric SAM series (see, for example, the positive events on late 1987). We show these correlations, across all the levels of the reanalysis for zero and -1 lag (Asymmetric SAM index leading the Symmetric SAM index), in Figure \ref{fig:cor-lev}. Zero-lag correlations between the Asymmetric SAM and Symmetric SAM series are relatively constant throughout the troposphere, fluctuating between 0.39 and 0.45. One-month-lag correlations are similarly constant but significantly reduced to around 0.17. In the stratosphere, zero-lag correlations drop to a minimum of 0.21 at 20 hPa and then it increases again monotonically with height up to the uppermost level of the reanalysis (although results near the top of the models are to be interpreted with care). At the same time, one-month-lag correlations increase with height. As a consequence, stratospheric Asymmetric SAM index tend to precede corresponding Symmetric SAM index.
+
+\begin{figure}
+\includegraphics{figures/cor-lev-1} \caption{Correlation between the Symmetric SAM and Asymmetric SAM index at each level for lag zero and lag -1 (Asymmetric SAM leads Symmetric SAM) for the 1979 -- 2018 period.}\label{fig:cor-lev}
+\end{figure}
+
+\begin{figure*}
+\includegraphics{figures/cross-correlation-1} \caption{Cross correlation between levels of the (a) Full SAM, (b) Asymmetric SAM, and (c) Symmetric SAM for the 1979 -- 2018 period.}\label{fig:cross-correlation}
+\end{figure*}
+
+Figure \ref{fig:cross-correlation}a shows (zero-lag) cross-correlation across levels for the Full, Symmetric and Asymmetric SAM indices. For the Full SAM (panel a), high values below 100 hPa reflect the vertical (zero-lag) coherency throughout the troposphere. Above 100 hPa correlation between levels falls off more rapidly, indicating less coherent (zero-lag) variability. Therefore, there is a non negligible correlation between the troposphere and the lower-to-middle stratosphere. Examining panels b and c, we see that the Asymmetric and Symmetric SAM share the same high level of coherency in the troposphere but they differ in their stratospheric behaviour. Stratospheric coherency is stronger for the Asymmetric SAM than the Symmetric SAM. The stratospheric Symmetric SAM seems to connect more strongly to the troposphere than the Asymmetric SAM.
+
+\begin{figure*}
+\includegraphics{figures/trends-1} \caption{Decadal linear trends at each level for annual (row 1) and seasonal values (rows 2 to 5) for the period 1979 -- 2018 and for the (column a) Full SAM index, (column b) Asymmetric SAM index, and (column c) Symmetric SAM index. Shading indicates the 95\% confidence interval from a t-distribution.}\label{fig:trends}
+\end{figure*}
+
+The linear trends for each of the indices (Full SAM, Symmetric SAM and Asymmetric SAM) were evaluated for the complete period 1979 -- 2018 at each level (Figure \ref{fig:trends}) for the whole year and separated by trimesters. The Full SAM index presents a statistically significant trend (panel a.1) that extends throughout the troposphere up to about 50 hPa and reaches its maximum value at 100 hPa. The seasonal trends (rest of column a) indicate that positive trends are present in Autumn and particularly in Summer, where the 100 hPa maximum is much more defined. In Winter and Spring, we detect no statistically significant trend. This is consistent with the results of previous studies, which find clear positive trends in Summer, weaker in Autumn and no trends in the other seasons (e.g. Fogt and Marshall 2020 and references therein) using indices of the SAM based on surface or near-surface circulation.
+
+By separating the SAM signal in its asymmetric and symmetric parts, we can not only see that these trends are almost entirely due to the symmetric component (column b vs.~column c), but in some cases the trends become more clear. In Summer, the Asymmetric SAM has a statistically non significant negative trend in the middle troposphere that obscures the trend in the Full SAM index; as a result, trends computed using only the Symmetric component are more clear (compare the shading region in panel a.2 and c.2). In Autumn, the Symmetric SAM reveals a statistically significant positive trend in the stratosphere that is not significant using the Full SAM index.
+
+We stress that these are only linear trends during the whole period and the absence of a statistically significant signal should not be taken as evidence of no systematic change. In particular, going back to Figure \ref{fig:asymsam-timeseries}, we can see an evident change in the stratospheric Asymmetric component (red line in panel a) between the 90's, when we see a dominance of extreme negative values, and the 00's, when we see the inverse. This change is restricted to the Winter months: the linear trend for Winter starting in 1990 for the Asymmetric component at 50hPa is \(0.37 \pm 0.22\).
+
+Figure \ref{fig:r-squared-trend} shows decadal trends for the explained variance of each index. There is no evidence of a significant trend in the stratosphere. In the troposphere, there is a positive trend for the Asymmetric SAM and not significant trend for the Symmetric SAM. This suggest that the SAM has become more asymmetric in the period from 1979 to 2018. However, the change is slight, around 1\% increased explained variance per decade.
+
+\begin{figure}
+\includegraphics{figures/r-squared-trend-1} \caption{Decadal trends of the variance explained by the Asymmetric and Symmetric SAM at each level for the period 1979 -- 2018. Shading indicates the 95\% confidence interval.}\label{fig:r-squared-trend}
+\end{figure}
+
+\hypertarget{spatial}{%
+\subsection{Spatial patterns}\label{spatial}}
+
+\begin{figure*}
+\includegraphics{figures/2d-regr-1} \caption{Regression of geopotential height (meters) at (row 1) 50 hPa and (row 2) 700 hPa with the (column a) Full SAM, (column b) Asymmetric SAM, and (column c) Symmetric SAM for the 1979 -- 2018 period. The regression patterns for Asymmetric and Symmetric SAM are the result of one multiple regression using both indices. Points marked on panel b.2 are the location of the reference points used by \cite{raphael2004} for their Zonal Wave 3 index. }\label{fig:2d-regr}
+\end{figure*}
+
+To show if, and to what extent, the Asymmetric and Symmetric SAM indices indeed capture the asymmetric and symmetric component of the SAM respectively, we computed the spatial regression of geopotential height anomalies on these indices and the Full SAM index for 700 hPa and 50 hPa levels. Figure \ref{fig:2d-regr} shows these regressions. Regression coefficients in column a are computed using the Full SAM. Regression coefficients in columns b and c are computed using multiple regression using the Asymmetric and Symmetric indices at the same time. Thus, they are to be interpreted as the patterns associated with each index, removing the variability (linearly) explained by the other index.
+
+In the stratosphere, the spatial pattern associated with the Full SAM is more clearly dominated by a zonally symmetric, monopolar structure (panel a.1) which is, however, not perfectly centred in the South Pole. The monopole obtained by the regression pattern for Symmetric SAM (panel c.1) is much more symmetric and the shift from total symmetry is captured by the regression pattern of the Asymmetric SAM as a wave-1 with maximum anomalies above the Belinghausen Sea on the Western Hemisphere and and Davis Sea in the Eastern Hemisphere (panel b.1).
+
+In the troposphere, panel a.2 shows the well known combination of zonally symmetrical annular mode with zonal asymmetries in the form of a wave-3 (Fogt, Jones, and Renwick 2012). The regression using the Asymmetric and Symmetric SAM indices successfully disentangle both structures. The Asymmetric SAM index gives rise to a cleaner zonal wave (panel b.2) and the Symmetric SAM index is associated with an annular mode, almost devoid of zonal asymmetries (panel c.2). The wave-3 pattern observed in panel b.2 is rotated by half a wavelength from the average position of the mean wave-3 pattern associated with Raphael (2004)'s ZW3 index, whose reference locations are marked with points in the figure. Thus, the tropospheric Asymmetric SAM index represents a zonal displacement in the position of the climatological wave-3 pattern.
+
+\begin{figure*}
+\includegraphics{figures/wave-amplitude-1} \caption{Amplitude (meters) of zonal waves of the geopotential height regression patterns in Figure \\ref{fig:2d-regr} for zonal waves with wave-number 0, 1, 2, and 3, where wave-number 0 represents the amplitude of the zonal mean.}\label{fig:wave-amplitude}
+\end{figure*}
+
+The amplitude of the first zonal wave numbers at each latitude at 50 hPa and 700 hPa is shown in Figure \ref{fig:wave-amplitude}, where wave number zero represents the amplitude of the zonal mean. Zonal wave amplitudes of the spatial pattern described by the Full SAM index (column a) are dominated by the zonal mean (wave-number 0) at both levels. However, zonal waves are important, particularly North of 50\degree S, with wave-number 1 clearly dominating at 50 hPa (panel a.1) and a more equal mix of waves at 700 hPa (panel a.2). Column b shows that the Asymmetric SAM is overwhelmingly dominated by wave 1 in the stratosphere (panel b.1), while in the troposphere it is composed of zonal waves 3 to 1 in decreasing level of importance (panel b.2) with negligible amplitude of the zonal mean. The Symmetric SAM, on the other hand, it's almost entirely composed of zonal mean at both levels (column c), with little to now contribution from zonal waves with wave-numbers 1 to 3.
+
+We can see that the amplitude and latitudinal distribution zonal waves in the Asymmetric SAM on one hand, and the zonal mean in the Symmetric SAM on the other correspond almost exactly to the amplitude and latitudinal distribution in the Full SAM. This confirms the correct decomposition of the SAM in its symmetric and asymmetric components. Looking at panel b.2 from Figure \ref{fig:2d-regr}, it becomes apparent that zonal waves 1 and 2 modulate the amplitude of zonal wave 3, which -- as mentioned before -- is larger in the Western Hemisphere than in the Eastern Hemisphere.
+
+\begin{figure}
+\includegraphics{figures/vertical-regression-1} \caption{Regression between monthly geopotential height anomalies (meters) averaged betweeen 65\degree and 40\degree S and the Asymmetric SAM index (extracted from multiple regression including the Symmetric SAM). (a) With the Asymmetric SAM in 50 hPa and (b) in 700 hPa for the 1979 -- 2018 period.}\label{fig:vertical-regression}
+\end{figure}
+
+To analyse the vertical structure of the geopotential height anomalies associated with the asymmetric SAM index, we show a vertical cross section of regressions of mean geopotential height between 65\degree S and 40\degree S for the 50 hPa Asymmetric SAM index (panel a) and for the 700 hPa Asymmetric SAM index (panel b) (Figure \ref{fig:vertical-regression}). The geopotential height anomalies associated with the stratospheric Asymmetric SAM (panel a) are clearly constrained to the stratosphere, which underscores the uncoupling between the stratospheric and tropospheric Asymmetric SAM. The vertical structure of this signal tilts about 60\degree to the West between 100 hPa and 1 hPa, suggesting baroclinic processes. Interestingly, the signal in the stratosphere maximises near 10 hPa despite using the 50 hPa index for the regression.
+
+The tropospheric Asymmetric SAM (panel b) has significant signals that extend upwards to the uppermost levels of the reanalysis. In the troposphere, the wave-3 structure is equivalent barotropic with maximum amplitude at roughly 250 hPa. The anomalies are much more intense in the Western hemisphere, where they extent into the stratosphere. In the Eastern hemisphere the wave-3 signal is weaker and confined to the troposphere while negative anomalies dominate in the stratosphere. So, while the tropospheric Asymmetric SAM index is associated with stratospheric geopotential anomalies, these do not project strongly onto the stratospheric Asymmetric SAM. The structures shown in panels a and b in Figure \ref{fig:vertical-regression} are robust to the choice of index level. For any stratospheric (above 100 hPa) index, the resulting anomalies are very similar to the wave-1 structure with maximum near 10 hPa in panel a. Conversely, for any tropospheric (below 100 hPa) index, the result is very similar to panel b. The patterns mainly change in amplitude (not shown).
+
+The wave-3 pattern from Figure \ref{fig:2d-regr} panel b.2 is very similar to the Pacific-South American Pattern (Mo and Ghil 1987; Kidson 1988) which is a teleconnection pattern associated with the ENSO (Karoly 1989). Indeed, Fogt, Bromwich, and Hines (2011) showed that there is a significant relationship between the SAM and the ENSO. The correlation between the Full SAM and the ENSO as measured by the Oceanic Niño Index (ONI, Bamston, Chelliah, and Goldenberg 1997) is -0.16 (p-value = \ensuremath{2.8\times 10^{-4}}). Consistent with Fan (2007), we show that this relationship is captured entirely by the Asymmetric SAM, as this index has a partial correlation of -0.26 (p-value = \ensuremath{6.3\times 10^{-9}}) with the ONI controlling for the effect of the Symmetric SAM, whereas the Symmetric SAM's partial correlation with the ONI is essentially null (0.019; p-value = 0.67). We performed the same analysis using the Multivariate ENSO Index (Wolter and Timlin 2011) and the Southern Oscillation Index (Ropelewski and Jones 1987) to conclude that these results do not depend on the ENSO index used.
+
+\hypertarget{impacts}{%
+\subsection{Surface Impacts}\label{impacts}}
+
+\begin{figure*}
+\includegraphics{figures/regr-air-season-1} \caption{Regression of seasonal mean surface temperature (Kelvin) with Asymmetric SAM and Symmetric SAM for the 1979 -- 2018 period. Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate. Gray areas in Antarctica are areas with have more than 15\% of missing data.}\label{fig:regr-air-season}
+\end{figure*}
+
+To see if there are different surface impacts associated with the asymmetric and symmetric SAM circulation we regress surface temperature and precipitation onto each of the three SAM indices at 700 hPa. As shown in previous sections, the three indices are highly coherent in the troposphere, so we select this level to represent the tropospheric circulation for consistency with previous studies.
+
+Figure \ref{fig:regr-air-season} shows regression coefficients of each index at 700 hPa with surface temperature for each trimester. In Summer, positive values of the Full SAM index (panel a.1) are associated with negative temperature anomalies near Antarctica which are surrounded by a ring of positive anomalies. The ring is not zonally symmetric, as there are four clear local maximums around 30\degree W, 120\degree W, 150\degree E and 90\degree E. In the tropics, there are negative anomalies in the equatorial Pacific, consistent with the negative correlation between SAM and ENSO. Panels b.1 and c.1 show temperature anomalies associated with positive values of the Asymmetric and Symmetric SAM, respectively. Both the local maximums in the ring and the anomalies in the Pacific regions are present mostly on the Asymmetric SAM regression map, while temperature patterns linked to positive Symmetric SAM show a more zonally consistent ring and less relation to the tropics. Noticeable, temperature anomalies in the Indian ocean, South Africa and Australia are strongly related to Asymmetric SAM. This signal is not present in the regression pattern with the Full SAM. Spring (row 4) features similar patterns but of smaller magnitude, with less regions where regressed anomalies have statistical significance.
+
+In Autumn and Winter (rows 2 and 3) the positive ring is only present through its local maximums in the regression with the Full SAM. There are also negative anomalies in Southern Australia, and positive anomalies over New Zealand and Southern South America. These patterns are not significant in the sense that there are no areas with p-values below 0.05 when controlling for FDR following Wilks (2016). However, repeating this analysis with 2-meter temperature from ERA5 resulted in similar patterns that were statistically significant (not shown). Moreover, similar features were observed in station measurements by Jones et al. (2019), although using data from 1957 to 2016.
+
+The pattern of negative anomalies in the pole surrounded by positive anomalies roughly seen in all seasons -- although with varying intensity and small-scale details -- translates to enhanced meridional temperature gradient maximised in the zero line, which is consistent with the intensification and poleward migration of the westerlies commonly linked to the SAM through thermal wind balance. It's then not surprising to see it more clearly in association with the Symmetric SAM (at least in Summer and Spring).
+
+Figure \ref{fig:regr-air-season} column b can be partially compared with Figure 11 from Fogt, Jones, and Renwick (2012). Although they used station data from 1958 to 2001, main features are reproduced here, such as the strong signal in New Zealand and Australia in Summer and Spring.
+
+Regression of the SAM indices with seasonal mean precipitation and 700 hPa geopotential height are shown in Figures \ref{fig:pp-regr-oceania} and \ref{fig:pp-regr-america} for Australasia and South America respectively. South Africa is not shown because no significant signal was detected there.
+
+\begin{figure*}
+\includegraphics{figures/pp-regr-oceania-1} \caption{Regression of (row 1) annual and (rows 2 to 5) seasonal mean precipitation anomalies (mm per day, shading) and 700 hPa geopotential height (thin lines, positive values as solid lines and negative values as dashed lines) with (column a) Full SAM, (column (b) Asymmetric SAM and (column c) Symmetric SAM for the 1979 -- 2018 period. Thin lines are the Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate.}\label{fig:pp-regr-oceania}
+\end{figure*}
+
+In Australia, the annual regression shows that the Full SAM index is positively associated with precipitation in the Southeastern region (Figure \ref{fig:pp-regr-oceania} panel a.1), which reproduces the results from Gillett, Kell, and Jones (2006). The separation between Asymmetric and Symmetric SAM suggest that this positive anomaly is explained by the Symmetric SAM only in the East coast (panel c.1). Geopotential anomalies associated with this index (black contours) are indicative of easterly flow from the Tasman Sea, which could explain the positive anomalies in precipitation as found by Hendon, Thompson, and Wheeler (2007). The Asymmetric SAM appears related to increased precipitation in the West coast of Southeastern Australia (panel b.2), which could similarly be explained by the anomalous westerly circulation transporting moist air to the continent from the Indian Ocean.
+
+The seasonal-level regressions show statistically significant anomalies only in Spring, when positive Full SAM is associated with positive precipitation anomalies in Eastern Australia (panel a.5). In this trimester the Symmetric SAM seems to be associated with precipitation in a relatively reduced area of the East Coast (panel c.5) while the positive precipitation anomalies related with positive Asymmetric SAM affect all Eastern Australia (panel b.5).
+
+In Summer, positive Full SAM index is associated with with positive precipitation anomalies in Western and Eastern Australia, particularly in the North East (panel a.2). The Eastern part being dominated by the relationship with the Symmetric SAM and the Western, by the Asymmetric SAM. In Autumn, the regression with Full SAM shows positive values in the North, similar to Summer, and a broad area of positive values in the North-East to South-West direction. This structure seems to be associated with the Symmetric SAM, while the Northern positive values are associated with the Asymmetric SAM. In Winter we see the same NE to SW aligned anomaly (although with much reduced amplitude) that is also present only in relation with the Symmetric SAM. None of these regression coefficients are statistically significant at the 95\% level. The Spring signal is broadly consistent with Hendon, Thompson, and Wheeler (2007), but whereas Hendon, Thompson, and Wheeler (2007) also detected a strong signal in Summer, panel a.2 shows no statistically significant association (although the coefficients have the consistent sign).
+
+\begin{figure*}
+\includegraphics{figures/pp-regr-america-1} \caption{Same as Figure \\ref{fig:pp-regr-oceania} but for South America.}\label{fig:pp-regr-america}
+\end{figure*}
+
+In South America (Figure \ref{fig:pp-regr-america}), the annual-level regression shows that positive SAM is associated with statistically significant precipitation decrease in Southeastern South America (SESA) and Southern Chile and non-significant increase in South Brazil, near the South Atlantic Convergence Zone (SACZ) (panel a.1). Panels b.1 and c.1 show a remarkably clean separation between the Asymmetric SAM -- associated with the Southeastern South American and Southern Brazilian signals -- and the Symmetric SAM -- associated with the signal in Southern Chile.
+
+Except Winter, seasonal-level regressions mirror this same pattern. Even if not statistically significant, they all show negative values in Southeastern South America and Southern Chile along with positive values in Southern Brazil in relation with the Full SAM. The separation of these features between the Asymmetric SAM and Symmetric SAM regression maps is also rather consistent.
+
+The anomalous circulation at 700 hPa associated with the Symmetric SAM (panel c.1) indicate anomalous Easterly flow over Southern Chile. This leads to reduced influx of moist air from the Pacific Ocean which, is the main source of precipitable water in that region (Garreaud 2007). On the other hand, the anomalous circulation associated with positive values of Asymmetric SAM (panel b.1) in the Atlantic is anticyclonic in the South and cyclonic in the North. This creates anomalous South-Easterly flow over Southeastern South America, which inhibits the flow of the Low Level Jet to the region (Silvestri and Vera 2009; Zamboni, Mechoso, and Kucharski 2010). This same pattern was found to be associated with increased precipitation in Southern Brazil during South Atlantic Convergence Zone events (Rosso et al. 2018). There is a small area of increased precipitation with SAM near central Argentina which is also present in the station-based analysis by Gillett, Kell, and Jones (2006) and that is explained by the Asymmetric SAM.
+
+\hypertarget{conclusions}{%
+\subsection{Conclusions}\label{conclusions}}
+
+In this study we characterise the temporal and spatial variability of the zonally symmetric and asymmetric structure of the SAM. By projecting monthly geopotential fields at each level with the corresponding asymmetric and symmetric pattern, we created two indices for representing the zonally asymmetric and symmetric contributions of the SAM respectively.
+
+As expected, the Asymmetric SAM index correlates strongly with the Symmetric SAM index. In the troposphere, this correlation is maximum at zero lag, while in the stratosphere is maximised with the Asymmetric SAM leading the Symmetric SAM by one month. Since most indices of the SAM are calculated using surface or near-surface conditions, this result would suggest that they might not be sensitive to the most dramatic changes in SAM variability.
+
+The two-year periodicity we found in the stratospheric Symmetric SAM might point to a link between the SAM and the Quasi Biennial Oscillation. There is evidence of influence between the QBO and the Northern Annular Mode (e.g. Holton and Tan 1980; Watson and Gray 2014; Zhang, Tian, and Wang 2020), so it's not unlikely that the SAM would be similarly connected. However establishing this link would require further research.
+
+We observe a positive trend towards positive SAM in Summer and Autumn, As was documented by previous studies, such as Fogt and Marshall (2020) (and references therein) for surface levels. We show that these trends are maximised at the 100 hPa level and are explained by the zonally symmetric component. We also find a statistically significant positive trend in the Symmetric component of the SAM in the stratosphere that is not apparent in the Full SAM index. In contrast to Fogt, Jones, and Renwick (2012) we find some evidence of the SAM becoming more zonally asymmetric, as there is a slight positive trend in the variance explained by the as the Asymmetric SAM explains an increasingly proportion of the total variance.
+
+In the troposphere, the spatial patterns of geopotential associated with the Symmetric SAM are much closer to being truly annular than the patterns associated with the Full SAM index. The Asymmetric SAM, on the other hand, describes a wave-3 pattern with maximum amplitude in the Pacific region and whose phase is rotated a quarter wavelength from the mean zonal wave 3 described by Raphael (2004)'s index. This pattern extends in the troposphere but its maximum is located at 250 hPa, which also could suggest that surface-based indices are not optimum for capturing this variability.
+
+This wave-3 pattern is similar to the Pacific-South American Pattern, which is a teleconnection pattern linked to ENSO variability. We found that the significant correlation that exists between the Full SAM index and the Oceanic Niño Index is captured entirely by the Asymmetric SAM index. This suggests that ENSO is linked to SAM exclusively through the variability in the latter's asymmetric component and thus, the Asymmetric SAM index could be a useful measure to further study that relationship.
+
+Temperature anomalies associated with the Full SAM broadly show a pattern of negative anomalies at polar latitudes surrounded by positive anomalies, but with many deviations from symmetry. The Asymmetric SAM index explains a big portion of these deviations. In particular, the positive phase of the Asymmetric SAM is associated with colder temperatures over Southern Brazil, South Africa and Southern Australia, as well as the negative anomalies in the equatorial Pacific consistent with the ENSO-SAM relationship. These negative anomalies are particularly clear in the DJF and SON trimesters, which include the months in which the ENSO teleconnection is more active (Cazes-Boezio, Robertson, and Mechoso 2003; Fogt, Bromwich, and Hines 2011; Cai et al. 2020).
+
+In Australia the Full SAM is associated with positive precipitation anomalies in South East and this is explained by the Symmetric SAM. However, the Asymmetric SAM is associated with a small area of positive precipitation anomalies in the Eastern Coast of West Australia, maybe due to advection of moist air from the Indian Ocean. In South America, precipitation anomalies associated with the Full SAM are negative both in Southern Chile and Southeastern South America, and positive in Southern Brazil. This features are cleanly separated between the Asymmetric and Symmetric components. The Symmetric SAM explains the negative anomalies in Southern Chile and the Asymmetric SAM, the negative-positive dipole between Southeastern South America and Southern Brazil. Individual seasons mostly follow this pattern.
+
+Silvestri and Vera (2009) suggests that precipitation impacts linked to the SAM changed rather dramatically before and after 1980. In particular, the negative relationship with precipitation in South America was absent in some areas and switched sign in others in the earlier period. The correlation between ENSO and SAM is similarly non-stationary, also changing sign before the 1980s (Fogt and Bromwich 2006; Clem and Fogt 2013). Seeing as both the ENSO-SAM relationship and most of the precipitation impacts in South America are captured by the Asymmetric SAM, the results presented here are most likely period-dependent.
+
+By succesfully separating the zonally symmetric and zonally symmetric SAM signals, we show that the asymmetric component of the SAM has its unique variability, trends and impacts. This is particularly important in the context of a changing climate, as the impact on the SAM of ozone recovery is modeled as highly zonally symmetric, while the impact of increased concentration of greenhose gases has also a zonally asymmetric component (Arblaster and Meehl 2006; Simpkins and Karpechko 2012).
+
+\begin{acknowledgements}
+NOAA Global Surface Temperature (NOAAGlobalTemp) data provided by the NOAA/OAR/ESRL PSL, Boulder, Colorado, USA, from their Web site at https://psl.noaa.gov/ 
+\end{acknowledgements}
+
+\hypertarget{atastatement}{%
+\subsubsection{atastatement}\label{atastatement}}
+
+All data used in this paper is freely available in their respective sources. ERA5 data can be obtained via the Copernicus Climate Data Store (\url{https://cds.climate.copernicus.eu/cdsapp\#!/dataset/reanalysis-era5-pressure-levels-monthly-means}). NOAAGlobalTemp and GPCC precipitation data can be obtained through the NOAA Physical Sicences Laboratory website (\url{https://psl.noaa.gov/data/gridded/data.noaaglobaltemp.html} and \url{https://psl.noaa.gov/data/gridded/data.gpcc.html}). The Oceanic Niño Index is avaiable via NOAA's Climate Precidction Center: \url{https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/detrend.nino34.ascii.txt}
+
+A version-controlled repository of the code used to create this analysis, including the code used to download the data can be found at \url{https://github.com/eliocamp/asymsam}.
+
+\newpage
+
+\appendix
+
+\counterwithin{figure}{section}
+
+\hypertarget{extra-figures}{%
+\section{Extra figures}\label{extra-figures}}
+
+\newpage
+
+\begin{figure}[ht]
+\includegraphics{figures/A1-1} \caption{Lag-correlation between Asymmetric SAM and Symmetric SAM index at each level. Negative lags imply Symmetric SAM leading Asymmetric SAM and vice versa. For the 1979 -- 2018 period.}\label{fig:A1}
+\end{figure}
+
+\begin{figure}
+\includegraphics{figures/A2-1} \caption{Fourier spectrum of each timeseries computed as Fourier transform smoothed with modified Daniell smoothers with widths 3 and 5. The shading indicates de 95\% confidence area derived by fitting an autorregressive model and computing the spectrum for 5000 simulated samples from the fitted autoregressive model (95\% of the simulated sampels had an amplitude equal or lower). The light line indicates the theoretical expected amplitude from the autorregressive model. For the 1979 -- 2018 period.}\label{fig:A2}
+\end{figure}
+
+\begin{figure}
+\includegraphics{figures/A3-1} \caption{50 hPa Geopotetnial height zonal anomalies (meters) of composites of positive and negative SAM months selected using $\pm1$ standard deviation as threshhold for the 1979 -- 2018 period. Numbers in the column headers are pattern correlation between SAM+ and SAM- composites and number of monthly fields used to construct the composites.}\label{fig:A3}
+\end{figure}
+
+\begin{figure}
+\includegraphics{figures/A4-1} \caption{700 hPa Geopotetnial height zonal anomalies (meters) of composites of positive and negative SAM months selected using $\pm1$ standard deviation as threshhold for the 1979 -- 2018 period. Numbers in the column headers are pattern correlation between SAM+ and SAM- composites and number of monthly fields used to construct the composites.}\label{fig:A4}
+\end{figure}
+
+\begin{figure}
+\includegraphics{figures/A5-1} \caption{Regression coefficients of 50 hPa and 700 hPa geopotential height zonal anomalies (meters) onto the standarised timeseries of the leading EOF computed for each season independently for the 1979 -- 2018 period.}\label{fig:A5}
+\end{figure}
+
+\begin{figure}
+\includegraphics{figures/A6-1} \caption{Regression of 50 hPa and 700 hPa geopotential height zonal anomalies (meters) onto the standarised timeseries of the leading EOF computed for the periods 1979 -- 1998 and 1999 -- 2018. Pattern correlation between both fields is 0.86 for the 50 hPa fields and 0.76 for the 700 hPa fields.}\label{fig:A6}
+\end{figure}
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-albers2020}{}%
+Albers, Sam, and Elio Campitelli. 2020. ``Rsoi: Import Various Northern and Southern Hemisphere Climate Indices.''
+
+\leavevmode\hypertarget{ref-allaire2019}{}%
+Allaire, JJ, Jeffrey Horner, Yihui Xie, Vicent Marti, and Natacha Porte. 2019. \emph{Markdown: Render Markdown with the c Library 'Sundown'}. Manual.
+
+\leavevmode\hypertarget{ref-arblaster2006}{}%
+Arblaster, Julie M., and Gerald A. Meehl. 2006. ``Contributions of External Forcings to Southern Annular Mode Trends.'' \emph{J. Climate} 19 (12). American Meteorological Society: 2896--2905. \url{https://doi.org/10.1175/JCLI3774.1}.
+
+\leavevmode\hypertarget{ref-baldwin2001a}{}%
+Baldwin, Mark P. 2001. ``Annular Modes in Global Daily Surface Pressure.'' \emph{Geophysical Research Letters} 28 (21): 4115--8. \url{https://doi.org/10.1029/2001GL013564}.
+
+\leavevmode\hypertarget{ref-baldwin2001}{}%
+Baldwin, Mark P., and Timothy J. Dunkerton. 2001. ``Stratospheric Harbingers of Anomalous Weather Regimes.'' \emph{Science} 294 (5542). American Association for the Advancement of Science: 581--84. \url{https://doi.org/10.1126/science.1063315}.
+
+\leavevmode\hypertarget{ref-baldwin2009}{}%
+Baldwin, Mark P., and David W. J. Thompson. 2009. ``A Critical Comparison of StratosphereTroposphere Coupling Indices.'' \emph{Quarterly Journal of the Royal Meteorological Society} 135 (644): 1661--72. \url{https://doi.org/10.1002/qj.479}.
+
+\leavevmode\hypertarget{ref-baldwin2001b}{}%
+Baldwin, M. P., L. J. Gray, T. J. Dunkerton, K. Hamilton, P. H. Haynes, W. J. Randel, J. R. Holton, et al. 2001. ``The Quasi-Biennial Oscillation.'' \emph{Reviews of Geophysics} 39 (2): 179--229. \url{https://doi.org/10.1029/1999RG000073}.
+
+\leavevmode\hypertarget{ref-bamston1997}{}%
+Bamston, Anthony G., Muthuvel Chelliah, and Stanley B. Goldenberg. 1997. ``Documentation of a Highly ENSO-Related Sst Region in the Equatorial Pacific: Research Note.'' \emph{Atmosphere-Ocean} 35 (3). Taylor \& Francis: 367--83. \url{https://doi.org/10.1080/07055900.1997.9649597}.
+
+\leavevmode\hypertarget{ref-benjamini1995}{}%
+Benjamini, Yoav, and Yosef Hochberg. 1995. ``Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing.'' \emph{Journal of the Royal Statistical Society: Series B (Methodological)} 57 (1): 289--300. \url{https://doi.org/10.1111/j.2517-6161.1995.tb02031.x}.
+
+\leavevmode\hypertarget{ref-cai2020a}{}%
+Cai, Wenju, Michael J. McPhaden, Alice M. Grimm, Regina R. Rodrigues, Andréa S. Taschetto, René D. Garreaud, Boris Dewitte, et al. 2020. ``Climate Impacts of the El NiñoSouthern Oscillation on South America.'' \emph{Nature Reviews Earth \& Environment} 1 (4). Nature Publishing Group: 215--31. \url{https://doi.org/10.1038/s43017-020-0040-3}.
+
+\leavevmode\hypertarget{ref-campitelli2020}{}%
+Campitelli, Elio. 2020. ``metR: Tools for Easier Analysis of Meteorological Fields.''
+
+\leavevmode\hypertarget{ref-cazes-boezio2003}{}%
+Cazes-Boezio, Gabriel, Andrew W. Robertson, and Carlos R. Mechoso. 2003. ``Seasonal Dependence of ENSO Teleconnections over South America and Relationships with Precipitation in Uruguay.'' \emph{J. Climate} 16 (8). American Meteorological Society: 1159--76. \href{https://doi.org/10.1175/1520-0442(2003)16\%3C1159:SDOETO\%3E2.0.CO;2}{https://doi.org/10.1175/1520-0442(2003)16\textless{}1159:SDOETO\textgreater{}2.0.CO;2}.
+
+\leavevmode\hypertarget{ref-chung1999}{}%
+Chung, Chul, and Sumant Nigam. 1999. ``Weighting of Geophysical Data in Principal Component Analysis.'' \emph{Journal of Geophysical Research: Atmospheres} 104 (D14): 16925--8. \url{https://doi.org/10.1029/1999JD900234}.
+
+\leavevmode\hypertarget{ref-clem2013}{}%
+Clem, Kyle R., and Ryan L. Fogt. 2013. ``Varying Roles of ENSO and SAM on the Antarctic Peninsula Climate in Austral Spring.'' \emph{Journal of Geophysical Research: Atmospheres} 118 (20): 11, 481--11, 492. \url{https://doi.org/10.1002/jgrd.50860}.
+
+\leavevmode\hypertarget{ref-dowle2020}{}%
+Dowle, Matt, Arun Srinivasan, Jan Gorecki, Michael Chirico, Pasha Stetsenko, Tom Short, Steve Lianoglou, et al. 2020. ``Data.Table: Extension of 'Data.frame'.''
+
+\leavevmode\hypertarget{ref-fan2007}{}%
+Fan, Ke. 2007. ``Zonal Asymmetry of the Antarctic Oscillation.'' \emph{Geophysical Research Letters} 34 (2). John Wiley \& Sons, Ltd. \url{https://doi.org/10.1029/2006GL028045}.
+
+\leavevmode\hypertarget{ref-fogt2006}{}%
+Fogt, Ryan L., and David H. Bromwich. 2006. ``Decadal Variability of the ENSO Teleconnection to the High-Latitude South Pacific Governed by Coupling with the Southern Annular Mode.'' \emph{J. Climate} 19 (6). American Meteorological Society: 979--97. \url{https://doi.org/10.1175/JCLI3671.1}.
+
+\leavevmode\hypertarget{ref-fogt2011}{}%
+Fogt, Ryan L., David H. Bromwich, and Keith M. Hines. 2011. ``Understanding the SAM Influence on the South Pacific ENSO Teleconnection.'' \emph{Clim Dyn} 36 (7): 1555--76. \url{https://doi.org/10.1007/s00382-010-0905-0}.
+
+\leavevmode\hypertarget{ref-fogt2012}{}%
+Fogt, Ryan L., Julie M. Jones, and James Renwick. 2012. ``Seasonal Zonal Asymmetries in the Southern Annular Mode and Their Impact on Regional Temperature Anomalies.'' \emph{J. Climate} 25 (18). American Meteorological Society: 6253--70. \url{https://doi.org/10.1175/JCLI-D-11-00474.1}.
+
+\leavevmode\hypertarget{ref-fogt2020}{}%
+Fogt, Ryan L., and Gareth J. Marshall. 2020. ``The Southern Annular Mode: Variability, Trends, and Climate Impacts Across the Southern Hemisphere.'' \emph{WIREs Climate Change} 11 (4): e652. \url{https://doi.org/10.1002/wcc.652}.
+
+\leavevmode\hypertarget{ref-garreaud2007}{}%
+Garreaud, RenéD. 2007. ``Precipitation and Circulation Covariability in the Extratropics.'' \emph{J. Climate} 20 (18). American Meteorological Society: 4789--97. \url{https://doi.org/10.1175/JCLI4257.1}.
+
+\leavevmode\hypertarget{ref-gillett2013}{}%
+Gillett, Nathan P., John C. Fyfe, and David E. Parker. 2013. ``Attribution of Observed Sea Level Pressure Trends to Greenhouse Gas, Aerosol, and Ozone Changes.'' \emph{Geophysical Research Letters} 40 (10): 2302--6. \url{https://doi.org/10.1002/grl.50500}.
+
+\leavevmode\hypertarget{ref-gillett2005}{}%
+Gillett, N. P., R. J. Allan, and T. J. Ansell. 2005. ``Detection of External Influence on Sea Level Pressure with a Multi-Model Ensemble.'' \emph{Geophysical Research Letters} 32 (19). \url{https://doi.org/10.1029/2005GL023640}.
+
+\leavevmode\hypertarget{ref-gillett2006}{}%
+Gillett, N. P., T. D. Kell, and P. D. Jones. 2006. ``Regional Climate Impacts of the Southern Annular Mode.'' \emph{Geophysical Research Letters} 33 (23). \url{https://doi.org/10.1029/2006GL027721}.
+
+\leavevmode\hypertarget{ref-gong1999}{}%
+Gong, Daoyi, and Shaowu Wang. 1999. ``Definition of Antarctic Oscillation Index.'' \emph{Geophysical Research Letters} 26 (4): 459--62. \url{https://doi.org/10.1029/1999GL900003}.
+
+\leavevmode\hypertarget{ref-hendon2007}{}%
+Hendon, Harry H., David W. J. Thompson, and Matthew C. Wheeler. 2007. ``Australian Rainfall and Surface Temperature Variations Associated with the Southern Hemisphere Annular Mode.'' \emph{J. Climate} 20 (11). American Meteorological Society: 2452--67. \url{https://doi.org/10.1175/JCLI4134.1}.
+
+\leavevmode\hypertarget{ref-hersbach2020}{}%
+Hersbach, Hans, Bill Bell, Paul Berrisford, Shoji Hirahara, András Horányi, Joaquín Muñoz-Sabater, Julien Nicolas, et al. 2020. ``The ERA5 Global Reanalysis.'' \emph{Quarterly Journal of the Royal Meteorological Society} 146 (730): 1999--2049. \url{https://doi.org/10.1002/qj.3803}.
+
+\leavevmode\hypertarget{ref-ho2012}{}%
+Ho, M., A. S. Kiem, and D. C. Verdon-Kidd. 2012. ``The Southern Annular Mode: A Comparison of Indices.'' \emph{Hydrology and Earth System Sciences} 16 (3). Copernicus GmbH: 967--82. \url{https://doi.org/10.5194/hess-16-967-2012}.
+
+\leavevmode\hypertarget{ref-holton1980}{}%
+Holton, James R., and Hsiu-Chi Tan. 1980. ``The Influence of the Equatorial Quasi-Biennial Oscillation on the Global Circulation at 50 Mb.'' \emph{J. Atmos. Sci.} 37 (10). American Meteorological Society: 2200--2208. \href{https://doi.org/10.1175/1520-0469(1980)037\%3C2200:TIOTEQ\%3E2.0.CO;2}{https://doi.org/10.1175/1520-0469(1980)037\textless{}2200:TIOTEQ\textgreater{}2.0.CO;2}.
+
+\leavevmode\hypertarget{ref-hufkens2020}{}%
+Hufkens, Koen, Reto Stauffer, and Elio Campitelli. 2020. ``Ecmwfr: Interface to 'ECMWF' and 'CDS' Data Web Services.''
+
+\leavevmode\hypertarget{ref-jones2009}{}%
+Jones, Julie M., Ryan L. Fogt, Martin Widmann, Gareth J. Marshall, Phil D. Jones, and Martin Visbeck. 2009. ``Historical SAM Variability. Part I: Century-Length Seasonal Reconstructions.'' \emph{J. Climate} 22 (20). American Meteorological Society: 5319--45. \url{https://doi.org/10.1175/2009JCLI2785.1}.
+
+\leavevmode\hypertarget{ref-jones2019}{}%
+Jones, Megan E., David H. Bromwich, Julien P. Nicolas, Jorge Carrasco, Eva Plavcová, Xun Zou, and Sheng-Hung Wang. 2019. ``Sixty Years of Widespread Warming in the Southern Middle and High Latitudes (19572016).'' \emph{J. Climate} 32 (20). American Meteorological Society: 6875--98. \url{https://doi.org/10.1175/JCLI-D-18-0565.1}.
+
+\leavevmode\hypertarget{ref-karoly1989}{}%
+Karoly, David J. 1989. ``Southern Hemisphere Circulation Features Associated with El Niño-Southern Oscillation Events.'' \emph{J. Climate} 2 (11): 1239--52. \href{https://doi.org/10.1175/1520-0442(1989)002\%3C1239:SHCFAW\%3E2.0.CO;2}{https://doi.org/10.1175/1520-0442(1989)002\textless{}1239:SHCFAW\textgreater{}2.0.CO;2}.
+
+\leavevmode\hypertarget{ref-katz1991}{}%
+Katz, Richard W., and Barbara G. Brown. 1991. ``The Problem of Multiplicity in Research on Teleconnections.'' \emph{International Journal of Climatology} 11 (5): 505--13. \url{https://doi.org/10.1002/joc.3370110504}.
+
+\leavevmode\hypertarget{ref-kidson1988}{}%
+Kidson, John W. 1988. ``Interannual Variations in the Southern Hemisphere Circulation.'' \emph{J. Climate} 1 (12): 1177--98. \href{https://doi.org/10.1175/1520-0442(1988)001\%3C1177:IVITSH\%3E2.0.CO;2}{https://doi.org/10.1175/1520-0442(1988)001\textless{}1177:IVITSH\textgreater{}2.0.CO;2}.
+
+\leavevmode\hypertarget{ref-lim2016}{}%
+Lim, Eun-Pa, Harry H. Hendon, Julie M. Arblaster, Francois Delage, Hanh Nguyen, Seung-Ki Min, and Matthew C. Wheeler. 2016. ``The Impact of the Southern Annular Mode on Future Changes in Southern Hemisphere Rainfall.'' \emph{Geophysical Research Letters} 43 (13): 7160--7. \url{https://doi.org/10.1002/2016GL069453}.
+
+\leavevmode\hypertarget{ref-marshall2003}{}%
+Marshall, Gareth J. 2003. ``Trends in the Southern Annular Mode from Observations and Reanalyses.'' \emph{J. Climate} 16 (24). American Meteorological Society: 4134--43. \href{https://doi.org/10.1175/1520-0442(2003)016\%3C4134:TITSAM\%3E2.0.CO;2}{https://doi.org/10.1175/1520-0442(2003)016\textless{}4134:TITSAM\textgreater{}2.0.CO;2}.
+
+\leavevmode\hypertarget{ref-marshall2004}{}%
+Marshall, Gareth J., Peter A. Stott, John Turner, William M. Connolley, John C. King, and Thomas A. Lachlan-Cope. 2004. ``Causes of Exceptional Atmospheric Circulation Changes in the Southern Hemisphere.'' \emph{Geophysical Research Letters} 31 (14). \url{https://doi.org/10.1029/2004GL019952}.
+
+\leavevmode\hypertarget{ref-mo1987}{}%
+Mo, Kingtse C., and Michael Ghil. 1987. ``Statistics and Dynamics of Persistent Anomalies.'' \emph{J. Atmos. Sci.} 44 (5): 877--902. \href{https://doi.org/10.1175/1520-0469(1987)044\%3C0877:SADOPA\%3E2.0.CO;2}{https://doi.org/10.1175/1520-0469(1987)044\textless{}0877:SADOPA\textgreater{}2.0.CO;2}.
+
+\leavevmode\hypertarget{ref-raphael2004}{}%
+Raphael, M. N. 2004. ``A Zonal Wave 3 Index for the Southern Hemisphere.'' \emph{Geophysical Research Letters} 31 (23). \url{https://doi.org/10.1029/2004GL020365}.
+
+\leavevmode\hypertarget{ref-rcoreteam2020}{}%
+R Core Team. 2020. \emph{R: A Language and Environment for Statistical Computing}. Manual. Vienna, Austria: R Foundation for Statistical Computing.
+
+\leavevmode\hypertarget{ref-rogers1982}{}%
+Rogers, Jeffery C., and Harry van Loon. 1982. ``Spatial Variability of Sea Level Pressure and 500 Mb Height Anomalies over the Southern Hemisphere.'' \emph{Mon. Wea. Rev.} 110 (10). American Meteorological Society: 1375--92. \href{https://doi.org/10.1175/1520-0493(1982)110\%3C1375:SVOSLP\%3E2.0.CO;2}{https://doi.org/10.1175/1520-0493(1982)110\textless{}1375:SVOSLP\textgreater{}2.0.CO;2}.
+
+\leavevmode\hypertarget{ref-ropelewski1987}{}%
+Ropelewski, C. F., and P. D. Jones. 1987. ``An Extension of the TahitiDarwin Southern Oscillation Index.'' \emph{Mon. Wea. Rev.} 115 (9). American Meteorological Society: 2161--5. \href{https://doi.org/10.1175/1520-0493(1987)115\%3C2161:AEOTTS\%3E2.0.CO;2}{https://doi.org/10.1175/1520-0493(1987)115\textless{}2161:AEOTTS\textgreater{}2.0.CO;2}.
+
+\leavevmode\hypertarget{ref-rosso2018}{}%
+Rosso, Flávia Venturini, Nathalie Tissot Boiaski, Simone Erotildes Teleginski Ferraz, and Tiago Capello Robles. 2018. ``Influence of the Antarctic Oscillation on the South Atlantic Convergence Zone.'' \emph{Atmosphere} 9 (11). Multidisciplinary Digital Publishing Institute: 431. \url{https://doi.org/10.3390/atmos9110431}.
+
+\leavevmode\hypertarget{ref-schneider2015}{}%
+Schneider, Udo, Andreas Becker, Peter Finger, Anja Meyer-Christoffer, Bruno Rudolf, and Markus Ziese. 2015. ``GPCC Full Data Reanalysis Version 7.0 at 0.5: Monthly Land-Surface Precipitation from Rain-Gauges Built on GTS-Based and Historic Data: Gridded Monthly Totals.'' Global Precipitation Climatology Centre (GPCC) at Deutscher Wetterdienst. \url{https://doi.org/10.5676/DWD_GPCC/FD_M_V7_050}.
+
+\leavevmode\hypertarget{ref-schneider2017}{}%
+Schneider, Udo, Peter Finger, Anja Meyer-Christoffer, Elke Rustemeier, Markus Ziese, and Andreas Becker. 2017. ``Evaluating the Hydrological Cycle over Land Using the Newly-Corrected Precipitation Climatology from the Global Precipitation Climatology Centre (GPCC).'' \emph{Atmosphere} 8 (3). Multidisciplinary Digital Publishing Institute: 52. \url{https://doi.org/10.3390/atmos8030052}.
+
+\leavevmode\hypertarget{ref-sheather1991}{}%
+Sheather, S. J., and M. C. Jones. 1991. ``A Reliable Data-Based Bandwidth Selection Method for Kernel Density Estimation.'' \emph{Journal of the Royal Statistical Society. Series B (Methodological)} 53 (3). {[}Royal Statistical Society, Wiley{]}: 683--90.
+
+\leavevmode\hypertarget{ref-silvestri2009}{}%
+Silvestri, Gabriel, and Carolina Vera. 2009. ``Nonstationary Impacts of the Southern Annular Mode on Southern Hemisphere Climate.'' \emph{J. Climate} 22 (22). American Meteorological Society: 6142--8. \url{https://doi.org/10.1175/2009JCLI3036.1}.
+
+\leavevmode\hypertarget{ref-simpkins2012}{}%
+Simpkins, Graham R., and Alexey Yu. Karpechko. 2012. ``Sensitivity of the Southern Annular Mode to Greenhouse Gas Emission Scenarios.'' \emph{Clim Dyn} 38 (3): 563--72. \url{https://doi.org/10.1007/s00382-011-1121-2}.
+
+\leavevmode\hypertarget{ref-smith2008}{}%
+Smith, Thomas M., Richard W. Reynolds, Thomas C. Peterson, and Jay Lawrimore. 2008. ``Improvements to NOAA's Historical Merged LandOcean Surface Temperature Analysis (18802006).'' \emph{J. Climate} 21 (10). American Meteorological Society: 2283--96. \url{https://doi.org/10.1175/2007JCLI2100.1}.
+
+\leavevmode\hypertarget{ref-vose2012}{}%
+Vose, Russell S., Derek Arndt, Viva F. Banzon, David R. Easterling, Byron Gleason, Boyin Huang, Ed Kearns, et al. 2012. ``NOAA's Merged LandOcean Surface Temperature Analysis.'' \emph{Bull. Amer. Meteor. Soc.} 93 (11). American Meteorological Society: 1677--85. \url{https://doi.org/10.1175/BAMS-D-11-00241.1}.
+
+\leavevmode\hypertarget{ref-walker1914}{}%
+Walker, Sir Gilbert Thomas. 1914. \emph{Correlation in Seasonal Variations of Weather, III: On the Criterion for the Reality of Relationships or Periodicities}. Meteorological Office.
+
+\leavevmode\hypertarget{ref-watson2014}{}%
+Watson, Peter A. G., and Lesley J. Gray. 2014. ``How Does the Quasi-Biennial Oscillation Affect the Stratospheric Polar Vortex?'' \emph{J. Atmos. Sci.} 71 (1). American Meteorological Society: 391--409. \url{https://doi.org/10.1175/JAS-D-13-096.1}.
+
+\leavevmode\hypertarget{ref-wickham2009}{}%
+Wickham, Hadley. 2009. \emph{Ggplot2: Elegant Graphics for Data Analysis}. Use R! New York: Springer-Verlag. \url{https://doi.org/10.1007/978-0-387-98141-3}.
+
+\leavevmode\hypertarget{ref-wilks2016}{}%
+Wilks, D. S. 2016. ```The Stippling Shows Statistically Significant Grid Points': How Research Results Are Routinely Overstated and Overinterpreted, and What to Do About It.'' \emph{Bull. Amer. Meteor. Soc.} 97 (12): 2263--73. \url{https://doi.org/10.1175/BAMS-D-15-00267.1}.
+
+\leavevmode\hypertarget{ref-wolter2011}{}%
+Wolter, Klaus, and Michael S. Timlin. 2011. ``El Niño/Southern Oscillation Behaviour Since 1871 as Diagnosed in an Extended Multivariate ENSO Index (MEI.Ext).'' \emph{International Journal of Climatology} 31 (7): 1074--87. \url{https://doi.org/10.1002/joc.2336}.
+
+\leavevmode\hypertarget{ref-xie2015}{}%
+Xie, Yihui. 2015. \emph{Dynamic Documents with R and Knitr}. Second. Boca Raton, Florida: Chapman and Hall/CRC.
+
+\leavevmode\hypertarget{ref-zamboni2010}{}%
+Zamboni, Laura, Carlos R. Mechoso, and Fred Kucharski. 2010. ``Relationships Between Upper-Level Circulation over South America and Rainfall over Southeastern South America: A Physical Base for Seasonal Predictions.'' \emph{J. Climate} 23 (12). American Meteorological Society: 3300--3315. \url{https://doi.org/10.1175/2009JCLI3129.1}.
+
+\leavevmode\hypertarget{ref-zhang2020}{}%
+Zhang, Ruhua, Wenshou Tian, and Tao Wang. 2020. ``Role of the Quasi-Biennial Oscillation in the Downward Extension of Stratospheric Northern Annular Mode Anomalies.'' \emph{Clim Dyn} 55 (3): 595--612. \url{https://doi.org/10.1007/s00382-020-05285-4}.
+
+\bibliographystyle{spphys}
+\bibliography{AsymSAM.bib,packages.bib}
+
+\end{document}
