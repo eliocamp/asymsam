@@ -53,7 +53,7 @@ output:
   bookdown::pdf_book: 
       base_format: rticles::springer_article
       latex_engine: "xelatex"
-      # citation_package: "natbib"
+      citation_package: "natbib"
 header-includes: 
  - \usepackage{gensymb}
  - \usepackage{subfig}

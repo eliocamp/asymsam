@@ -1,12 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.30)  25 NOV 2020 14:58
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.11.25)  25 NOV 2020 15:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **paper2.tex
 (./paper2.tex
-LaTeX2e <2017-04-15>
-Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
-(./svjour3.cls
+LaTeX2e <2020-10-01> patch level 2
+L3 programming layer <2020-10-27> xparse <2020-03-03> (./svjour3.cls
 Document Class: svjour3 2007/05/08 v3.2 
 LaTeX document class for Springer journals
 Class Springer-SVJour3 Info: extra/valid Springer sub-package (-> *.clo) 
@@ -14,7 +13,6 @@ Class Springer-SVJour3 Info: extra/valid Springer sub-package (-> *.clo)
 (Springer-SVJour3)           - autoactivating "global" style.
 (./svglov3.clo
 File: svglov3.clo 2009/12/18 v3.2 style option for standardised journals
-
 SVJour Class option: svglov3.clo for standardised journals
 )
 LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 147.
@@ -28,642 +26,342 @@ LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 154.
 LaTeX Font Info:    Redeclaring math symbol \Phi on input line 155.
 LaTeX Font Info:    Redeclaring math symbol \Psi on input line 156.
 LaTeX Font Info:    Redeclaring math symbol \Omega on input line 157.
-\logodepth=\dimen102
-\headerboxheight=\dimen103
-\betweenumberspace=\dimen104
-\aftertext=\dimen105
-\headlineindent=\dimen106
-\c@inst=\count79
-\c@auth=\count80
-\instindent=\dimen107
-\authrun=\box26
-\authorrunning=\toks14
-\titrun=\box27
-\titlerunning=\toks15
-\combirun=\box28
-\c@lastpage=\count81
-\rubricwidth=\dimen108
-\c@section=\count82
-\c@subsection=\count83
-\c@subsubsection=\count84
-\c@paragraph=\count85
-\c@subparagraph=\count86
-\spthmsep=\dimen109
-\c@theorem=\count87
-\c@case=\count88
-\c@conjecture=\count89
-\c@corollary=\count90
-\c@definition=\count91
-\c@example=\count92
-\c@exercise=\count93
-\c@lemma=\count94
-\c@note=\count95
-\c@problem=\count96
-\c@property=\count97
-\c@proposition=\count98
-\c@question=\count99
-\c@solution=\count100
-\c@remark=\count101
-\c@figure=\count102
-\c@table=\count103
-\abovecaptionskip=\skip41
-\belowcaptionskip=\skip42
-\figcapgap=\dimen110
-\tabcapgap=\dimen111
-\figgap=\dimen112
-\bibindent=\dimen113
-\@tempcntc=\count104
-) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2017/09/02 v2.17a AMS math features
-\@mathmargin=\skip43
-
+\logodepth=\dimen138
+\headerboxheight=\dimen139
+\betweenumberspace=\dimen140
+\aftertext=\dimen141
+\headlineindent=\dimen142
+\c@inst=\count171
+\c@auth=\count172
+\instindent=\dimen143
+\authrun=\box47
+\authorrunning=\toks15
+\titrun=\box48
+\titlerunning=\toks16
+\combirun=\box49
+\c@lastpage=\count173
+\rubricwidth=\dimen144
+\c@section=\count174
+\c@subsection=\count175
+\c@subsubsection=\count176
+\c@paragraph=\count177
+\c@subparagraph=\count178
+\spthmsep=\dimen145
+\c@theorem=\count179
+\c@case=\count180
+\c@conjecture=\count181
+\c@corollary=\count182
+\c@definition=\count183
+\c@example=\count184
+\c@exercise=\count185
+\c@lemma=\count186
+\c@note=\count187
+\c@problem=\count188
+\c@property=\count189
+\c@proposition=\count190
+\c@question=\count191
+\c@solution=\count192
+\c@remark=\count193
+\c@figure=\count194
+\c@table=\count195
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\figcapgap=\dimen146
+\tabcapgap=\dimen147
+\figgap=\dimen148
+\bibindent=\dimen149
+\@tempcntc=\count196
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2020/09/23 v2.17i AMS math features
+\@mathmargin=\skip49
 For additional information on amsmath, use the `?' option.
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks16
-\ex@=\dimen114
-))
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+\@emptytoks=\toks17
+\ex@=\dimen150
+)) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen115
-)
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+\pmbraise@=\dimen151
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count105
-LaTeX Info: Redefining \frac on input line 213.
-\uproot@=\count106
-\leftroot@=\count107
-LaTeX Info: Redefining \overline on input line 375.
-\classnum@=\count108
-\DOTSCASE@=\count109
-LaTeX Info: Redefining \ldots on input line 472.
-LaTeX Info: Redefining \dots on input line 475.
-LaTeX Info: Redefining \cdots on input line 596.
-\Mathstrutbox@=\box29
-\strutbox@=\box30
-\big@size=\dimen116
-LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
-
-
-Package amsmath Warning: Unable to redefine math accent \vec.
-
-\macc@depth=\count110
-\c@MaxMatrixCols=\count111
-\dotsspace@=\muskip10
-\c@parentequation=\count112
-\dspbrk@lvl=\count113
-\tag@help=\toks17
-\row@=\count114
-\column@=\count115
-\maxfields@=\count116
-\andhelp@=\toks18
-\eqnshift@=\dimen117
-\alignsep@=\dimen118
-\tagshift@=\dimen119
-\tagwidth@=\dimen120
-\totwidth@=\dimen121
-\lineht@=\dimen122
-\@envbody=\toks19
-\multlinegap=\skip44
-\multlinetaggap=\skip45
-\mathdisplay@stack=\toks20
-LaTeX Info: Redefining \[ on input line 2817.
-LaTeX Info: Redefining \] on input line 2818.
-) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+\inf@bad=\count197
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count198
+\leftroot@=\count199
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count266
+\DOTSCASE@=\count267
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box50
+\strutbox@=\box51
+\big@size=\dimen152
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count268
+\c@MaxMatrixCols=\count269
+\dotsspace@=\muskip16
+\c@parentequation=\count270
+\dspbrk@lvl=\count271
+\tag@help=\toks18
+\row@=\count272
+\column@=\count273
+\maxfields@=\count274
+\andhelp@=\toks19
+\eqnshift@=\dimen153
+\alignsep@=\dimen154
+\tagshift@=\dimen155
+\tagwidth@=\dimen156
+\totwidth@=\dimen157
+\lineht@=\dimen158
+\@envbody=\toks20
+\multlinegap=\skip50
+\multlinetaggap=\skip51
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks21
-)
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+\KV@toks@=\toks22
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cf
+g
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 99.
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+Package graphics Info: Driver file: xetex.def on input line 105.
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2020/08/26 v5.0i Graphics/color driver for xetex
 ))
-\Gin@req@height=\dimen123
-\Gin@req@width=\dimen124
-)
-(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2015/03/17 v1.2c Input encoding file
-\inpenc@prehook=\toks22
-\inpenc@posthook=\toks23
+\Gin@req@height=\dimen159
+\Gin@req@width=\dimen160
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2020/08/01 v1.3d Input encoding file
+\inpenc@prehook=\toks23
+\inpenc@posthook=\toks24
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
-Now handling font encoding OML ...
-... no UTF-8 mapping file for font encoding OML
-Now handling font encoding T1 ...
-... processing UTF-8 mapping file for font encoding T1
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
-File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
-   defining Unicode char U+00A0 (decimal 160)
-   defining Unicode char U+00A1 (decimal 161)
-   defining Unicode char U+00A3 (decimal 163)
-   defining Unicode char U+00AB (decimal 171)
-   defining Unicode char U+00AD (decimal 173)
-   defining Unicode char U+00BB (decimal 187)
-   defining Unicode char U+00BF (decimal 191)
-   defining Unicode char U+00C0 (decimal 192)
-   defining Unicode char U+00C1 (decimal 193)
-   defining Unicode char U+00C2 (decimal 194)
-   defining Unicode char U+00C3 (decimal 195)
-   defining Unicode char U+00C4 (decimal 196)
-   defining Unicode char U+00C5 (decimal 197)
-   defining Unicode char U+00C6 (decimal 198)
-   defining Unicode char U+00C7 (decimal 199)
-   defining Unicode char U+00C8 (decimal 200)
-   defining Unicode char U+00C9 (decimal 201)
-   defining Unicode char U+00CA (decimal 202)
-   defining Unicode char U+00CB (decimal 203)
-   defining Unicode char U+00CC (decimal 204)
-   defining Unicode char U+00CD (decimal 205)
-   defining Unicode char U+00CE (decimal 206)
-   defining Unicode char U+00CF (decimal 207)
-   defining Unicode char U+00D0 (decimal 208)
-   defining Unicode char U+00D1 (decimal 209)
-   defining Unicode char U+00D2 (decimal 210)
-   defining Unicode char U+00D3 (decimal 211)
-   defining Unicode char U+00D4 (decimal 212)
-   defining Unicode char U+00D5 (decimal 213)
-   defining Unicode char U+00D6 (decimal 214)
-   defining Unicode char U+00D8 (decimal 216)
-   defining Unicode char U+00D9 (decimal 217)
-   defining Unicode char U+00DA (decimal 218)
-   defining Unicode char U+00DB (decimal 219)
-   defining Unicode char U+00DC (decimal 220)
-   defining Unicode char U+00DD (decimal 221)
-   defining Unicode char U+00DE (decimal 222)
-   defining Unicode char U+00DF (decimal 223)
-   defining Unicode char U+00E0 (decimal 224)
-   defining Unicode char U+00E1 (decimal 225)
-   defining Unicode char U+00E2 (decimal 226)
-   defining Unicode char U+00E3 (decimal 227)
-   defining Unicode char U+00E4 (decimal 228)
-   defining Unicode char U+00E5 (decimal 229)
-   defining Unicode char U+00E6 (decimal 230)
-   defining Unicode char U+00E7 (decimal 231)
-   defining Unicode char U+00E8 (decimal 232)
-   defining Unicode char U+00E9 (decimal 233)
-   defining Unicode char U+00EA (decimal 234)
-   defining Unicode char U+00EB (decimal 235)
-   defining Unicode char U+00EC (decimal 236)
-   defining Unicode char U+00ED (decimal 237)
-   defining Unicode char U+00EE (decimal 238)
-   defining Unicode char U+00EF (decimal 239)
-   defining Unicode char U+00F0 (decimal 240)
-   defining Unicode char U+00F1 (decimal 241)
-   defining Unicode char U+00F2 (decimal 242)
-   defining Unicode char U+00F3 (decimal 243)
-   defining Unicode char U+00F4 (decimal 244)
-   defining Unicode char U+00F5 (decimal 245)
-   defining Unicode char U+00F6 (decimal 246)
-   defining Unicode char U+00F8 (decimal 248)
-   defining Unicode char U+00F9 (decimal 249)
-   defining Unicode char U+00FA (decimal 250)
-   defining Unicode char U+00FB (decimal 251)
-   defining Unicode char U+00FC (decimal 252)
-   defining Unicode char U+00FD (decimal 253)
-   defining Unicode char U+00FE (decimal 254)
-   defining Unicode char U+00FF (decimal 255)
-   defining Unicode char U+0100 (decimal 256)
-   defining Unicode char U+0101 (decimal 257)
-   defining Unicode char U+0102 (decimal 258)
-   defining Unicode char U+0103 (decimal 259)
-   defining Unicode char U+0104 (decimal 260)
-   defining Unicode char U+0105 (decimal 261)
-   defining Unicode char U+0106 (decimal 262)
-   defining Unicode char U+0107 (decimal 263)
-   defining Unicode char U+0108 (decimal 264)
-   defining Unicode char U+0109 (decimal 265)
-   defining Unicode char U+010A (decimal 266)
-   defining Unicode char U+010B (decimal 267)
-   defining Unicode char U+010C (decimal 268)
-   defining Unicode char U+010D (decimal 269)
-   defining Unicode char U+010E (decimal 270)
-   defining Unicode char U+010F (decimal 271)
-   defining Unicode char U+0110 (decimal 272)
-   defining Unicode char U+0111 (decimal 273)
-   defining Unicode char U+0112 (decimal 274)
-   defining Unicode char U+0113 (decimal 275)
-   defining Unicode char U+0114 (decimal 276)
-   defining Unicode char U+0115 (decimal 277)
-   defining Unicode char U+0116 (decimal 278)
-   defining Unicode char U+0117 (decimal 279)
-   defining Unicode char U+0118 (decimal 280)
-   defining Unicode char U+0119 (decimal 281)
-   defining Unicode char U+011A (decimal 282)
-   defining Unicode char U+011B (decimal 283)
-   defining Unicode char U+011C (decimal 284)
-   defining Unicode char U+011D (decimal 285)
-   defining Unicode char U+011E (decimal 286)
-   defining Unicode char U+011F (decimal 287)
-   defining Unicode char U+0120 (decimal 288)
-   defining Unicode char U+0121 (decimal 289)
-   defining Unicode char U+0122 (decimal 290)
-   defining Unicode char U+0123 (decimal 291)
-   defining Unicode char U+0124 (decimal 292)
-   defining Unicode char U+0125 (decimal 293)
-   defining Unicode char U+0128 (decimal 296)
-   defining Unicode char U+0129 (decimal 297)
-   defining Unicode char U+012A (decimal 298)
-   defining Unicode char U+012B (decimal 299)
-   defining Unicode char U+012C (decimal 300)
-   defining Unicode char U+012D (decimal 301)
-   defining Unicode char U+012E (decimal 302)
-   defining Unicode char U+012F (decimal 303)
-   defining Unicode char U+0130 (decimal 304)
-   defining Unicode char U+0131 (decimal 305)
-   defining Unicode char U+0132 (decimal 306)
-   defining Unicode char U+0133 (decimal 307)
-   defining Unicode char U+0134 (decimal 308)
-   defining Unicode char U+0135 (decimal 309)
-   defining Unicode char U+0136 (decimal 310)
-   defining Unicode char U+0137 (decimal 311)
-   defining Unicode char U+0139 (decimal 313)
-   defining Unicode char U+013A (decimal 314)
-   defining Unicode char U+013B (decimal 315)
-   defining Unicode char U+013C (decimal 316)
-   defining Unicode char U+013D (decimal 317)
-   defining Unicode char U+013E (decimal 318)
-   defining Unicode char U+0141 (decimal 321)
-   defining Unicode char U+0142 (decimal 322)
-   defining Unicode char U+0143 (decimal 323)
-   defining Unicode char U+0144 (decimal 324)
-   defining Unicode char U+0145 (decimal 325)
-   defining Unicode char U+0146 (decimal 326)
-   defining Unicode char U+0147 (decimal 327)
-   defining Unicode char U+0148 (decimal 328)
-   defining Unicode char U+014A (decimal 330)
-   defining Unicode char U+014B (decimal 331)
-   defining Unicode char U+014C (decimal 332)
-   defining Unicode char U+014D (decimal 333)
-   defining Unicode char U+014E (decimal 334)
-   defining Unicode char U+014F (decimal 335)
-   defining Unicode char U+0150 (decimal 336)
-   defining Unicode char U+0151 (decimal 337)
-   defining Unicode char U+0152 (decimal 338)
-   defining Unicode char U+0153 (decimal 339)
-   defining Unicode char U+0154 (decimal 340)
-   defining Unicode char U+0155 (decimal 341)
-   defining Unicode char U+0156 (decimal 342)
-   defining Unicode char U+0157 (decimal 343)
-   defining Unicode char U+0158 (decimal 344)
-   defining Unicode char U+0159 (decimal 345)
-   defining Unicode char U+015A (decimal 346)
-   defining Unicode char U+015B (decimal 347)
-   defining Unicode char U+015C (decimal 348)
-   defining Unicode char U+015D (decimal 349)
-   defining Unicode char U+015E (decimal 350)
-   defining Unicode char U+015F (decimal 351)
-   defining Unicode char U+0160 (decimal 352)
-   defining Unicode char U+0161 (decimal 353)
-   defining Unicode char U+0162 (decimal 354)
-   defining Unicode char U+0163 (decimal 355)
-   defining Unicode char U+0164 (decimal 356)
-   defining Unicode char U+0165 (decimal 357)
-   defining Unicode char U+0168 (decimal 360)
-   defining Unicode char U+0169 (decimal 361)
-   defining Unicode char U+016A (decimal 362)
-   defining Unicode char U+016B (decimal 363)
-   defining Unicode char U+016C (decimal 364)
-   defining Unicode char U+016D (decimal 365)
-   defining Unicode char U+016E (decimal 366)
-   defining Unicode char U+016F (decimal 367)
-   defining Unicode char U+0170 (decimal 368)
-   defining Unicode char U+0171 (decimal 369)
-   defining Unicode char U+0172 (decimal 370)
-   defining Unicode char U+0173 (decimal 371)
-   defining Unicode char U+0174 (decimal 372)
-   defining Unicode char U+0175 (decimal 373)
-   defining Unicode char U+0176 (decimal 374)
-   defining Unicode char U+0177 (decimal 375)
-   defining Unicode char U+0178 (decimal 376)
-   defining Unicode char U+0179 (decimal 377)
-   defining Unicode char U+017A (decimal 378)
-   defining Unicode char U+017B (decimal 379)
-   defining Unicode char U+017C (decimal 380)
-   defining Unicode char U+017D (decimal 381)
-   defining Unicode char U+017E (decimal 382)
-   defining Unicode char U+01CD (decimal 461)
-   defining Unicode char U+01CE (decimal 462)
-   defining Unicode char U+01CF (decimal 463)
-   defining Unicode char U+01D0 (decimal 464)
-   defining Unicode char U+01D1 (decimal 465)
-   defining Unicode char U+01D2 (decimal 466)
-   defining Unicode char U+01D3 (decimal 467)
-   defining Unicode char U+01D4 (decimal 468)
-   defining Unicode char U+01E2 (decimal 482)
-   defining Unicode char U+01E3 (decimal 483)
-   defining Unicode char U+01E6 (decimal 486)
-   defining Unicode char U+01E7 (decimal 487)
-   defining Unicode char U+01E8 (decimal 488)
-   defining Unicode char U+01E9 (decimal 489)
-   defining Unicode char U+01EA (decimal 490)
-   defining Unicode char U+01EB (decimal 491)
-   defining Unicode char U+01F0 (decimal 496)
-   defining Unicode char U+01F4 (decimal 500)
-   defining Unicode char U+01F5 (decimal 501)
-   defining Unicode char U+0218 (decimal 536)
-   defining Unicode char U+0219 (decimal 537)
-   defining Unicode char U+021A (decimal 538)
-   defining Unicode char U+021B (decimal 539)
-   defining Unicode char U+0232 (decimal 562)
-   defining Unicode char U+0233 (decimal 563)
-   defining Unicode char U+1E02 (decimal 7682)
-   defining Unicode char U+1E03 (decimal 7683)
-   defining Unicode char U+200C (decimal 8204)
-   defining Unicode char U+2010 (decimal 8208)
-   defining Unicode char U+2011 (decimal 8209)
-   defining Unicode char U+2012 (decimal 8210)
-   defining Unicode char U+2013 (decimal 8211)
-   defining Unicode char U+2014 (decimal 8212)
-   defining Unicode char U+2015 (decimal 8213)
-   defining Unicode char U+2018 (decimal 8216)
-   defining Unicode char U+2019 (decimal 8217)
-   defining Unicode char U+201A (decimal 8218)
-   defining Unicode char U+201C (decimal 8220)
-   defining Unicode char U+201D (decimal 8221)
-   defining Unicode char U+201E (decimal 8222)
-   defining Unicode char U+2030 (decimal 8240)
-   defining Unicode char U+2031 (decimal 8241)
-   defining Unicode char U+2039 (decimal 8249)
-   defining Unicode char U+203A (decimal 8250)
-   defining Unicode char U+2423 (decimal 9251)
-   defining Unicode char U+1E20 (decimal 7712)
-   defining Unicode char U+1E21 (decimal 7713)
-)
-Now handling font encoding OT1 ...
-... processing UTF-8 mapping file for font encoding OT1
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
-File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
-   defining Unicode char U+00A0 (decimal 160)
-   defining Unicode char U+00A1 (decimal 161)
-   defining Unicode char U+00A3 (decimal 163)
-   defining Unicode char U+00AD (decimal 173)
-   defining Unicode char U+00B8 (decimal 184)
-   defining Unicode char U+00BF (decimal 191)
-   defining Unicode char U+00C5 (decimal 197)
-   defining Unicode char U+00C6 (decimal 198)
-   defining Unicode char U+00D8 (decimal 216)
-   defining Unicode char U+00DF (decimal 223)
-   defining Unicode char U+00E6 (decimal 230)
-   defining Unicode char U+00EC (decimal 236)
-   defining Unicode char U+00ED (decimal 237)
-   defining Unicode char U+00EE (decimal 238)
-   defining Unicode char U+00EF (decimal 239)
-   defining Unicode char U+00F8 (decimal 248)
-   defining Unicode char U+0131 (decimal 305)
-   defining Unicode char U+0141 (decimal 321)
-   defining Unicode char U+0142 (decimal 322)
-   defining Unicode char U+0152 (decimal 338)
-   defining Unicode char U+0153 (decimal 339)
-   defining Unicode char U+0174 (decimal 372)
-   defining Unicode char U+0175 (decimal 373)
-   defining Unicode char U+0176 (decimal 374)
-   defining Unicode char U+0177 (decimal 375)
-   defining Unicode char U+0218 (decimal 536)
-   defining Unicode char U+0219 (decimal 537)
-   defining Unicode char U+021A (decimal 538)
-   defining Unicode char U+021B (decimal 539)
-   defining Unicode char U+2013 (decimal 8211)
-   defining Unicode char U+2014 (decimal 8212)
-   defining Unicode char U+2018 (decimal 8216)
-   defining Unicode char U+2019 (decimal 8217)
-   defining Unicode char U+201C (decimal 8220)
-   defining Unicode char U+201D (decimal 8221)
-)
-Now handling font encoding OMS ...
-... processing UTF-8 mapping file for font encoding OMS
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
-File: omsenc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
-   defining Unicode char U+00A7 (decimal 167)
-   defining Unicode char U+00B6 (decimal 182)
-   defining Unicode char U+00B7 (decimal 183)
-   defining Unicode char U+2020 (decimal 8224)
-   defining Unicode char U+2021 (decimal 8225)
-   defining Unicode char U+2022 (decimal 8226)
-)
-Now handling font encoding OMX ...
-... no UTF-8 mapping file for font encoding OMX
-Now handling font encoding U ...
-... no UTF-8 mapping file for font encoding U
-   defining Unicode char U+00A9 (decimal 169)
-   defining Unicode char U+00AA (decimal 170)
-   defining Unicode char U+00AE (decimal 174)
-   defining Unicode char U+00BA (decimal 186)
-   defining Unicode char U+02C6 (decimal 710)
-   defining Unicode char U+02DC (decimal 732)
-   defining Unicode char U+200C (decimal 8204)
-   defining Unicode char U+2026 (decimal 8230)
-   defining Unicode char U+2122 (decimal 8482)
-   defining Unicode char U+2423 (decimal 9251)
-))
-(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip11
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
 )
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
-Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
-
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
-Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
-Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
-Package ifvtex Info: VTeX not detected.
-Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
-Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.st
+y
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
-Package pdftexcmds Info: LuaTeX not detected.
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
-Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+Package pdftexcmds Info: \pdfdraftmode not found.
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.st
+y
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 )
-Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
-Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekey
+s.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.st
+y
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 )
-Package hobsub Info: Skipping package `hobsub' (already loaded).
-Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
-Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
-Package: xcolor-patch 2016/05/16 xcolor patch
-Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
-Package atveryend Info: \enddocument detected (standard20110627).
-Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
-Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
-Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/letltxmacro/letltxmacro.st
+y
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 )
-(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
-Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+\@linkdim=\dimen161
+\Hy@linkcounter=\count275
+\Hy@pagecounter=\count276
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
-Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
-)
-\@linkdim=\dimen125
-\Hy@linkcounter=\count117
-\Hy@pagecounter=\count118
-
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
-Now handling font encoding PD1 ...
-... no UTF-8 mapping file for font encoding PD1
-)
-\Hy@SavedSpaceFactor=\count119
-
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
-File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
-)
-Package hyperref Info: Hyper figures OFF on input line 4509.
-Package hyperref Info: Link nesting OFF on input line 4514.
-Package hyperref Info: Hyper index ON on input line 4517.
-Package hyperref Info: Plain pages OFF on input line 4524.
-Package hyperref Info: Backreferencing OFF on input line 4529.
+\Hy@SavedSpaceFactor=\count277
+Package hyperref Info: Hyper figures OFF on input line 4464.
+Package hyperref Info: Link nesting OFF on input line 4469.
+Package hyperref Info: Hyper index ON on input line 4472.
+Package hyperref Info: Plain pages OFF on input line 4479.
+Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4762.
-\c@Hy@tempcnt=\count120
-LaTeX Info: Redefining \url on input line 5115.
-\XeTeXLinkMargin=\dimen126
-\Fld@menulength=\count121
-\Field@Width=\dimen127
-\Fld@charsize=\dimen128
-Package hyperref Info: Hyper figures OFF on input line 6369.
-Package hyperref Info: Link nesting OFF on input line 6374.
-Package hyperref Info: Hyper index ON on input line 6377.
-Package hyperref Info: backreferencing OFF on input line 6384.
-Package hyperref Info: Link coloring OFF on input line 6389.
-Package hyperref Info: Link coloring with OCG OFF on input line 6394.
-Package hyperref Info: PDF/A mode OFF on input line 6399.
-LaTeX Info: Redefining \ref on input line 6439.
-LaTeX Info: Redefining \pageref on input line 6443.
-\Hy@abspage=\count122
-\c@Item=\count123
-\c@Hfootnote=\count124
+Package hyperref Info: Bookmarks ON on input line 4717.
+\c@Hy@tempcnt=\count278
+LaTeX Info: Redefining \url on input line 5076.
+\XeTeXLinkMargin=\dimen162
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.st
+y
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
-Package hyperref Info: Driver (autodetected): hpdftex.
+))
+\Fld@menulength=\count279
+\Field@Width=\dimen163
+\Fld@charsize=\dimen164
+Package hyperref Info: Hyper figures OFF on input line 6347.
+Package hyperref Info: Link nesting OFF on input line 6352.
+Package hyperref Info: Hyper index ON on input line 6355.
+Package hyperref Info: backreferencing OFF on input line 6362.
+Package hyperref Info: Link coloring OFF on input line 6367.
+Package hyperref Info: Link coloring with OCG OFF on input line 6372.
+Package hyperref Info: PDF/A mode OFF on input line 6377.
+LaTeX Info: Redefining \ref on input line 6417.
+LaTeX Info: Redefining \pageref on input line 6421.
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
+ge
+with kernel methods
+)
+\Hy@abspage=\count280
+\c@Item=\count281
+\c@Hfootnote=\count282
+)
+Package hyperref Info: Driver (autodetected): hxetex.
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.def
+File: hxetex.def 2020-05-15 v7.00e Hyperref driver for XeTeX
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2020-05-15 v7.00e Hyperref: PDF Unicode definition (HO)
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.st
+y
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\pdfm@box=\box52
+\c@Hy@AnnotLevel=\count283
+\HyField@AnnotCount=\count284
+\Fld@listcount=\count285
+\c@bookmark@seq@number=\count286
 
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
-\Fld@listcount=\count125
-\c@bookmark@seq@number=\count126
-
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
-Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilech
+eck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
+e
+with kernel methods
+)
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecoun
+ter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-82.
+86.
 )
-\Hy@SectionHShift=\skip46
-)
-(/usr/share/texlive/texmf-dist/tex/latex/was/gensymb.sty
+\Hy@SectionHShift=\skip52
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/was/gensymb.sty
 Package: gensymb 2003/07/02 v1.0 (WaS)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
-
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 67.
-\captionmargin=\dimen129
-\captionmargin@=\dimen130
-\captionwidth=\dimen131
-\caption@tempdima=\dimen132
-\caption@indent=\dimen133
-\caption@parindent=\dimen134
-\caption@hangindent=\dimen135
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen165
+\captionmargin@=\dimen166
+\captionwidth=\dimen167
+\caption@tempdima=\dimen168
+\caption@indent=\dimen169
+\caption@parindent=\dimen170
+\caption@hangindent=\dimen171
 Package caption Info: Unknown document class (or package),
 (caption)             standard defaults will be used.
-)
-
-Package caption Warning: Unsupported document class (or package) detected,
-(caption)                usage of the caption package is not recommended.
-See the caption package documentation for explanation.
-
 Package caption Info: \@makecaption = \long macro:#1#2->\captionstyle \ifx \@ca
 ptype \fig@type \vskip \figcapgap \fi \setbox \@tempboxa \hbox {{\floatlegendst
 yle #1\floatcounterend }\capstrut #2}\ifdim \wd \@tempboxa >\hsize {\floatlegen
 dstyle #1\floatcounterend }\capstrut #2\par \else \hbox to\hsize {\leftlegendgl
 ue \unhbox \@tempboxa \hfil }\fi \ifx \@captype \fig@type \else \vskip \tabcapg
-ap \fi .
-\c@ContinuedFloat=\count127
+ap \fi  on input line 1139.
+)
+
+Package caption Warning: Unknown document class (or package),
+(caption)                standard defaults will be used.
+See the caption package documentation for explanation.
+
+\c@caption@flags=\count287
+\c@continuedfloat=\count288
 Package caption Info: hyperref package is loaded.
 )
-\c@KVtest=\count128
-\sf@farskip=\skip47
-\sf@captopadj=\dimen136
-\sf@capskip=\skip48
-\sf@nearskip=\skip49
-\c@subfigure=\count129
-\c@subfigure@save=\count130
-\c@lofdepth=\count131
-\c@subtable=\count132
-\c@subtable@save=\count133
-\c@lotdepth=\count134
-\sf@top=\skip50
-\sf@bottom=\skip51
-) (/usr/share/texlive/texmf-dist/tex/latex/showlabels/showlabels.sty
+\c@KVtest=\count289
+\sf@farskip=\skip53
+\sf@captopadj=\dimen172
+\sf@capskip=\skip54
+\sf@nearskip=\skip55
+\c@subfigure=\count290
+\c@subfigure@save=\count291
+\c@lofdepth=\count292
+\c@subtable=\count293
+\c@subtable@save=\count294
+\c@lotdepth=\count295
+\sf@top=\skip56
+\sf@bottom=\skip57
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/showlabels/showlabels.st
+y
 Package: showlabels 2016/06/09 v1.8
-
 Package: `showlabels' v1.8 <2016/06/09>
 with amsmath equation tags
-\SL@labelposition=\count135
-) (/usr/share/texlive/texmf-dist/tex/latex/chngcntr/chngcntr.sty
-Package: chngcntr 2009/09/02 v1.0a change counter resetting
-)
-(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+\SL@labelposition=\count296
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/chngcntr/chngcntr.sty
+Package: chngcntr 2018/04/09 v1.1a change counter resetting
+Package chngcntr Info: \counterwithout already defined.
+(chngcntr)             Quitting chngcntr on input line 21.
+) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip52
-\bibsep=\skip53
+\bibhang=\skip58
+\bibsep=\skip59
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count136
+\c@NAT@ctr=\count297
+)
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.
+def
+File: l3backend-xetex.def 2020-09-24 L3 backend support: XeTeX
+\g__graphics_track_int=\count298
+\l__pdf_internal_box=\box53
+\g__pdf_backend_object_int=\count299
+\g__pdf_backend_annotation_int=\count300
 ) (./paper2.aux)
 \openout1 = `paper2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
 LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
 LaTeX Font Info:    ... okay on input line 42.
 LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
 LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 4
+2.
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 42.
 LaTeX Font Info:    ... okay on input line 42.
 LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
 LaTeX Font Info:    ... okay on input line 42.
@@ -671,61 +369,31 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
 LaTeX Font Info:    ... okay on input line 42.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
 LaTeX Font Info:    ... okay on input line 42.
-
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
 Unknown journal: specify \journalname{<name of your journal>} in preambel
 
-(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count137
-\scratchdimen=\dimen137
-\scratchbox=\box31
-\nofMPsegments=\count138
-\nofMParguments=\count139
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count140
-\MPscratchDim=\dimen138
-\MPnumerator=\count141
-\makeMPintoPDFobject=\count142
-\everyMPtoPDFconversion=\toks25
-) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
-
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-)
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-38.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 456.
-
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
-\AtBeginShipoutBox=\box32
 Package hyperref Info: Link coloring OFF on input line 42.
-
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
-Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 )
-\c@section@level=\count143
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitles
+tring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count301
 )
 LaTeX Info: Redefining \ref on input line 42.
 LaTeX Info: Redefining \pageref on input line 42.
 LaTeX Info: Redefining \nameref on input line 42.
-
 (./paper2.out) (./paper2.out)
 \@outlinefile=\write3
 \openout3 = `paper2.out'.
 
 LaTeX Info: Redefining \celsius on input line 42.
 Package gensymb Info: Faking symbols for \degree and \celsius on input line 42.
-
 
 
 Package gensymb Warning: Not defining \perthousand.
@@ -740,80 +408,312 @@ Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
 SVJour3 warning: Missing \journalname
 
-LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <13> not available
-(Font)              size <12> substituted on input line 81.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 83--90
 
  []
 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \vbox (badness 5008) has occurred while \output is active []
 
- [2]
-[3] [4]
-<method-1.pdf, id=64, 433.62pt x 180.675pt>
+(/home/elio.campitelli/.TinyTeX/texmf-dist/tex/generic/stringenc/se-ascii-print
+.def
+File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
+
+)
+
+Package natbib Warning: Citation `rogers1982' on page 1 undefined on input line
+ 107.
+
+
+Package natbib Warning: Citation `baldwin2001a' on page 1 undefined on input li
+ne 107.
+
+
+Package natbib Warning: Citation `fogt2006' on page 1 undefined on input line 1
+07.
+
+
+Package natbib Warning: Citation `fogt2020' on page 1 undefined on input line 1
+07.
+
+
+Overfull \hbox (6.30003pt too wide) in paragraph at lines 107--108
+\TU/lmr/m/n/10 Southern Hemisphere extratropical circulation (\TU/lmr/bx/n/10 ?
+\TU/lmr/m/n/10 ) in daily, monthly, and decadal
+ []
+
+[1]
+
+Package natbib Warning: Citation `ho2012' on page 2 undefined on input line 109
+.
+
+
+Package natbib Warning: Citation `gong1999' on page 2 undefined on input line 1
+09.
+
+
+Package natbib Warning: Citation `marshall2003' on page 2 undefined on input li
+ne 109.
+
+
+Package natbib Warning: Citation `baldwin2009' on page 2 undefined on input lin
+e 109.
+
+
+Package natbib Warning: Citation `fan2007' on page 2 undefined on input line 11
+1.
+
+
+Package natbib Warning: Citation `fogt2012' on page 2 undefined on input line 1
+11.
+
+
+Package natbib Warning: Citation `rosso2018' on page 2 undefined on input line 
+111.
+
+
+Package natbib Warning: Citation `silvestri2009' on page 2 undefined on input l
+ine 111.
+
+
+Package natbib Warning: Citation `jones2009' on page 2 undefined on input line 
+111.
+
+
+Package natbib Warning: Citation `mo1987' on page 2 undefined on input line 113
+.
+
+
+Package natbib Warning: Citation `kidson1988' on page 2 undefined on input line
+ 113.
+
+
+Package natbib Warning: Citation `karoly1989' on page 2 undefined on input line
+ 113.
+
+
+Package natbib Warning: Citation `fan2007' on page 2 undefined on input line 11
+3.
+
+
+Package natbib Warning: Citation `fogt2011' on page 2 undefined on input line 1
+13.
+
+
+Package natbib Warning: Citation `clem2013' on page 2 undefined on input line 1
+13.
+
+
+Package natbib Warning: Citation `fan2007' on page 2 undefined on input line 11
+3.
+
+
+Package natbib Warning: Citation `fogt2020' on page 2 undefined on input line 1
+15.
+
+
+Package natbib Warning: Citation `marshall2004' on page 2 undefined on input li
+ne 115.
+
+
+Package natbib Warning: Citation `gillett2005' on page 2 undefined on input lin
+e 115.
+
+
+Package natbib Warning: Citation `arblaster2006' on page 2 undefined on input l
+ine 115.
+
+
+Package natbib Warning: Citation `gillett2013' on page 2 undefined on input lin
+e 115.
+
+
+Package natbib Warning: Citation `jones2019' on page 2 undefined on input line 
+117.
+
+
+Package natbib Warning: Citation `fogt2012' on page 2 undefined on input line 1
+17.
+
+
+Package natbib Warning: Citation `lim2016' on page 2 undefined on input line 11
+7.
+
+
+Package natbib Warning: Citation `silvestri2009' on page 2 undefined on input l
+ine 117.
+
+
+Package natbib Warning: Citation `rosso2018' on page 2 undefined on input line 
+117.
+
+
+Package natbib Warning: Citation `fan2007' on page 2 undefined on input line 11
+7.
+
+[2]
+
+Package natbib Warning: Citation `fogt2012' on page 3 undefined on input line 1
+19.
+
+
+Package natbib Warning: Citation `silvestri2009' on page 3 undefined on input l
+ine 119.
+
+
+Package natbib Warning: Citation `fogt2012' on page 3 undefined on input line 1
+19.
+
+
+Package natbib Warning: Citation `baldwin2009' on page 3 undefined on input lin
+e 119.
+
+
+Package natbib Warning: Citation `hersbach2020' on page 3 undefined on input li
+ne 131.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[3]
+
+Package natbib Warning: Citation `smith2008' on page 4 undefined on input line 
+133.
+
+
+Package natbib Warning: Citation `vose2012' on page 4 undefined on input line 1
+33.
+
+
+Package natbib Warning: Citation `schneider2015' on page 4 undefined on input l
+ine 133.
+
+
+Package natbib Warning: Citation `schneider2017' on page 4 undefined on input l
+ine 133.
+
+
+Package natbib Warning: Citation `ho2012' on page 4 undefined on input line 138
+.
+
+
+Package natbib Warning: Citation `baldwin2001' on page 4 undefined on input lin
+e 138.
+
+
+Package natbib Warning: Citation `chung1999' on page 4 undefined on input line 
+138.
+
 File: method-1.pdf Graphic file (type pdf)
 <use method-1.pdf>
-Package pdftex.def Info: method-1.pdf  used on input line 143.
-(pdftex.def)             Requested size: 433.61894pt x 180.67455pt.
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 143--143
 [][] 
  []
 
-[5 <./method-1.pdf>] [6]
-<asymsam-timeseries-1.pdf, id=91, 433.62pt x 216.81pt>
+
+Package natbib Warning: Citation `fogt2012' on page 4 undefined on input line 1
+46.
+
+[4]
+
+Package natbib Warning: Citation `silvestri2009' on page 5 undefined on input l
+ine 150.
+
+[5]
+
+Package natbib Warning: Citation `walker1914' on page 6 undefined on input line
+ 163.
+
+
+Package natbib Warning: Citation `katz1991' on page 6 undefined on input line 1
+63.
+
+
+Package natbib Warning: Citation `wilks2016' on page 6 undefined on input line 
+163.
+
+
+Package natbib Warning: Citation `benjamini1995' on page 6 undefined on input l
+ine 163.
+
+
+Package natbib Warning: Citation `benjamini1995' on page 6 undefined on input l
+ine 163.
+
+
+Package natbib Warning: Citation `sheather1991' on page 6 undefined on input li
+ne 167.
+
+
+Package natbib Warning: Citation `rcoreteam2020' on page 6 undefined on input l
+ine 172.
+
+
+Package natbib Warning: Citation `dowle2020' on page 6 undefined on input line 
+172.
+
+
+Package natbib Warning: Citation `campitelli2020' on page 6 undefined on input 
+line 172.
+
+
+Package natbib Warning: Citation `wickham2009' on page 6 undefined on input lin
+e 172.
+
+
+Package natbib Warning: Citation `hufkens2020' on page 6 undefined on input lin
+e 172.
+
+
+Package natbib Warning: Citation `albers2020' on page 6 undefined on input line
+ 172.
+
+
+Package natbib Warning: Citation `xie2015' on page 6 undefined on input line 17
+2.
+
+
+Package natbib Warning: Citation `allaire2019' on page 6 undefined on input lin
+e 172.
+
 File: asymsam-timeseries-1.pdf Graphic file (type pdf)
 <use asymsam-timeseries-1.pdf>
-Package pdftex.def Info: asymsam-timeseries-1.pdf  used on input line 181.
-(pdftex.def)             Requested size: 433.61894pt x 216.80946pt.
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 181--181
 [][] 
  []
 
-[7 <./asymsam-timeseries-1.pdf>]
-<cor-lev-1.pdf, id=111, 216.81pt x 216.81pt>
+[6]
+
+Package natbib Warning: Citation `baldwin2001b' on page 7 undefined on input li
+ne 188.
+
+[7]
 File: cor-lev-1.pdf Graphic file (type pdf)
 <use cor-lev-1.pdf>
-Package pdftex.def Info: cor-lev-1.pdf  used on input line 193.
-(pdftex.def)             Requested size: 216.80946pt x 216.80946pt.
-<cross-correlation-1.pdf, id=112, 433.62pt x 216.81pt>
 File: cross-correlation-1.pdf Graphic file (type pdf)
 <use cross-correlation-1.pdf>
-Package pdftex.def Info: cross-correlation-1.pdf  used on input line 197.
-(pdftex.def)             Requested size: 433.61894pt x 216.80946pt.
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 197--197
 [][] 
  []
 
-<trends-1.pdf, id=114, 433.62pt x 289.08pt>
+[8]
 File: trends-1.pdf Graphic file (type pdf)
 <use trends-1.pdf>
-Package pdftex.def Info: trends-1.pdf  used on input line 203.
-(pdftex.def)             Requested size: 433.61894pt x 289.07928pt.
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 203--203
 [][] 
  []
 
-[8] [9 <./cor-lev-1.pdf> <./cross-correlation-1.pdf>]
-Underfull \vbox (badness 1215) has occurred while \output is active []
 
- [10 <./trends-1.pdf>]
-<r-squared-trend-1.pdf, id=153, 216.81pt x 216.81pt>
+Package natbib Warning: Citation `fogt2020' on page 9 undefined on input line 2
+06.
+
+[9] [10]
 File: r-squared-trend-1.pdf Graphic file (type pdf)
 <use r-squared-trend-1.pdf>
-Package pdftex.def Info: r-squared-trend-1.pdf  used on input line 215.
-(pdftex.def)             Requested size: 216.80946pt x 216.80946pt.
-<2d-regr-1.pdf, id=154, 433.62pt x 361.35pt>
 File: 2d-regr-1.pdf Graphic file (type pdf)
 <use 2d-regr-1.pdf>
-Package pdftex.def Info: 2d-regr-1.pdf  used on input line 222.
-(pdftex.def)             Requested size: 433.61894pt x 361.34912pt.
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 222--222
 [][] 
@@ -827,54 +727,87 @@ ne 222.
 Package natbib Warning: Citation `raphael2004' on page 11 undefined on input li
 ne 222.
 
+[11]
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Package natbib Warning: Citation `fogt2012' on page 12 undefined on input line 
+229.
 
- [11 <./r-squared-trend-1.pdf>] [12 <./2d-regr-1.pdf>]
-<wave-amplitude-1.pdf, id=180, 433.62pt x 216.81pt>
+
+Package natbib Warning: Citation `raphael2004' on page 12 undefined on input li
+ne 229.
+
+
+Underfull \vbox (badness 1077) has occurred while \output is active []
+
+[12]
 File: wave-amplitude-1.pdf Graphic file (type pdf)
 <use wave-amplitude-1.pdf>
-Package pdftex.def Info: wave-amplitude-1.pdf  used on input line 232.
-(pdftex.def)             Requested size: 433.61894pt x 216.80946pt.
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 232--232
 [][] 
  []
 
-<vertical-regression-1.pdf, id=183, 216.81pt x 216.81pt>
+[13]
 File: vertical-regression-1.pdf Graphic file (type pdf)
 <use vertical-regression-1.pdf>
-Package pdftex.def Info: vertical-regression-1.pdf  used on input line 240.
-(pdftex.def)             Requested size: 216.80946pt x 216.80946pt.
+[14]
 
-Underfull \vbox (badness 4266) has occurred while \output is active []
+Package natbib Warning: Citation `mo1987' on page 15 undefined on input line 24
+7.
 
- [13]
-Underfull \vbox (badness 1365) has occurred while \output is active []
 
- [14 <./wave-amplitude-1.pdf>]
-<regr-air-season-1.pdf, id=203, 433.62pt x 578.16pt>
+Package natbib Warning: Citation `kidson1988' on page 15 undefined on input lin
+e 247.
+
+
+Package natbib Warning: Citation `karoly1989' on page 15 undefined on input lin
+e 247.
+
+
+Package natbib Warning: Citation `fogt2011' on page 15 undefined on input line 
+247.
+
+
+Package natbib Warning: Citation `bamston1997' on page 15 undefined on input li
+ne 247.
+
+
+Package natbib Warning: Citation `fan2007' on page 15 undefined on input line 2
+47.
+
+
+Package natbib Warning: Citation `wolter2011' on page 15 undefined on input lin
+e 247.
+
+
+Package natbib Warning: Citation `ropelewski1987' on page 15 undefined on input
+ line 247.
+
 File: regr-air-season-1.pdf Graphic file (type pdf)
 <use regr-air-season-1.pdf>
-Package pdftex.def Info: regr-air-season-1.pdf  used on input line 253.
-(pdftex.def)             Requested size: 433.61894pt x 578.15858pt.
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 253--253
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 96.17531pt on input line 254.
+LaTeX Warning: Float too large for page by 96.17528pt on input line 254.
+
+[15] [16]
+
+Package natbib Warning: Citation `wilks2016' on page 17 undefined on input line
+ 260.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Package natbib Warning: Citation `jones2019' on page 17 undefined on input line
+ 260.
 
- [15 <./vertical-regression-1.pdf>]
-<pp-regr-oceania-1.pdf, id=218, 433.62pt x 469.755pt>
+
+Package natbib Warning: Citation `fogt2012' on page 17 undefined on input line 
+264.
+
 File: pp-regr-oceania-1.pdf Graphic file (type pdf)
 <use pp-regr-oceania-1.pdf>
-Package pdftex.def Info: pp-regr-oceania-1.pdf  used on input line 269.
-(pdftex.def)             Requested size: 433.61894pt x 469.75386pt.
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 269--269
 [][] 
@@ -883,201 +816,205 @@ Overfull \hbox (95.61894pt too wide) in paragraph at lines 269--269
 
 LaTeX Warning: Float too large for page by 11.77058pt on input line 270.
 
-[16] [17 <./regr-air-season-1.pdf>]
-<pp-regr-america-1.pdf, id=236, 433.62pt x 549.05125pt>
+
+Package natbib Warning: Citation `gillett2006' on page 17 undefined on input li
+ne 272.
+
+
+Package natbib Warning: Citation `hendon2007' on page 17 undefined on input lin
+e 272.
+
+
+Package natbib Warning: Citation `hendon2007' on page 17 undefined on input lin
+e 276.
+
+
+Package natbib Warning: Citation `hendon2007' on page 17 undefined on input lin
+e 276.
+
+[17] [18]
 File: pp-regr-america-1.pdf Graphic file (type pdf)
 <use pp-regr-america-1.pdf>
-Package pdftex.def Info: pp-regr-america-1.pdf  used on input line 279.
-(pdftex.def)             Requested size: 433.61894pt x 549.04991pt.
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 279--279
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 31.06664pt on input line 280.
+LaTeX Warning: Float too large for page by 31.06665pt on input line 280.
 
-[18] [19 <./pp-regr-oceania-1.pdf>] [20 <./pp-regr-america-1.pdf>] [21]
-[22]
-Overfull \hbox (36.74675pt too wide) in paragraph at lines 318--319
-\OT1/cmtt/m/n/10 climate . copernicus . eu / cdsapp # ! / dataset / reanalysis 
--[] era5 -[] pressure -[] levels -[]
+
+Package natbib Warning: Citation `garreaud2007' on page 19 undefined on input l
+ine 286.
+
+
+Package natbib Warning: Citation `silvestri2009' on page 19 undefined on input 
+line 286.
+
+
+Package natbib Warning: Citation `zamboni2010' on page 19 undefined on input li
+ne 286.
+
+
+Package natbib Warning: Citation `rosso2018' on page 19 undefined on input line
+ 286.
+
+
+Package natbib Warning: Citation `gillett2006' on page 19 undefined on input li
+ne 286.
+
+[19] [20]
+
+Package natbib Warning: Citation `holton1980' on page 21 undefined on input lin
+e 295.
+
+
+Package natbib Warning: Citation `watson2014' on page 21 undefined on input lin
+e 295.
+
+
+Package natbib Warning: Citation `zhang2020' on page 21 undefined on input line
+ 295.
+
+
+Package natbib Warning: Citation `fogt2020' on page 21 undefined on input line 
+297.
+
+
+Package natbib Warning: Citation `fogt2012' on page 21 undefined on input line 
+297.
+
+
+Package natbib Warning: Citation `raphael2004' on page 21 undefined on input li
+ne 299.
+
+
+Package natbib Warning: Citation `cazes-boezio2003' on page 21 undefined on inp
+ut line 303.
+
+
+Package natbib Warning: Citation `fogt2011' on page 21 undefined on input line 
+303.
+
+
+Package natbib Warning: Citation `cai2020a' on page 21 undefined on input line 
+303.
+
+[21]
+
+Package natbib Warning: Citation `silvestri2009' on page 22 undefined on input 
+line 307.
+
+
+Package natbib Warning: Citation `fogt2006' on page 22 undefined on input line 
+307.
+
+
+Package natbib Warning: Citation `clem2013' on page 22 undefined on input line 
+307.
+
+
+Package natbib Warning: Citation `arblaster2006' on page 22 undefined on input 
+line 309.
+
+
+Package natbib Warning: Citation `simpkins2012' on page 22 undefined on input l
+ine 309.
+
+
+Overfull \hbox (36.75pt too wide) in paragraph at lines 318--319
+[][][][][][][] [] [][][][][][][][][][] [] [][] [] [][][][][][] [] [] [] [][][][
+][][][] [] [][][][][][][][][][] [][] [][][][] [][] [][][][][][][][] [][] [][][]
+[][][] [][]
  []
 
 
-Overfull \hbox (24.24684pt too wide) in paragraph at lines 318--319
-\OT1/cmtt/m/n/10 noaa . gov / products / analysis _ monitoring / ensostuff / de
-trend . nino34 . ascii .
+Overfull \hbox (24.25pt too wide) in paragraph at lines 318--319
+[][][][] [] [][][] [] [][][][][][][][] [] [][][][][][][][] [] [][][][][][][][][
+][] [] [][][][][][][][][] [] [][][][][][][] [] [][][][][][] [] [][][][][] []
  []
 
-[23] [24]
-<A1-1.pdf, id=297, 289.08pt x 289.08pt>
+[22] [23]
 File: A1-1.pdf Graphic file (type pdf)
 <use A1-1.pdf>
-Package pdftex.def Info: A1-1.pdf  used on input line 334.
-(pdftex.def)             Requested size: 289.07928pt x 289.07928pt.
-<A2-1.pdf, id=298, 505.89pt x 289.08pt>
 File: A2-1.pdf Graphic file (type pdf)
 <use A2-1.pdf>
-Package pdftex.def Info: A2-1.pdf  used on input line 338.
-(pdftex.def)             Requested size: 505.88875pt x 289.07928pt.
 
-Overfull \hbox (167.88875pt too wide) in paragraph at lines 338--338
+Overfull \hbox (167.88876pt too wide) in paragraph at lines 338--338
 [][] 
  []
 
-<A3-1.pdf, id=299, 505.89pt x 361.35pt>
 File: A3-1.pdf Graphic file (type pdf)
 <use A3-1.pdf>
-Package pdftex.def Info: A3-1.pdf  used on input line 342.
-(pdftex.def)             Requested size: 505.88875pt x 361.34912pt.
 
-Overfull \hbox (167.88875pt too wide) in paragraph at lines 342--342
+Overfull \hbox (167.88876pt too wide) in paragraph at lines 342--342
 [][] 
  []
 
-<A4-1.pdf, id=300, 505.89pt x 361.35pt>
 File: A4-1.pdf Graphic file (type pdf)
 <use A4-1.pdf>
-Package pdftex.def Info: A4-1.pdf  used on input line 346.
-(pdftex.def)             Requested size: 505.88875pt x 361.34912pt.
 
-Overfull \hbox (167.88875pt too wide) in paragraph at lines 346--346
+Overfull \hbox (167.88876pt too wide) in paragraph at lines 346--346
 [][] 
  []
 
-<A5-1.pdf, id=301, 505.89pt x 433.62pt>
 File: A5-1.pdf Graphic file (type pdf)
 <use A5-1.pdf>
-Package pdftex.def Info: A5-1.pdf  used on input line 350.
-(pdftex.def)             Requested size: 505.88875pt x 433.61894pt.
 
-Overfull \hbox (167.88875pt too wide) in paragraph at lines 350--350
+Overfull \hbox (167.88876pt too wide) in paragraph at lines 350--350
 [][] 
  []
 
-<A6-1.pdf, id=302, 433.62pt x 361.35pt>
 File: A6-1.pdf Graphic file (type pdf)
 <use A6-1.pdf>
-Package pdftex.def Info: A6-1.pdf  used on input line 354.
-(pdftex.def)             Requested size: 433.61894pt x 361.34912pt.
 
 Overfull \hbox (95.61894pt too wide) in paragraph at lines 354--354
 [][] 
  []
 
-[25 <./A1-1.pdf>]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 392.
+(./paper2.bbl [24]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
-File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <8> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 392.
+[25]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[26 <./A2-1.pdf>] [27 <./A3-1.pdf>]
-Underfull \vbox (badness 4886) has occurred while \output is active []
+[26]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [28 <./A4-1.pdf>] [29 <./A5-1.pdf>] [30 <./A6-1.pdf>]
-Overfull \hbox (58.35847pt too wide) in paragraph at lines 442--444
-\OT1/cmr/m/n/8 Me-te-o-ro-log-i-cal So-ci-ety: 2200--2208. []https://doi.org/10
-.1175/1520-0469(1980)037\OML/cmm/m/it/8 <\OT1/cmr/m/n/8 2200:TIOTEQ\OML/cmm/m/i
-t/8 >\OT1/cmr/m/n/8 2.0.CO;2[]. 
- []
+[27] [28]
+Underfull \vbox (badness 5548) has occurred while \output is active []
 
+[29]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Overfull \hbox (3.43387pt too wide) in paragraph at lines 445--447
-[][]\OT1/cmr/m/n/8 Hufkens, Koen, Reto Stauf-fer, and Elio Campitelli. 2020. ``
-Ecmwfr: In-ter-face to 'ECMWF'
- []
-
-
-Overfull \hbox (5.2573pt too wide) in paragraph at lines 454--456
-\OT1/cmr/m/n/8 Ni~no-Southern Os-cil-la-tion Events.'' \OT1/cmr/m/it/8 J. Cli-m
-ate \OT1/cmr/m/n/8 2 (11): 1239--52. []https://doi.org/10.1175/1520-
- []
-
-
-Overfull \hbox (47.98985pt too wide) in paragraph at lines 460--462
-\OT1/cmr/m/n/8 tion.'' \OT1/cmr/m/it/8 J. Cli-mate \OT1/cmr/m/n/8 1 (12): 1177-
--98. []https://doi.org/10.1175/1520-0442(1988)001\OML/cmm/m/it/8 <\OT1/cmr/m/n/
-8 1177:IVITSH\OML/cmm/m/it/8 >\OT1/cmr/m/n/8 2.0.CO;2[]. 
- []
-
-
-Overfull \hbox (52.00658pt too wide) in paragraph at lines 466--468
-\OT1/cmr/m/n/8 Re-anal-y-ses.'' \OT1/cmr/m/it/8 J. Cli-mate \OT1/cmr/m/n/8 16 (
-24). Amer-i-can Me-te-o-ro-log-i-cal So-ci-ety: 4134--43. []https://doi.org/10.
-1175/1520-
- []
-
-
-Overfull \hbox (64.12883pt too wide) in paragraph at lines 472--474
-\OT1/cmr/m/n/8 lies.'' \OT1/cmr/m/it/8 J. At-mos. Sci. \OT1/cmr/m/n/8 44 (5): 8
-77--902. []https://doi.org/10.1175/1520-0469(1987)044\OML/cmm/m/it/8 <\OT1/cmr/
-m/n/8 0877:SADOPA\OML/cmm/m/it/8 >\OT1/cmr/m/n/8 2.0.CO;2[]. 
- []
-
-
-Overfull \hbox (86.33249pt too wide) in paragraph at lines 481--483
-\OT1/cmr/m/n/8 Amer-i-can Me-te-o-ro-log-i-cal So-ci-ety: 1375--92. []https://d
-oi.org/10.1175/1520-0493(1982)110\OML/cmm/m/it/8 <\OT1/cmr/m/n/8 1375:SVOSLP\OM
-L/cmm/m/it/8 >\OT1/cmr/m/n/8 2.0.CO;2[]. 
- []
-
-[31]
-No file paper2.bbl.
+[30])
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 538.
-[32] [33]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 538.
- (./paper2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 538.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 538.
+[31] (./paper2.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
 
 
-Package rerunfilecheck Warning: File `paper2.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+! Package natbib Error: Bibliography not compatible with author-year citations.
 
-Package rerunfilecheck Info: Checksums for `paper2.out':
-(rerunfilecheck)             Before: 1DEECD9B21B08DAF24A4833B9E9C2134;183
-(rerunfilecheck)             After:  C1ABD4C718A0DAADF65382DF556BED6C;180.
+(natbib)                Press <return> to continue in numerical citation style.
 
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 538.
- ) 
+See the natbib package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.219 ...and\NAT@force@numbers{}\NAT@force@numbers
+                                                   
 Here is how much of TeX's memory you used:
- 8139 strings out of 492982
- 118562 string characters out of 6134896
- 223496 words of memory out of 5000000
- 11467 multiletter control sequences out of 15000+600000
- 11072 words of font info for 40 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 44i,8n,43p,1351b,357s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on paper2.pdf (33 pages, 3239812 bytes).
-PDF statistics:
- 587 PDF objects out of 1000 (max. 8388607)
- 495 compressed objects within 5 object streams
- 138 named destinations out of 1000 (max. 500000)
- 123 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11277 strings out of 479401
+ 170047 string characters out of 5878903
+ 487946 words of memory out of 5000000
+ 30517 multiletter control sequences out of 15000+600000
+ 541012 words of font info for 59 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 68i,8n,76p,1351b,505s stack positions out of 5000i,500n,10000p,200000b,80000s
 
+Output written on paper2.pdf (31 pages).
