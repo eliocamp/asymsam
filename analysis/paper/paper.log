@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.11.25)  26 NOV 2020 19:45
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.11.25)  30 NOV 2020 20:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -449,6 +449,10 @@ Overfull \hbox (95.61894pt too wide) in paragraph at lines 197--197
 [][] 
  []
 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[8]
 File: trends-1.pdf Graphic file (type pdf)
 <use trends-1.pdf>
 
@@ -457,9 +461,12 @@ Overfull \hbox (95.61894pt too wide) in paragraph at lines 203--203
  []
 
 
-Underfull \vbox (badness 4266) has occurred while \output is active []
+Underfull \vbox (badness 1365) has occurred while \output is active []
 
-[8] [9] [10]
+[9]
+Underfull \vbox (badness 1215) has occurred while \output is active []
+
+[10]
 File: r-squared-trend-1.pdf Graphic file (type pdf)
 <use r-squared-trend-1.pdf>
 File: 2d-regr-1.pdf Graphic file (type pdf)
@@ -476,9 +483,12 @@ Underfull \vbox (badness 1077) has occurred while \output is active []
 File: wave-amplitude-1.pdf Graphic file (type pdf)
 <use wave-amplitude-1.pdf>
 
-Overfull \hbox (95.61894pt too wide) in paragraph at lines 232--232
+Overfull \hbox (95.61894pt too wide) in paragraph at lines 233--233
 [][] 
  []
+
+
+Underfull \vbox (badness 1365) has occurred while \output is active []
 
 [13]
 File: vertical-regression-1.pdf Graphic file (type pdf)
@@ -487,44 +497,44 @@ File: vertical-regression-1.pdf Graphic file (type pdf)
 File: regr-air-season-1.pdf Graphic file (type pdf)
 <use regr-air-season-1.pdf>
 
-Overfull \hbox (95.61894pt too wide) in paragraph at lines 253--253
+Overfull \hbox (95.61894pt too wide) in paragraph at lines 254--254
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 96.17528pt on input line 254.
+LaTeX Warning: Float too large for page by 96.17528pt on input line 255.
 
 [15] [16]
 File: pp-regr-oceania-1.pdf Graphic file (type pdf)
 <use pp-regr-oceania-1.pdf>
 
-Overfull \hbox (95.61894pt too wide) in paragraph at lines 269--269
+Overfull \hbox (95.61894pt too wide) in paragraph at lines 270--270
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 11.77058pt on input line 270.
+LaTeX Warning: Float too large for page by 11.77058pt on input line 271.
 
 [17] [18]
 File: pp-regr-america-1.pdf Graphic file (type pdf)
 <use pp-regr-america-1.pdf>
 
-Overfull \hbox (95.61894pt too wide) in paragraph at lines 279--279
+Overfull \hbox (95.61894pt too wide) in paragraph at lines 280--280
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 31.06665pt on input line 280.
+LaTeX Warning: Float too large for page by 31.06665pt on input line 281.
 
 [19] [20] [21]
-Overfull \hbox (36.75pt too wide) in paragraph at lines 318--319
+Overfull \hbox (36.75pt too wide) in paragraph at lines 316--317
 [][][][][][][] [] [][][][][][][][][][] [] [][] [] [][][][][][] [] [] [] [][][][
 ][][][] [] [][][][][][][][][][] [][] [][][][] [][] [][][][][][][][] [][] [][][]
 [][][] [][]
  []
 
 
-Overfull \hbox (24.25pt too wide) in paragraph at lines 318--319
+Overfull \hbox (24.25pt too wide) in paragraph at lines 316--317
 [][][][] [] [][][] [] [][][][][][][][] [] [][][][][][][][] [] [][][][][][][][][
 ][] [] [][][][][][][][][] [] [][][][][][][] [] [][][][][][] [] [][][][][] []
  []
@@ -535,35 +545,35 @@ File: A1-1.pdf Graphic file (type pdf)
 File: A2-1.pdf Graphic file (type pdf)
 <use A2-1.pdf>
 
-Overfull \hbox (167.88876pt too wide) in paragraph at lines 338--338
+Overfull \hbox (167.88876pt too wide) in paragraph at lines 336--336
 [][] 
  []
 
 File: A3-1.pdf Graphic file (type pdf)
 <use A3-1.pdf>
 
-Overfull \hbox (167.88876pt too wide) in paragraph at lines 342--342
+Overfull \hbox (167.88876pt too wide) in paragraph at lines 340--340
 [][] 
  []
 
 File: A4-1.pdf Graphic file (type pdf)
 <use A4-1.pdf>
 
-Overfull \hbox (167.88876pt too wide) in paragraph at lines 346--346
+Overfull \hbox (167.88876pt too wide) in paragraph at lines 344--344
 [][] 
  []
 
 File: A5-1.pdf Graphic file (type pdf)
 <use A5-1.pdf>
 
-Overfull \hbox (167.88876pt too wide) in paragraph at lines 350--350
+Overfull \hbox (167.88876pt too wide) in paragraph at lines 348--348
 [][] 
  []
 
 File: A6-1.pdf Graphic file (type pdf)
 <use A6-1.pdf>
 
-Overfull \hbox (95.61894pt too wide) in paragraph at lines 354--354
+Overfull \hbox (95.61894pt too wide) in paragraph at lines 352--352
 [][] 
  []
 
@@ -587,12 +597,12 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 1DEECD9B21B08DAF24A4833B9E9C2134;183.
  ) 
 Here is how much of TeX's memory you used:
- 11272 strings out of 479401
- 169626 string characters out of 5878903
- 495006 words of memory out of 5000000
- 30517 multiletter control sequences out of 15000+600000
+ 11266 strings out of 479401
+ 169494 string characters out of 5878903
+ 494880 words of memory out of 5000000
+ 30511 multiletter control sequences out of 15000+600000
  540996 words of font info for 57 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 68i,8n,76p,1350b,536s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,7n,76p,1361b,536s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on paper.pdf (33 pages).
