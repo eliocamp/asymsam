@@ -4,29 +4,29 @@ title: Assessment of zonal symmetric and asymmetric components of the Southern A
 titlerunning:  Assessment of zonal symmetric and asymmetric components of the SAM
 # authorrunning: Short form of author list if too long for running head
 thanks: | 
-    The research was supported by UBACyT20020170100428BA and the CLIMAX Project funded by Belmont Forum/ANR-15-JCL/-0002-01. Elio Campitelli was supported by a PhD grant from CONICET, Argentina.
+  The research was supported by UBACyT20020170100428BA and the CLIMAX Project funded by Belmont Forum/ANR-15-JCL/-0002-01. Elio Campitelli was supported by a PhD grant from CONICET, Argentina.
 
 authors: 
 - name: Elio Campitelli
   address: |
     Universidad de Buenos Aires, Facultad de Ciencias Exactas y Naturales, Departamento de Ciencias de la Atmósfera y los Océanos, Buenos Aires, Argentina
-      CONICET – Universidad de Buenos Aires, Centro de Investigaciones del Mar y la Atmósfera (CIMA), Buenos Aires, Argentina
-      CNRS – IRD – CONICET – UBA, Instituto Franco‐Argentino para el Estudio del Clima y sus Impactos (UMI 3351 IFAECI), Buenos Aires, Argentina
+    CONICET – Universidad de Buenos Aires, Centro de Investigaciones del Mar y la Atmósfera (CIMA), Buenos Aires, Argentina
+    CNRS – IRD – CONICET – UBA, Instituto Franco‐Argentino para el Estudio del Clima y sus Impactos (UMI 3351 IFAECI), Buenos Aires, Argentina
   email: elio.campitelli@cima.fcen.uba.ar
   
 - name:  Leandro B. Díaz
   address: |
     Universidad de Buenos Aires, Facultad de Ciencias Exactas y Naturales, Departamento de Ciencias de la Atmósfera y los Océanos, Buenos Aires, Argentina
-      CONICET – Universidad de Buenos Aires, Centro de Investigaciones del Mar y la Atmósfera (CIMA), Buenos Aires, Argentina
-      CNRS – IRD – CONICET – UBA, Instituto Franco‐Argentino para el Estudio del Clima y sus Impactos (UMI 3351 IFAECI), Buenos Aires, Argentina
+    CONICET – Universidad de Buenos Aires, Centro de Investigaciones del Mar y la Atmósfera (CIMA), Buenos Aires, Argentina
+    CNRS – IRD – CONICET – UBA, Instituto Franco‐Argentino para el Estudio del Clima y sus Impactos (UMI 3351 IFAECI), Buenos Aires, Argentina
   
 - name:  Carolina Vera
   address: |
     Universidad de Buenos Aires, Facultad de Ciencias Exactas y Naturales, Departamento de Ciencias de la Atmósfera y los Océanos, Buenos Aires, Argentina
-      CONICET – Universidad de Buenos Aires, Centro de Investigaciones del Mar y la Atmósfera (CIMA), Buenos Aires, Argentina
-      CNRS – IRD – CONICET – UBA, Instituto Franco‐Argentino para el Estudio del Clima y sus Impactos (UMI 3351 IFAECI), Buenos Aires, Argentina
+    CONICET – Universidad de Buenos Aires, Centro de Investigaciones del Mar y la Atmósfera (CIMA), Buenos Aires, Argentina
+    CNRS – IRD – CONICET – UBA, Instituto Franco‐Argentino para el Estudio del Clima y sus Impactos (UMI 3351 IFAECI), Buenos Aires, Argentina
   
-
+  
 keywords:
   - Southern Annular Mode
   - general circulation
@@ -37,9 +37,9 @@ keywords:
 #- PAC1
 #- superPAC
     
-MSC:
-- MSC code 1
-- MSC code 2
+# MSC:
+# - MSC code 1
+# - MSC code 2
 
 abstract: |
   The text of your abstract.  150 -- 250 words.
@@ -54,6 +54,7 @@ output:
       base_format: rticles::springer_article
       latex_engine: "xelatex"
       citation_package: "natbib"
+      # pandoc_args: ["--lua-filter=abstract-to-meta.lua"]
 header-includes: 
  - \usepackage{gensymb}
  - \usepackage{subfig}
@@ -91,7 +92,6 @@ library(ggperiodic)
 library(asymsam)
 library(latex2exp)
 library(tagger)
-options(tagger.cache = TRUE)
 library(patchwork)
 library(knitr)
 
@@ -117,7 +117,6 @@ knitr::opts_hooks$set(invisible = function(options) {
 main_levs <- c(700, 300, 30, 50)
 
 combine_lists <- function(...) {
-  # browser(expr = length(x) != length(y))
   X <- list(...)
   names <- names(X[[1]])
   names(names) <- names
@@ -232,7 +231,7 @@ sam_plot %>%
 ```
 
 
-The method assumes linearity in the asymmetric component of the SAM. That means that zonal symmetries associated with positive SAM phase (SAM+) are almost opposite in sign and of the same magnitude to the ones associated with negative SAM phase (SAM-). @fogt2012's composites (their Figure 4) suggest that this might not be entirely valid, although much of that apparent non-linearity could be due to the heterogenous nature of the selected years for constructing the composites. To test this assumption, we computed seasonal composites of zonal anomalies of geopotential height for SAM+ and SAM- (defined as months in which the Full SAM index is greater than 1 standard deviation and lower than minus 1 standard deviation) for the period from 1979 to 2018 at the troposphere (represented by the 700 hPa level) and the stratosphere (represented by the 50 hPa level) (Figures \@ref(fig:A3) and \@ref(fig:A4)). In all seasons and both levels, SAM+ composites are similar to SAM- in structure but the sign switched. Pattern correlations (computed as the Pearson correlation between fields) between SAM+ and SAM- composites for each season are high. The method considered in this study seems then a reasonable approximation of the phenomenon.
+The method assumes linearity in the asymmetric component of the SAM. That means that zonal symmetries associated with positive SAM phase (SAM+) are almost opposite in sign and of the same magnitude to the ones associated with negative SAM phase (SAM-). @fogt2012's composites (their Figure 4) suggest that this might not be entirely valid, although much of that apparent non-linearity could be due to the heterogenous nature of the selected years for constructing the composites. To test this assumption, we computed seasonal composites of zonal anomalies of geopotential height for SAM+ and SAM- (defined as months in which the Full SAM index is greater than 1 standard deviation and lower than minus 1 standard deviation, respectively) for the period from 1979 to 2018 at the 700 hPa and 50 HPa levels (Figures \@ref(fig:A3) and \@ref(fig:A4)). In all seasons and both levels, SAM+ composites are similar to SAM- in structure but with the opposite sign. Pattern correlations (computed as the Pearson correlation between fields) between SAM+ and SAM- composites for each season are high. The method considered in this study seems then a reasonable approximation of the phenomenon.
 
 By performing the EOF analysis using data for all months we are assuming that the zonal asymmetric structure of the SAM is the same at all seasons. The latter was assessed by computing geopotential height zonal anomalies by projecting the first EOF of each season independently. The following seasons were considered – December to February (DJF), March to May (MAM), June to August (JJA) and September to November (SON). Results are very similar to each other in the troposphere (Figure \@ref(fig:A5), row 1) and show pattern correlations between 0.65 (DJF with JJA) and 0.9 (MAM with SON). In the stratosphere (Figure \@ref(fig:A5), row 2), patterns are similar for all seasons except DJF, when the wave-1 zonal anomalies are rotated 90\degree\ in comparison with the rest of the year. Pattern correlations in the stratosphere are between -0.24 (DJF with SON) and 0.95 (MAM with JJA). Therefore, the results confirm that the zonal asymmetric structure of the SAM is very similar throughout most of the year with the exception of DJF in the stratosphere.
 
@@ -248,7 +247,7 @@ $$
 
 where $\lambda$ and $\phi$ are the longitude and latitude, $t$ is the time, $\alpha$ and $\beta$ are the linear regression coefficients, $X_0$ and $\epsilon$ are the constant and error terms. From this equation, $\alpha$ represents the (linear) association of $X$ with the variability of the Asymmetric SAM that is not explained by the variability of the Symmetric SAM; i.e. it is proportional to the partial correlation of $X$ and the Asymmetric SAM, controlling for the effect of the Symmetric SAM and vice versa for $\beta$. When performing a separate regression for each trimester (DJF, MAM, JJA, SON), we average the relevant variables seasonally for each year and trimester before computing the regression. 
 
-At 2.5\degree by 2.5\degree resolution, a single regression field is composed of thousands of regressions. In such case, using p-values to test for significance leads to misleading results [@walker1914;@katz1991]. Therefore, p-values showed in regression fields are all adjusted  for the False Discovery Rate following @benjamini1995, which @wilks2016 suggests as a simple and effective method to ameliorate this issue.
+At 2.5\degree by 2.5\degree resolution, a single regression field is composed of thousands of regressions. In such case, using p-values to test for significance leads to misleading results [@walker1914;@katz1991]. Therefore, p-values showed in regression fields are all adjusted for the False Discovery Rate following @benjamini1995, which @wilks2016 suggests as a simple and effective method to ameliorate this issue.
 
 We computed linear trends by Ordinary Least Squares and the 95% confidence interval assuming a t-distribution of the appropriate residual degrees of freedom. To the amplitude of the zonal waves is defined through computing  the Fourier transform of the spatial field at each latitude circle.
 
@@ -294,7 +293,7 @@ if (sign(cor_aao) != 1) {
 ```
 
 ```{r asymsam-timeseries, fig.cap = "Time series for the Asymmetric SAM and Symmetric SAM indices at (a) 50 hPa and (b) 700 hPa. To the right, probability density estimate of each index. Series are standarised by the standard deviation of the Full SAM at each level.", fig.width=6, fig.height=3, fig.env="figure*"}
-  indices %>% 
+indices %>% 
   .[lev %in% c(50, 700) & term != "full"] %>% 
   # .[, estimate_norm := estimate_norm/sd(estimate_norm), by = .(lev, term)] %>% 
   ggplot(aes(time, estimate_norm)) +
@@ -310,7 +309,7 @@ if (sign(cor_aao) != 1) {
   facet_grid(lev~., labeller = labeller(lev = lev.lab), switch = "y") +
   tag_facets() +
   
-indices %>% 
+  indices %>% 
   .[lev %in% c(50, 700) & term != "full"] %>% 
   ggplot(aes(estimate_norm)) +
   geom_density(aes(color = term), bw = "SJ") +
@@ -359,7 +358,6 @@ cors %>%
   coord_flip()
 ```
 
-
 ```{r cross-correlation, fig.cap = "Cross correlation between levels of the (a) Full SAM, (b) Asymmetric SAM, and (c) Symmetric SAM for the 1979 -- 2018 period.", fig.width = 6, fig.height=3, fig.env="figure*"}
 tri <- matrix(c(1000, 1000, 1000, 1, 1, 1, 1000, 1000), ncol = 2, byrow = TRUE) %>% 
   as.data.table() %>% 
@@ -370,21 +368,30 @@ logbreaks <- function(range) {
   ticks$value[ticks$end == 0.2]
 }
 
+N <- indices %>% 
+  .[, .N, by = .(lev, term)] %>% 
+  .[, unique(N)]
+
 crosscor <- indices %>% 
   copy() %>% 
   .[, widyr::pairwise_cor(.SD, lev, time, estimate, diag = TRUE), by = .(term)] 
+
+crosscor %>% 
+  .[, p.value := 2*pnorm(atanh(correlation), 0, sd = 1/sqrt(N), lower.tail = FALSE)] %>% 
+  .[, p.value := p.adjust(p.value, method = "bonferroni")]
+
 crosscor %>% 
   ggplot(aes(item2, item1)) +
-  geom_contour_fill(aes(z = correlation), breaks = MakeBreaks(binwidth = 0.1)) +
-  geom_contour_tanaka(aes(z = correlation), size = 0.1, na.fill = .99, breaks = MakeBreaks(binwidth = 0.1)) +
+  geom_contour_fill(aes(z = correlation, fill = ..level..), breaks = MakeBreaks(binwidth = 0.1)) +
+  geom_contour_tanaka(aes(z = correlation), size = 0.1, na.fill = .99, 
+                      breaks = MakeBreaks(binwidth = 0.1)) +
   geom_text_contour(aes(z = correlation), breaks = MakeBreaks(binwidth = 0.1), 
                     color = "white", rotate = FALSE, stroke.color = "black", stroke = 0.2, 
                     skip = 1, size = 2, 
                     data = ~.x[item2 > item1]) +
   geom_polygon(data = tri, fill = "white") +
-  scale_fill_divergent("Cross-correlation", 
-                       breaks = MakeBreaks(binwidth = 0.1),
-                       guide = guide_colorstrip_bottom()) +
+  scale_fill_divergent_discretised("Cross-correlation",
+                                   guide = guide_colorstrip_bottom()) +
   scale_x_level(minor_breaks = logbreaks, position = "top") +
   scale_y_level(minor_breaks = logbreaks) +
   coord_equal() +
@@ -394,7 +401,7 @@ crosscor %>%
 ```
 
 
-Figure \@ref(fig:cross-correlation)a shows (zero-lag) cross-correlation across levels for the Full, Symmetric and Asymmetric SAM indices. For the Full SAM (panel a), high values below 100 hPa reflect the vertical (zero-lag) coherency throughout the troposphere. Above 100 hPa, correlation between levels falls off more rapidly, indicating less coherent (zero-lag) variability. Therefore, there is a non negligible correlation between the troposphere and the lower-to-middle stratosphere. Asymmetric and Symmetric SAM (panels b and c, respectively) share similar high level of coherency in the troposphere but they differ in their stratospheric behaviour. Stratospheric coherency is stronger for the Asymmetric SAM than the Symmetric SAM. The stratospheric Symmetric SAM seems to connect more strongly to the troposphere than the Asymmetric SAM.
+Figure \@ref(fig:cross-correlation) shows (zero-lag) cross-correlation across levels for the Full, Symmetric and Asymmetric SAM indices. For the Full SAM (Figure \@ref(fig:cross-correlation)a), high values below 100 hPa reflect the vertical (zero-lag) coherency throughout the troposphere. Above 100 hPa, correlation between levels does falls off more rapidly, indicating less coherent (zero-lag) variability. But correlations between tropospheric and lower-to-middle stratospheric levels are still relatively high (e.g. grater than 0.4 between tropospheric levels and levels below 30 hPa). Asymmetric and Symmetric SAM (Figure \@ref(fig:cross-correlation)b and c, respectively) share similar high level of coherency in the troposphere but they differ in their stratospheric behaviour. Stratospheric coherency is stronger for the Asymmetric SAM than the Symmetric SAM. The stratospheric Symmetric SAM seems to connect more strongly to the troposphere than the Asymmetric SAM.
 
 
 <!-- ```{r} -->
@@ -451,9 +458,9 @@ indices %>%
   tag_facets("cr") 
 ```
 
-The linear trends for each of the indices (Full SAM, Symmetric SAM and Asymmetric SAM) were evaluated for the complete period 1979 -- 2018 at each level for the whole year and separated by trimesters (Figure \@ref(fig:trends)). The Full SAM index presents a statistically positive significant trend (panel `r get_tag(term == "full" & season == "Annual")`) that extends throughout the troposphere up to about 50 hPa and reaches its maximum value at 100 hPa. The seasonal trends (rest of column a) indicate that positive trends are present in  Autumn and particularly in Summer, where the 100 hPa maximum is much more defined. In Winter and Spring, we detect no statistically significant trend. This is consistent with the results of previous studies, which find large positive trends in Summer, smaller in Autumn and no trends in the other seasons [e.g. @fogt2020 and references therein] using indices of the SAM based on surface or near-surface circulation. 
+The linear trends for each of the indices (Full SAM, Symmetric SAM and Asymmetric SAM) were evaluated for the complete period 1979 -- 2018 at each level for the whole year and separated by trimesters (Figure \@ref(fig:trends)). The Full SAM index presents a statistically positive significant trend (panel `r get_tag(term == "full" & season == "Annual")`) that extends throughout the troposphere up to about 50 hPa and reaches its maximum value at 100 hPa. The seasonal trends (rest of Figure \@ref(fig:trends) column a) indicate that positive trends are present in  Autumn and particularly in Summer, where the 100 hPa maximum is much more defined. In Winter and Spring, we detect no statistically significant trend. This is consistent with the results of previous studies, which find large positive trends in Summer, smaller in Autumn and no trends in the other seasons [e.g. @fogt2020 and references therein] using indices of the SAM based on surface or near-surface circulation. 
 
-By separating the SAM signal in its asymmetric and symmetric parts, we can not only see that these trends are almost entirely due to the symmetric component (column b vs. column c), but in some cases the trends become clearer. In Summer, the Asymmetric SAM has a statistically non significant negative trend in the middle troposphere that obscures the trend in the Full SAM index; as a result, trends computed using only the Symmetric component have a higher signal-to-noise ratio (compare the shading region in panel `r get_tag(term == "full" & season == "DJF")` and `r get_tag(term == "sym" & season == "DJF")`). In Autumn, the Symmetric SAM reveals a statistically significant positive trend in the stratosphere that is not significant using the Full SAM index. 
+By separating the SAM signal in its asymmetric and symmetric parts, we can not only see that these trends are almost entirely due to the symmetric component (column b vs. column c in Figure \@ref(fig:trends)), but in some cases the trends become clearer. In Summer, the Asymmetric SAM has a statistically non significant negative trend in the middle troposphere that obscures the trend in the Full SAM index; as a result, trends computed using only the Symmetric component have a higher signal-to-noise ratio (compare the shading region in panel `r get_tag(term == "full" & season == "DJF")` and `r get_tag(term == "sym" & season == "DJF")`). In Autumn, the Symmetric SAM reveals a statistically significant positive trend in the stratosphere that is not significant using the Full SAM index. 
 
 ```{r regression-90}
 local <- indices %>%
@@ -469,9 +476,7 @@ trends_text <- local[, paste0(signif(estimate, 2), " \\pm ", signif(std.error*1.
                      by = .(term = type, season, lev)]
 ```
 
-We stress that these are only linear trends during the whole period and the absence of a statistically significant signal should not be taken as evidence of no systematic change. In particular, going back to Figure \@ref(fig:asymsam-timeseries), we can see an evident change in the stratospheric Asymmetric component (red line in panel a) between the 90's, when we see a dominance of extreme negative values, and the 00's, when we see the inverse. This change is restricted to the Winter months: the linear trend for Winter starting in 1990 for the Asymmetric component at 50hPa is $`r trends_text[term == "asym" & lev == 50 & season == "JJA"]$V1`$.
-
-Figure \@ref(fig:r-squared-trend) shows decadal trends for the explained variance of each index. There is no evidence of a significant trend in the stratosphere. In the troposphere, there is a positive trend for the Asymmetric SAM and not significant trend for the Symmetric SAM. This suggest that the SAM has become more asymmetric in the period from 1979 to 2018. However, the change is slight, around 1% increased explained variance per decade. 
+Figure \@ref(fig:r-squared-trend) shows trends for the explained variance of each index. There is no evidence of a significant trend in the stratosphere. In the troposphere, there is a positive trend for the Asymmetric SAM and not significant trend for the Symmetric SAM. This suggest that the SAM has become more asymmetric in the period from 1979 to 2018. However, the change is slight, around 1% increased explained variance per decade. 
 
 ```{r r-squared-trend, fig.height=3, fig.width=3, fig.cap = "Decadal trends of the variance explained by the Asymmetric and Symmetric SAM at each level for the period 1979 -- 2018. Shading indicates the 95\\% confidence interval."}
 indices %>% 
@@ -565,7 +570,7 @@ raphael <- ReadNetCDF(ERA5(),
   .[, .(raphael = mean(hgt_s)), by = time]
 ```
 
-```{r wave-amplitude, fig.cap = "Amplitude (meters) of zonal waves of the geopotential height regression patterns in Figure \\@ref(fig:2d-regr) for zonal waves with wavenumber 0, 1, 2, and 3, where wavenumber 0 represents the amplitude of the zonal mean.", fig.width=6, fig.height=3, fig.env = "figure*", cache = FALSE}
+```{r wave-amplitude, fig.cap = "Amplitude (meters) of zonal waves of the geopotential height regression patterns in Figure \\@ref(fig:2d-regr) for zonal waves with wavenumber 0, 1, 2, and 3, where wavenumber 0 represents the amplitude of the zonal mean.", fig.width=4, fig.height=3, fig.env = "figure*", cache = FALSE}
 indices_2d_yearly %>% 
   .[lat < -20] %>%
   .[lev %in% c(50, 700)] %>% 
@@ -581,9 +586,9 @@ indices_2d_yearly %>%
   no_grid 
 ```
 
-The amplitude of the first zonal wave numbers at each latitude at 50 hPa and 700 hPa is shown in Figure \@ref(fig:wave-amplitude), where wave number zero represents the amplitude of the zonal mean. Zonal wave amplitudes of the spatial pattern described by the Full SAM index (Figure \@ref(fig:wave-amplitude) column `r get_col(term == "full")`) are dominated by the zonal mean (wavenumber 0) at both levels. However, zonal waves are important, particularly North of 50\degree S, with wavenumber 1 clearly dominating at 50 hPa (Figure \@ref(fig:wave-amplitude)`r get_tag(term == "full" & lev == 50)`) and a mix of waves of similar amplitude at 700 hPa (Figure \@ref(fig:wave-amplitude)`r get_tag(term == "full" & lev == 700)`). Figure \@ref(fig:wave-amplitude) column `r get_col(term == "asym")` shows that the Asymmetric SAM is overwhelmingly dominated by wave 1 in the stratosphere (Figure \@ref(fig:wave-amplitude)`r get_tag(term== "asym" & lev == 50)`), while in the troposphere it is explained by a combination of zonal waves 3 to 1 in decreasing level of importance (Figure \@ref(fig:wave-amplitude)`r get_tag(term== "asym" & lev == 700)`) with negligible amplitude of the zonal mean.  On the other hand, the Symmetric SAM it is almost entirely explained by the zonal mean at both levels (Figure \@ref(fig:wave-amplitude) column c), with little to no contribution from the zonal waves with wavenumbers 1 to 3.
+The amplitude of the first zonal wave numbers at each latitude at 50 hPa and 700 hPa is shown in Figure \@ref(fig:wave-amplitude), where wave number zero represents the amplitude of the zonal mean. Zonal wave amplitudes of the spatial pattern described by the Full SAM index (Figure \@ref(fig:wave-amplitude) column `r get_col(term == "full")`) are dominated by the zonal mean (wavenumber 0) at both levels. However, zonal waves are important, particularly North of 50\degree S, with wavenumber 1 clearly dominating at 50 hPa (Figure \@ref(fig:wave-amplitude)`r get_tag(term == "full" & lev == 50)`) and a mix of waves of similar amplitude at 700 hPa (Figure \@ref(fig:wave-amplitude)`r get_tag(term == "full" & lev == 700)`). Figure \@ref(fig:wave-amplitude) column `r get_col(term == "asym")` shows that the Asymmetric SAM is overwhelmingly dominated by wave 1 in the stratosphere (Figure \@ref(fig:wave-amplitude)`r get_tag(term== "asym" & lev == 50)`), while in the troposphere it is explained by a combination of zonal waves 3 to 1 in decreasing level of importance (Figure \@ref(fig:wave-amplitude)`r get_tag(term== "asym" & lev == 700)`) with negligible amplitude of the zonal mean. On the other hand, the Symmetric SAM it is almost entirely explained by the zonal mean at both levels (Figure \@ref(fig:wave-amplitude) column c), with little to no contribution from the zonal waves with wavenumbers 1 to 3.
 
-We can see that the amplitude and latitudinal distribution zonal waves in the Asymmetric SAM on one hand, and the zonal mean in the Symmetric SAM on the other correspond almost exactly to the amplitude and latitudinal distribution in the Full SAM. Looking at panel b.2 from Figure \@ref(fig:2d-regr), it becomes apparent that zonal waves 1 and 2 modulate the amplitude of zonal wave 3, which -- as mentioned before -- is larger in the Western Hemisphere than in the Eastern Hemisphere.
+Looking at Figure \@ref(fig:2d-regr)b.2, it becomes apparent that zonal waves 1 and 2 modulate the amplitude of zonal wave 3, which -- as mentioned before -- is larger in the Western Hemisphere than in the Eastern Hemisphere.
 
 
 ```{r compute-vertical-regression}
@@ -626,20 +631,19 @@ vertical_regr <- ReadNetCDF(ERA5(),
 
 
 
-```{r vertical-regression, fig.cap = "Regression between monthly geopotential height anomalies (meters) averaged betweeen 65\\degree and 40\\degree S and the Asymmetric SAM index (extracted from multiple regression including the Symmetric SAM). (a) With the Asymmetric SAM in 50 hPa and (b) in 700 hPa for the 1979 -- 2018 period.", fig.width = 3, fig.height=3}
+```{r vertical-regression, fig.cap = "Regression between monthly geopotential height anomalies (meters) averaged betweeen 65\\degree and 40\\degree S and the Asymmetric SAM index (extracted from multiple regression including the Symmetric SAM). (a) With the Asymmetric SAM in 50 hPa and (b) in 700 hPa for the 1979 -- 2018 period.", fig.width = 4, fig.height=3}
 vertical_regr %>% 
   .[index_level %in% c(50, 700)] %>% 
   .[term == "asym"] %>%
   ggplot(aes(lon, lev)) +
-  geom_contour_fill(aes(z = estimate), breaks = AnchorBreaks(0, 10, 0)) +
+  geom_contour_fill(aes(z = estimate, fill = ..level..), breaks = AnchorBreaks(0, 10, 0)) +
   geom_contour_tanaka(aes(z = estimate),
                       breaks = AnchorBreaks(0, 10, 0),
                       size = 0.3,
                       global.breaks = FALSE) +
   # geom_contour2(aes(z = p.val), breaks = 0.01) +
-  scale_fill_divergent(NULL, guide = guide_colorstrip_bottom(13), 
-                       oob = scales::squish,
-                       breaks = MakeBreaks(binwidth = 10, exclude = 0)) +
+  scale_fill_divergent_discretised(NULL, guide = guide_colorstrip_bottom(13)) +
+  # oob = scales::squish,
   scale_y_level() +
   scale_x_longitude(ticks = 60)  +
   facet_grid(index_level~., labeller = labeller(index_level = lev.lab)) +
@@ -647,9 +651,9 @@ vertical_regr %>%
 ```
 
 
-To analyse the vertical structure of the geopotential height anomalies associated with the asymmetric SAM index, we show a vertical cross section of regressions of mean geopotential height between 65\degree S and 40\degree S for the 50 hPa Asymmetric SAM index (panel a) and for the 700 hPa Asymmetric SAM index (panel b) (Figure \@ref(fig:vertical-regression)). The geopotential height anomalies associated with the stratospheric Asymmetric SAM (panel a) are clearly constrained to the stratosphere, which underscores the uncoupling between the stratospheric and tropospheric Asymmetric SAM. The vertical structure of this signal tilts about 60\degree to the West between 100 hPa and 1 hPa, suggesting baroclinic processes. The signal in the stratosphere maximises near 10 hPa despite using the 50 hPa index for the regression. 
+To analyse the vertical structure of the geopotential height anomalies associated with the asymmetric SAM index, we show a vertical cross section of regressions of mean geopotential height between 65\degree S and 40\degree S for the 50 hPa Asymmetric SAM index (Figure \@ref(fig:vertical-regression)a) and for the 700 hPa Asymmetric SAM index (Figure \@ref(fig:vertical-regression)b). The geopotential height anomalies associated with the stratospheric Asymmetric SAM (Figure \@ref(fig:vertical-regression)a) are clearly constrained to the stratosphere, which underscores the uncoupling between the stratospheric and tropospheric Asymmetric SAM. The vertical structure of this signal tilts about 60\degree to the West between 100 hPa and 1 hPa, suggesting baroclinic processes. The signal in the stratosphere maximises near 10 hPa despite using the 50 hPa index for the regression. 
 
-The tropospheric Asymmetric SAM (Figure \@ref(fig:vertical-regression) panel b)  has significant signals that extend upwards to the uppermost levels considered. In the troposphere, the wave-3 structure is equivalent barotropic with maximum amplitude at roughly 250 hPa. The anomalies are larger in the Western hemisphere, where they extent into the stratosphere. In the Eastern hemisphere the wave-3 signal is smaller and confined to the troposphere while negative anomalies dominate in the stratosphere. So, while the tropospheric Asymmetric SAM index is associated with stratospheric geopotential anomalies, these do not project strongly onto the stratospheric Asymmetric SAM. The structures shown in panels a and b in  Figure \@ref(fig:vertical-regression) are robust to the choice of index level. For any stratospheric (above 100 hPa) index, the resulting anomalies are very similar to the wave-1 structure with maximum near 10 hPa in panel a. Conversely, for any tropospheric (below 100 hPa) index, the result is very similar to panel b. The patterns mainly change in amplitude (not shown).
+The tropospheric Asymmetric SAM (Figure \@ref(fig:vertical-regression)b)  has significant signals that extend upwards to the uppermost levels considered. In the troposphere, the wave-3 structure is equivalent barotropic with maximum amplitude at roughly 250 hPa. The anomalies are larger in the Western hemisphere, where they extent into the stratosphere. In the Eastern hemisphere the wave-3 signal is smaller and confined to the troposphere while negative anomalies dominate in the stratosphere. So, while the tropospheric Asymmetric SAM index is associated with stratospheric geopotential anomalies, these do not project strongly onto the stratospheric Asymmetric SAM. The structures shown in Figure \@ref(fig:vertical-regression)a Figure \@ref(fig:vertical-regression)b in  Figure \@ref(fig:vertical-regression) are robust to the choice of index level. For any stratospheric (above 100 hPa) index, the resulting anomalies are very similar to the wave-1 structure with maximum near 10 hPa in Figure \@ref(fig:vertical-regression)a. Conversely, for any tropospheric (below 100 hPa) index, the result is very similar to Figure \@ref(fig:vertical-regression)b. The patterns mainly change in amplitude (not shown).
 
 
 ```{r enso-cor}
@@ -668,6 +672,10 @@ soi <- rsoi::download_soi(TRUE, data_path("derived", "soi.csv")) %>%
 
 enso <- rbindlist(list(oni = oni, soi = soi, mei = mei), idcol = "index")
 
+report_p <- function(p.value) {
+  ifelse(p.value < 0.001, " < 0.001", paste0(" = ", signif(p.value, 2)))
+}
+
 enso_sam_cor <- enso %>% 
   .[indices, on = "time", allow.cartesian = TRUE] %>% 
   .[, with(cor.test(estimate, value), 
@@ -685,26 +693,24 @@ enso_sam_cor <- enso %>%
 
 cor_texts <- enso_sam_cor[lev == 700 & index == "oni"] %>% 
   .[, `:=`(cor = signif(cor, 2), 
-           p.value = signif(p.value, 2)
-  )]
+           p.value = report_p(p.value))]
 
 
 enso_sam_partial <- enso %>% 
   .[indices_wide[lev == 700], on = "time"] %>% 
   .[, partial_cor(value, asym, sym), by = .(season(time), index)] %>% 
   .[, partial_correlation := signif(partial_correlation, 2)] %>% 
-  .[, p.value := signif(p.value, 2)]
+  .[, p.value := report_p(p.value)]
 
 enso_sam_partial <- enso %>% 
   .[indices_wide[lev == 700], on = "time"] %>% 
   .[, partial_cor(value, asym, sym), by = index] %>% 
   .[, partial_correlation := signif(partial_correlation, 2)] %>% 
-  .[, p.value := signif(p.value, 2)]
+  .[, p.value := report_p(p.value)]
 ```
 
 
-
-The wave-3 pattern from Figure \@ref(fig:2d-regr)b.2 is very similar to the Pacific-South American Pattern [@mo1987; @kidson1988] which is a teleconnection pattern associated with the ENSO [@karoly1989]. Indeed, @fogt2011 showed that there is a significant relationship between the SAM and the ENSO. The correlation between the Full SAM and the ENSO as measured by the Oceanic Niño Index [ONI, @bamston1997] is `r cor_texts[term == "full"]$cor` (p-value = `r cor_texts[term == "full"]$p.value`). This relationship is captured mainly by the Asymmetric SAM, as this index has a partial correlation of `r enso_sam_partial[index == "oni" & term == "asym"]$partial_correlation` (p-value = `r enso_sam_partial[index == "oni" & term == "asym"]$p.value`) with the ONI, consistent with @fan2007's results, whereas the Symmetric SAM's partial correlation with the ONI is essentially null (`r enso_sam_partial[index == "oni" & term == "sym"]$partial_correlation`; p-value = `r enso_sam_partial[index == "oni" & term == "sym"]$p.value`). The same analysis was performed using the Multivariate ENSO Index [@wolter2011] and the Southern Oscillation Index [@ropelewski1987], obtaining similar results. The latter allows to conclude that these results do not depend on the ENSO index used.
+The wave-3 pattern from Figure \@ref(fig:2d-regr)b.2 is very similar to the Pacific-South American Pattern [@mo1987; @kidson1988] which is a teleconnection pattern associated with the ENSO [@karoly1989]. Indeed, @fogt2011 showed that there is a significant relationship between the SAM and the ENSO. The correlation between the Full SAM and the ENSO as measured by the Oceanic Niño Index [ONI, @bamston1997] is `r cor_texts[term == "full"]$cor` (p-value `r cor_texts[term == "full"]$p.value`). This relationship is captured mainly by the Asymmetric SAM, as this index has a partial correlation of `r enso_sam_partial[index == "oni" & term == "asym"]$partial_correlation` (p-value `r enso_sam_partial[index == "oni" & term == "asym"]$p.value`) with the ONI, consistent with @fan2007's results, whereas the Symmetric SAM's partial correlation with the ONI is essentially null (`r enso_sam_partial[index == "oni" & term == "sym"]$partial_correlation`; p-value `r enso_sam_partial[index == "oni" & term == "sym"]$p.value`). The same analysis was performed using the Multivariate ENSO Index [@wolter2011] and the Southern Oscillation Index [@ropelewski1987], obtaining similar results. The latter allows to conclude that these results do not depend on the ENSO index used.
 
 ## Impacts {#impacts}
 
@@ -774,9 +780,9 @@ air_regr %>%
 
 To assess the differences in the impacts associated with full, asymmetric and symmetric SAM, we regress 2-meter air temperature and precipitation onto each of the three SAM indices at 700 hPa. As shown in previous sections, the three indices are highly coherent in the troposphere, so we select this level to represent the tropospheric circulation for consistency with previous studies.
 
-Figure \@ref(fig:regr-air-season) shows regression coefficients of each index at 700 hPa with surface air temperature for each trimester. In Summer, positive values of the Full SAM index (panel `r get_tag(season == "DJF" & term == "full")`) are associated with negative temperature anomalies near Antarctica which are surrounded by a ring of positive anomalies. The ring is not zonally symmetric, as there are four distinctive local maximums around 30\degree W,  120\degree W, 150\degree E and 90\degree E respectively. In the tropics, there are negative anomalies in the equatorial Pacific, consistent with the negative correlation between SAM and ENSO. Panels `r combine_words(get_tag(season == "DJF" & term != "full", n = 2))` show temperature anomalies associated with positive values of the Asymmetric and Symmetric SAM, respectively. Both the local maximums in the ring and the anomalies in the Pacific regions are present mostly on the Asymmetric SAM regression map, while temperature patterns linked to positive Symmetric SAM show a more zonally consistent ring and less relation to the tropics. Temperature anomalies in the Indian ocean, South Africa and Australia are strongly related to Asymmetric SAM. This signal is not present in the regression pattern with the Full SAM. Spring (row `r get_row(season == "SON")`) features similar patterns but of smaller magnitude, with less regions where regressed anomalies have statistical significance. 
+Figure \@ref(fig:regr-air-season) shows regression coefficients of each index at 700 hPa with surface air temperature for each trimester. In Summer, positive values of the Full SAM index (Figure \@ref(fig:regr-air-season)`r get_tag(season == "DJF" & term == "full")`) are associated with negative temperature anomalies near Antarctica which are surrounded by a ring of positive anomalies. The ring is not zonally symmetric, as there are four distinctive local maximums around 30\degree W,  120\degree W, 150\degree E and 90\degree E respectively. In the tropics, there are negative anomalies in the equatorial Pacific, consistent with the negative correlation between SAM and ENSO. Figure \@ref(fig:regr-air-season)`r combine_words(get_tag(season == "DJF" & term != "full", n = 2))` show temperature anomalies associated with positive values of the Asymmetric and Symmetric SAM, respectively. Both the local maximums in the ring and the anomalies in the Pacific regions are present mostly on the Asymmetric SAM regression map, while temperature patterns linked to positive Symmetric SAM show a more zonally consistent ring and less relation to the tropics. Temperature anomalies in the Indian ocean, South Africa and Australia are strongly related to Asymmetric SAM. This signal is not present in the regression pattern with the Full SAM. Spring (Figure \@ref(fig:regr-air-season), row `r get_row(season == "SON")`) features similar patterns but of smaller magnitude, with less regions where regressed anomalies have statistical significance. 
 
-In Autumn and Winter (rows `r combine_words(get_row(season %in% c("MAM", "JJA"), n = 2))`) the positive ring is only present through its local maximums in the regression with the Full SAM. There are also negative anomalies in Southern Australia, and positive anomalies over New Zealand and Southern South America. These patterns are not significant in the sense that there are no areas with p-values below 0.05 when controlling for FDR following @wilks2016. However, repeating this analysis with 2-meter air temperature from ERA5 resulted in similar patterns that were statistically significant (not shown). Moreover, similar features were observed in station measurements by @jones2019, although using data from 1957 to 2016. 
+In Autumn and Winter (rows `r combine_words(get_row(season %in% c("MAM", "JJA"), n = 2))` in Figure \@ref(fig:regr-air-season)) the positive ring is only present through its local maximums in the regression with the Full SAM. There are also negative anomalies in Southern Australia, and positive anomalies over New Zealand and Southern South America. These patterns are not significant in the sense that there are no areas with p-values below 0.05 when controlling for FDR following @wilks2016. However, repeating this analysis with 2-meter air temperature from ERA5 resulted in similar patterns that were statistically significant (not shown). Moreover, similar features were observed in station measurements by @jones2019, although using data from 1957 to 2016. 
 
 The pattern of negative anomalies in the pole surrounded by positive anomalies roughly seen in all seasons -- although with varying intensity and small-scale details -- translates to enhanced meridional temperature gradient maximised in the zero line, which is consistent with the intensification and poleward migration of the westerlies commonly linked to the SAM through thermal wind balance. It's then not surprising to see it more clearly in association with the Symmetric SAM (at least in Summer and Spring). 
 
@@ -946,7 +952,7 @@ In Summer, positive Full SAM index is associated with positive precipitation ano
 plot_pp("america")
 ```
 
-In South America (Figure \@ref(fig:pp-regr-america)), the annual-based regression shows that positive SAM is associated with statistically significant  negative precipitation anomalies in Southeastern South America (SESA) and Southern Chile and non-significant positive anomalies in South Brazil, near the South Atlantic Convergence Zone (SACZ) (Figure \@ref(fig:pp-regr-america)a.1). Figure \@ref(fig:pp-regr-america)b.1 and c.1 show that while the signal over SESA and southern Brazil is associated with the Asymmetric SAM, that in southern Chile is related to the Symmetric SAM.
+In South America (Figure \@ref(fig:pp-regr-america)), regression using all seasons shows that positive SAM is associated with statistically significant negative precipitation anomalies in Southeastern South America (SESA) and Southern Chile and non-significant positive anomalies in South Brazil, near the South Atlantic Convergence Zone (SACZ) (Figure \@ref(fig:pp-regr-america)a.1). Figure \@ref(fig:pp-regr-america)b.1 and c.1 show that while the signal over SESA and southern Brazil is associated with the Asymmetric SAM, that in southern Chile is related to the Symmetric SAM.
 
 Except Winter, seasonal-based regressions mirror this same pattern. Even if not statistically significant, they all show negative values in SESA and southern Chile along with positive values in southern Brazil in relation with the Full SAM. The separation of these features between the Asymmetric SAM and Symmetric SAM regression maps is also rather consistent.
 
@@ -995,7 +1001,7 @@ A version-controlled repository of the code used to create this analysis, includ
 
 \newpage
 
-```{r A1, fig.cap = "Lag-correlation between Asymmetric SAM and Symmetric SAM index at each level. Negative lags imply Symmetric SAM leading Asymmetric SAM and vice versa. For the 1979 -- 2018 period.", fig.width = 4, fig.height=4, fig.pos="ht"}
+```{r A1, fig.cap = "Lag-correlation between Asymmetric SAM and Symmetric SAM index at each level. Negative lags imply Symmetric SAM leading Asymmetric SAM and vice versa. For the 1979 -- 2018 period.", fig.width = 5, fig.height=5, fig.pos="ht"}
 ccf_dt <- function(..., plot = FALSE) {
   stat <- ccf(..., plot = plot)
   list(lag = stat$lag[, 1, 1], 
@@ -1008,10 +1014,12 @@ indices_wide %>%
   geom_contour_fill(aes(z = acf), breaks = AnchorBreaks(0, 0.05)) +
   geom_contour_tanaka(aes(z = acf), breaks = AnchorBreaks(0, 0.05)) +
   geom_vline(xintercept = 0) +
-  scale_fill_divergent(NULL, guide = guide_colorstrip_bottom(15),
+  scale_fill_divergent(NULL,
+                       guide = guide_colorstrip_bottom(20),
                        breaks = AnchorBreaks(0, 0.05),
                        limits = c(NA, .59)) +
-  scale_x_continuous("Lag (months)\nSymmetric leads Asymmetric\t \tAsymmetric leads Symmetric", breaks = seq(-5, 5, 1), 
+  scale_x_continuous("Lag (months)\nSymmetric leads Asymmetric\t \tAsymmetric leads Symmetric", 
+                     breaks = seq(-5, 5, 1), 
                      expand = c(0, 0)) +
   scale_y_level()
 ```
@@ -1023,7 +1031,7 @@ indices %>%
   .[, fftspectrum(estimate, c(3, 5), B = 5000, probs = c(0, 0.95)), by = .(term, lev)] -> spec
 ```
 
-```{r A2, fig.cap = "Fourier spectrum of each timeseries computed as Fourier transform smoothed with modified Daniell smoothers with widths 3 and 5. The shading indicates de 95\\% confidence area derived by fitting an autorregressive model and computing the spectrum for 5000 simulated samples from the fitted autoregressive model (95\\% of the simulated sampels had an amplitude equal or lower). The light line indicates the theoretical expected amplitude from the autorregressive model. For the 1979 -- 2018 period.", fig.height=4, fig.width=7}
+```{r A2, fig.cap = "Fourier spectrum of each timeseries computed as Fourier transform smoothed with modified Daniell smoothers with widths 3 and 5. The shading indicates de 95\\% confidence area derived by fitting an autorregressive model and computing the spectrum for 5000 simulated samples from the fitted autoregressive model (95\\% of the simulated sampels had an amplitude equal or lower). The light line indicates the theoretical expected amplitude from the autorregressive model. For the 1979 -- 2018 period.", fig.height=4, fig.width=6}
 spec %>%
   # .[term != "full"] %>% 
   ggplot(aes(1/freq/12, spec)) +
@@ -1040,7 +1048,7 @@ spec %>%
 
 
 
-```{r A3, fig.cap = "50 hPa Geopotetnial height zonal anomalies (meters) of composites of positive and negative SAM months selected using $\\pm1$ standard deviation as threshhold for the 1979 -- 2018 period. Numbers in the column headers are pattern correlation between SAM+ and SAM- composites and number of monthly fields used to construct the composites.", apendix = TRUE, fig.height = 5, fig.width = 7}
+```{r A3, fig.cap = "50 hPa Geopotetnial height zonal anomalies (meters) of composites of positive and negative SAM months selected using $\\pm1$ standard deviation as threshhold for the 1979 -- 2018 period. Numbers in the column headers are pattern correlation between SAM+ and SAM- composites and number of monthly fields used to construct the composites.", apendix = TRUE, fig.height = 5, fig.width = 6}
 composites <- hgt[lev %in% c(50, 700)] %>%
   indices_wide[., on = .NATURAL] %>% 
   .[, sign := ifelse(abs(full) > sd(full), sign(full), 0), by = .(lev, month(time))] %>% 
@@ -1056,6 +1064,11 @@ plot_composites <- function(this_lev) {
     .[, .(cor = cor(`-1`, `1`)), by = .(season)]
   
   tags <- composites[order(sign, season)][sign != 0, paste0("n: ", unique(n)), by = .(sign, season)]
+  if (this_lev == 50){
+    limits <- c(-119, 179) 
+  } else {
+    limits <- c(-59, 74)
+  }
   
   composites %>% 
     .[sign != 0] %>% 
@@ -1072,7 +1085,7 @@ plot_composites <- function(this_lev) {
     scale_x_longitude() +
     scale_y_latitude(limits = c(NA, -20), labels = NULL) +
     scale_fill_divergent(NULL, guide = guide_colorstrip_bottom(),
-                         # limits = c(-74, 74),
+                         limits = limits,
                          breaks = AnchorBreaks(0, binwidth = 15, exclude = 0)) +
     coord_polar() +
     axis_labs_smol +
@@ -1083,14 +1096,14 @@ plot_composites <- function(this_lev) {
 plot_composites(50)
 ```
 
-```{r A4, fig.cap = "700 hPa Geopotetnial height zonal anomalies (meters) of composites of positive and negative SAM months selected using $\\pm1$ standard deviation as threshhold for the 1979 -- 2018 period. Numbers in the column headers are pattern correlation between SAM+ and SAM- composites and number of monthly fields used to construct the composites.", apendix = TRUE, fig.height = 5, fig.width = 7}
+```{r A4, fig.cap = "700 hPa Geopotetnial height zonal anomalies (meters) of composites of positive and negative SAM months selected using $\\pm1$ standard deviation as threshhold for the 1979 -- 2018 period. Numbers in the column headers are pattern correlation between SAM+ and SAM- composites and number of monthly fields used to construct the composites.", apendix = TRUE, fig.height = 4.5, fig.width = 6}
 plot_composites(700)
 ```
 
 
 
 
-```{r A5, fig.cap = "Regression coefficients of 50 hPa and 700 hPa geopotential height zonal anomalies (meters) onto the standarised timeseries of the leading EOF computed for each season independently for the 1979 -- 2018 period.",  apendix = TRUE, fig.width=7, fig.height=6}
+```{r A5, fig.cap = "Regression coefficients of 50 hPa and 700 hPa geopotential height zonal anomalies (meters) onto the standarised timeseries of the leading EOF computed for each season independently for the 1979 -- 2018 period.",  apendix = TRUE, fig.width=6, fig.height=4.5}
 set.seed(42)
 SAM_season <- hgt[lat <= -20] %>% 
   .[lev %in% c(700, 50)] %>% 
