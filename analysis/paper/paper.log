@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.11.25)  4 DEC 2020 16:29
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.11.25)  10 DEC 2020 20:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -319,12 +319,6 @@ Package caption Info: hyperref package is loaded.
 \c@lotdepth=\count295
 \sf@top=\skip56
 \sf@bottom=\skip57
-) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/showlabels/showlabels.st
-y
-Package: showlabels 2016/06/09 v1.8
-Package: `showlabels' v1.8 <2016/06/09>
-with amsmath equation tags
-\SL@labelposition=\count296
 ) (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/chngcntr/chngcntr.sty
 Package: chngcntr 2018/04/09 v1.1a change counter resetting
 Package chngcntr Info: \counterwithout already defined.
@@ -334,46 +328,46 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip58
 \bibsep=\skip59
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count297
+\c@NAT@ctr=\count296
 )
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.
 def
 File: l3backend-xetex.def 2020-09-24 L3 backend support: XeTeX
-\g__graphics_track_int=\count298
+\g__graphics_track_int=\count297
 \l__pdf_internal_box=\box53
-\g__pdf_backend_object_int=\count299
-\g__pdf_backend_annotation_int=\count300
+\g__pdf_backend_object_int=\count298
+\g__pdf_backend_annotation_int=\count299
 ) (./paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 4
-2.
+1.
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
 Unknown journal: specify \journalname{<name of your journal>} in preambel
 
-Package hyperref Info: Link coloring OFF on input line 42.
+Package hyperref Info: Link coloring OFF on input line 41.
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 (/home/elio.campitelli/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
@@ -383,23 +377,23 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 tring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count301
+\c@section@level=\count300
 )
-LaTeX Info: Redefining \ref on input line 42.
-LaTeX Info: Redefining \pageref on input line 42.
-LaTeX Info: Redefining \nameref on input line 42.
+LaTeX Info: Redefining \ref on input line 41.
+LaTeX Info: Redefining \pageref on input line 41.
+LaTeX Info: Redefining \nameref on input line 41.
 (./paper.out) (./paper.out)
 \@outlinefile=\write3
 \openout3 = `paper.out'.
 
-LaTeX Info: Redefining \celsius on input line 42.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 42.
+LaTeX Info: Redefining \celsius on input line 41.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 41.
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 42.
-Package gensymb Info: Using \Omega for \ohm on input line 42.
+LaTeX Info: Redefining \ohm on input line 41.
+Package gensymb Info: Using \Omega for \ohm on input line 41.
 
 Package gensymb Warning: Not defining \micro.
 
@@ -408,7 +402,7 @@ Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
 SVJour3 warning: Missing \journalname
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--90
+Underfull \hbox (badness 10000) in paragraph at lines 82--89
 
  []
 
@@ -420,25 +414,28 @@ File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
 )
 Underfull \vbox (badness 5607) has occurred while \output is active []
 
-[1] [2] [3]
+[1] [2]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[3]
 File: method-1.pdf Graphic file (type pdf)
 <use method-1.pdf>
 
-Overfull \hbox (95.61894pt too wide) in paragraph at lines 139--139
+Overfull \hbox (95.61894pt too wide) in paragraph at lines 138--138
 [][] 
  []
 
-
-Overfull \hbox (5.45892pt too wide) in paragraph at lines 142--143
+[4]
+Overfull \hbox (5.45892pt too wide) in paragraph at lines 141--142
 \TU/lmr/m/n/10 That means that zonal symmetries associated with positive SAM ph
 ase (SAM+)
  []
 
-[4] [5] [6]
+[5] [6]
 File: asymsam-timeseries-1.pdf Graphic file (type pdf)
 <use asymsam-timeseries-1.pdf>
 
-Overfull \hbox (95.61894pt too wide) in paragraph at lines 177--177
+Overfull \hbox (95.61894pt too wide) in paragraph at lines 176--176
 [][] 
  []
 
@@ -448,36 +445,32 @@ File: cor-lev-1.pdf Graphic file (type pdf)
 File: cross-correlation-1.pdf Graphic file (type pdf)
 <use cross-correlation-1.pdf>
 
-Overfull \hbox (95.61894pt too wide) in paragraph at lines 193--193
+Overfull \hbox (95.61894pt too wide) in paragraph at lines 192--192
 [][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[8]
 File: trends-1.pdf Graphic file (type pdf)
 <use trends-1.pdf>
 
-Overfull \hbox (95.61894pt too wide) in paragraph at lines 199--199
+Overfull \hbox (95.61894pt too wide) in paragraph at lines 198--198
 [][] 
  []
 
+[8] [9]
+Underfull \vbox (badness 1215) has occurred while \output is active []
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[9] [10]
+[10]
 File: r-squared-trend-1.pdf Graphic file (type pdf)
 <use r-squared-trend-1.pdf>
 File: 2d-regr-1.pdf Graphic file (type pdf)
 <use 2d-regr-1.pdf>
 
-Overfull \hbox (95.61894pt too wide) in paragraph at lines 216--216
+Overfull \hbox (95.61894pt too wide) in paragraph at lines 215--215
 [][] 
  []
 
 [11]
-Underfull \vbox (badness 3646) has occurred while \output is active []
+Underfull \vbox (badness 1077) has occurred while \output is active []
 
 [12]
 File: wave-amplitude-1.pdf Graphic file (type pdf)
@@ -485,56 +478,60 @@ File: wave-amplitude-1.pdf Graphic file (type pdf)
 File: vertical-regression-1.pdf Graphic file (type pdf)
 <use vertical-regression-1.pdf>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1365) has occurred while \output is active []
 
 [13] [14]
 File: regr-air-season-1.pdf Graphic file (type pdf)
 <use regr-air-season-1.pdf>
 
-Overfull \hbox (95.61894pt too wide) in paragraph at lines 248--248
+Overfull \hbox (95.61894pt too wide) in paragraph at lines 247--247
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 96.17528pt on input line 249.
+LaTeX Warning: Float too large for page by 96.17528pt on input line 248.
 
 [15] [16]
 File: pp-regr-oceania-1.pdf Graphic file (type pdf)
 <use pp-regr-oceania-1.pdf>
 
-Overfull \hbox (95.61894pt too wide) in paragraph at lines 264--264
+Overfull \hbox (95.61894pt too wide) in paragraph at lines 263--263
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 11.77058pt on input line 265.
-
-
-Underfull \vbox (badness 1264) has occurred while \output is active []
+LaTeX Warning: Float too large for page by 11.77058pt on input line 264.
 
 [17] [18]
 File: pp-regr-america-1.pdf Graphic file (type pdf)
 <use pp-regr-america-1.pdf>
 
-Overfull \hbox (95.61894pt too wide) in paragraph at lines 274--274
+Overfull \hbox (95.61894pt too wide) in paragraph at lines 273--273
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 31.06665pt on input line 275.
+LaTeX Warning: Float too large for page by 31.06665pt on input line 274.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [19] [20] [21]
-Overfull \hbox (36.75pt too wide) in paragraph at lines 310--311
-[][][][][][][] [] [][][][][][][][][][] [] [][] [] [][][][][][] [] [] [] [][][][
-][][][] [] [][][][][][][][][][] [][] [][][][] [][] [][][][][][][][] [][] [][][]
-[][][] [][]
+Overfull \hbox (20.5pt too wide) in paragraph at lines 309--310
+[][][] [] [][][][][][][] [] [][][][][][][][][][] [] [][] [] [][][][][][] [] [] 
+[] [][][][][][][] [] [][][][][][][][][][] [][] [][][][] [][] [][][][][][][][] [
+][]
  []
 
 
-Overfull \hbox (24.25pt too wide) in paragraph at lines 310--311
+Overfull \hbox (22.45pt too wide) in paragraph at lines 309--310
+\TU/lmr/m/n/10 ([]$[][][][][] [] [] [] [][][] [] [][][][] [] [][][] [] [][][][]
+ [] [][][][][][][] [] [][][][] [] [][][][][][][][][][][][][][] [] [][][][]$[] a
+nd []$[][][][][] []
+ []
+
+
+Overfull \hbox (24.25pt too wide) in paragraph at lines 309--310
 [][][][] [] [][][] [] [][][][][][][][] [] [][][][][][][][] [] [][][][][][][][][
 ][] [] [][][][][][][][][] [] [][][][][][][] [] [][][][][][] [] [][][][][] []
  []
@@ -543,42 +540,42 @@ Overfull \hbox (24.25pt too wide) in paragraph at lines 310--311
 File: A1-1.pdf Graphic file (type pdf)
 <use A1-1.pdf>
 
-Overfull \hbox (23.34912pt too wide) in paragraph at lines 326--326
+Overfull \hbox (23.34912pt too wide) in paragraph at lines 325--325
 [][] 
  []
 
 File: A2-1.pdf Graphic file (type pdf)
 <use A2-1.pdf>
 
-Overfull \hbox (95.61894pt too wide) in paragraph at lines 330--330
+Overfull \hbox (95.61894pt too wide) in paragraph at lines 329--329
 [][] 
  []
 
 File: A3-1.pdf Graphic file (type pdf)
 <use A3-1.pdf>
 
-Overfull \hbox (95.61894pt too wide) in paragraph at lines 334--334
+Overfull \hbox (95.61894pt too wide) in paragraph at lines 333--333
 [][] 
  []
 
 File: A4-1.pdf Graphic file (type pdf)
 <use A4-1.pdf>
 
-Overfull \hbox (95.61894pt too wide) in paragraph at lines 338--338
+Overfull \hbox (95.61894pt too wide) in paragraph at lines 337--337
 [][] 
  []
 
 File: A5-1.pdf Graphic file (type pdf)
 <use A5-1.pdf>
 
-Overfull \hbox (95.61894pt too wide) in paragraph at lines 342--342
+Overfull \hbox (95.61894pt too wide) in paragraph at lines 341--341
 [][] 
  []
 
 File: A6-1.pdf Graphic file (type pdf)
 <use A6-1.pdf>
 
-Overfull \hbox (95.61894pt too wide) in paragraph at lines 346--346
+Overfull \hbox (95.61894pt too wide) in paragraph at lines 345--345
 [][] 
  []
 
@@ -599,12 +596,12 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 1DEECD9B21B08DAF24A4833B9E9C2134;183.
  ) 
 Here is how much of TeX's memory you used:
- 11266 strings out of 479401
- 169494 string characters out of 5878903
- 493879 words of memory out of 5000000
- 30511 multiletter control sequences out of 15000+600000
+ 11181 strings out of 479401
+ 168134 string characters out of 5878903
+ 492517 words of memory out of 5000000
+ 30430 multiletter control sequences out of 15000+600000
  540996 words of font info for 57 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 68i,8n,76p,1446b,510s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,8n,76p,1459b,510s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on paper.pdf (32 pages).
