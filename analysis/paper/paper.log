@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.11.25)  11 DEC 2020 19:18
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.11.25)  11 DEC 2020 19:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -432,7 +432,7 @@ hase (SAM+)
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1442) has occurred while \output is active []
 
 [5] [6]
 File: asymsam-timeseries-1.pdf Graphic file (type pdf)
@@ -613,7 +613,7 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 Here is how much of TeX's memory you used:
  11181 strings out of 479401
  168134 string characters out of 5878903
- 491986 words of memory out of 5000000
+ 492986 words of memory out of 5000000
  30430 multiletter control sequences out of 15000+600000
  540996 words of font info for 57 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
