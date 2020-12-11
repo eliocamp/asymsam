@@ -981,9 +981,22 @@ By separating the zonally symmetric and zonally symmetric SAM signals, we show t
 NOAA Global Surface Temperature (NOAAGlobalTemp) data provided by the NOAA/OAR/ESRL PSL, Boulder, Colorado, USA, from their Web site at https://psl.noaa.gov/ 
 \end{acknowledgements}
 
-## Data statement
+
+# Declarations {-}
+
+## Funding {-}
+
+The research was supported by UBACyT20020170100428BA and the CLIMAX Project funded by Belmont Forum/ANR-15-JCL/-0002-01. Elio Campitelli was supported by a PhD grant from CONICET, Argentina.
+
+## Conflicts of interest {-}
+
+The authors declare that they have no conflict of interest.
+
+## Availability of data and material {-}
 
 All data used in this paper is freely available from their respective sources. ERA5 data can be obtained via the Copernicus Climate Data Store (https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-pressure-levels-monthly-means). NOAAGlobalTemp and GPCC precipitation data can be obtained through the NOAA Physical Sicences Laboratory website (https://psl.noaa.gov/data/gridded/data.noaaglobaltemp.html and https://psl.noaa.gov/data/gridded/data.gpcc.html). The Oceanic Niño Index is avaiable via NOAA's Climate Precidction Center: https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/detrend.nino34.ascii.txt
+
+## Code availability {-}
 
 A version-controlled repository of the code used to create this analysis, including the code used to download the data can be found at https://github.com/eliocamp/asymsam.
 
