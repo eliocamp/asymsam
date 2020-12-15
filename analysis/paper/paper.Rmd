@@ -42,7 +42,7 @@ keywords:
 # - MSC code 2
 
 abstract: |
-  The main mode of variability in the Southern Hemisphere extratropical circulation is the Southern Annular Mode (SAM); so called because of it's zonally symmetric ring-like shape. However, the SAM pattern actually contains noticeable deviations from zonal symmetry. We regress monthly geopotential height fields at each level onto the asymmetric and symmetric component of the SAM to create two new indices. In the troposphere, the Asymmetric SAM (A\nobreakdash-SAM), is associated with a zonal wave 3 which is rotated a quarter wavelength with respect to the climatological zonal wave 3, is much stronger in the Pacific ocean, where it extends vertically to the stratosphere with an equivalent barotropic structure. The Symmetric SAM (S\nobreakdash-SAM), on the other hand, is associated with a negative geopotential height anomalies over Antarctica surrounded by a zonally symmetric ring of positive geopotential height anomalies. The observed relationship between the El Niño Southern Oscillation and the SAM is explained fully by the A\nobreakdash-SAM index. The positive trend of the SAM is present only in its asymmetric component. Despite this, the SAM is becoming more zonally asymmetric. The regional impacts of the SAM in temperature and precipitation are strongly affected by its asymmetric component. 
+  The Southern Annular Mode (SAM) is the main mode of variability in the Southern Hemisphere extra-tropical circulation and it is so called because of its zonally symmetric ring-like shape. However, the SAM pattern actually contains noticeable deviations from zonal symmetry. Thus, the purpose of this study is to describe the zonally asymmetric and symmetric components of the SAM variability and their impacts. We regress monthly geopotential height fields at each level onto the asymmetric and symmetric component of the SAM to create two new indices: Asymmetric SAM (A-SAM) and Symmetric SAM (S-SAM). In the troposphere, the A-SAM is associated with a zonal wave 3 which is rotated a quarter wavelength with respect to the climatological zonal wave 3, is much stronger in the Pacific ocean, where it extends vertically to the stratosphere with an equivalent barotropic structure. On the other hand, the S-SAM is associated with negative geopotential height anomalies over Antarctica surrounded by a zonally symmetric ring of positive geopotential height anomalies. The observed relationship between the El Niño Southern Oscillation and the SAM is fully explained by the A-SAM index. The positive trend of the SAM is present only in its symmetric component. Despite this, the SAM is becoming more zonally asymmetric. The regional impacts of the SAM in temperature and precipitation are strongly affected by its asymmetric component.
 
 bibliography: 
   - AsymSAM
@@ -151,13 +151,13 @@ Even though these indices are based on zonal averages, their associated geopoten
 
 Some of the variability associated with the zonal asymmetries of the SAM seems to be forced by the tropics. ENSO-like variability affects the Southern Hemisphere extratopics through the Rossby wave trains [@mo1987;@kidson1988;@karoly1989] which project strongly onto the zonal anomalies associated with the SAM in the Pacific sector. Moreover, tropical influences on the SAM have been observed [@fan2007;@fogt2011; @clem2013]. @fan2007 computed SAM indices of the Western and the Eastern Hemispheres separately and found that they were much more correlated to each other if the (linear) signal of the ENSO was removed.
 
-Positive trends in the SAM have been documented by various researchers using different indices, mostly on austral Summer and Autumn [e.g. @fogt2020 and references therein]. It is though that these trends are driven primarily by stratospheric ozone depletion and the increase in greenhouse gases, and understood in the context of zonal mean variables [@marshall2004;@gillett2005;@arblaster2006;@gillett2013]. However, it’s not clear yet how or if the asymmetric SAM component responds to these forcings, or how its variability alters the observed trends.
+Positive trends in the SAM have been documented by various researchers using different indices, mostly on austral Summer and Autumn [e.g. @fogt2020 and references therein]. It is thought that these trends are driven primarily by stratospheric ozone depletion and the increase in greenhouse gases, and understood in the context of zonal mean variables [@marshall2004;@gillett2005;@arblaster2006;@gillett2013]. However, it’s not clear yet how or if the asymmetric SAM component responds to these forcings, or how its variability alters the observed trends.
 
-The impact of the zonally asymmetric component of the SAM at regional scales has not been studied in detail yet. The positive phase of the SAM is associated with colder-than-normal temperatures over Antarctica and warmer-than-normal temperatures at higher latitudes [@jones2019] (and vice versa for negative SAM). But there are significant deviations from this zonal mean response, notably in the Antarctic Peninsula and the South Atlantic [@fogt2012]. The SAM-related signal on precipitation anomalies behaves similarly, although with even greater deviation from zonal symmetry [@lim2016]. The importance of zonal asymmetries of the SAM on these impacts have been studied in certain regions. For example, the SAM-precipitation relationshipin Southeastern South America can be explained by the Pacific-South American (PSA)-like zonally asymmetric circulation associated with the SAM [@silvestri2009; @rosso2018]. @fan2007 also found that precipitation in East Asia was impacted by the variability of only the Western Hemisphere part of the SAM. 
+The impact of the zonally asymmetric component of the SAM at regional scales has not been studied in detail yet. The positive phase of the SAM is associated with colder-than-normal temperatures over Antarctica and warmer-than-normal temperatures at higher latitudes [@jones2019] (and vice versa for negative SAM). But there are significant deviations from this zonal mean response, notably in the Antarctic Peninsula and the South Atlantic [@fogt2012]. The SAM-related signal on precipitation anomalies behaves similarly, although with even greater deviation from zonal symmetry [@lim2016]. The importance of zonal asymmetries of the SAM on these impacts have been studied in certain regions. For example, the SAM-precipitation relationship in Southeastern South America can be explained by the Pacific-South American (PSA)-like zonally asymmetric circulation associated with the SAM [@silvestri2009; @rosso2018]. @fan2007 also found that precipitation in East Asia was impacted by the variability of only the Western Hemisphere part of the SAM. 
 
 The study of the temporal variability of the asymmetric component of the SAM has not received much attention except for @fogt2012. This study provides evidences for the relevance of the SAM's asymmetric component. However, their conclusions  are based on composites of positive and negative SAM events including a small number of cases unevenly distributed among years with and without satellite information. The latter is particularly important due to the inhomogeneities in reanalysis products prior to the satellite era and the possible change in the asymmetric structure of the SAM [@silvestri2009]. Moreover, @fogt2012 studied the zonal asymmetric component of the SAM only in sea level pressure. Zonal asymmetries in the SAM spatial pattern are fairly barotropic throughout the troposphere, but they change dramatically in the stratosphere [@baldwin2009]. 
 
-Our objective is, then, to describe the zonally asymmetric and symmetric components of the SAM variability. We first propose a methodology that provides for each level, two indices which aim to capture independently the variability of the symmetric and asymmetric SAM component respectively. Their vertical structure and coherence, temporal variability and trends are consequently assesed. We then study the spatial patterns described by the variability exclusive to each index focusing on 50\ hPa as representing the stratosphere and 700\ hPa as representing the troposphere. Finally, the relationships of the SAM at 700\ hPa with temperature and precipitation anomalies are investigated.
+Our objective is, then, to describe the zonally asymmetric and symmetric components of the SAM variability. We first propose a methodology that provides for each level, two indices which aim to capture independently the variability of the symmetric and asymmetric SAM component respectively. Their vertical structure and coherence, temporal variability and trends are consequently assessed. We then study the spatial patterns described by the variability exclusive to each index focusing on 50\ hPa as representing the stratosphere and 700\ hPa as representing the troposphere. Finally, the relationships of the SAM at 700\ hPa with temperature and precipitation anomalies are investigated.
 
 In the Section \@ref(methods) we describe the methods. In Section \@ref(temporal) we describe the temporal variability and vertical coherence of the indices. In Section \@ref(spatial), we analyse the spatial patterns of geopotential height associated with them. In Section \@ref(impacts), we study their relationship with surface-level temperature and precipitation. 
 
@@ -260,7 +260,7 @@ Statistical significance for regression fields were evaluated adjusting p-values
 
 Linear trends were computed by Ordinary Least Squares and the 95% confidence interval  was computed assuming a t-distribution with the appropriate residual degrees of freedom. To the amplitude of the zonal waves is defined through computing the Fourier transform of the spatial field at each latitude circle.
 
-We computed density probability estimates using a gaussian kernel of optimal bindwidth according to @sheather1991.
+We computed density probability estimates using a Gaussian kernel of optimal bin width according to @sheather1991.
 
 ## Computation procedures
 
@@ -351,7 +351,7 @@ cors <- indices_wide %>%
   .[, ccf_dt(asym, sym, lag.max = 5), by = .(lev)]
 ```
 
-From a visual inspection, the A\nobreakdash-SAM and S\nobreakdash-SAM time series appear to be correlated. Moreover, looking at the extremes in the stratosphere, the S\nobreakdash-SAM series appears to lag the A\nobreakdash-SAM series (see, for example, the positive events on late 1987). Figure \@ref(fig:cor-lev) shows these correlations along all levels considered, for zero and -1 lags. Values of zero-lag correlations between A\nobreakdash-SAM and S\nobreakdash-SAM are relatively constant throughout the troposphere, fluctuating between `r signif(cors[lag == 0 & lev >= 100, min(acf)], 2)` and `r signif(cors[lag == 0 & lev >= 100, max(acf)], 2)`. One-month-lag correlations are similarly constant but significantly reduced to around `r signif(cors[lag == -1 &lev > 500][, mean(acf)], 2)`. In the stratosphere, zero-lag correlations drop to a minimum of `r signif(cors[lag == 0 & lev < 100][which.min(acf)]$acf, 2)` at `r cors[lag == 0 & lev < 100][which.min(acf)]$lev`\ hPa and then increase again monotonically with height up to the uppermost level of the reanalysis (although results near the top of the models are to be interpreted with care). At the same time, one-month-lag correlations increase with height. Therefore, stratospheric A\nobreakdash-SAM index tends to precede the S\nobreakdash-SAM index.
+From a visual inspection, the A\nobreakdash-SAM and S\nobreakdash-SAM time series appear to be correlated. Moreover, looking at the extremes in the stratosphere, the S\nobreakdash-SAM series appears to lag the A\nobreakdash-SAM series (see, for example, the positive events on late 1987). Figure \@ref(fig:cor-lev) shows these correlations along all levels considered, for zero and -1 lags. Values of zero-lag correlations between A\nobreakdash-SAM and S\nobreakdash-SAM are relatively constant throughout the troposphere, fluctuating between `r signif(cors[lag == 0 & lev >= 100, min(acf)], 2)` and `r signif(cors[lag == 0 & lev >= 100, max(acf)], 2)`. One-month-lag correlations are similarly constant but significantly reduced to around `r signif(cors[lag == -1 &lev > 500][, mean(acf)], 2)`. In the stratosphere, zero-lag correlations drop to a minimum of `r signif(cors[lag == 0 & lev < 100][which.min(acf)]$acf, 2)` at `r cors[lag == 0 & lev < 100][which.min(acf)]$lev`\ hPa and then increase again monotonically with height up to the uppermost level of the reanalysis (although results near the top of the models are to be interpreted with care). At the same time, one-month-lag correlations increase with height. Therefore, stratospheric A\nobreakdash-SAM index tends to precede the S\nobreakdash-SAM index. (Correlations at lags -5 to 5 are shown in Figure \@ref(fig:A1).)
 
 ```{r cor-lev, fig.cap = "Correlation between S\\nobreakdash-SAM and A\\nobreakdash-SAM at each level for lag zero and lag -1 (A\\nobreakdash-SAM leads S\\nobreakdash-SAM) for the 1979 -- 2018 period.", fig.width=3, fig.height=3}
 cors %>% 
@@ -472,7 +472,7 @@ indices %>%
 
 The linear trends for each of the indices (SAM, S\nobreakdash-SAM and A\nobreakdash-SAM) were evaluated for the complete period 1979 -- 2018 at each level for the whole year and separated by trimesters (Figure \@ref(fig:trends)). The SAM index presents a statistically positive significant trend (Figure \@ref(fig:trends)`r get_tag(term == "full" & season == "Annual")`) that extends throughout the troposphere up to about 50\ hPa and reaches its maximum value at 100\ hPa. The seasonal trends (rest of Figure \@ref(fig:trends) column a) indicate that positive trends are present in  Autumn and particularly in Summer, where the 100\ hPa maximum is much more defined. In Winter and Spring, we detect no statistically significant trend. This is consistent with the results of previous studies, which find large positive trends in Summer, smaller in Autumn and no trends in the other seasons [e.g. @fogt2020 and references therein] using indices of the SAM based on surface or near-surface circulation. 
 
-By separating the SAM signal in its asymmetric and symmetric parts, notonly we can see that these trends are almost entirely due to the symmetric component (column b vs. column c in Figure \@ref(fig:trends)), but in some cases the trends become clearer. In Summer, A\nobreakdash-SAM has a statistically non significant negative trend in the middle troposphere that obscures the trend in the SAM index; as a result, trends computed using only the Symmetric component are stronger (compare the shading region in Figure \@ref(fig:trends)`r get_tag(term == "full" & season == "DJF")` and `r get_tag(term == "sym" & season == "DJF")`). In Autumn, the S\nobreakdash-SAM index reveals a statistically significant positive trend in the stratosphere that is not significant using the SAM index. 
+By separating the SAM signal in its asymmetric and symmetric parts, not only we can see that these trends are almost entirely due to the symmetric component (column b vs. column c in Figure \@ref(fig:trends)), but in some cases the trends become clearer. In Summer, A\nobreakdash-SAM has a statistically non significant negative trend in the middle troposphere that obscures the trend in the SAM index; as a result, trends computed using only the Symmetric component are stronger (compare the shading region in Figure \@ref(fig:trends)`r get_tag(term == "full" & season == "DJF")` and `r get_tag(term == "sym" & season == "DJF")`). In Autumn, the S\nobreakdash-SAM index reveals a statistically significant positive trend in the stratosphere that is not significant using the SAM index. 
 
 Figure \@ref(fig:r-squared-trend) shows trends for the explained variance of each index. There is no evidence of a significant trend in the stratosphere. In the troposphere, there is a positive trend for A\nobreakdash-SAM and no significant trend for S\nobreakdash-SAM. This suggest that the SAM has become more asymmetric in the period from 1979 to 2018. However, the change is slight, around 1% increased explained variance per decade. 
 
@@ -547,7 +547,7 @@ indices_2d_yearly %>%
 
 We then computed the spatial regression of geopotential height anomalies on the A\nobreakdash-SAM and S\nobreakdash-SAM indices at 700\ hPa and 50\ hPa levels (Figure \@ref(fig:2d-regr)). While regression coefficients in Figure \@ref(fig:2d-regr) column a are computed using SAM, the regression coefficients in columns b and c of Figure \@ref(fig:2d-regr) are computed using multiple regression using the A\nobreakdash-SAM  and S\nobreakdash-SAM indices at the same time. Thus, they are to be interpreted as the patterns associated with each index, removing the variability (linearly) explained by the other one. 
 
-In the stratosphere, the spatial pattern associated with the SAM is clearly dominated by a zonally symmetric, monopolar structure (Figure \@ref(fig:2d-regr)a.1) which is not centred in the South Pole. On the other hand, the monopole associated with S\nobreakdash-SAM (Figure \@ref(fig:2d-regr)c.1) is more symmetric. Furthermore, the regression pattern of A\nobreakdash-SAM is characterized by a wave-1 structure with centers over the Bellinghausen Sea on the Western Hemisphere and Davis Sea in the Eastern Hemisphere
+In the stratosphere, the spatial pattern associated with the SAM is clearly dominated by a zonally symmetric, monopolar structure (Figure \@ref(fig:2d-regr)a.1) which is not centred in the South Pole. On the other hand, the monopole associated with S\nobreakdash-SAM (Figure \@ref(fig:2d-regr)c.1) is more symmetric. Furthermore, the regression pattern of A\nobreakdash-SAM is characterized by a wave-1 structure with centres over the Bellinghausen Sea on the Western Hemisphere and Davis Sea in the Eastern Hemisphere
 
 
 ```{r compute-raphael}
@@ -583,7 +583,7 @@ indices_2d_yearly %>%
   .[, FitWave(estimate, 0:3), by = .(lat, lev, term)] %>% 
   ggplot(aes(lat, amplitude)) +
   geom_line(aes(color = factor(k))) +
-  scale_color_brewer("Wavenumber", palette = "Dark2") +
+  scale_color_brewer("wavenumber", palette = "Dark2") +
   scale_y_continuous("Amplitude") +
   scale_x_latitude(ticks = 20) +
   coord_flip() +
@@ -592,7 +592,7 @@ indices_2d_yearly %>%
   no_grid 
 ```
 
-The amplitude of the first zonal wave numbers at each latitude at 50\ hPa and 700\ hPa are shown in Figure \@ref(fig:wave-amplitude), where wave number zero represents the amplitude of the zonal mean. Zonal wave amplitudes of the spatial pattern described by the SAM index (Figure \@ref(fig:wave-amplitude) column `r get_col(term == "full")`) are dominated by the zonal mean (wavenumber 0) at both levels. However, zonal waves are important, particularly South of 50\degree S, with wavenumber 1 clearly dominating at 50\ hPa (Figure \@ref(fig:wave-amplitude)`r get_tag(term == "full" & lev == 50)`) and a mix of waves of similar amplitude at 700\ hPa (Figure \@ref(fig:wave-amplitude)`r get_tag(term == "full" & lev == 700)`). Figure \@ref(fig:wave-amplitude) column `r get_col(term == "asym")` shows that the A\nobreakdash-SAM is overwhelmingly dominated by wave 1 in the stratosphere (Figure \@ref(fig:wave-amplitude)`r get_tag(term== "asym" & lev == 50)`), while in the troposphere it is explained by a combination of zonal waves 3 to 1 in decreasing level of importance (Figure \@ref(fig:wave-amplitude)`r get_tag(term== "asym" & lev == 700)`) with negligible amplitude of the zonal mean. On the other hand, the S\nobreakdash-SAM it is almost entirely explained by the zonal mean at both levels (Figure \@ref(fig:wave-amplitude) column c), with little to no contribution from zonal waves with wavenumbers 1 to 3.
+The amplitude of the first zonal wavenumbers at each latitude at 50\ hPa and 700\ hPa are shown in Figure \@ref(fig:wave-amplitude), where wavenumber zero represents the amplitude of the zonal mean. Zonal wave amplitudes of the spatial pattern described by the SAM index (Figure \@ref(fig:wave-amplitude) column `r get_col(term == "full")`) are dominated by the zonal mean (wavenumber 0) at both levels. However, zonal waves are important, particularly South of 50\degree S, with wavenumber 1 clearly dominating at 50\ hPa (Figure \@ref(fig:wave-amplitude)`r get_tag(term == "full" & lev == 50)`) and a mix of waves of similar amplitude at 700\ hPa (Figure \@ref(fig:wave-amplitude)`r get_tag(term == "full" & lev == 700)`). Figure \@ref(fig:wave-amplitude) column `r get_col(term == "asym")` shows that the A\nobreakdash-SAM is overwhelmingly dominated by wave 1 in the stratosphere (Figure \@ref(fig:wave-amplitude)`r get_tag(term== "asym" & lev == 50)`), while in the troposphere it is explained by a combination of zonal waves 3 to 1 in decreasing level of importance (Figure \@ref(fig:wave-amplitude)`r get_tag(term== "asym" & lev == 700)`) with negligible amplitude of the zonal mean. On the other hand, the S\nobreakdash-SAM it is almost entirely explained by the zonal mean at both levels (Figure \@ref(fig:wave-amplitude) column c), with little to no contribution from zonal waves with wavenumbers 1 to 3.
 
 Looking at Figure \@ref(fig:2d-regr)b.2, it becomes apparent that zonal waves 1 and 2 modulate the amplitude of zonal wave 3, which -- as mentioned before -- is larger in the Western Hemisphere than in the Eastern Hemisphere.
 
@@ -766,7 +766,7 @@ air_regr %>%
   scale_x_longitude() +
   scale_y_latitude(labels = NULL, limits = c(NA, 0), 
                    minor_breaks = NULL) +
-  scale_fill_divergent("2-meter air tempreature",  
+  scale_fill_divergent("2-meter air temperature",  
                        limits = c(-0.6, .6), 
                        oob = scales::squish,
                        guide = guide_colorstrip_bottom(), breaks = AnchorBreaks(0, 0.1, 0)) +
@@ -788,7 +788,7 @@ The pattern of negative anomalies in the pole surrounded by positive anomalies r
 
 Figure \@ref(fig:regr-air-season) column b can be partially compared with Figure 11 from @fogt2012. Although they used station data from 1958 to 2001, main features are reproduced here, such as the strong signal in New Zealand and Australia in Summer and Spring. 
 
-Regression of the SAM indices with seasonal mean precipitation and 700\ hPa geopotential height are shown in Figures \@ref(fig:pp-regr-oceania) and \@ref(fig:pp-regr-america) for Australasia and South America respectively. South Africa is not shown because no significant signal was detected there.
+Regression of the SAM indices with seasonal mean precipitation and 700\ hPa geopotential height are shown in Figures \@ref(fig:pp-regr-oceania) and \@ref(fig:pp-regr-america) for New Zealand and neighbouring islands, and South America respectively. South Africa is not shown because no significant signal was detected there.
 
 ```{r calc-indices2d-seasonal}
 indices_2d_seasonal <- hgt[lev %in% 700] %>% 
@@ -938,7 +938,7 @@ plot_pp <- function(this_continent, data = pp_regr) {
 plot_pp("oceania") 
 ```
 
-In Australia, the annual regression shows that the SAM index is associated with positive precipitation anomalies in the southeastern region (Figure \@ref(fig:pp-regr-oceania)a.1), in agreement with @gillett2006. The separation between A\nobreakdash-SAM and S\nobreakdash-SAM suggest that this positive anomaly is explained by the S\nobreakdash-SAM only in the East coast (Figure \@ref(fig:pp-regr-oceania)c.1). Geopotential height anomalies associated with this index (black contours) are indicative of easterly flow from the Tasman Sea, which could explain the positive anomalies in precipitation as found by @hendon2007. A\nobreakdash-SAM appears related to positive precipitation anomalies in the West coast of Southeastern Australia (Figure \@ref(fig:pp-regr-oceania)b.2), which could similarly be explained by the anomalous westerly circulation transporting moist air to the continent from the Indian Ocean. 
+In Australia, the annual regression shows that the SAM index is associated with positive precipitation anomalies in the Southeastern region (Figure \@ref(fig:pp-regr-oceania)a.1), in agreement with @gillett2006. The separation between A\nobreakdash-SAM and S\nobreakdash-SAM suggest that this positive anomaly is explained by the S\nobreakdash-SAM only in the East coast (Figure \@ref(fig:pp-regr-oceania)c.1). Geopotential height anomalies associated with this index (black contours) are indicative of easterly flow from the Tasman Sea, which could explain the positive anomalies in precipitation as found by @hendon2007. A\nobreakdash-SAM appears related to positive precipitation anomalies in the West coast of Southeastern Australia (Figure \@ref(fig:pp-regr-oceania)b.2), which could similarly be explained by the anomalous westerly circulation transporting moist air to the continent from the Indian Ocean. 
 
 The seasonal-based regressions show statistically significant anomalies only in Spring, when positive SAM is associated with positive precipitation anomalies in Eastern Australia (Figure \@ref(fig:pp-regr-oceania)a.5).  In this trimester, S\nobreakdash-SAM seems to be associated with positive precipitation anomalies in a relatively reduced area of the East Coast (Figure \@ref(fig:pp-regr-oceania)c.5) while the positive precipitation anomalies related with positive A\nobreakdash-SAM affect all Eastern Australia (Figure \@ref(fig:pp-regr-oceania)b.5).
 
@@ -954,7 +954,7 @@ In South America (Figure \@ref(fig:pp-regr-america)), regression using all seaso
 
 Except Winter, seasonal-based regressions mirror this same pattern. Even if not statistically significant, they all show negative values in SESA and southern Chile along with positive values in southern Brazil in relation with the SAM. The separation of these features between A\nobreakdash-SAM and S\nobreakdash-SAM regression maps is also rather consistent.
 
-The anomalous circulation at 700\ hPa associated with S\nobreakdash-SAM (Figure \@ref(fig:pp-regr-america)c.1) indicate anomalous easterly flow over Southern Chile. This leads to reduced influx of moist air from the Pacific Ocean which is the main source of precipitable water in that region [e.g. @garreaud2007]. On the other hand, the anomalous circulation associated with positive values of A\nobreakdash-SAM (Figure \@ref(fig:pp-regr-america)b.1) in the Atlantic is anticyclonic in the South and cyclonic in the North. This promotes anomalous South-Easterly flow over SESA, which inhibits the flow of the South America Low-Level Jet to the region [@silvestri2009;@zamboni2010]. This same pattern was found to be associated with increased precipitation in Southern Brazil during SACZ events [@rosso2018]. There is a small area of significative positive precipitation anomalies with the SAM near central Argentina which is also present in the station-based analysis by @gillett2006 that is explained by the A\nobreakdash-SAM.
+The anomalous circulation at 700\ hPa associated with S\nobreakdash-SAM (Figure \@ref(fig:pp-regr-america)c.1) indicate anomalous easterly flow over Southern Chile. This leads to reduced influx of moist air from the Pacific Ocean which is the main source of precipitable water in that region [e.g. @garreaud2007]. On the other hand, the anomalous circulation associated with positive values of A\nobreakdash-SAM (Figure \@ref(fig:pp-regr-america)b.1) in the Atlantic is anticyclonic in the South and cyclonic in the North. This promotes anomalous South-Easterly flow over SESA, which inhibits the flow of the South America Low-Level Jet to the region [@silvestri2009;@zamboni2010]. This same pattern was found to be associated with increased precipitation in Southern Brazil during SACZ events [@rosso2018]. There is a small area of significant positive precipitation anomalies with the SAM near central Argentina which is also present in the station-based analysis by @gillett2006 that is explained by the A\nobreakdash-SAM.
 
 ## Conclusions
 
@@ -963,9 +963,10 @@ In this study we characterise the temporal and spatial variability of the zonall
 The A\nobreakdash-SAM index correlates strongly with the S\nobreakdash-SAM index. In the troposphere, this correlation is maximum at zero lag, while in the stratosphere is maximised with the A\nobreakdash-SAM leading the S\nobreakdash-SAM by one month. Since most indices of the SAM are calculated using surface or near-surface conditions, this result would suggest that they might not be sensitive to the most dramatic changes in SAM variability. 
 
 The two-year periodicity we found in the stratospheric S\nobreakdash-SAM might point to a link between the SAM and the Quasi Biennial Oscillation. There is evidence of influence between the QBO and the Northern Annular Mode [e.g. @holton1980;@watson2014;@zhang2020], so it is not unlikely that the SAM would be similarly affected. However, establishing this link would require further research. 
-We observe a positive trend of SAM in Summer and Autumn, as was documented by previous studies [e.g. @fogt2020 and references therein] for low levels. We show that these trends maximise at 100\ hPa, and are explained by the zonally symmetric component. We also find a statistically significant positive trend in the Symmetric component of the SAM in the stratosphere that is not evident in the SAM index. We find some evidence of the SAM becoming more zonally asymmetric, as there is a slight positive trend in the variance explained by the as the A\nobreakdash-SAM. This is in contrast to @fogt2012 who made the evaluation for the period 158 -- 2001. This discrepancy might be due either due to differneces in methodology or analysed period. 
 
-In the troposphere, the spatial patterns of geopotential associated with the S\nobreakdash-SAM index are much closer to being fully annular than the patterns associated with the SAM index. The A\nobreakdash-SAM index, on the other hand, describes a wave-3 pattern with maximum amplitude in the Pacific. This pattern extends vertically in the troposphere but its maximum is located at 250\ hPa, which also could suggest that surface-based indices are not opitimal for capturing this variability. This wave-3 pattern is similar to the Pacific-South American Pattern, linked to ENSO variability. We found that the significant correlation that exists between the SAM index and the Oceanic Niño Index over this period is captured entirely by the A\nobreakdash-SAM index. This suggests that ENSO is linked to SAM exclusively through the variability in the latter's asymmetric component and thus, the A\nobreakdash-SAM index could be a useful measure to further study that relationship. 
+We observe a positive trend of SAM in Summer and Autumn, as was documented by previous studies [e.g. @fogt2020 and references therein] for low levels. We show that these trends maximise at 100\ hPa, and are explained by the zonally symmetric component. We also find a statistically significant positive trend in the Symmetric component of the SAM in the stratosphere that is not evident in the SAM index. We find some evidence of the SAM becoming more zonally asymmetric, as there is a slight positive trend in the variance explained by the as the A\nobreakdash-SAM. This is in contrast to @fogt2012 who made the evaluation for the period 1958 -- 2001. This discrepancy might be due either due to differences in methodology or analysed period. 
+
+In the troposphere, the spatial patterns of geopotential associated with the S\nobreakdash-SAM index are much closer to being fully annular than the patterns associated with the SAM index. The A\nobreakdash-SAM index, on the other hand, describes a wave-3 pattern with maximum amplitude in the Pacific. This pattern extends vertically in the troposphere but its maximum is located at 250\ hPa, which also could suggest that surface-based indices are not optimal for capturing this variability. This wave-3 pattern is similar to the Pacific-South American Pattern, linked to ENSO variability. We found that the significant correlation that exists between the SAM index and the Oceanic Niño Index over this period is captured entirely by the A\nobreakdash-SAM index. This suggests that ENSO is linked to SAM exclusively through the variability in the latter's asymmetric component and thus, the A\nobreakdash-SAM index could be a useful measure to further study that relationship. 
 
 Temperature anomalies associated with the SAM broadly show a pattern of negative anomalies at polar latitudes surrounded by positive anomalies, but with many deviations from symmetry. The A\nobreakdash-SAM index explains a big portion of these deviations. In particular, the positive phase of A\nobreakdash-SAM is associated with colder temperatures over Southern Brazil, South Africa and Southern Australia, as well as the negative anomalies in the equatorial Pacific consistent with the ENSO\nobreakdash-SAM relationship. These negative anomalies are particularly clear in the DJF and SON trimesters, which include the months in which the ENSO teleconnection is more active [e.g. @cai2020a].
 
@@ -973,7 +974,7 @@ In Australia the SAM is associated with positive precipitation anomalies in Sout
 
 @silvestri2009 suggests that precipitation impacts linked to the SAM changed strongly before and after 1980. In particular, the negative relationship with precipitation in South America was absent in some areas and switched sign in others in the earlier period. The correlation between ENSO and SAM is similarly non-stationary, also changing sign before the 1980s [@fogt2006;@clem2013]. Seeing as both the ENSO\nobreakdash-SAM relationship and most of the precipitation impacts in South America are captured by the A\nobreakdash-SAM, the results presented here are most likely period-dependent. The decadal variations of the A\nobreakdash-SAM should be focus of future studies.
 
-By separating the zonally symmetric and zonally symmetric SAM signals, we show that the asymmetric component of the SAM has its unique variability, trends and impacts. This is particularly important in the context of a changing climate, as the impact on the SAM of ozone recovery is modeled as highly zonally symmetric, while the impact of increased concentration of greenhose gases has also a zonally asymmetric component [@arblaster2006].
+By separating the zonally symmetric and zonally symmetric SAM signals, we show that the asymmetric component of the SAM has its unique variability, trends and impacts. This is particularly important in the context of a changing climate, as the impact on the SAM of ozone recovery is modelled as highly zonally symmetric, while the impact of increased concentration of greenhouse gases has also a zonally asymmetric component [@arblaster2006].
 
 
 
@@ -994,7 +995,7 @@ The authors declare that they have no conflict of interest.
 
 ## Availability of data and material {-}
 
-All data used in this paper is freely available from their respective sources. ERA5 data can be obtained via the Copernicus Climate Data Store (https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-pressure-levels-monthly-means). NOAAGlobalTemp and GPCC precipitation data can be obtained through the NOAA Physical Sicences Laboratory website (https://psl.noaa.gov/data/gridded/data.noaaglobaltemp.html and https://psl.noaa.gov/data/gridded/data.gpcc.html). The Oceanic Niño Index is avaiable via NOAA's Climate Precidction Center: https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/detrend.nino34.ascii.txt
+All data used in this paper is freely available from their respective sources. ERA5 data can be obtained via the Copernicus Climate Data Store (https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-pressure-levels-monthly-means). NOAAGlobalTemp and GPCC precipitation data can be obtained through the NOAA Physical Sciences Laboratory website (https://psl.noaa.gov/data/gridded/data.noaaglobaltemp.html and https://psl.noaa.gov/data/gridded/data.gpcc.html). The Oceanic Niño Index is available via NOAA's Climate Prediction Center: https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/detrend.nino34.ascii.txt
 
 ## Code availability {-}
 
@@ -1012,53 +1013,6 @@ A version-controlled repository of the code used to create this analysis, includ
 
 
 \newpage
-
-```{r A1, fig.cap = "Lag-correlation between the A\\nobreakdash-SAM and the S\\nobreakdash-SAM index at each level. Negative lags imply A\\nobreakdash-SAM leading S\\nobreakdash-SAM and vice versa. For the 1979 -- 2018 period.", fig.width = 5, fig.height=5, fig.pos="ht"}
-ccf_dt <- function(..., plot = FALSE) {
-  stat <- ccf(..., plot = plot)
-  list(lag = stat$lag[, 1, 1], 
-       acf = stat$acf[, 1, 1])
-}
-
-indices_wide %>% 
-  .[, ccf_dt(asym, sym, lag.max = 5), by = .(lev)] %>% 
-  ggplot(aes(lag, lev)) +
-  geom_contour_fill(aes(z = acf), breaks = AnchorBreaks(0, 0.05)) +
-  geom_contour_tanaka(aes(z = acf), breaks = AnchorBreaks(0, 0.05)) +
-  geom_vline(xintercept = 0) +
-  scale_fill_divergent(NULL,
-                       guide = guide_colorstrip_bottom(20),
-                       breaks = AnchorBreaks(0, 0.05),
-                       limits = c(NA, .59)) +
-  scale_x_continuous("Lag (months)\nSymmetric leads Asymmetric\t \tAsymmetric leads Symmetric", 
-                     breaks = seq(-5, 5, 1), 
-                     expand = c(0, 0)) +
-  scale_y_level()
-```
-
-```{r compute-spectrums}
-indices %>% 
-  .[lev %in% c(50, 700)] %>% 
-  # .[, estimate_norm := estimate_norm/sd(estimate_norm), by = .(lev, term)] %>% 
-  .[, fftspectrum(estimate, c(3, 5), B = 5000, probs = c(0, 0.95)), by = .(term, lev)] -> spec
-```
-
-```{r A2, fig.cap = "Fourier spectrum of each timeseries computed as Fourier transform smoothed with modified Daniell smoothers with widths 3 and 5. The shading indicates de 95\\% confidence area derived by computing the spectrum for 5000 simulated samples from a fitted autorregressive model and (95\\% of the simulated sampels had an amplitude equal or lower). The light line indicates the theoretical expected amplitude from the autorregressive model. For the 1979 -- 2018 period.", fig.height=4, fig.width=6}
-spec %>%
-  # .[term != "full"] %>% 
-  ggplot(aes(1/freq/12, spec)) +
-  geom_ribbon(aes(ymin = 0, ymax = `95%`), position = "dodge", alpha = 0.1) +
-  geom_line(aes(y = ar_spectrum), alpha = 0.15) +
-  geom_line() +
-  annotation_logticks(sides = "b") +
-  scale_color_brewer(NULL, palette = "Dark2", aesthetics = c("color", "fill")) +
-  scale_x_log10("Period (years)", sec.axis = sec_axis(~.*12, name = "Period (months)")) +
-  scale_y_continuous("Spectrum") +
-  facet_grid(lev ~ term,labeller = labeller(lev = lev.lab, term = lab_sam), scales = "free") +
-  tag_facets() 
-```
-
-
 
 ```{r A3, fig.cap = "50~hPa geopotential height zonal anomalies (meters) of composites of positive and negative SAM months selected using $\\pm1$ standard deviation as threshhold for the 1979 -- 2018 period. Numbers in the column headers are the spatial correlation between SAM+ and SAM- composites and number of monthly fields used to construct each composite.", apendix = TRUE, fig.height = 5, fig.width = 6}
 composites <- hgt[lev %in% c(50, 700)] %>%
@@ -1220,5 +1174,54 @@ patterns %>%
   axis_labs_smol +
   no_grid 
 ```
+
+
+```{r A1, fig.cap = "Lag-correlation between the A\\nobreakdash-SAM and the S\\nobreakdash-SAM index at each level. Negative lags imply A\\nobreakdash-SAM leading S\\nobreakdash-SAM and vice versa. For the 1979 -- 2018 period.", fig.width = 5, fig.height=5, fig.pos="ht"}
+ccf_dt <- function(..., plot = FALSE) {
+  stat <- ccf(..., plot = plot)
+  list(lag = stat$lag[, 1, 1], 
+       acf = stat$acf[, 1, 1])
+}
+
+indices_wide %>% 
+  .[, ccf_dt(asym, sym, lag.max = 5), by = .(lev)] %>% 
+  ggplot(aes(lag, lev)) +
+  geom_contour_fill(aes(z = acf), breaks = AnchorBreaks(0, 0.05)) +
+  geom_contour_tanaka(aes(z = acf), breaks = AnchorBreaks(0, 0.05)) +
+  geom_vline(xintercept = 0) +
+  scale_fill_divergent(NULL,
+                       guide = guide_colorstrip_bottom(20),
+                       breaks = AnchorBreaks(0, 0.05),
+                       limits = c(NA, .59)) +
+  scale_x_continuous("Lag (months)\nA-SAM leads S-SAM              S-SAM leads A-SAM", 
+                     breaks = seq(-5, 5, 1), 
+                     expand = c(0, 0)) +
+  scale_y_level()
+```
+
+```{r compute-spectrums}
+indices %>% 
+  .[lev %in% c(50, 700)] %>% 
+  # .[, estimate_norm := estimate_norm/sd(estimate_norm), by = .(lev, term)] %>% 
+  .[, fftspectrum(estimate, c(3, 5), B = 5000, probs = c(0, 0.95)), by = .(term, lev)] -> spec
+```
+
+```{r A2, fig.cap = "Fourier spectrum of each timeseries computed as Fourier transform smoothed with modified Daniell smoothers with widths 3 and 5. The shading indicates de 95\\% confidence area derived by computing the spectrum for 5000 simulated samples from a fitted autorregressive model and (95\\% of the simulated sampels had an amplitude equal or lower). The light line indicates the theoretical expected amplitude from the autorregressive model. For the 1979 -- 2018 period.", fig.height=4, fig.width=6}
+spec %>%
+  # .[term != "full"] %>% 
+  ggplot(aes(1/freq/12, spec)) +
+  geom_ribbon(aes(ymin = 0, ymax = `95%`), position = "dodge", alpha = 0.1) +
+  geom_line(aes(y = ar_spectrum), alpha = 0.15) +
+  geom_line() +
+  annotation_logticks(sides = "b") +
+  scale_color_brewer(NULL, palette = "Dark2", aesthetics = c("color", "fill")) +
+  scale_x_log10("Period (years)", sec.axis = sec_axis(~.*12, name = "Period (months)")) +
+  scale_y_continuous("Spectrum") +
+  facet_grid(lev ~ term,labeller = labeller(lev = lev.lab, term = lab_sam), scales = "free") +
+  tag_facets() 
+```
+
+
+
 
 \newpage
