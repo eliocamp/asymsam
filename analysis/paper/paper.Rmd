@@ -583,7 +583,7 @@ indices_2d_yearly %>%
   .[, FitWave(estimate, 0:3), by = .(lat, lev, term)] %>% 
   ggplot(aes(lat, amplitude)) +
   geom_line(aes(color = factor(k))) +
-  scale_color_brewer("wavenumber", palette = "Dark2") +
+  scale_color_brewer("Wavenumber", palette = "Dark2") +
   scale_y_continuous("Amplitude") +
   scale_x_latitude(ticks = 20) +
   coord_flip() +
