@@ -61,6 +61,8 @@ header-includes:
 #  - \usepackage[inline]{showlabels}
  - \usepackage{chngcntr}
  - \usepackage{natbib}
+ - \usepackage{lineno}
+ - \linenumbers 
 ---
 
 ```{r setup, echo = FALSE,warning=FALSE, message = FALSE}
