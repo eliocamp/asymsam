@@ -4,6 +4,7 @@
 
 \usepackage[utf8]{inputenc} % allow utf-8 input
 \usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{lmodern}        % https://github.com/rstudio/rticles/issues/343
 \usepackage{hyperref}       % hyperlinks
 \usepackage{url}            % simple URL typesetting
 \usepackage{booktabs}       % professional-quality tables
@@ -18,19 +19,19 @@
 \author{
     Elio Campitelli
    \\
-     \\
+    UBA - FCEN - DCAO \\
    \\
   \texttt{\href{mailto:elio.campitelli@cima.fcen.uba.ar}{\nolinkurl{elio.campitelli@cima.fcen.uba.ar}}} \\
    \And
-    Leandro B. Díaz
+    Leandro Díaz
    \\
-     \\
+    UBA - FCEN - DCAO \\
    \\
   \texttt{} \\
    \And
     Carolina Vera
    \\
-     \\
+    UBA - FCEN - DCAO \\
    \\
   \texttt{} \\
   }
@@ -42,11 +43,18 @@
 \usepackage{subfig}
 \usepackage{amsmath}
 \usepackage{chngcntr}
-\usepackage{natbib}
+\usepackage[round]{natbib}
+\hypersetup{hidelinks}
 
+\usepackage{fancyhdr}
+\fancypagestyle{firstpage}{%
+  \chead{This is a non-peer reviewed preprint submitted to EarthArXiv. The manuscript is under review at Climate Dynamics. Subsequent versions of this article may have different content}
+  \rhead{}
+}
 
 \begin{document}
 \maketitle
+\thispagestyle{firstpage}
 
 \def\tightlist{}
 
@@ -273,7 +281,8 @@ In Australia the SAM is associated with positive precipitation anomalies in Sout
 By separating the zonally symmetric and zonally symmetric SAM signals, we show that the asymmetric component of the SAM has its unique variability, trends and impacts. This is particularly important in the context of a changing climate, as the impact on the SAM of ozone recovery is modelled as highly zonally symmetric, while the impact of increased concentration of greenhouse gases has also a zonally asymmetric component \citep{arblaster2006}.
 
 \hypertarget{acknowledgements}{%
-\section{Acknowledgements}\label{acknowledgements}}
+\section*{Acknowledgements}\label{acknowledgements}}
+\addcontentsline{toc}{section}{Acknowledgements}
 
 NOAA Global Surface Temperature (NOAAGlobalTemp) data provided by the NOAA/OAR/ESRL PSL, Boulder, Colorado, USA, from their Web site at \url{https://psl.noaa.gov/}
 

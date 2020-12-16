@@ -1,36 +1,50 @@
 ---
 title: Assessment of zonally symmetric and asymmetric components of the Southern Annular Mode using a novel approach
-
-authors: 
-  - name: Elio Campitelli
+authors:
+  - name:  Elio Campitelli
+    affiliation: |
+      UBA - FCEN - DCAO
     email: elio.campitelli@cima.fcen.uba.ar
-  - name:  Leandro B. Díaz
+  - name:  Leandro Díaz
+    affiliation: |
+      UBA - FCEN - DCAO
   - name:  Carolina Vera
-
-
+    affiliation: |
+      UBA - FCEN - DCAO
+      
 abstract: |
-    The Southern Annular Mode (SAM) is the main mode of variability in the Southern Hemisphere extra-tropical circulation and it is so called because of its zonally symmetric ring-like shape. However, the SAM pattern actually contains noticeable deviations from zonal symmetry. Thus, the purpose of this study is to describe the zonally asymmetric and symmetric components of the SAM variability and their impacts. We regress monthly geopotential height fields at each level onto the asymmetric and symmetric component of the SAM to create two new indices: Asymmetric SAM (A-SAM) and Symmetric SAM (S-SAM). In the troposphere, the A-SAM is associated with a zonal wave 3 which is rotated a quarter wavelength with respect to the climatological zonal wave 3, is much stronger in the Pacific ocean, where it extends vertically to the stratosphere with an equivalent barotropic structure. On the other hand, the S-SAM is associated with negative geopotential height anomalies over Antarctica surrounded by a zonally symmetric ring of positive geopotential height anomalies. The observed relationship between the El Niño Southern Oscillation and the SAM is fully explained by the A-SAM index. The positive trend of the SAM is present only in its symmetric component. Despite this, the SAM is becoming more zonally asymmetric. The regional impacts of the SAM in temperature and precipitation are strongly affected by its asymmetric component.
-
+   The Southern Annular Mode (SAM) is the main mode of variability in the Southern Hemisphere extra-tropical circulation and it is so called because of its zonally symmetric ring-like shape. However, the SAM pattern actually contains noticeable deviations from zonal symmetry. Thus, the purpose of this study is to describe the zonally asymmetric and symmetric components of the SAM variability and their impacts. We regress monthly geopotential height fields at each level onto the asymmetric and symmetric component of the SAM to create two new indices: Asymmetric SAM (A-SAM) and Symmetric SAM (S-SAM). In the troposphere, the A-SAM is associated with a zonal wave 3 which is rotated a quarter wavelength with respect to the climatological zonal wave 3, is much stronger in the Pacific ocean, where it extends vertically to the stratosphere with an equivalent barotropic structure. On the other hand, the S-SAM is associated with negative geopotential height anomalies over Antarctica surrounded by a zonally symmetric ring of positive geopotential height anomalies. The observed relationship between the El Niño Southern Oscillation and the SAM is fully explained by the A-SAM index. The positive trend of the SAM is present only in its symmetric component. Despite this, the SAM is becoming more zonally asymmetric. The regional impacts of the SAM in temperature and precipitation are strongly affected by its asymmetric component.
+   
 keywords:
   - Southern Annular Mode
   - general circulation
   - zonally asymmetric circulation
   - El Niño Southern Oscillation
+
+notice: "This is a non-peer reviewed preprint submitted to EarthArXiv. The manuscript is under review at Climate Dynamics. Subsequent versions of this article may have different content"
+
 bibliography: "AsymSAM,packages"
-bibstyle: "plainnat"
+biblio-style: plainnat
 output: 
- bookdown::pdf_book: 
-    base_format: rticles::arxiv_article
-    latex_engine: "xelatex"
-    citation_package: "natbib"
-    keep_tex: true
+  bookdown::pdf_document2:
+      template: "template.tex"
+      latex_engine: "xelatex"
+      citation_package: "natbib"
+      keep_tex: true
+  bookdown::pdf_book: 
+      base_format:  rticles::arxiv_article
+      latex_engine: "xelatex"
+      citation_package: "natbib"
+      keep_tex: true
+      # pandoc_args: ["--lua-filter=abstract-to-meta.lua"]
 header-includes: 
  - \usepackage{gensymb}
  - \usepackage{subfig}
  - \usepackage{amsmath}
 #  - \usepackage[inline]{showlabels}
  - \usepackage{chngcntr}
- - \usepackage{natbib}    
+ - \usepackage[round]{natbib}
+ - \hypersetup{hidelinks}
 ---
 
 ```{r setup, echo = FALSE,warning=FALSE, message = FALSE}
@@ -40,7 +54,7 @@ knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE,
   cache = TRUE,
-  cache.extra = 41,
+  cache.extra = 42,
   cache.path = "../cache/pre-print",
   collapse = TRUE,
   comment = "#>",
@@ -948,7 +962,7 @@ By separating the zonally symmetric and zonally symmetric SAM signals, we show t
 
 
 
-# Acknowledgements
+# Acknowledgements {-}
 
 NOAA Global Surface Temperature (NOAAGlobalTemp) data provided by the NOAA/OAR/ESRL PSL, Boulder, Colorado, USA, from their Web site at https://psl.noaa.gov/ 
 
