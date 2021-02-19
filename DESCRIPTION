@@ -51,7 +51,7 @@ Suggests: devtools,
     git2r,
     knitr,
     rmarkdown 
-Remotes: eliocamp/metR@isoband,
+Remotes: 
     eliocamp/tagger,
     eliocamp/rticles@AMS-V5,
     tidyverse/ggplot2,
