@@ -195,7 +195,15 @@ dims <- hgt[lat <= -20] %>%
 
 We used monthly geopotential height at 2.5\degree\ longitude by 2.5\degree\ latitude of horizontal resolution and 37 vertical isobaric levels from ERA5 [@hersbach2020] for the period 1979 to 2018. We restrict our analysis to the post-satellite era to avoid any confounding factors arising from the incorporation of satellite observations. 
 
-Temperature data used are from NOAA's Merged Land Ocean Global Surface Temperature Analysis V4.0.1 [@smith2008; @vose2012], which blends land surface air temperature and sea surface (water) temperature analysis into a monthly global grid 5\degree\ longitude by 5\degree\ latitude. Monthly rainfall fields at 0.5\degree\ longitude by 0.5\degree\ latitude data from the Global Precipitation Climatology Centre [@schneider2015;@schneider2017] are also considered. The rainfall dataset is based on station-based records, and thus it only has continental coverage.
+Temperature data used are from NOAA's Merged Land Ocean Global Surface
+Temperature Analysis V4.0.1 [@smith2008; @vose2012], which blends land surface
+air temperature and sea surface (water) temperature analysis into a monthly
+global grid 5\degree longitude by 5\degree latitude. For precipitation data we
+used monthly data from the CPC Merged Analysis of Precipitation [\@xie1997],
+with a 2.5\\degree\\ resolution in latitude and longitude. This rainfall gridded
+dataset is based on information from different sources such as rain gauge
+observations, satellite inferred estimations and the NCEP-NCAR reanalysis, and
+it is available since 1979 to present.
 
 ## Definition of indices
 
@@ -989,19 +997,29 @@ NOAA Global Surface Temperature (NOAAGlobalTemp) data provided by the NOAA/OAR/E
 
 ## Funding {-}
 
-The research was supported by UBACyT20020170100428BA and the CLIMAX Project funded by Belmont Forum/ANR-15-JCL/-0002-01. Elio Campitelli was supported by a PhD grant from CONICET, Argentina.
+The research was supported by UBACyT20020170100428BA and the CLIMAX Project
+funded by Belmont Forum/ANR-15-JCL/-0002-01. Elio Campitelli was supported by a
+PhD grant from CONICET, Argentina.
 
 ## Conflicts of interest {-}
 
 The authors declare that they have no conflict of interest.
 
-## Availability of data and material {-}
+## Availability of data and material {.unnumbered}
 
-All data used in this paper is freely available from their respective sources. ERA5 data can be obtained via the Copernicus Climate Data Store (https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-pressure-levels-monthly-means). NOAAGlobalTemp and GPCC precipitation data can be obtained through the NOAA Physical Sciences Laboratory website (https://psl.noaa.gov/data/gridded/data.noaaglobaltemp.html and https://psl.noaa.gov/data/gridded/data.gpcc.html). The Oceanic Niño Index is available via NOAA's Climate Prediction Center: https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/detrend.nino34.ascii.txt
+All data used in this paper is freely available from their respective sources.
+ERA5 data can be obtained via the Copernicus Climate Data Store
+([<https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-pressure-levels-monthly-means>](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-pressure-levels-monthly-means){.uri}).
+CMAP Precipitation data provided by the NOAA/OAR/ESRL PSL, Boulder, Colorado,
+USA, from their Web site at <https://psl.noaa.gov/data/gridded/data.cmap.html>.
+The Oceanic Niño Index is available via NOAA's Climate Prediction Center:
+<https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/detrend.nino34.ascii.txt>
 
-## Code availability {-}
+## Code availability {.unnumbered}
 
 A version-controlled repository of the code used to create this analysis, including the code used to download the data can be found at https://github.com/eliocamp/asymsam.
+including the code used to download the data can be found at
+<https://github.com/eliocamp/asymsam>.
 
 <!-- \bibliography{AsymSAM,packages} -->
 
