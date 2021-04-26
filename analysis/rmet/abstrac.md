@@ -1,0 +1,10 @@
+# Symmetries and Asymmetries of the Southern Annular Mode
+The Southern Annular Mode (SAM) is the main mode of the circulation anomalies in the Southern Hemisphere and it has influence over local anomalies of several atmospheric variables such as surface temperature and precipitation. While mostly zonally symmetric, it's spatial structure has also asymmetric characteristics. Since indices used in the literature respond to both aspects, they can lead to difficult interpretations. Here, we propose a straightforward method of creating two indices representing, respectively, the Symmetric and Asymmetric SAM components of variability.
+
+To construct the two indices, we first separate at each level the geopotential height pattern associated with SAM into its zonally symmetric and asymmetric components. After that, observed monthly geopotential height anomalies are projected onto each of the componentes to construct the respective Symmetric SAM (S-SAM) and Asymmetric SAM (A-SAM) monthly index. 
+
+Regression patterns of geopotential height based on the S-SAM removing the effect of the A-SAM are almost totally zonally symmetric and vice versa. The asymmetric SAM structure in the troposphere is associated with equivalent barotropic planetary waves 3 and 2, very similar to the Pacific South American Pattern. In the stratosphere it is almost completely dominated by planetary wave 1. We show that positive trend in the SAM index observed in the literature is only detectable in the S-SAM, wich provides further insight about the processes explaining it. On the other hand, there is a statistically significant trend in the variance explained by the A-SAM, which suggest that the SAM is becoming more asymmetric. 
+
+Keywords: Climate Science, Teleconections, Observations, Polar, Dynamics
+
+Leandro, Diaz, ldiaz@cima.fcen.uba.ar, Centro de Investigaciones del Mar y la Atmósfera. Carolina Vera, carolina@cima.fcen.uba.ar, Centro de Investigaciones del Mar y la Atmósfera.
