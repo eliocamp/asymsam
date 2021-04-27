@@ -525,44 +525,6 @@ A\nobreakdash-SAM and S\nobreakdash-SAM (Figure \@ref(fig:cross-correlation)b an
 Stratospheric coherency is stronger for the A\nobreakdash-SAM than the S\nobreakdash-SAM.
 The stratospheric S\nobreakdash-SAM seems to connect more strongly to the troposphere than the stratospheric A\nobreakdash-SAM.
 
-<!-- ```{r} -->
-
-<!-- indices_wide %>%  -->
-
-<!--   .[, FitLm(as.numeric(time), asym, sym, se = TRUE), by = .(lev)] %>%  -->
-
-<!--   rm_intercept() %>%  -->
-
-<!--   # .[, term := NULL] %>%  -->
-
-<!--   .[, estimate := estimate/(3600*24*365*10)] %>% -->
-
-<!--   .[, std.error := std.error/(3600*24*365*10)] %>% -->
-
-<!--   # setnames("type", "term") %>%  -->
-
-<!--   ggplot(aes(lev, estimate)) + -->
-
-<!--   geom_ribbon(aes(ymax = estimate + std.error*1.96, ymin = estimate - std.error*1.96), alpha = 0.3) + -->
-
-<!--   geom_line() + -->
-
-<!--   scale_fill_brewer(palette = "Dark2", aesthetics = c("color", "fill")) + -->
-
-<!--   geom_hline(yintercept = 0) + -->
-
-<!--   scale_x_level() + -->
-
-<!--   scale_y_continuous("Standard deviations per decade") + -->
-
-<!--   coord_flip() + -->
-
-<!--   facet_grid(~ term,labeller = labeller(term = lab_sam)) + -->
-
-<!--   tag_facets()  -->
-
-<!-- ``` -->
-
 ```{r trends, fig.cap = "Linear trends (in standard deviations per decade) at each level for annual (row 1) and seasonal values (rows 2 to 5) for the period 1979 -- 2018 and for the (column a) SAM index, (column b) A\\nobreakdash-SAM index, and (column c) S\\nobreakdash-SAM index. Shading indicates the 95\\% confidence interval from a t-distribution.", fig.width = 6, fig.height=4, fig.env="figure*", cache = FALSE}
 indices %>% 
   copy() %>% 
@@ -708,7 +670,7 @@ cor_raphael <- raphael[indices_wide[lev == 500], on = "time"] %>%
 
 In the troposphere, the regression pattern associated with the SAM shows the well-known combination of zonally symmetrical annular mode with zonal asymmetries in the form of a wave-3 (Figure \@ref(fig:2d-regr)a.2, [@fogt2012]).
 The regression patterns associated with the A\nobreakdash-SAM and S\nobreakdash-SAM indices successfully disentangle both structures.
-While the A\nobreakdash-SAM index gives rise to a cleaner zonal wave (Figure \@ref(fig:2d-regr)b.2), the S\nobreakdash-SAM index is associated with an annular structure, almost devoid of zonal asymmetries (Figure \@ref(fig:2d-regr)c.2).
+While the A\nobreakdash-SAM index gives rise to a cleaner zonal wave (Figure \@ref(fig:2d-regr)b.2), the S\nobreakdash-SAM index is associated with an annular structure, with only vestigial zonal asymmetries (Figure \@ref(fig:2d-regr)c.2) in the shape of a wave-3 which is the inverse of the A\nobreakdash-SAM wave-3.
 The wave-3 pattern observed in Figure \@ref(fig:2d-regr)b.2 is rotated by half a wavelength from the average position of the mean wave-3 pattern described by @raphael2004, whose reference locations are marked with points in the figure.
 Indeed, there is no correlation between @raphael2004's index and A\nobreakdash-SAM (cor = `r signif(cor_raphael$estimate, 2)`, p-value `r report_p(cor_raphael$p.value)`).
 Thus, the tropospheric A\nobreakdash-SAM index represents a zonal displacement in the position of the climatological wave-3 pattern.
@@ -1172,9 +1134,7 @@ These features are cleanly separated between A\nobreakdash-SAM and S\nobreakdash
 S\nobreakdash-SAM explains the negative anomalies in Southern Chile and A\nobreakdash-SAM, the negative-positive dipole between Southeastern South America and Southern Brazil.
 Individual seasons mostly follow this pattern.
 
-@silvestri2009 suggest that precipitation impacts linked to the SAM changed strongly before and after 1980.
-In particular, the negative relationship with precipitation in South America was absent in some areas and switched sign in others in the earlier period.
-The correlation between ENSO and SAM is similarly non-stationary, also changing sign before the 1980s [@fogt2006; @clem2013].
+@silvestri2009 suggest that precipitation impacts linked to the SAM changed strongly before and after 1980. In particular, the negative relationship with precipitation in South America was absent in some areas and switched sign in others in the earlier period. The correlation between ENSO and SAM is similarly non-stationary, also changing sign before the 1980s [@fogt2006; @clem2013].
 Seeing as both the ENSO\nobreakdash-SAM relationship and most of the precipitation impacts in South America are captured by the A\nobreakdash-SAM, the results presented here are most likely period-dependent.
 The decadal variations of the A\nobreakdash-SAM should be focus of future studies.
 
