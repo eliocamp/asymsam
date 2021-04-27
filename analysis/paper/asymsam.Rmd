@@ -259,7 +259,7 @@ However, only SAM index has unit standard deviation per definition.
 The explained variance of each pattern is used as an indicator of the degree of zonally symmetry or asymmetry of each monthly field.
 To quantify the coherence between temporal series corresponding to different indices or the same index at different levels, we computed the temporal correlation between them.
 
-```{r method, fig.cap = "Spatial patterns of the first EOF of 700~hPa geopotential height for 1979 -– 2018 period. (a) Full field, (b) zonally asymmetric component and (c) zonally symmetric component. Arbitrary units.", fig.width=6, fig.height=2.5, fig.env="figure*"}
+```{r method, fig.cap = "Spatial patterns of the first EOF of 700~hPa geopotential height for 1979 -– 2018 period. (a) Full field, (b) zonally asymmetric component and (c) zonally symmetric component. Arbitrary units; positive values in blue and negative values in red.", fig.width=6, fig.height=2.5, fig.env="figure*"}
 sam_sep <- SAM[, eof[[1]]$right, by = .(lev)] %>% 
   setnames("hgt", "full") %>% 
   .[, c("sym", "asym") := list(mean(full), Anomaly(full)), by = .(lat, lev)] 
@@ -420,8 +420,21 @@ At first glance the series can be distinguished by their distributions.
 Compared to the tropospheric indices, the stratospheric indices are much more long-tailed; that is, extreme values (both negative and positive) abound.
 The A\nobreakdash-SAM series have both more variability in the higher frequencies than the S\nobreakdash-SAM series.
 
-The stratospheric S\nobreakdash-SAM varies strongly with a two-year period, which can be seen by spectral analysis (Figure \@ref(fig:A2)). This might suggest a link between stratospheric SAM variability and the Quasi-Biennial Oscillation [@baldwin2001b].
-A local peak at 2 years years is discernible in the periodogram of the tropospheric S\nobreakdash-SAM, although it's not statistically significant.
+```{r compute-spectrums}
+spec <- indices %>% 
+  .[lev %in% c(50, 700)] %>% 
+  # .[, estimate_norm := estimate_norm/sd(estimate_norm), by = .(lev, term)] %>% 
+  .[, fftspectrum(estimate, c(3, 5), B = 5000, probs = c(0, 0.95)), by = .(term, lev)]
+```
+
+```{r spectrum-max}
+max_period <- spec[lev == 50 & term == "sym"] %>% 
+  .[which.max(spec - `95%`)] %>% 
+  .[, 1/freq]
+```
+
+The stratospheric S\nobreakdash-SAM varies strongly with a period between 15 and 30 months (the maximum spectrum is located at `r round(max_period)` months), which can be seen by spectral analysis (Figure \@ref(fig:A2)). A local peak at a similar frequency range is discernible in the periodogram of the tropospheric S\nobreakdash-SAM, although it's not statistically significant. This period band is around the range of periodicity of the Quasi-Biennial Oscillation [@baldwin2001b] and is consistent with [@vasconcellos2020], who found that the SAM and the QBO share significant common high power around the 2-year band.
+The fact that this periodicity is not evident on the A\nobreakdash-SAM index, is also consistent with their composites of geopotential height anomalies during easterly and westerly QBO, which show a rather symmetric monopole over Antarctica.
 In the troposphere the most significant peak of variability is found in A\nobreakdash-SAM at around `r 12*.3` months.
 
 ```{r compute-cors}
@@ -1386,13 +1399,6 @@ indices_wide %>%
                      breaks = seq(-5, 5, 1), 
                      expand = c(0, 0)) +
   scale_y_level()
-```
-
-```{r compute-spectrums}
-indices %>% 
-  .[lev %in% c(50, 700)] %>% 
-  # .[, estimate_norm := estimate_norm/sd(estimate_norm), by = .(lev, term)] %>% 
-  .[, fftspectrum(estimate, c(3, 5), B = 5000, probs = c(0, 0.95)), by = .(term, lev)] -> spec
 ```
 
 ```{r A2, fig.cap = "Fourier spectrum of each timeseries computed as Fourier transform smoothed with modified Daniell smoothers with widths 3 and 5. The shading indicates de 95\\% confidence area derived by computing the spectrum for 5000 simulated samples from a fitted autorregressive model and (95\\% of the simulated sampels had an amplitude equal or lower). The light line indicates the theoretical expected amplitude from the autorregressive model. For the 1979 -- 2018 period.", fig.height=4, fig.width=6}
