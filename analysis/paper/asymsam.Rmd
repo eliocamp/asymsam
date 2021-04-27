@@ -96,6 +96,7 @@ library(latex2exp)
 library(tagger)
 library(patchwork)
 library(knitr)
+library(kableExtra)
 
 theme_set(theme_asymsam(base_size = 9) + theme(tagger.panel.tag.text = element_text(size = 8)))
 ZeroBreaks <- AnchorBreaks(0, NULL, 0)
@@ -127,8 +128,13 @@ combine_lists <- function(...) {
   })
 }
 
-report_p <- function(p.value) {
-  ifelse(p.value < 0.001, " < 0.001", paste0(" = ", signif(p.value, 2)))
+report_p <- function(p.value, signs = TRUE) {
+  if (signs) {
+  ifelse(p.value < 0.001, " < 0.001", paste0(" = ", signif(p.value, 2)))  
+  } else {
+  ifelse(p.value < 0.001, " < 0.001", paste0(signif(p.value, 2)))    
+  }
+  
 }
 
 lab_sam <-  c(full = "SAM", 
@@ -208,6 +214,11 @@ SAM <- hgt[lat <= -20] %>%
   .[, hgt := hgt_a*sqrt(cos(lat*pi/180))] %>% 
   .[, .(eof = list(EOF(hgt ~ time | lon + lat, n = 1, data = .SD))), 
     by = .(lev)]
+
+# I need to change the sign
+SAM$eof[[1]]$left[, hgt := -hgt]
+SAM$eof[[1]]$right[, hgt := -hgt]
+
 
 dims <- hgt[lat <= -20] %>% 
   .[, .(x = uniqueN(lon), y = uniqueN(lat), t = uniqueN(time))]
@@ -355,8 +366,8 @@ The paper was rendered using knitr and rmarkdown [@xie2015; @allaire2019].
 indices_file <- data_path("derived", "indices.Rds")
 if (file.exists(indices_file)) {
   indices <- readRDS(indices_file)
-  indices[, `:=`(estimate = estimate, 
-                 estimate_norm = estimate_norm)]
+  indices[, `:=`(estimate = -estimate, 
+                 estimate_norm = -estimate_norm)]
 } else {
   stop("Run 02-compute-eofs.R")
 }
@@ -612,8 +623,10 @@ indices_2d_yearly %>%
   .[lat <= -20] %>% 
   .[lev %in% c(50, 700)] %>%
   .[, env := metR::WaveEnvelope(estimate), by = .(lat, term, lev)] %>%
+  .[, term := factor(term, levels = c("full", "asym", "sym"), ordered = TRUE)] %>% 
   ggplot(aes(lon, lat)) +
-  geom_contour_fill(aes(z = estimate), breaks = AnchorBreaks(0, exclude =  0), global.breaks = FALSE) +
+  geom_contour_fill(aes(z = estimate), breaks = AnchorBreaks(0, exclude =  0),
+                    global.breaks = FALSE) +
   geom_contour_tanaka(aes(z = estimate),
                       breaks = AnchorBreaks(0, exclude =  0),
                       size = 0.3,
@@ -792,39 +805,99 @@ enso <- rbindlist(list(oni = oni, soi = soi, mei = mei), idcol = "index")
 
 enso_sam_cor <- enso %>% 
   .[indices, on = "time", allow.cartesian = TRUE] %>% 
+  .[lev == 700] %>% 
   .[, with(cor.test(estimate, value), 
            list(cor = estimate, 
-                p.value = p.value, 
-                low = conf.int[1], 
-                upp = conf.int[2])), by = .(lev, term, index)] 
+                p.value = p.value)), by = .(lev, term, index)] %>% 
+  .[, type := "Correlation"] %>% 
+  .[, season := "Year"] %>% 
+  .[, lev := NULL]
 
-# ggplot(enso_sam_cor, aes(lev, cor, group = interaction(term, index))) +
-#   geom_ribbon(aes(ymin = low, ymax = upp, fill = term), alpha  = .3) +
-#   geom_line(aes(color = term)) +
-#   scale_x_level() +
-#   coord_flip() 
-
-
-cor_texts <- enso_sam_cor[lev == 700 & index == "oni"] %>% 
-  .[, `:=`(cor = signif(cor, 2), 
-           p.value = report_p(p.value))]
+enso_sam_cor_season <- enso %>% 
+  .[indices, on = "time", allow.cartesian = TRUE] %>% 
+  .[lev == 700] %>% 
+  .[, with(cor.test(estimate, value), 
+           list(cor = estimate, 
+                p.value = p.value)), by = .(lev, term, season(time), index)] %>% 
+  .[, type := "Correlation"] %>% 
+  .[, lev := NULL]
 
 
 enso_sam_partial <- enso %>% 
+  .[indices_wide[lev == 700], on = "time"] %>% 
+  .[, partial_cor(value, asym, sym), by = .(index)] %>% 
+  setnames("partial_correlation", "cor") %>% 
+  .[, type := "Partial Correlation"] %>% 
+  .[, season := "Year-round"] 
+
+
+enso_sam_partial_season <- enso %>% 
   .[indices_wide[lev == 700], on = "time"] %>% 
   .[, partial_cor(value, asym, sym), by = .(season(time), index)] %>% 
-  .[, partial_correlation := signif(partial_correlation, 2)] %>% 
-  .[, p.value := report_p(p.value)]
+  setnames("partial_correlation", "cor") %>% 
+  .[, type := "Partial Correlation"] 
 
-enso_sam_partial <- enso %>% 
-  .[indices_wide[lev == 700], on = "time"] %>% 
-  .[, partial_cor(value, asym, sym), by = index] %>% 
-  .[, partial_correlation := signif(partial_correlation, 2)] %>% 
-  .[, p.value := report_p(p.value)]
+
+enso_cors <- rbind(enso_sam_cor, 
+      enso_sam_cor_season, 
+      enso_sam_partial,
+      enso_sam_partial_season, use.names = TRUE) %>% 
+  .[type == "Partial Correlation" | term == "full"]
+
+cor_texts <- enso_cors[index == "oni"] %>% 
+  .[, p.value := p.adjust(p.value, "fdr")] %>% 
+  .[, cor := round(cor, 2)] %>% 
+  .[, p.value := report_p(p.value)] 
 ```
 
-The wave-3 pattern from Figure \@ref(fig:2d-regr)b.2 is very similar to the PSA Pattern [@mo1987; @kidson1988] which is a teleconnection pattern associated with the ENSO [@karoly1989]. Indeed, @fogt2011 showed that there is a significant relationship between the SAM and the ENSO. The correlation between the SAM and the ENSO as measured by the Oceanic Niño Index [ONI, @bamston1997] is `r cor_texts[term == "full"]$cor` (p-value `r cor_texts[term == "full"]$p.value`).
-This relationship is captured mainly by the A\nobreakdash-SAM, as this index has a partial correlation of `r enso_sam_partial[index == "oni" & term == "asym"]$partial_correlation` (p-value `r enso_sam_partial[index == "oni" & term == "asym"]$p.value`) with the ONI, consistent with @fan2007's results, whereas the S\nobreakdash-SAM's partial correlation with the ONI is essentially null (`r enso_sam_partial[index == "oni" & term == "sym"]$partial_correlation`; p-value `r enso_sam_partial[index == "oni" & term == "sym"]$p.value`).
+
+```{r enso-cor-table}
+table <- enso_cors %>% 
+  .[index == "oni"] %>% 
+  .[, p.value := p.adjust(p.value, "fdr")] %>% 
+  .[, p.value := scales::pvalue(p.value)] %>% 
+  .[, cor_text := paste0(round(cor, 2), "\n(", p.value, ")")] %>% 
+  .[, term := lab_sam[term]] %>% 
+  dcast(season ~ term, value.var = "cor_text") %>% 
+  setcolorder(c("season",lab_sam))
+  
+
+# table2 <- enso_cors %>% 
+#   .[index == "oni"] %>% 
+#   .[, p.value := p.adjust(p.value, "fdr")] %>% 
+#   # .[, p.value := scales::pvalue(p.value)] %>% 
+#   # .[, cor_text := paste0(round(cor, 2), "\n(", p.value, ")")] %>% 
+#   dcast(type + term ~ season, value.var = "p.value") %>% 
+#   .[, term := lab_sam[term]] 
+table2 <- enso_cors %>% 
+  .[index == "oni"] %>% 
+  .[, p.value := p.adjust(p.value, "fdr")] %>% 
+  # .[, p.value := scales::pvalue(p.value)] %>% 
+  # .[, cor_text := paste0(round(cor, 2), "\n(", p.value, ")")] %>% 
+  .[, term := lab_sam[term]] %>% 
+  dcast(season ~ term, value.var = "p.value") %>% 
+  setcolorder(c("season",lab_sam))
+  
+
+table %>% 
+  kbl(escape = FALSE,
+      caption = "Correlation between SAM indices and the Oceanic Niño Index. p-values corrected for False Detection Rate in parenthesis. In bold, correlations with p-value smaller than 0.05.",
+      col.names = c("", lab_sam)) %>% 
+  column_spec(2, bold = table2[, 2] < 0.05) %>%
+  column_spec(3, bold = table2[, 3] < 0.05) %>%
+  column_spec(4, bold = table2[, 4] < 0.05) %>%
+  kable_paper(full_width = F) %>% 
+  add_header_above(c(" " = 1, "Correlation" = 1 , "Partial correlation" = 2)) 
+```
+
+
+The wave-3 pattern from Figure \@ref(fig:2d-regr)b.2 is very similar to the PSA Pattern [@mo1987; @kidson1988] which is a teleconnection pattern associated with the ENSO [@karoly1989]. 
+Indeed, @fogt2011 showed that there is a significant relationship between the SAM and the ENSO. 
+The correlation between the SAM and the ENSO as measured by the Oceanic Niño Index [ONI, @bamston1997] is shown in Table\ \@ref{tab:enso-cor-table} for each SAM index and for each trimester. 
+There is a significant correlation between SAM and ENSO. 
+When divided in trimesters, this correlation is important only in DJF and SON. 
+This relationship is captured mainly by the A\nobreakdash-SAM, as this index has signifcant partial correlations with ENSO while correlations with S\nobreakdash-SAM are all smaller and non-significant. 
+In MAM, ENSO is not significantly correlated with SAM, but it is significantly correlated with A\nobreakdash-SAM in a level comparable with the ENSO-SAM correlation in SON. 
 The same analysis was performed using the Multivariate ENSO Index [@wolter2011] and the Southern Oscillation Index [@ropelewski1987], obtaining similar results.
 The latter allows us to conclude that these results do not depend on the ENSO index used.
 
