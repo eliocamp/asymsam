@@ -140,6 +140,8 @@ report_p <- function(p.value, signs = TRUE) {
 lab_sam <-  c(full = "SAM", 
               asym = "A-SAM",
               sym  = "S-SAM")
+
+geom_contour_tanaka2 <- purrr::partial(geom_contour_tanaka, range = c(0.01, 0.3))
 ```
 
 <!-- The actual document text starts here: -->
@@ -294,12 +296,11 @@ sam_plot %>%
   ggplot(aes(lon, lat)) +
   # geom_contour(aes(z = value, linetype = factor(-sign(..level..))), global.breaks = FALSE) +
   geom_contour_fill(aes(z = value), global.breaks = FALSE, breaks = ZeroBreaks) +
-  geom_contour_tanaka(aes(z = value), global.breaks = FALSE, breaks = ZeroBreaks) +
+  geom_contour_tanaka2(aes(z = value), global.breaks = FALSE, breaks = ZeroBreaks) +
   geom_qmap() +
   scale_x_longitude() +
   scale_y_latitude(limits = c(NA, -20), labels = NULL) +
   scale_fill_divergent(guide = "none", high = "#731C1F", low = "#323071") +
-  scale_fill_divergent(guide = "none") +
   coord_polar() +
   facet_grid(.~variable, labeller = labeller(variable = label_parsed, lev = lev.lab)) +
   axis_labs_smol +
@@ -510,7 +511,7 @@ crosscor %>%
 crosscor %>% 
   ggplot(aes(item2, item1)) +
   geom_contour_fill(aes(z = correlation, fill = ..level..), breaks = MakeBreaks(binwidth = 0.1)) +
-  geom_contour_tanaka(aes(z = correlation), size = 0.1, na.fill = .99, 
+  geom_contour_tanaka2(aes(z = correlation), size = 0.1, na.fill = .99, 
                       breaks = MakeBreaks(binwidth = 0.1)) +
   geom_text_contour(aes(z = correlation), breaks = MakeBreaks(binwidth = 0.1), 
                     color = "white", rotate = FALSE, stroke.color = "black", stroke = 0.2, 
@@ -621,12 +622,11 @@ indices_2d_yearly <- hgt[lev %in% c(main_levs)] %>%
 indices_2d_yearly %>% 
   .[lat <= -20] %>% 
   .[lev %in% c(50, 700)] %>%
-  .[, env := metR::WaveEnvelope(estimate), by = .(lat, term, lev)] %>%
   .[, term := factor(term, levels = c("full", "asym", "sym"), ordered = TRUE)] %>% 
   ggplot(aes(lon, lat)) +
   geom_contour_fill(aes(z = estimate), breaks = AnchorBreaks(0, exclude =  0),
                     global.breaks = FALSE) +
-  geom_contour_tanaka(aes(z = estimate),
+  geom_contour_tanaka2(aes(z = estimate),
                       breaks = AnchorBreaks(0, exclude =  0),
                       size = 0.3,
                       global.breaks = FALSE) +
@@ -757,7 +757,7 @@ vertical_regr %>%
   .[term == "asym"] %>%
   ggplot(aes(lon, lev)) +
   geom_contour_fill(aes(z = estimate, fill = ..level..), breaks = AnchorBreaks(0, 10, 0)) +
-  geom_contour_tanaka(aes(z = estimate),
+  geom_contour_tanaka2(aes(z = estimate),
                       breaks = AnchorBreaks(0, 10, 0),
                       size = 0.3,
                       global.breaks = FALSE) +
@@ -938,7 +938,7 @@ air_regr %>%
   ggplot(aes(lon, lat)) +
   geom_contour_fill(aes(z = estimate), 
                     breaks = AnchorBreaks(0, 0.1, 0)) +
-  # geom_contour_tanaka(aes(z = estimate),
+  # geom_contour_tanaka2(aes(z = estimate),
   #                     breaks = AnchorBreaks(0, 0.1, 0)) +
   # geom_raster(aes(fill = estimate)) +
   # geom_contour_fill(aes(z = p.value), breaks = c(0, 0.05), fill = "gray50", alpha = 0.2) +
@@ -1281,7 +1281,7 @@ plot_composites <- function(this_lev) {
     periodic(lon = c(0, 360)) %>% 
     ggplot(aes(lon, lat)) +
     geom_contour_fill(aes(z = z), breaks = AnchorBreaks(0,exclude = 0), global.breaks = FALSE) +
-    geom_contour_tanaka(aes(z = z), breaks = AnchorBreaks(0,exclude = 0), global.breaks = FALSE) +
+    geom_contour_tanaka2(aes(z = z), breaks = AnchorBreaks(0,exclude = 0), global.breaks = FALSE) +
     
     geom_qmap(~.x[lat <= 0]) +
     scale_x_longitude() +
@@ -1339,7 +1339,7 @@ plot_patterns <- function(this_lev) {
     # .[, estimate_a := estimate_a/sd(estimate_a), by = .( lev)] %>% 
     ggplot(aes(lon, lat)) +
     geom_contour_fill(aes(z = estimate_a), breaks = breaks) +
-    geom_contour_tanaka(aes(z = estimate_a), breaks = breaks) +
+    geom_contour_tanaka2(aes(z = estimate_a), breaks = breaks) +
     geom_qmap(~.x[lat <= 0]) +
     scale_x_longitude() +
     scale_y_latitude(limits = c(NA, -20), labels = NULL) +
@@ -1397,7 +1397,7 @@ patterns %>%
   periodic(lon = c(0, 360)) %>%
   ggplot(aes(lon, lat)) +
   geom_contour_fill(aes(z = estimate_a), breaks = AnchorBreaks(0, 5, 0)) +
-  geom_contour_tanaka(aes(z = estimate_a), breaks = AnchorBreaks(0, 5, 0)) +
+  geom_contour_tanaka2(aes(z = estimate_a), breaks = AnchorBreaks(0, 5, 0)) +
   geom_qmap() +
   scale_x_longitude() +
   scale_y_latitude(limits = c(NA, -20), labels = NULL) +
@@ -1421,7 +1421,8 @@ indices_wide %>%
   .[, ccf_dt(asym, sym, lag.max = 5), by = .(lev)] %>% 
   ggplot(aes(lag, lev)) +
   geom_contour_fill(aes(z = acf), breaks = AnchorBreaks(0, 0.05)) +
-  geom_contour_tanaka(aes(z = acf), breaks = AnchorBreaks(0, 0.05)) +
+  geom_contour_tanaka2(aes(z = acf), breaks = AnchorBreaks(0, 0.05),
+                      range = c(0.01, 0.3)) +
   geom_vline(xintercept = 0) +
   scale_fill_divergent(NULL,
                        guide = guide_colorstrip_bottom(20),
