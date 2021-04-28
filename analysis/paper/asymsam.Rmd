@@ -159,11 +159,11 @@ Of the several different indices presented in the literature, many of them are b
 @baldwin2009 proposed defining the Northern and Annular modes as the leading EOF of the zonally averaged geopotential height at each level.
 
 Even though these indices are based on zonal averages, their associated geopotential height spatial anomalies contain noticeable deviations from zonal symmetry, particularly in the Pacific Ocean region.
-The zonal asymmetries have not been widely studied, but previous work suggest that they strongly modulate the regional impacts of the SAM [@fan2007; @silvestri2009; @fogt2012; @rosso2018].
+The zonal asymmetries have not been widely studied, but previous work suggest that they strongly modulate the regional impacts of the SAM [@fan2007; @silvestri2009; @fogt2012; @rosso2018]. 
 The fact that the SAM is not entirely zonally symmetric hinders our ability to reconstruct its historical variability prior to the availability of dense observations in the Southern Hemisphere [@jones2009].
 
 Some of the variability associated with the zonal asymmetries of the SAM seems to be forced by the tropics.
-ENSO-like variability affects the Southern Hemisphere extratopics through the Rossby wave trains [@mo1987; @kidson1988; @karoly1989] which project strongly onto the zonal anomalies associated with the SAM in the Pacific sector.
+ENSO-like variability affects the Southern Hemisphere extratopics through the Rossby wave trains [@mo1987; @kidson1988; @karoly1989] which project strongly onto the zonal anomalies associated with the SAM in the Pacific sector. 
 Moreover, tropical influences on the SAM have been observed [@fan2007; @fogt2011; @clem2013].
 @fan2007 computed SAM indices of the Western and the Eastern Hemispheres separately and found that they were much more correlated to each other if the (linear) signal of the ENSO was removed.
 
@@ -172,15 +172,15 @@ It is thought that these trends are driven primarily by stratospheric ozone depl
 However, it's not clear yet how or if the asymmetric SAM component responds to these forcings, or how its variability alters the observed trends.
 
 The impact of the zonally asymmetric component of the SAM at regional scales has not been studied in detail yet.
-The positive phase of the SAM is associated with colder-than-normal temperatures over Antarctica and warmer-than-normal temperatures at lower latitudes [@jones2019] (and vice versa for negative SAM).
-But there are significant deviations from this zonal mean response, notably in the Antarctic Peninsula and the South Atlantic [@fogt2012].
-The SAM-related signal on precipitation anomalies behaves similarly, although with even greater deviation from zonal symmetry [@lim2016].
+The positive phase of the SAM is associated with colder-than-normal temperatures over Antarctica and warmer-than-normal temperatures at lower latitudes [@jones2019] (and vice versa for negative SAM). 
+But there are significant deviations from this zonal mean response, notably in the Antarctic Peninsula and the South Atlantic [@fogt2012]. 
+The SAM-related signal on precipitation anomalies behaves similarly, although with even greater deviation from zonal symmetry [@lim2016]. 
 The SAM-precipitation relationship in Southeastern South America can be explained by the Pacific-South American (PSA)-like zonally asymmetric circulation associated with the SAM [@silvestri2009; @rosso2018].
 @fan2007 also found that precipitation in East Asia was impacted by the variability of only the Western Hemisphere part of the SAM.
 
 The study of the temporal variability of the asymmetric component of the SAM has not received much attention except for @fogt2012.
-This study provides evidences for the relevance of the SAM's asymmetric component.
-However, their conclusions are based on composites of positive and negative SAM events including a small number of cases unevenly distributed among years with and without satellite information.
+This study provides evidences for the relevance of the SAM's asymmetric component. 
+However, their conclusions are based on composites of positive and negative SAM events including a small number of cases unevenly distributed among years with and without satellite information. 
 The latter is particularly important due to the inhomogeneities in reanalysis products prior to the satellite era and the possible change in the asymmetric structure of the SAM [@silvestri2009].
 Moreover, @fogt2012 studied the zonal asymmetric component of the SAM only in sea level pressure.
 Zonal asymmetries in the SAM spatial pattern are fairly barotropic throughout the troposphere, but they change dramatically in the stratosphere [@baldwin2009].
@@ -249,7 +249,7 @@ if (sign(cor_aao) != 1) {
 We used monthly geopotential height at 2.5\degree longitude by 2.5\degree latitude of horizontal resolution and 37 vertical isobaric levels from ERA5 [@hersbach2020] for the period 1979 to 2018.
 We restrict our analysis to the post-satellite era to avoid any confounding factors arising from the incorporation of satellite observations.
 
-Temperature data used are from NOAA's Merged Land Ocean Global Surface Temperature Analysis V4.0.1 [@smith2008; @vose2012], which blends land surface air temperature and sea surface (water) temperature analysis into a monthly global grid 5\degree longitude by 5\degree latitude.
+Temperature data used are from NOAA's Merged Land Ocean Global Surface Temperature Analysis V4.0.1 [@smith2008; @vose2012], which blends land surface air temperature and sea surface (water) temperature analysis into a monthly global grid 5\degree longitude by 5\degree latitude. 
 For precipitation data we used monthly data from the CPC Merged Analysis of Precipitation [\@xie1997], with a 2.5\\degree\\ resolution in latitude and longitude.
 This rainfall gridded dataset is based on information from different sources such as rain gauge observations, satellite inferred estimations and the NCEP-NCAR reanalysis, and it is available since 1979 to present.
 
@@ -354,7 +354,7 @@ We computed density probability estimates using a Gaussian kernel of optimal bin
 ## Computation procedures
 
 We performed all analysis in this paper using the R programming language [@rcoreteam2020], using the data.table package [@dowle2020] and the metR package [@campitelli2020].
-All graphics are made using ggplot2 [@wickham2009].
+All graphics are made using ggplot2 [@wickham2009]. 
 We downloaded data from reanalysis using the ecmwfr package [@hufkens2020] and indices of the ENSO with the rsoi package [@albers2020].
 The paper was rendered using knitr and rmarkdown [@xie2015; @allaire2019].
 
@@ -828,7 +828,7 @@ enso_sam_partial <- enso %>%
   .[, partial_cor(value, asym, sym), by = .(index)] %>% 
   setnames("partial_correlation", "cor") %>% 
   .[, type := "Partial Correlation"] %>% 
-  .[, season := "Year-round"] 
+  .[, season := "Year"] 
 
 
 enso_sam_partial_season <- enso %>% 
@@ -849,7 +849,6 @@ cor_texts <- enso_cors[index == "oni"] %>%
   .[, cor := round(cor, 2)] %>% 
   .[, p.value := report_p(p.value)] 
 ```
-
 
 ```{r enso-cor-table}
 table <- enso_cors %>% 
@@ -890,10 +889,9 @@ table %>%
   add_header_above(c(" " = 1, "Correlation" = 1 , "Partial correlation" = 2)) 
 ```
 
-
-The wave-3 pattern from Figure \@ref(fig:2d-regr)b.2 is very similar to the PSA Pattern [@mo1987; @kidson1988] which is a teleconnection pattern associated with the ENSO [@karoly1989]. 
+The wave-3 pattern from Figure\ \@ref(fig:2d-regr)b.2 is very similar to the PSA Pattern [@mo1987; @kidson1988] which is a teleconnection pattern associated with the ENSO [@karoly1989].
 Indeed, @fogt2011 showed that there is a significant relationship between the SAM and the ENSO. 
-The correlation between the SAM and the ENSO as measured by the Oceanic Niño Index [ONI, @bamston1997] is shown in Table\ \@ref{tab:enso-cor-table} for each SAM index and for each trimester. 
+The correlation between the SAM and the ENSO as measured by the Oceanic Niño Index [ONI, @bamston1997] is shown in Table\ \@ref{tab:enso-cor-table} for each SAM index and for each trimester. 
 There is a significant correlation between SAM and ENSO. 
 When divided in trimesters, this correlation is important only in DJF and SON. 
 This relationship is captured mainly by the A\nobreakdash-SAM, as this index has signifcant partial correlations with ENSO while correlations with S\nobreakdash-SAM are all smaller and non-significant. 
@@ -1177,9 +1175,8 @@ The A\nobreakdash-SAM index correlates strongly with the S\nobreakdash-SAM index
 In the troposphere, this correlation is maximum at zero lag, while in the stratosphere is maximised with the A\nobreakdash-SAM leading the S\nobreakdash-SAM by one month.
 Since most indices of the SAM are calculated using surface or near-surface conditions, this result would suggest that they might not be sensitive to the most dramatic changes in SAM variability.
 
-The two-year periodicity we found in the stratospheric S\nobreakdash-SAM might point to a link between the SAM and the Quasi Biennial Oscillation.
-There is evidence of influence between the QBO and the Northern Annular Mode [e.g. @holton1980; @watson2014; @zhang2020], so it is not unlikely that the SAM would be similarly affected.
-However, establishing this link would require further research.
+The periodicity of about two years we found in the stratospheric S\nobreakdash-SAM is consistent with the possible link between the SAM and the Quasi Biennial Oscillation as proposed by [@vasconcellos2020]. There is evidence of influence between the QBO and the Northern Annular Mode [e.g. @holton1980; @watson2014; @zhang2020], so it is not unlikely that the SAM would be similarly affected.
+Establishing this link would require further research.
 
 We observe a positive trend of SAM in Summer and Autumn, as was documented by previous studies [e.g. @fogt2020 and references therein] for low levels.
 We show that these trends maximise at 100 hPa, and are explained by the zonally symmetric component.
@@ -1207,7 +1204,8 @@ These features are cleanly separated between A\nobreakdash-SAM and S\nobreakdash
 S\nobreakdash-SAM explains the negative anomalies in Southern Chile and A\nobreakdash-SAM, the negative-positive dipole between Southeastern South America and Southern Brazil.
 Individual seasons mostly follow this pattern.
 
-@silvestri2009 suggest that precipitation impacts linked to the SAM changed strongly before and after 1980. In particular, the negative relationship with precipitation in South America was absent in some areas and switched sign in others in the earlier period. The correlation between ENSO and SAM is similarly non-stationary, also changing sign before the 1980s [@fogt2006; @clem2013].
+@silvestri2009 suggest that precipitation impacts linked to the SAM changed strongly before and after 1980. In particular, the negative relationship with precipitation in South America was absent in some areas and switched sign in others in the earlier period. 
+The correlation between ENSO and SAM is similarly non-stationary, also changing sign before the 1980s [@fogt2006; @clem2013].
 Seeing as both the ENSO\nobreakdash-SAM relationship and most of the precipitation impacts in South America are captured by the A\nobreakdash-SAM, the results presented here are most likely period-dependent.
 The decadal variations of the A\nobreakdash-SAM should be focus of future studies.
 

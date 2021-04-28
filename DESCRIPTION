@@ -46,7 +46,8 @@ Imports:
     ggforce,
     ggridges,
     raster,
-    patchwork
+    patchwork,
+    kableExtra
 Suggests: devtools,
     git2r,
     knitr,
@@ -55,5 +56,6 @@ Remotes:
     eliocamp/tagger,
     eliocamp/rticles@AMS-V5,
     tidyverse/ggplot2,
-    boshek/rsoi
+    boshek/rsoi,
+    haozhu233/kableExtra
 VignetteBuilder: knitr
