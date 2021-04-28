@@ -323,12 +323,11 @@ In the stratosphere (Figure \@ref(fig:A5), row 1), patterns are similar for all 
 Spatial correlations in the stratosphere are between -0.24 (DJF with SON) and 0.95 (MAM with JJA).
 Therefore, the results confirm that the zonal asymmetric structure of the SAM is very similar throughout most of the year.
 The only outlier being DJF, which shows much lower correlations with the other seasons at both levels and the weakest zonal anomalies (Figure \@ref{fig:A3}), which is consistent with @fogt2020.
-With this in mind, a
 
 The method also assumes that the zonally asymmetric pattern of the SAM remains stationary along the period considered.
 @silvestri2009 suggest that this might not be the case between 1958 and 2004.
 Zonal asymmetric patterns of SAM were computed for the two halves of the period (1979 to 1998 and 1999 to 2018) respectively.
-They show no systematic change neither in the stratosphere nor in the troposphere (Figure \@ref(fig:A6)).
+The differences between the two periods appear to be relatively small in both the troposphere and stratosphere (Figure \@ref(fig:A6)).
 
 ## Regressions
 
@@ -1364,6 +1363,7 @@ set.seed(42)
 SAM_prepost <- hgt[lat <= -20] %>% 
   .[lev %in% c(700, 50)] %>%
   .[, hgt := hgt_a*sqrt(cos(lat*pi/180))] %>% 
+  
   .[, year := year(time)] %>% 
   .[, period := factor(ifelse(year(time) <= 1998, "pre", "post"),
                        levels = c("pre", "post"), ordered = TRUE,
@@ -1393,6 +1393,7 @@ cor <- patterns %>%
   .[, cor(`1979-1998`, `1999-2018`), by = lev]
 
 patterns %>% 
+  .[lev == 50 & period == "1999-2018", estimate_a := -estimate_a] %>% 
   periodic(lon = c(0, 360)) %>%
   ggplot(aes(lon, lat)) +
   geom_contour_fill(aes(z = estimate_a), breaks = AnchorBreaks(0, 5, 0)) +
