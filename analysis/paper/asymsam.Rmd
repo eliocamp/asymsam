@@ -110,6 +110,25 @@ guide_colorstrip_bottom <- function(width = 25, height = 0.5, ...) {
                    barwidth = width, ...)
 }
 
+geom_coords <- function() {
+  list(
+    geom_segment(data = data.frame(xstart =  seq(0, 360-30, by = 30), 
+                                   xend =  seq(0, 360-30, by = 30),
+                                   ystart = -90+15,
+                                   yend = Inf),
+                 aes(x = xstart, xend = xend, y = ystart, yend = yend),
+                 size = 0.1, alpha = 0.5),
+    
+    # geom_vline(xintercept = seq(0, 360-30, by = 30), size = 0.1, alpha = 0.5),
+    
+    
+      geom_hline(yintercept = seq(-90, 0, by = 15), size = 0.1, alpha = 0.5),
+      shadowtext::geom_shadowtext(data = data.frame(x = 0, y = seq(-90 + 15, 0, by = 15)),
+                                  aes(x, y, label = LatLabel(y)), size = 2.5, alpha = 0.5,
+                                  colour = "black",
+                                  bg.colour = "white" ) 
+  )
+}
 
 knitr::opts_hooks$set(invisible = function(options) {
   options$include = FALSE
@@ -291,6 +310,8 @@ sam_plot <- sam_sep %>%
 
 levels(sam_plot$variable) <- lab_eof
 
+
+
 sam_plot %>% 
   periodic(lon = c(0, 360)) %>%
   ggplot(aes(lon, lat)) +
@@ -298,7 +319,8 @@ sam_plot %>%
   geom_contour_fill(aes(z = value), global.breaks = FALSE, breaks = ZeroBreaks) +
   geom_contour_tanaka2(aes(z = value), global.breaks = FALSE, breaks = ZeroBreaks) +
   geom_qmap() +
-  scale_x_longitude() +
+  geom_coords() +
+  scale_x_longitude(labels = NULL) +
   scale_y_latitude(limits = c(NA, -20), labels = NULL) +
   scale_fill_divergent(guide = "none", high = "#731C1F", low = "#323071") +
   coord_polar() +
@@ -632,12 +654,12 @@ indices_2d_yearly %>%
                       global.breaks = FALSE) +
   # geom_contour2(aes(z = env)) +
   geom_qmap(~.x[lat <= -20]) +
+  geom_coords() +
   geom_point(data = data.frame(lon = ConvertLongitude(c(50, 166, -76)),
                                lat = -49, term = "asym", lev = 700), 
              shape = 21, size = 2.5, color = "black", fill = "#de3e80") +
-  scale_x_longitude() +
-  scale_y_latitude(limits = c(NA, -20), labels = NULL,
-                   minor_breaks = NULL) +
+  scale_x_longitude(labels = NULL) +
+  scale_y_latitude(limits = c(NA, -20), labels = NULL) +
   scale_fill_divergent(NULL, guide = guide_colorstrip_bottom(), 
                        limits = c(-45, 45),
                        oob = scales::squish,
@@ -646,9 +668,7 @@ indices_2d_yearly %>%
   coord_polar() +
   facet_grid(lev ~ term, labeller = labeller(term = lab_sam, lev = lev.lab)) +
   tag_facets("cr") +
-  axis_labs_smol  +
-  no_grid +
-  theme(panel.grid.major.y = element_line(color = "gray60", size = 0.1))
+  no_grid 
 ```
 
 We then computed the spatial regression of geopotential height anomalies on the A\nobreakdash-SAM and S\nobreakdash-SAM indices at 700 hPa and 50 hPa levels (Figure \@ref(fig:2d-regr)).
@@ -946,9 +966,9 @@ air_regr %>%
   geom_contour_fill(aes(z = as.numeric(is.na(estimate))), breaks = c(0.5, 2), fill = "gray") +
   geom_contour2(aes(z = as.numeric(is.na(estimate))), breaks = c(0.5, 2), color = "gray50") +
   geom_qmap(~.x[lat <= 0]) +
-  scale_x_longitude() +
-  scale_y_latitude(labels = NULL, limits = c(NA, 0), 
-                   minor_breaks = NULL) +
+  geom_coords() +
+  scale_x_longitude(labels = NULL) +
+  scale_y_latitude(labels = NULL, limits = c(NA, 0)) +
   scale_fill_divergent("2-meter air temperature",  
                        limits = c(-0.6, .6), 
                        oob = scales::squish,
@@ -956,9 +976,7 @@ air_regr %>%
   coord_polar() +
   facet_grid(season ~ term, labeller = labeller(term = lab_sam, lev = lev.lab)) +
   tag_facets("cr", tag_suffix = "") +
-  no_grid +
-  axis_labs_smol +
-  theme(panel.grid.major.y = element_line(color = "gray60", size = 0.1))
+  no_grid 
 ```
 
 To assess differences in the impacts associated with the SAM, A\nobreakdash-SAM and S\nobreakdash-SAM indices we regressed surface land air and sea temperature and precipitation onto each of the three SAM indices at 700 hPa.
@@ -1421,8 +1439,7 @@ indices_wide %>%
   .[, ccf_dt(asym, sym, lag.max = 5), by = .(lev)] %>% 
   ggplot(aes(lag, lev)) +
   geom_contour_fill(aes(z = acf), breaks = AnchorBreaks(0, 0.05)) +
-  geom_contour_tanaka2(aes(z = acf), breaks = AnchorBreaks(0, 0.05),
-                      range = c(0.01, 0.3)) +
+  geom_contour_tanaka2(aes(z = acf), breaks = AnchorBreaks(0, 0.05)) +
   geom_vline(xintercept = 0) +
   scale_fill_divergent(NULL,
                        guide = guide_colorstrip_bottom(20),
