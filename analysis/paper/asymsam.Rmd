@@ -99,6 +99,12 @@ library(knitr)
 library(kableExtra)
 
 theme_set(theme_asymsam(base_size = 9) + theme(tagger.panel.tag.text = element_text(size = 8)))
+
+panel_background <- theme(panel.background = element_rect(fill = "#fbfbfb", color = NA), 
+                          panel.ontop = FALSE,
+                          tagger.panel.tag.background = ggplot2::element_rect(color = NA, 
+                                                                              fill = "#fbfbfb"))
+
 ZeroBreaks <- AnchorBreaks(0, NULL, 0)
 axis_labs_smol <- theme(axis.text = element_text(size = 6))
 lev.lab <- AddSuffix(" hPa")
@@ -721,8 +727,7 @@ indices_2d_yearly %>%
   scale_x_latitude(ticks = 20) +
   coord_flip() +
   facet_grid(lev~term, labeller = labeller(term = lab_sam, lev = lev.lab)) +
-  tag_facets("cr", position = "tr")  +
-  no_grid 
+  tag_facets("cr", position = "tr") 
 ```
 
 The amplitude of the first zonal wavenumbers at each latitude at 50 hPa and 700 hPa are shown in Figure \@ref(fig:wave-amplitude), where wavenumber zero represents the amplitude of the zonal mean.
