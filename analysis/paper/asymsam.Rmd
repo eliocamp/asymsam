@@ -1228,7 +1228,7 @@ Individual seasons mostly follow this pattern.
 
 @silvestri2009 suggest that precipitation impacts linked to the SAM changed strongly before and after 1980. In particular, the negative relationship with precipitation in South America was absent in some areas and switched sign in others in the earlier period. 
 The correlation between ENSO and SAM is similarly non-stationary, also changing sign before the 1980s [@fogt2006; @clem2013].
-Seeing as both the ENSO\nobreakdash-SAM relationship and most of the precipitation impacts in South America are captured by the A\nobreakdash-SAM, the results presented here are most likely period-dependent.
+Seeing as both the ENSO\nobreakdash-SAM relationship and most of the precipitation impacts in South America are captured by the A\nobreakdash-SAM, the magnitude and sign these impacts are most likely period-dependent and represent the average signal between 1979 and 2018.
 The decadal variations of the A\nobreakdash-SAM should be focus of future studies.
 
 By separating the zonally symmetric and zonally symmetric SAM signals, we show that the asymmetric component of the SAM has its unique variability, trends and impacts.
@@ -1307,7 +1307,8 @@ plot_composites <- function(this_lev) {
     geom_contour_tanaka2(aes(z = z), breaks = AnchorBreaks(0,exclude = 0), global.breaks = FALSE) +
     
     geom_qmap(~.x[lat <= 0]) +
-    scale_x_longitude() +
+    geom_coords() +
+    scale_x_longitude(labels = NULL) +
     scale_y_latitude(limits = c(NA, -20), labels = NULL) +
     scale_fill_divergent(NULL, guide = guide_colorstrip_bottom(),
                          limits = limits,
@@ -1364,13 +1365,14 @@ plot_patterns <- function(this_lev) {
     geom_contour_fill(aes(z = estimate_a), breaks = breaks) +
     geom_contour_tanaka2(aes(z = estimate_a), breaks = breaks) +
     geom_qmap(~.x[lat <= 0]) +
-    scale_x_longitude() +
+    scale_x_longitude(labels = NULL) +
     scale_y_latitude(limits = c(NA, -20), labels = NULL) +
     scale_fill_divergent(NULL,
                          guide = guide_colorstrip_bottom(),
                          limits = limits,
                          breaks = breaks) +
     coord_polar() +
+    geom_coords() +
     axis_labs_smol +
     no_grid +
     facet_grid(lev~season, labeller = labeller(lev = lev.lab))
@@ -1422,16 +1424,18 @@ patterns %>%
   geom_contour_fill(aes(z = estimate_a), breaks = AnchorBreaks(0, 5, 0)) +
   geom_contour_tanaka2(aes(z = estimate_a), breaks = AnchorBreaks(0, 5, 0)) +
   geom_qmap() +
-  scale_x_longitude() +
+  scale_x_longitude(labels = NULL) +
   scale_y_latitude(limits = c(NA, -20), labels = NULL) +
   scale_fill_divergent(NULL, 
                        guide = guide_colorstrip_bottom(),
                        breaks = AnchorBreaks(0, 5, exclude = 0)) +
   coord_polar() +
+  geom_coords() +
   facet_grid(lev~period, labeller = labeller(lev = lev.lab)) +
   axis_labs_smol +
   no_grid 
 ```
+
 
 ```{r A1, fig.cap = "Lag-correlation between the A\\nobreakdash-SAM and the S\\nobreakdash-SAM index at each level. Negative lags imply A\\nobreakdash-SAM leading S\\nobreakdash-SAM and vice versa. For the 1979 -- 2018 period.", fig.width = 5, fig.height=5, fig.pos="ht"}
 ccf_dt <- function(..., plot = FALSE) {
