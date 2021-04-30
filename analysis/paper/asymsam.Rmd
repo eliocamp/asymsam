@@ -986,6 +986,7 @@ air_regr %>%
 
 To assess differences in the impacts associated with the SAM, A\nobreakdash-SAM and S\nobreakdash-SAM indices we regressed surface land air and sea temperature and precipitation onto each of the three SAM indices at 700 hPa.
 As shown in previous sections, the three indices are highly coherent in the troposphere, so we select this level to represent the tropospheric circulation for consistency with previous studies.
+Regressions were done without detrending either the variables nor the indices, but computing the regressions with detrended values doesn't change the results (not shown).
 
 Figure \@ref(fig:regr-air-season) shows regression coefficients of each index at 700 hPa with surface land air and sea temperature for each trimester.
 In Summer, positive values of the SAM index (Figure \@ref(fig:regr-air-season)`r get_tag(season == "DJF" & term == "full")`) are associated with negative temperature anomalies near Antarctica which are surrounded by a ring of positive anomalies.
