@@ -1256,6 +1256,7 @@ All data used in this paper is freely available from their respective sources.
 ERA5 data can be obtained via the Copernicus Climate Data Store ([\<https://cds.climate.copernicus.eu/cdsapp\#!/dataset/reanalysis-era5-pressure-levels-monthly-means\>](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-pressure-levels-monthly-means){.uri}).
 CMAP Precipitation data provided by the NOAA/OAR/ESRL PSL, Boulder, Colorado, USA, from their Web site at <https://psl.noaa.gov/data/gridded/data.cmap.html>.
 The Oceanic Niño Index is available via NOAA's Climate Prediction Center: <https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/detrend.nino34.ascii.txt>
+The SAM, A\nobreakdash-SAM and S\nobreakdash-SAM indices are available at the public repository associated with this paper, at <https://github.com/eliocamp/asymsam/tree/main/analysis/data/derived_data>. 
 
 ## Code availability {.unnumbered}
 
