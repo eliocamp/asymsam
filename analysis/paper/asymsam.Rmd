@@ -1221,10 +1221,14 @@ These negative anomalies are particularly clear in the DJF and SON trimesters, w
 
 In Australia the SAM is associated with positive precipitation anomalies in South East and this is explained by the S\nobreakdash-SAM.
 However, the A\nobreakdash-SAM is associated with a small area of positive precipitation anomalies in the Eastern Coast of West Australia, maybe due to advection of moist air from the Indian Ocean.
+
 In South America, precipitation anomalies associated with the SAM are negative both in Southern Chile and Southeastern South America, and positive in Southern Brazil.
 These features are cleanly separated between A\nobreakdash-SAM and S\nobreakdash-SAM.
 S\nobreakdash-SAM explains the negative anomalies in Southern Chile and A\nobreakdash-SAM, the negative-positive dipole between Southeastern South America and Southern Brazil.
 Individual seasons mostly follow this pattern.
+
+Of note, even though the A\nobreakdash-SAM is significantly correlated with ENSO in all trimesters except JJA, precipitation patterns associated with the A\nobreakdash-SAM  are similar to precipitation patterns associated with ENSO only in SON in Australia, but in all trimesters in South America. 
+This might indicate that the A\nobreakdash-SAM is closely related to the pathway between ENSO and precipitation patterns in South America but not so much with the pathway between ENSO and precipitation in Australia. 
 
 @silvestri2009 suggest that precipitation impacts linked to the SAM changed strongly before and after 1980. In particular, the negative relationship with precipitation in South America was absent in some areas and switched sign in others in the earlier period. 
 The correlation between ENSO and SAM is similarly non-stationary, also changing sign before the 1980s [@fogt2006; @clem2013].
