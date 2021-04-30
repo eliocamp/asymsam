@@ -351,7 +351,8 @@ Results are very similar to each other in the troposphere (Figure \@ref(fig:A5),
 In the stratosphere (Figure \@ref(fig:A5), row 1), patterns are similar for all seasons except DJF, when the wave-1 zonal anomalies are rotated 90\degree in comparison with the rest of the year.
 Spatial correlations in the stratosphere are between -0.24 (DJF with SON) and 0.95 (MAM with JJA).
 Therefore, the results confirm that the zonal asymmetric structure of the SAM is very similar throughout most of the year.
-The only outlier being DJF, which shows much lower correlations with the other seasons at both levels and the weakest zonal anomalies (Figure \@ref{fig:A3}), which is consistent with @fogt2020.
+The outlier being DJF, which shows much lower correlations with the other seasons at both levels and the weakest zonal anomalies (Figure \@ref{fig:A3}), which is consistent with @fogt2020.
+Therefore, even though we do our analysis for all months, we would expect for it to represent the other trimesters better. 
 
 The method also assumes that the zonally asymmetric pattern of the SAM remains stationary along the period considered.
 @silvestri2009 suggest that this might not be the case between 1958 and 2004.
@@ -1344,7 +1345,8 @@ patterns <- SAM_season[, eof[[1]]$left, by = .(lev, season)] %>%
   .[, FitLm(hgt_a, EOF), by = .(lon, lat, lev, season)] %>%
   rm_intercept() %>% 
   .[season == "DJF", estimate := -estimate] %>% 
-  .[, estimate_a := Anomaly(estimate), by = .(lat, lev, season)] 
+  .[, estimate_a := Anomaly(estimate), by = .(lat, lev, season)] %>% 
+  .[season == "DJF" & lev == 700, estimate_a := -estimate_a]
 
 
 cors <- patterns %>% 
