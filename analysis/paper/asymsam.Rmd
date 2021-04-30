@@ -741,8 +741,6 @@ However, zonal waves are important, particularly South of 50\degree S, with wave
 Figure \@ref(fig:wave-amplitude) column `r get_col(term == "asym")` shows that the A\nobreakdash-SAM is overwhelmingly dominated by wave 1 in the stratosphere (Figure \@ref(fig:wave-amplitude)`r get_tag(term== "asym" & lev == 50)`), while in the troposphere it is explained by a combination of zonal waves 3 to 1 in decreasing level of importance (Figure \@ref(fig:wave-amplitude)`r get_tag(term== "asym" & lev == 700)`) with negligible amplitude of the zonal mean.
 On the other hand, the S\nobreakdash-SAM it is almost entirely explained by the zonal mean at both levels (Figure \@ref(fig:wave-amplitude) column c), with little to no contribution from zonal waves with wavenumbers 1 to 3.
 
-Looking at Figure \@ref(fig:2d-regr)b.2, it becomes apparent that zonal waves 1 and 2 modulate the amplitude of zonal wave 3, which -- as mentioned before -- is larger in the Western Hemisphere than in the Eastern Hemisphere.
-
 ```{r compute-vertical-regression}
 # vertical_regr <- ReadNetCDF(ERA5(), 
 #            subset = list(time = c("1979-01-01", "2018-12-31"),
