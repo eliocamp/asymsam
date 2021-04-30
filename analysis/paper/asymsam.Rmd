@@ -811,16 +811,16 @@ Conversely, for any tropospheric (below 100 hPa) index, the result is very simi
 The patterns mainly change in amplitude (not shown).
 
 ```{r enso-cor}
-oni <- rsoi::download_oni(TRUE, data_path("derived", "oni.csv")) %>% 
+oni <- rsoi::download_oni(TRUE, data_path("raw", "oni.csv")) %>% 
   as.data.table() %>% 
   .[, .(time = lubridate::as_datetime(Date), value = ONI)]
 
-mei <- rsoi::download_mei(TRUE, data_path("derived", "mei.csv")) %>% 
+mei <- rsoi::download_mei(TRUE, data_path("raw", "mei.csv")) %>% 
   as.data.table() %>% 
   .[, .(time = lubridate::as_datetime(Date), value = MEI)] 
 
 
-soi <- rsoi::download_soi(TRUE, data_path("derived", "soi.csv")) %>% 
+soi <- rsoi::download_soi(TRUE, data_path("raw", "soi.csv")) %>% 
   as.data.table() %>% 
   .[, .(time = lubridate::as_datetime(Date), value = -SOI)] 
 
