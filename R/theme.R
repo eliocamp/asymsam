@@ -22,6 +22,6 @@ theme_asymsam <- function(base_size = 16) {
       # # legend.title = element_blank(),
       # legend.box.spacing = grid::unit(3, "mm"),
       # legend.margin = ggplot2::margin(t = -5),
-      panel.grid = ggplot2::element_line(color = scales::alpha("black", 0.5), size = 0.2),
+      panel.grid = ggplot2::element_line(color = scales::alpha("gray60", 0.5), size = 0.1),
       panel.ontop = TRUE)
 }
