@@ -1203,7 +1203,7 @@ Establishing this link would require further research.
 We observe a positive trend of SAM in Summer and Autumn, as was documented by previous studies [e.g. @fogt2020 and references therein] for low levels.
 We show that these trends maximise at 100 hPa, and are explained by the zonally symmetric component.
 We also find a statistically significant positive trend in the Symmetric component of the SAM in the stratosphere that is not evident in the SAM index.
-We find some evidence of the SAM becoming more zonally asymmetric, as there is a slight positive trend in the variance explained by the as the A\nobreakdash-SAM.
+We find some evidence of the SAM becoming more zonally asymmetric during DJF, as there is a slight positive trend in the variance explained by the as the A\nobreakdash-SAM.
 This is in contrast to @fogt2012 who made the evaluation for the period 1958 -- 2001.
 This discrepancy might be due either due to differences in methodology or analysed period.
 
