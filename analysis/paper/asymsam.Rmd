@@ -596,6 +596,7 @@ indices %>%
   tag_facets("cr") 
 ```
 
+
 The linear trends for each of the indices (SAM, S\nobreakdash-SAM and A\nobreakdash-SAM) were evaluated for the complete period 1979 -- 2018 at each level for the whole year and separated by trimesters (Figure \@ref(fig:trends)).
 The SAM index presents a statistically positive significant trend (Figure \@ref(fig:trends)`r get_tag(term == "full" & season == "Annual")`) that extends throughout the troposphere up to about 50 hPa and reaches its maximum value at 100 hPa.
 The seasonal trends (rest of Figure \@ref(fig:trends) column a) indicate that positive trends are present in Autumn and particularly in Summer, where the 100 hPa maximum is much more defined.
@@ -606,16 +607,13 @@ By separating the SAM signal in its asymmetric and symmetric parts, not only we 
 In Summer, A\nobreakdash-SAM has a statistically non significant negative trend in the middle troposphere that obscures the trend in the SAM index; as a result, trends computed using only the Symmetric component are stronger (compare the shading region in Figure \@ref(fig:trends)`r get_tag(term == "full" & season == "DJF")` and `r get_tag(term == "sym" & season == "DJF")`).
 In Autumn, the S\nobreakdash-SAM index reveals a statistically significant positive trend in the stratosphere that is not significant using the SAM index.
 
-Figure \@ref(fig:r-squared-trend) shows trends for the explained variance of each index.
-There is no evidence of a significant trend in the stratosphere.
-In the troposphere, there is a positive trend for A\nobreakdash-SAM and no significant trend for S\nobreakdash-SAM.
-This suggest that the SAM has become more asymmetric in the period from 1979 to 2018.
-However, the change is slight, around 1% increased explained variance per decade.
+A positive trend in the S\nobreakdash-SAM index and no trend in the A\nobreakdash-SAM index might at first suggest a trend towards a more symmetric SAM. 
+However, a very negative S\nobreakdash-SAM trending towards a less negative S\nobreakdash-SAM would be translated into a positive S\nobreakdash-SAM trend but a more asymmetric SAM. 
 
-```{r r-squared-trend, fig.height=3, fig.width=3, fig.cap = "Linear trends (in percent per decade) of the variance explained by A\\nobreakdash-SAM and S\\nobreakdash-SAM at each level for the period 1979 -- 2018. Shading indicates the 95\\% confidence interval."}
+```{r r-squared-trend, fig.height=4, fig.width=4, fig.cap = "Linear trends (in percent per decade) of the variance explained by A\\nobreakdash-SAM and S\\nobreakdash-SAM at each level and for each trimester for the period 1979 -- 2018. Shading indicates the 95\\% confidence interval."}
 indices %>% 
   .[term != "full"] %>% 
-  .[, FitLm(r.squared, time, se = TRUE), by = .(lev, type = term)] %>% 
+  .[, FitLm(r.squared, time, se = TRUE), by = .(lev, type = term, season(time))] %>% 
   rm_intercept() %>%
   .[, estimate := estimate*3600*24*365*10] %>% 
   .[, std.error := std.error*3600*24*365*10] %>% 
@@ -629,8 +627,14 @@ indices %>%
   scale_y_continuous("Change in explained variance per decade", 
                      label = scales::percent_format(1)) +
   scale_fill_brewer(NULL, palette = "Dark2", aesthetics = c("color", "fill"), labels = lab_sam) +
-  coord_flip() 
+  coord_flip() +
+  facet_wrap(~season)
 ```
+To study the question of whether the SAM is becoming more or less asymmetric, we show trends for the  explained variance of each index for each trimester in Figure \@ref(fig:r-squared-trend). 
+In the troposphere the only significant trend is in DJF, in which the A\nobreakdash-SAM has a positive trend of about 2% per decade, suggesting, that the DJF SAM has become more asymmetric in the period from 1979 to 2018, 
+However due to the atypical nature of the asymmetric component of the SAM during DJF (Section\ \ref(definition-of-indices)) this should be taken only as preliminary evidence. 
+The other significant trends is in the stratosphere during SON, where there is a positive trend in the variance explained by the S\nobreakdash-SAM of about 4% per decade. 
+This change could be the result of the forcing from ozone depletion.
 
 ## Spatial patterns {#spatial}
 
