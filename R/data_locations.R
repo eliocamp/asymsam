@@ -14,7 +14,7 @@ data_path <- function(type = c("raw", "derived"), ...) {
 #' @export
 #' @rdname data_locations
 AAO <- function() {
-   file <- data_path("derived", "aao.Rds")
+   file <- data_path("raw", "aao.Rds")
    checkmate::assert_access(file, access = "r")
    return(file)
 }

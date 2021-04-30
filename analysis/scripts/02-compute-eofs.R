@@ -5,7 +5,7 @@ library(data.table)
 
 indices_file <- data_path("derived", "indices.Rds")
 
-message("Hellow, you're running the script to compute symmetric and asymmetric SAM.\nI'll be your messenger for the day.")
+message("Hello, you're running the script to compute symmetric and asymmetric SAM.\nI'll be your messenger for the day.")
 
 if (!file.exists(indices_file)) {
   message("Reading data")
@@ -21,6 +21,7 @@ if (!file.exists(indices_file)) {
   indices <- hgt[lat <= -20, eof_asym(hgt_a, lon, lat, time, n = 1), by = lev]
   message("Done! Saving file.")
   saveRDS(indices, file = data_path("derived", "indices.Rds"))
+  fwrite(indices, file = data_path("derived", "indices.csv"), yaml = TRUE)
   message("Everything's ready. Have a nice day!")
 } else {
   message("The file ", indices_file, "already exists, so you don't need to do anything. Horray!")

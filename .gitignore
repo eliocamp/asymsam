@@ -49,5 +49,5 @@ vignettes/*.pdf
 
 # End of https://www.toptal.com/developers/gitignore/api/r
 
-analysis/data
+analysis/data/raw_data
 analysis/cache

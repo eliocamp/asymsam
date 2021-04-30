@@ -27,7 +27,7 @@ aao <- rsoi::download_aao(use_cache = !force, file = asymsam::data_path("raw", f
   data.table::as.data.table() %>%
   .[, .(time = lubridate::as_datetime(Date), aao = AAO)]
 
-saveRDS(aao, asymsam::data_path("derived", "aao.Rds"))
+saveRDS(aao, asymsam::data_path("raw", "aao.Rds"))
 
 # Download QBO
 qbourl <- "https://psl.noaa.gov/data/correlation/qbo.data"

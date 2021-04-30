@@ -123,7 +123,7 @@ sam_sep %>%
 
 
 ```{r compute-asymsam}
-indexes_file <- data_path("derived", "indexes.Rds")
+indexes_file <- data_path("derived", "indices.Rds")
 if (file.exists(indexes_file)) {
   indexes <- readRDS(indexes_file)
 } else {

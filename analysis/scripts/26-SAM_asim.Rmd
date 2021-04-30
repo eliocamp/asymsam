@@ -333,7 +333,7 @@ sam_sep %>%
 
 
 ```{r, fig.cap = "Relación entre el EOF1 calculado acá y el índice AAO provisto por NCEP"}
-aao <- readRDS(data_path("derived", "aao.Rds"))
+aao <- readRDS(data_path("raw", "aao.Rds"))
 
 SAM[lev == 700, eof[[1]]$left, by = .(dataset)] %>%
    .[dataset == "ERA5"] %>%
