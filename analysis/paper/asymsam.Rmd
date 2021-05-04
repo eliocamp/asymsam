@@ -714,7 +714,8 @@ cor_raphael <- raphael[indices_wide[lev == 500], on = "time"] %>%
 ```
 
 In the troposphere, the regression pattern associated with the SAM shows the well-known combination of zonally symmetrical annular mode with zonal asymmetries in the form of a wave-3 (Figure \@ref(fig:2d-regr)a.2, [@fogt2012]).
-The regression patterns associated with the A\nobreakdash-SAM and S\nobreakdash-SAM indices successfully disentangle both structures.
+The regression patterns associated with the A\nobreakdash-SAM and S\nobreakdash-SAM indices successfully disentangle both structures. 
+(Note that, in light of previous discussion about the atypical nature of DJF, this year-round average effect  will likely not represent DJF perfectly).
 While the A\nobreakdash-SAM index gives rise to a cleaner zonal wave (Figure \@ref(fig:2d-regr)b.2), the S\nobreakdash-SAM index is associated with an annular structure, with only vestigial zonal asymmetries (Figure \@ref(fig:2d-regr)c.2) in the shape of a wave-3 which is the inverse of the A\nobreakdash-SAM wave-3.
 The wave-3 pattern observed in Figure \@ref(fig:2d-regr)b.2 is rotated by half a wavelength from the average position of the mean wave-3 pattern described by @raphael2004, whose reference locations are marked with points in the figure.
 Indeed, there is no correlation between @raphael2004's index and A\nobreakdash-SAM (cor = `r signif(cor_raphael$estimate, 2)`, p-value `r report_p(cor_raphael$p.value)`).
