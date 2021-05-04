@@ -88,19 +88,19 @@ as.data.table.eof <- function(x, keep.rownames = FALSE, n = NULL, ...) {
 #    r
 # }
 
-labeller <- function(...) {
-   UseMethod("labeller")
-}
-
-labeller.default <- function(...) {
-   ggplot2::labeller(...)
-}
-
-labeller.eof <- function(eof, sep = " - ") {
-   var <- attr(eof, "suffix")
-   with(eof$sdev, setNames(paste0(get(var), sep, scales::percent(r2)),
-                           get(var)))
-}
+# labeller <- function(...) {
+#    UseMethod("labeller")
+# }
+#
+# labeller.default <- function(...) {
+#    ggplot2::labeller(...)
+# }
+#
+# labeller.eof <- function(eof, sep = " - ") {
+#    var <- attr(eof, "suffix")
+#    with(eof$sdev, setNames(paste0(get(var), sep, scales::percent(r2)),
+#                            get(var)))
+# }
 
 # print.eof <- function(eof) {
 #    cat("right:\n")

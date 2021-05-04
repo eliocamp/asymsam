@@ -124,19 +124,16 @@ guide_colorsteps_bottom <- function(width = 25, height = 0.5, ...) {
 
 geom_coords <- function() {
   list(
-    geom_segment(data = data.frame(xstart =  seq(0, 360-30, by = 30), 
-                                   xend =  seq(0, 360-30, by = 30),
-                                   ystart = -90+15,
+    geom_segment(data = data.frame(xstart =  seq(0, 360 - 30, by = 30), 
+                                   xend =  seq(0, 360 - 30, by = 30),
+                                   ystart = -90 + 15,
                                    yend = Inf),
                  aes(x = xstart, xend = xend, y = ystart, yend = yend),
                  size = 0.1, alpha = 0.5),
     
-    # geom_vline(xintercept = seq(0, 360-30, by = 30), size = 0.1, alpha = 0.5),
-    
-    
       geom_hline(yintercept = seq(-90, 0, by = 15), size = 0.1, alpha = 0.5),
       shadowtext::geom_shadowtext(data = data.frame(x = 0, y = seq(-90 + 15, 0, by = 15)),
-                                  aes(x, y, label = LatLabel(y)), size = 2, alpha = 0.5,
+                                  aes(x, y, label = LatLabel(y)), size = 1.5, alpha = 0.5,
                                   colour = "black",
                                   bg.colour = "white" ) 
   )
@@ -692,7 +689,7 @@ While regression coefficients in Figure \@ref(fig:2d-regr) column a are computed
 Thus, they are to be interpreted as the patterns associated with each index, removing the variability (linearly) explained by the other one.
 
 In the stratosphere, the spatial pattern associated with the SAM is clearly dominated by a zonally symmetric, monopolar structure (Figure \@ref(fig:2d-regr)a.1) which is not centred in the South Pole.
-On the other hand, the monopole associated with S\nobreakdash-SAM (Figure \@ref(fig:2d-regr)c.1) is more symmetric.
+On the other hand, the monopole associated with S\nobreakdash-SAM (Figure \@ref(fig:2d-regr)c.1) is more symmetric, although still is not perfectly centred in the South Pole. 
 Furthermore, the regression pattern of A\nobreakdash-SAM is characterized by a wave-1 structure with centres over the Drake Passage in the Western Hemisphere and Davis Sea in the Eastern Hemisphere
 
 ```{r compute-raphael}
