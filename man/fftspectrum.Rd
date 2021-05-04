@@ -15,6 +15,8 @@ smoothers to be used to smooth the periodogram}
 \item{B}{number of bootstrap samples.}
 
 \item{...}{other arguments passed to \code{\link[stats:spec.pgram]{stats::spec.pgram()}}}
+
+\item{probs}{quantile for confidence interval.}
 }
 \description{
 A light wrapper around \code{\link[stats:spec.pgram]{stats::spec.pgram()}} and \code{\link[stats:ar]{stats::ar()}}. Returns the spectrum of

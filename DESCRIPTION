@@ -41,21 +41,17 @@ Imports:
     rsoi,
     latex2exp,
     proj4,
-    data.table,
     forcats,
-    ggforce,
-    ggridges,
     raster,
     patchwork,
-    kableExtra
+    kableExtra,
+    ppcor,
+    irlba
 Suggests: devtools,
     git2r,
     knitr,
     rmarkdown 
 Remotes: 
     eliocamp/tagger,
-    eliocamp/rticles@AMS-V5,
-    tidyverse/ggplot2,
-    boshek/rsoi,
     haozhu233/kableExtra
 VignetteBuilder: knitr

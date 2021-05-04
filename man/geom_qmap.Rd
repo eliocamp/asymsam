@@ -22,6 +22,8 @@ geom_qmap(
 
 \item{wrap}{vector of length 2 interpreted as the longitude range of a global map (see \code{\link[maps:map]{maps::map()}})}
 
+\item{weighting}{weighting parameter passsed to \code{\link[rmapshaper:ms_simplify]{rmapshaper::ms_simplify()}}}
+
 \item{keep}{proportions of point to retain (passed to \code{\link[rmapshaper:ms_simplify]{rmapshaper::ms_simplify()}})}
 
 \item{...}{other arguments passed to \code{\link[ggplot2:geom_polygon]{ggplot2::geom_polygon()}}}
