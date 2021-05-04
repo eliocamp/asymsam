@@ -133,7 +133,7 @@ geom_coords <- function() {
     
       geom_hline(yintercept = seq(-90, 0, by = 15), size = 0.1, alpha = 0.5),
       shadowtext::geom_shadowtext(data = data.frame(x = 0, y = seq(-90 + 15, 0, by = 15)),
-                                  aes(x, y, label = LatLabel(y)), size = 1.5, alpha = 0.5,
+                                  aes(x, y, label = LatLabel(y)), size = 1.5, alpha = 0.7,
                                   colour = "black",
                                   bg.colour = "white" ) 
   )
@@ -667,7 +667,7 @@ indices_2d_yearly %>%
                       global.breaks = FALSE) +
   # geom_contour2(aes(z = env)) +
   geom_qmap(~.x[lat <= -20]) +
-  # geom_coords() +
+  geom_coords() +
   geom_point(data = data.frame(lon = ConvertLongitude(c(50, 166, -76)),
                                lat = -49, term = factor("asym", 
                                                         levels = c("full", "asym", "sym")),
@@ -1045,8 +1045,6 @@ Considering the positive trend in the S\nobreakdash-SAM index, this might be con
 Figure \@ref(fig:regr-air-season) column b can be partially compared with Figure 11 from @fogt2012.
 Although they used station data from 1958 to 2001, main features are reproduced here, such as the strong signal in New Zealand and Australia in Summer and Spring.
 
-Regression of the SAM indices with seasonal mean precipitation and 700 hPa geopotential height are shown in Figures \@ref(fig:pp-regr-oceania) and \@ref(fig:pp-regr-america) for New Zealand and neighbouring islands, and South America respectively.
-South Africa is not shown because no significant signal was detected there.
 
 ```{r calc-indices2d-seasonal}
 indices_2d_seasonal <- hgt[lev %in% 700] %>% 
@@ -1092,24 +1090,19 @@ add_continent <- function(dt) {
 pp <- CMAP() %>% 
   ReadNetCDF(subset = list(lat = c(-90, 0),
                            time = range(indices$time))) %>% 
-  na.omit() %>% 
   normalise_coords() %>%
   .[, days := lubridate::days_in_month(time[1]), by = time] 
 
-# mei <- rsoi::download_mei() %>% 
-#   as.data.table() %>% 
-#   .[, .(time = lubridate::as_datetime(Date), mei = MEI)]
 
 pp_regr_season <- pp %>% 
   .[indices_wide[lev == 700], on = .NATURAL] %>% 
-  na.omit() %>% 
-  .[, precip_a := Anomaly(precip), by = .(lon, lat, month(time))] %>% 
+
+  .[, precip_a := Anomaly(precip,na.rm = TRUE), by = .(lon, lat, month(time))] %>% 
   .[, lapply(.SD, mean, na.rm = TRUE), by = .(lon, lat, time = seasonally(time))] %>%
   .[, precip_a := Anomaly(precip), by = .(lon, lat, season(time))] %>%
   .[, nas := mean(is.na(precip)), by = .(lon,  lat, season(time))] %>% 
   .[nas >= 0.15, precip := NA] %>% 
-  # na.omit() %>% 
-  .[is.finite(precip_a)] %>%
+  # .[is.finite(precip_a)] %>%
   .[, combine_lists(FitLm(precip_a, asym, sym, se = TRUE),
                     FitLm(precip_a, full, se = TRUE)),
     by = .(lon, lat, season(time))] %>% 
@@ -1118,11 +1111,10 @@ pp_regr_season <- pp %>%
 
 pp_regr_annual <- pp %>% 
   .[indices_wide[lev == 700], on = .NATURAL] %>% 
-  na.omit() %>% 
-  .[, precip_a := Anomaly(precip), by = .(lon, lat, month(time))] %>% 
+  .[, precip_a := Anomaly(precip, na.rm = TRUE), by = .(lon, lat, month(time))] %>% 
   .[, nas := mean(is.na(precip)), by = .(lon,  lat)] %>%
   .[nas >= 0.15, precip := NA] %>% 
-  .[is.finite(precip_a)] %>%
+  # .[is.finite(precip_a)] %>%
   .[, combine_lists(FitLm(precip_a, asym, sym, se = TRUE),
                     FitLm(precip_a, full, se = TRUE)),
     by = .(lon, lat)] %>% 
@@ -1134,6 +1126,53 @@ pp_regr_annual <- pp %>%
 pp_regr <- rbind(pp_regr_season, pp_regr_annual) %>% 
   .[, season := forcats::fct_relevel(season, "Annual")] 
 ```
+
+
+(ref:global-pp-cap) Regression of annual and seasonal mean precipitation anomalies (mm per day, shading)  with a) SAM, b) A\\nobreakdash-SAM and c) S\\nobreakdash-SAM for the 1979 -- 2018 period. Thin lines are the Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate. Note that the colour scale cuts-off at $\pm0.25 \mathrm{K}$ so the areas of very high values in the Tropics don't wash out detail in the mid and high-latitudes.
+
+```{r global-pp, fig.cap = "(ref:global-pp-cap)", fig.width=6, fig.height=3.5}
+discrete_div_pp <- colorRampPalette(c("#8E521C", "white", "#00665E"))
+
+breaks_pp <- sort(c(seq(-0.25, 0.25, by = 0.05), -0.7, 0.75))
+breaks_pp <- breaks_pp[breaks_pp != 0]
+
+lons <- c(0, unique(pp_regr$lon), 360)
+pp_regr %>%
+  .[season == "Annual"] %>%
+  .[, p.value := Pvaluate(estimate, std.error, df, "fdr"), by = .(season, term)] %>% 
+  # Need to interpolate 0 and 360 to get closed contours
+  qwrap(lon = c(1.25, 360 + 1.25) ~ c(-1.25, 360 + 1.25)) %>% 
+  .[, lapply(.SD, function(x) approx(lon, x, xout = lons)$y), by = .(lat, season, term)] %>%
+  ggplot(aes(lon, lat)) +
+  geom_contour_fill(aes(z = estimate, fill = ..level..), 
+                    breaks = breaks_pp) +
+  stat_subset(aes(subset = is.na(estimate)), geom = "tile", color = "gray50") +
+  geom_contour2(aes(z = p.value), breaks = 0.05) +
+  geom_qmap(~.x[lat <= 10], keep = 0.015, weighting = 0.9) +
+  scale_x_longitude(breaks = NULL) +
+  scale_y_latitude(breaks = NULL, limits = c(-90, NA)) +
+  discrete_scale("fill", "name", name = "Precipitation",
+                 palette = discrete_div_pp,
+                 guide = guide_colorsteps_bottom(show.limits = TRUE)) +
+  scale_linetype(guide = "none") +
+  coord_polar() +
+  geom_coords() +
+  # coord_quickmap(ylim = c(NA, 0)) +
+  facet_grid(.~term, labeller = labeller(term = lab_sam)) +
+  tag_facets("panel", position = "tl")  +
+  no_grid 
+```
+
+
+Figure\ \@ref(fig:global-pp) shows regression of the SAM indices with precipitation for the Southern Hemisphere. 
+The precipitation signal associated with SAM shows generally decreased precipitation at around 45ºS, somewhat increase precipitation around 30ªS (Fig.\ \@ref(fig:global-pp)a) and increased precipitation over Antarctica, a pattern known from other studies [e.g. @hendon2014].
+This pattern is mostly unchanged between seasons albeit from varying in intensity. 
+Panels b and c in Figure\ \@ref(fig:global-pp) shows that the A\nobreakdash-SAM signal is only in the tropics and mid-latitudes, while the S\nobreakdash-SAM signal is strong in the higher latitudes. 
+In particular S\nobreakdash-SAM is associated with the increased precipitation over Antarctica and decrease precipitation around the Southern Ocean. 
+
+To study in more detail the impacts over land, Figures \@ref(fig:pp-regr-oceania) and \@ref(fig:pp-regr-america) show regression of the SAM indices with seasonal mean precipitation and 700 hPa geopotential height for New Zealand and neighbouring islands, and South America respectively.
+South Africa is not shown because no significant signal was detected there.
+
 
 ```{r def-plot_pp}
 plot_pp <- function(this_continent, data = pp_regr) {
