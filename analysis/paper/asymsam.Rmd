@@ -116,6 +116,12 @@ guide_colorstrip_bottom <- function(width = 25, height = 0.5, ...) {
                    barwidth = width, ...)
 }
 
+guide_colorsteps_bottom <- function(width = 25, height = 0.5, ...) {
+  guide_colorsteps(title.position = "top", title.hjust = 0.5,
+                   barheight = height,
+                   barwidth = width, ...)
+}
+
 geom_coords <- function() {
   list(
     geom_segment(data = data.frame(xstart =  seq(0, 360-30, by = 30), 
@@ -130,7 +136,7 @@ geom_coords <- function() {
     
       geom_hline(yintercept = seq(-90, 0, by = 15), size = 0.1, alpha = 0.5),
       shadowtext::geom_shadowtext(data = data.frame(x = 0, y = seq(-90 + 15, 0, by = 15)),
-                                  aes(x, y, label = LatLabel(y)), size = 2.5, alpha = 0.5,
+                                  aes(x, y, label = LatLabel(y)), size = 2, alpha = 0.5,
                                   colour = "black",
                                   bg.colour = "white" ) 
   )
@@ -273,10 +279,9 @@ if (sign(cor_aao) != 1) {
 
 ## Data
 
-We used monthly geopotential height at 2.5\degree longitude by 2.5\degree latitude of horizontal resolution and 37 vertical isobaric levels from ERA5 [@hersbach2020] for the period 1979 to 2018.
+We used monthly geopotential height at 2.5\degree longitude by 2.5\degree latitude of horizontal resolution and 37 vertical isobaric levels as well as 2 metre temperature from ERA5 [@hersbach2020] for the period 1979 to 2018.
 We restrict our analysis to the post-satellite era to avoid any confounding factors arising from the incorporation of satellite observations.
 
-Temperature data used are from NOAA's Merged Land Ocean Global Surface Temperature Analysis V4.0.1 [@smith2008; @vose2012], which blends land surface air temperature and sea surface (water) temperature analysis into a monthly global grid 5\degree longitude by 5\degree latitude. 
 For precipitation data we used monthly data from the CPC Merged Analysis of Precipitation [\@xie1997], with a 2.5\\degree\\ resolution in latitude and longitude.
 This rainfall gridded dataset is based on information from different sources such as rain gauge observations, satellite inferred estimations and the NCEP-NCAR reanalysis, and it is available since 1979 to present.
 
@@ -927,27 +932,19 @@ The latter allows us to conclude that these results do not depend on the ENSO in
 
 ```{r compute-air-regr}
 time_subset <- list(time = range(indices$time))
-air <- NOAATemp() %>% 
-  ReadNetCDF(vars = "air", subset = c(time_subset, list(lat = c(-90, 10)))) %>% 
-  normalise_coords()  %>%
-  # Interpolate at lon = 0. Otherwise, can't close contours. 
-  qwrap(lon = c(0, 360) ~ c(-2.5, 360)) %>% 
-  .[ , Interpolate(air ~ lon + lat, x.out = c(0, unique(lon)), y.out = unique(lat)), by = time] %>% 
-  .[lon != -2.5]
 
-
-# air <- ReadNetCDF("~/DATOS/reanalysis/ERA5/mon/era5sl.mon.mean.nc", 
-#            vars = c(air = "t2m"), subset = c(time_subset, list(lat = c(-90, 10)))) %>% 
-#   normalise_coords()  
+air <- ERA52mt() %>% 
+  ReadNetCDF(vars = c("air" = "t2m"), 
+             subset = c(time_subset, list(latitude = c(-90, 10)))) %>% 
+  normalise_coords()
 
 air_regr <- air %>% 
   # .[, air := Anomaly(air), by = .(lon, lat)] %>%
   .[indices_wide[lev == 700], on = .NATURAL] %>% 
   # mei[., on = .NATURAL] %>% 
   rm_singleton() %>% 
+  .[year(time) %between% c(1981, 2018)] %>% 
   .[, lapply(.SD, mean, na.rm = TRUE), by = .(lon, lat, time = seasonally(time))] %>%
-  .[, nas := mean(is.na(air)), by = .(lon, lat, season(time))] %>%
-  .[nas >= 0.15, air := NA] %>%
   .[, rbind(as.data.table(FitLm(air, asym, sym, se = TRUE)),
             as.data.table(FitLm(air, full, se = TRUE))),
     by = .(lon, lat, season(time))] %>% 
@@ -955,57 +952,95 @@ air_regr <- air %>%
   .[, term := factor(term, levels = names(lab_sam), ordered = TRUE)] 
 ```
 
-```{r regr-air-season, fig.cap = "Regression of seasonal mean surface land air and sea temperature anomalies (Kelvin) with SAM, A\\nobreakdash-SAM and S\\nobreakdash-SAM for the 1979 -- 2018 period. Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate. Gray areas in Antarctica have more than 15\\% of missing data.", fig.width = 6, fig.height = 8, fig.env = "figure*", cache = FALSE}
+
+(ref:regr-air-season-cap) Regression of seasonal mean surface land air and sea temperature anomalies (Kelvin) with SAM, A\nobreakdash-SAM and S\nobreakdash-SAM for the 1979 -- 2018 period. Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate. Note that the colour scale cuts-off at $\pm0.6 \mathrm{K}$ so the areas of very high values in the Antarctic don't wash out detail in the mid-latitudes and tropics. 
+
+```{r regr-air-season, fig.cap = "(ref:regr-air-season-cap)", fig.width = 6, fig.height = 8, fig.env = "figure*", cache = FALSE}
+
+anchor_limits <- function(anchor = 0, binwidth = NULL, exclude = NULL,  bins = 10,
+                          range = c(NA, NA)) {
+  force(range)
+  force(anchor)
+  force(binwidth)
+  force(exclude)
+  force(bins)
+  function(x, binwidth2 = NULL) {
+    if (!is.null(binwidth)) binwidth2 <- binwidth
+    if (is.null(binwidth2)) {
+      binwidth2 <- diff(pretty(x, bins))[1]
+    }
+    
+    mult <- ceiling((x[1] - anchor)/binwidth2) - 1L
+    start <- anchor + mult*binwidth2
+    b <- seq(start, x[2] + binwidth2, binwidth2)
+    b <- b[!(b %in% exclude)]
+    
+    if (!is.na(range[1])) {
+      m <- min(b)
+      b <- c(b[b >= range[1]], m)
+    }
+    
+    if (!is.na(range[2])) {
+      m <- max(b)
+      b <- c(b[b <= range[2]], m)
+    }
+    sort(b)
+    
+  }
+}
+
+discrete_div <- colorRampPalette(c(scales::muted("blue"), "white",
+                                   scales::muted("red")))
+
 air_regr %>% 
   copy() %>% 
   .[, p.value := Pvaluate(estimate, std.error, df, "fdr"), by = .(term, season)] %>% 
   periodic(lon = c(0, 360)) %>% 
   ggplot(aes(lon, lat)) +
-  geom_contour_fill(aes(z = estimate), 
-                    breaks = AnchorBreaks(0, 0.1, 0)) +
-  # geom_contour_tanaka2(aes(z = estimate),
-  #                     breaks = AnchorBreaks(0, 0.1, 0)) +
-  # geom_raster(aes(fill = estimate)) +
-  # geom_contour_fill(aes(z = p.value), breaks = c(0, 0.05), fill = "gray50", alpha = 0.2) +
+  geom_contour_fill(aes(z = estimate, fill = ..level..), 
+                    breaks = anchor_limits(0, 0.1, 0, range = c(-.6, .6))) +
   geom_contour2(aes(z = p.value), breaks = c(0, 0.05), color = "black", size = 0.3) +
-  geom_contour_fill(aes(z = as.numeric(is.na(estimate))), breaks = c(0.5, 2), fill = "gray") +
-  geom_contour2(aes(z = as.numeric(is.na(estimate))), breaks = c(0.5, 2), color = "gray50") +
+  
   geom_qmap(~.x[lat <= 0]) +
   geom_coords() +
   scale_x_longitude(labels = NULL) +
   scale_y_latitude(labels = NULL, limits = c(NA, 0)) +
-  scale_fill_divergent("2-meter air temperature",  
-                       limits = c(-0.6, .6), 
-                       oob = scales::squish,
-                       guide = guide_colorstrip_bottom(), breaks = AnchorBreaks(0, 0.1, 0)) +
+  discrete_scale("fill", "name", name = "2-meter air temperature",
+                 palette = discrete_div,
+                 guide = guide_colorsteps_bottom(show.limits = TRUE)) +
   coord_polar() +
   facet_grid(season ~ term, labeller = labeller(term = lab_sam, lev = lev.lab)) +
   tag_facets("cr", tag_suffix = "") +
   no_grid 
 ```
 
-To assess differences in the impacts associated with the SAM, A\nobreakdash-SAM and S\nobreakdash-SAM indices we regressed surface land air and sea temperature and precipitation onto each of the three SAM indices at 700 hPa.
+To assess differences in the impacts associated with the SAM, A\nobreakdash-SAM and S\nobreakdash-SAM indices we regressed 2-meter air temperature and precipitation onto each of the three SAM indices at 700 hPa.
 As shown in previous sections, the three indices are highly coherent in the troposphere, so we select this level to represent the tropospheric circulation for consistency with previous studies.
 Regressions were done without detrending either the variables nor the indices, but computing the regressions with detrended values doesn't change the results (not shown).
 
 Figure \@ref(fig:regr-air-season) shows regression coefficients of each index at 700 hPa with surface land air and sea temperature for each trimester.
-In Summer, positive values of the SAM index (Figure \@ref(fig:regr-air-season)`r get_tag(season == "DJF" & term == "full")`) are associated with negative temperature anomalies near Antarctica which are surrounded by a ring of positive anomalies.
+In Summer, positive values of the SAM index (Figure \@ref(fig:regr-air-season)`r get_tag(season == "DJF" & term == "full")`) are associated with negative temperature anomalies near Antarctica which are surrounded by a ring of positive anomalies in the mid latitudes. 
 The ring is not zonally symmetric, as there are four distinctive local maximums around 30\degree W, 120\degree W, 150\degree E and 90\degree E respectively.
 In the tropics, there are negative anomalies in the equatorial Pacific, consistent with the negative correlation between SAM and ENSO.
 Figure \@ref(fig:regr-air-season)`r combine_words(get_tag(season == "DJF" & term != "full", n = 2))` show temperature anomalies associated with positive values of A\nobreakdash-SAM and S\nobreakdash-SAM, respectively.
 Both the local maximums in the ring and the anomalies in the Pacific regions are present mostly on the A\nobreakdash-SAM regression map, while temperature patterns linked to positive S\nobreakdash-SAM show a more zonally consistent ring and less relation to the tropics.
-Temperature anomalies in the Indian ocean, South Africa and Australia are strongly related to A\nobreakdash-SAM.
-This signal is not present in the regression pattern with the SAM.
-Spring (Figure \@ref(fig:regr-air-season), row `r get_row(season == "SON")`) features similar patterns but of smaller magnitude, with fewer regions where regressed anomalies have statistical significance.
+Over Antarctica positive values of the SAM index are associated with negative temperature anomalies, particularly over the Eastern coast. These anomalies are associated only with the S\nobreakdash-SAM. 
+On the other hand, temperature anomalies in the Indian ocean, South Africa and Australia are strongly related to A\nobreakdash-SAM and are not present in the regression pattern with the SAM.
 
-In Autumn and Winter (rows `r combine_words(get_row(season %in% c("MAM", "JJA"), n = 2))` in Figure \@ref(fig:regr-air-season)) the positive ring is only present through its local maximums in the regression with the SAM.
-There are also negative anomalies in Southern Australia, and positive anomalies over New Zealand and Southern South America.
-These patterns are not significant in the sense that there are no areas with p-values below 0.05 when controlling for FDR following @wilks2016.
-However, repeating this analysis with 2-meter air temperature from ERA5 resulted in similar patterns that were statistically significant (not shown).
-Moreover, similar features were observed in station measurements by @jones2019, although using data from 1957 to 2016.
+
+In Autumn, Winter and Spring (rows `r combine_words(get_row(season %in% c("MAM", "JJA", "SON"), n = 3))` in Figure \@ref(fig:regr-air-season)) the positive ring is only present through its local maximums in the regression with the SAM, which reflects the more asymmetric nature of the SAM compared to Summer. 
+There are also negative anomalies in Southern Australia, and positive anomalies over New Zealand and Southern South America. 
+Similar features were observed in station measurements by @jones2019, although using data from 1957 to 2016.
+In Spring, the tropical signal of A\nobreakdash-SAM is similar to the one in Summer, again revealing the significance of the ENSO-A\nobreakdash-SAM link. 
+
+The same regressions using temperature data from NOAA's Merged Land Ocean Global Surface Temperature Analysis V4.0.1 [@smith2008; @vose2012], which blends land surface air temperature and sea surface (water) temperature analysis into a monthly global grid are shown in Figure\ \@ref{fig:A10}.
+Where data is available, the general patterns are similar, although with reduced magnitude, perhaps due to the fact that sea surface temperatures vary less. 
+
 
 The pattern of negative anomalies in the pole surrounded by positive anomalies roughly seen in all seasons -- although with varying intensity and small-scale details -- translates to enhanced meridional temperature gradient maximised in the zero line, which is consistent with the intensification and poleward migration of the westerlies commonly linked to the SAM through thermal wind balance.
 It's then not surprising to see it more clearly in association with S\nobreakdash-SAM (at least in Summer and Spring).
+Temperatures over Eastern Antarctica are most impacted by the S\nobreakdash-SAM, while on Western Antarctica they are more sensitive to the A\nobreakdash-SAM. 
+Considering the positive trend in the S\nobreakdash-SAM index, this might be consistent with temperature trends, which show warming in the West and no trend in the East [@nicolas2014].
 
 Figure \@ref(fig:regr-air-season) column b can be partially compared with Figure 11 from @fogt2012.
 Although they used station data from 1958 to 2001, main features are reproduced here, such as the strong signal in New Zealand and Australia in Summer and Spring.
@@ -1295,7 +1330,7 @@ plot_composites <- function(this_lev) {
     .[, .(cor = cor(`-1`, `1`)), by = .(season)]
   
   tags <- composites[order(sign, season)][sign != 0, paste0("n: ", unique(n)), by = .(sign, season)]
-  if (this_lev == 50){
+  if (this_lev == 50) {
     limits <- c(-119, 179) 
   } else {
     limits <- c(-59, 74)
@@ -1481,5 +1516,61 @@ spec %>%
   facet_grid(lev ~ term,labeller = labeller(lev = lev.lab, term = lab_sam), scales = "free") +
   tag_facets() 
 ```
+
+```{r compute-air-regr-noaa}
+time_subset <- list(time = range(indices$time))
+air <- NOAATemp() %>% 
+  ReadNetCDF(vars = "air", subset = c(time_subset, list(lat = c(-90, 10)))) %>% 
+  normalise_coords()  %>%
+  # Interpolate at lon = 0. Otherwise, can't close contours. 
+  qwrap(lon = c(0, 360) ~ c(-2.5, 360)) %>% 
+  .[ , Interpolate(air ~ lon + lat, x.out = c(0, unique(lon)), y.out = unique(lat)), by = time] %>% 
+  .[lon != -2.5]
+
+
+# air <- ReadNetCDF("~/DATOS/reanalysis/ERA5/mon/era5sl.mon.mean.nc", 
+#            vars = c(air = "t2m"), subset = c(time_subset, list(lat = c(-90, 10)))) %>% 
+#   normalise_coords()  
+
+air_regr <- air %>% 
+  # .[, air := Anomaly(air), by = .(lon, lat)] %>%
+  .[indices_wide[lev == 700], on = .NATURAL] %>% 
+  # mei[., on = .NATURAL] %>% 
+  rm_singleton() %>% 
+  .[, lapply(.SD, mean, na.rm = TRUE), by = .(lon, lat, time = seasonally(time))] %>%
+  .[, nas := mean(is.na(air)), by = .(lon, lat, season(time))] %>%
+  .[nas >= 0.15, air := NA] %>%
+  .[, rbind(as.data.table(FitLm(air, asym, sym, se = TRUE)),
+            as.data.table(FitLm(air, full, se = TRUE))),
+    by = .(lon, lat, season(time))] %>% 
+  rm_intercept() %>% 
+  .[, term := factor(term, levels = names(lab_sam), ordered = TRUE)] 
+```
+
+```{r A10, fig.cap = "Regression of seasonal mean surface land air and sea temperature anomalies (Kelvin) with SAM, A\\nobreakdash-SAM and S\\nobreakdash-SAM for the 1979 -- 2018 period. Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate. Gray areas in Antarctica have more than 15\\% of missing data.", fig.width = 6, fig.height = 8, fig.env = "figure*", cache = FALSE}
+air_regr %>% 
+  copy() %>% 
+  .[, p.value := Pvaluate(estimate, std.error, df, "fdr"), by = .(term, season)] %>% 
+  periodic(lon = c(0, 360)) %>% 
+  ggplot(aes(lon, lat)) +
+  geom_contour_fill(aes(z = estimate), 
+                    breaks = AnchorBreaks(0, 0.1, 0)) +
+  geom_contour2(aes(z = p.value), breaks = c(0, 0.05), color = "black", size = 0.3) +
+  geom_contour_fill(aes(z = as.numeric(is.na(estimate))), breaks = c(0.5, 2), fill = "gray") +
+  geom_contour2(aes(z = as.numeric(is.na(estimate))), breaks = c(0.5, 2), color = "gray50") +
+  geom_qmap(~.x[lat <= 0]) +
+  geom_coords() +
+  scale_x_longitude(labels = NULL) +
+  scale_y_latitude(labels = NULL, limits = c(NA, 0)) +
+  scale_fill_divergent("2-meter air temperature",  
+                       limits = c(-0.6, .6), 
+                       oob = scales::squish,
+                       guide = guide_colorstrip_bottom(), breaks = AnchorBreaks(0, 0.1, 0)) +
+  coord_polar() +
+  facet_grid(season ~ term, labeller = labeller(term = lab_sam, lev = lev.lab)) +
+  tag_facets("cr", tag_suffix = "") +
+  no_grid 
+```
+
 
 \newpage

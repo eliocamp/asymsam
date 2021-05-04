@@ -45,6 +45,14 @@ ERA5 <- function() {
 }
 
 
+#' @export
+#' @rdname data_locations
+ERA52mt <- function() {
+   file <- data_path("raw", "era5.2mt.mon.mean.nc")
+   checkmate::assert_access(file, access = "r")
+   class(file) <- c("nc_file", class(file))
+   return(file)
+}
 
 #' @export
 #' @rdname data_locations
