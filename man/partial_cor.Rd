@@ -4,14 +4,12 @@
 \alias{partial_cor}
 \title{Partial correlation between x1 and y and x2 and y.}
 \usage{
-partial_cor(y, x1, x2, weights = rep(1, length(y)))
+partial_cor(y, x1, x2)
 }
 \arguments{
 \item{y}{variable to which partial correlation will be computed}
 
 \item{x1, x2}{variables that will be correlated with y}
-
-\item{weights}{vector of weights}
 }
 \description{
 Partial correlation between x1 and y and x2 and y.

@@ -6,7 +6,7 @@
 \usage{
 geom_qmap(
   subset = identity,
-  color = "black",
+  color = "gray50",
   size = 0.2,
   fill = NA,
   wrap = c(0, 360),

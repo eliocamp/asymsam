@@ -5,6 +5,7 @@
 \alias{AAO}
 \alias{SST}
 \alias{ERA5}
+\alias{ERA52mt}
 \alias{OLR}
 \alias{CMAP}
 \alias{GPCP}
@@ -21,6 +22,8 @@ AAO()
 SST()
 
 ERA5()
+
+ERA52mt()
 
 OLR()
 
