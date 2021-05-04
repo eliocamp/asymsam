@@ -657,7 +657,7 @@ indices_2d_yearly <- hgt[lev %in% c(main_levs)] %>%
 indices_2d_yearly %>% 
   .[lat <= -20] %>% 
   .[lev %in% c(50, 700)] %>%
-  .[, term := factor(term, levels = c("full", "asym", "sym"), ordered = TRUE)] %>% 
+  .[, term := factor(term, levels = c("full", "asym", "sym"))] %>% 
   ggplot(aes(lon, lat)) +
   geom_contour_fill(aes(z = estimate), breaks = AnchorBreaks(0, exclude =  0),
                     global.breaks = FALSE) +
@@ -667,9 +667,11 @@ indices_2d_yearly %>%
                       global.breaks = FALSE) +
   # geom_contour2(aes(z = env)) +
   geom_qmap(~.x[lat <= -20]) +
-  geom_coords() +
+  # geom_coords() +
   geom_point(data = data.frame(lon = ConvertLongitude(c(50, 166, -76)),
-                               lat = -49, term = "asym", lev = 700), 
+                               lat = -49, term = factor("asym", 
+                                                        levels = c("full", "asym", "sym")),
+                               lev = 700),
              shape = 21, size = 2.5, color = "black", fill = "#de3e80") +
   scale_x_longitude(labels = NULL) +
   scale_y_latitude(limits = c(NA, -20), labels = NULL) +
@@ -679,7 +681,7 @@ indices_2d_yearly %>%
                        breaks = AnchorBreaks(0, 10, 0)) +
   scale_linetype(guide = "none") +
   coord_polar() +
-  facet_grid(lev ~ term, labeller = labeller(term = lab_sam, lev = lev.lab)) +
+  facet_grid(lev ~ term, labeller = labeller(lev = lev.lab, term = lab_sam)) +
   tag_facets("cr") +
   no_grid 
 ```
