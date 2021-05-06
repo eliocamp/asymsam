@@ -11,3 +11,6 @@
 ^Dockerfile$
 ^system-deps\.txt$
 ^write-system-deps\.R$
+^docs$
+^website$
+^\.nojekyll$
