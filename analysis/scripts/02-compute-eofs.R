@@ -18,7 +18,8 @@ if (!file.exists(indices_file)) {
     .[, hgt_a := hgt - mean(hgt), by = .(lon, lat, lev, month(time))]
 
   message("Computing eofs... (this might take a while, you can go make some coffee).")
-  indices <- hgt[lat <= -20, eof_asym(hgt_a, lon, lat, time, n = 1), by = lev]
+  indices <- hgt[lat <= -20, eof_asym(hgt_a, lon, lat, time, n = 1), by = lev] %>%
+    .[, PC := NULL]
   message("Done! Saving file.")
   saveRDS(indices, file = data_path("derived", "indices.Rds"))
   fwrite(indices, file = data_path("derived", "indices.csv"), yaml = TRUE)

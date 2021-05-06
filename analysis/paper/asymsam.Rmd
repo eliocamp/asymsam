@@ -72,12 +72,12 @@ knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE,
   cache = TRUE,
-  cache.extra = 42,
+  cache.extra = 41,
   cache.path = "../cache/",
   collapse = TRUE,
   comment = "#>",
-  dev = "pdf",
-  # dpi = 300,
+  dev = c("pdf", "png"),
+  dpi = 300,
   out.extra = ""
 )
 
@@ -335,7 +335,7 @@ sam_plot %>%
   facet_grid(.~variable, labeller = labeller(variable = label_parsed, lev = lev.lab)) +
   axis_labs_smol +
   no_grid +
-  tag_facets() +
+  tag_facets(position = list(x = 0.15, y = 0.85)) +
   theme(panel.spacing = grid::unit(-1, "lines"))
 ```
 

@@ -46,7 +46,8 @@ Imports:
     patchwork,
     kableExtra,
     ppcor,
-    irlba
+    irlba,
+    magick
 Suggests: devtools,
     git2r,
     knitr,

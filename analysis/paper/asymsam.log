@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.3.30)  4 MAY 2021 20:21
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.3.30)  6 MAY 2021 14:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -573,7 +573,7 @@ Overfull \hbox (11.3178pt too wide) in paragraph at lines 185--193
 File: method-1.pdf Graphic file (type pdf)
 <use method-1.pdf>
 
-Overfull \hbox (53.46153pt too wide) in paragraph at lines 195--195
+Overfull \hbox (44.4278pt too wide) in paragraph at lines 195--195
 [][] 
  []
 
@@ -582,6 +582,9 @@ Overfull \hbox (10.45892pt too wide) in paragraph at lines 198--205
 \TU/lmr/m/n/10 That means that zonal asymmetries associated with positive SAM p
 hase (SAM+)
  []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [5] [6]
 File: asymsam-timeseries-1.pdf Graphic file (type pdf)
@@ -611,18 +614,15 @@ for the SAM, A-SAM
 Underfull \vbox (badness 1688) has occurred while \output is active []
 
 [8]
+Underfull \vbox (badness 1831) has occurred while \output is active []
+
+[9]
 File: trends-1.pdf Graphic file (type pdf)
 <use trends-1.pdf>
 
 Overfull \hbox (71.52899pt too wide) in paragraph at lines 302--302
 [][] 
  []
-
-
-Underfull \vbox (badness 1831) has occurred while \output is active []
-
-[9]
-Underfull \vbox (badness 1237) has occurred while \output is active []
 
 [10]
 File: r-squared-trend-1.pdf Graphic file (type pdf)
@@ -637,7 +637,7 @@ Underfull \vbox (badness 2671) has occurred while \output is active []
 File: 2d-regr-1.pdf Graphic file (type pdf)
 <use 2d-regr-1.pdf>
 
-Overfull \hbox (66.51027pt too wide) in paragraph at lines 332--332
+Overfull \hbox (57.47655pt too wide) in paragraph at lines 332--332
 [][] 
  []
 
@@ -650,7 +650,7 @@ File: vertical-regression-1.pdf Graphic file (type pdf)
 File: regr-air-season-1.pdf Graphic file (type pdf)
 <use regr-air-season-1.pdf>
 
-Overfull \hbox (45.43156pt too wide) in paragraph at lines 431--431
+Overfull \hbox (48.44281pt too wide) in paragraph at lines 431--431
 [][] 
  []
 
@@ -666,7 +666,7 @@ ure @ref{fig:A10}.
 File: global-pp-1.pdf Graphic file (type pdf)
 <use global-pp-1.pdf>
 
-Overfull \hbox (60.48776pt too wide) in paragraph at lines 466--466
+Overfull \hbox (47.43906pt too wide) in paragraph at lines 466--466
 [][] 
  []
 
@@ -689,7 +689,7 @@ Overfull \hbox (34.39032pt too wide) in paragraph at lines 501--501
 LaTeX Warning: Float too large for page by 2.00291pt on input line 502.
 
 [21] [22]
-Underfull \vbox (badness 4266) has occurred while \output is active []
+Underfull \vbox (badness 2181) has occurred while \output is active []
 
 [23]
 Overfull \hbox (9.1589pt too wide) in paragraph at lines 577--579
