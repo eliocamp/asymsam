@@ -299,7 +299,7 @@ However, only SAM index has unit standard deviation per definition.
 The explained variance of each pattern is used as an indicator of the degree of zonally symmetry or asymmetry of each monthly field.
 To quantify the coherence between temporal series corresponding to different indices or the same index at different levels, we computed the temporal correlation between them.
 
-```{r method, fig.cap = "Spatial patterns of the first EOF of 700~hPa geopotential height for 1979 -– 2018 period. (a) Full field, (b) zonally asymmetric component and (c) zonally symmetric component. Arbitrary units; positive values in blue and negative values in red.", fig.width=6, fig.height=2.5, fig.env="figure*"}
+```{r method, fig.cap = "Spatial patterns of the first EOF of 700~hPa geopotential height for 1979 -– 2018 period. (a) Full field, (b) zonally asymmetric component and (c) zonally symmetric component. Arbitrary units; positive values in blue and negative values in red.", fig.width=6, fig.height=2.7, fig.env="figure*"}
 sam_sep <- SAM[, eof[[1]]$right, by = .(lev)] %>% 
   setnames("hgt", "full") %>% 
   .[, c("sym", "asym") := list(mean(full), Anomaly(full)), by = .(lat, lev)] 
@@ -335,7 +335,8 @@ sam_plot %>%
   facet_grid(.~variable, labeller = labeller(variable = label_parsed, lev = lev.lab)) +
   axis_labs_smol +
   no_grid +
-  tag_facets()
+  tag_facets() +
+  theme(panel.spacing = grid::unit(-1, "lines"))
 ```
 
 The method assumes linearity in the asymmetric component of the SAM.
@@ -682,8 +683,9 @@ indices_2d_yearly %>%
   scale_linetype(guide = "none") +
   coord_polar() +
   facet_grid(lev ~ term, labeller = labeller(lev = lev.lab, term = lab_sam)) +
-  tag_facets("cr") +
-  no_grid 
+  tag_facets("cr", position = list(x = 0.15, y = 0.85)) +
+  no_grid +
+  theme(panel.spacing = grid::unit(-1, "lines"))
 ```
 
 We then computed the spatial regression of geopotential height anomalies on the A\nobreakdash-SAM and S\nobreakdash-SAM indices at 700 hPa and 50 hPa levels (Figure \@ref(fig:2d-regr)).
@@ -1010,8 +1012,9 @@ air_regr %>%
                  guide = guide_colorsteps_bottom(show.limits = TRUE)) +
   coord_polar() +
   facet_grid(season ~ term, labeller = labeller(term = lab_sam, lev = lev.lab)) +
-  tag_facets("cr", tag_suffix = "") +
-  no_grid 
+  tag_facets("cr", position = list(x = 0.15, y = 0.85)) +
+  no_grid +
+  theme(panel.spacing = grid::unit(-1, "lines"))
 ```
 
 To assess differences in the impacts associated with the SAM, A\nobreakdash-SAM and S\nobreakdash-SAM indices we regressed 2-meter air temperature and precipitation onto each of the three SAM indices at 700 hPa.
@@ -1148,7 +1151,7 @@ pp_regr %>%
                     breaks = breaks_pp) +
   stat_subset(aes(subset = is.na(estimate)), geom = "tile", color = "gray50") +
   geom_contour2(aes(z = p.value), breaks = 0.05, size = 0.2) +
-  geom_qmap(~.x[lat <= 10], keep = 0.015, weighting = 0.9) +
+  geom_qmap(~.x[lat <= 0], keep = 0.015, weighting = 0.9) +
   scale_x_longitude(breaks = NULL) +
   scale_y_latitude(breaks = NULL, limits = c(-90, NA)) +
   discrete_scale("fill", "name", name = "Precipitation",
@@ -1159,8 +1162,10 @@ pp_regr %>%
   geom_coords() +
   # coord_quickmap(ylim = c(NA, 0)) +
   facet_grid(.~term, labeller = labeller(term = lab_sam)) +
-  tag_facets("panel", position = "tl")  +
-  no_grid 
+  # tag_facets("panel", position = "tl")  +
+  tag_facets("panel", position = list(x = 0.15, y = 0.85)) +
+  no_grid +
+  theme(panel.spacing = grid::unit(-1, "lines"))
 ```
 
 
