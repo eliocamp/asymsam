@@ -1133,7 +1133,7 @@ pp_regr <- rbind(pp_regr_season, pp_regr_annual) %>%
 ```
 
 ```{r pp-enso-patterns}
-
+# This computation is not part of the paper, but was used as an answer to a reviewr. 
 pp_patterns <- enso[index == "oni"] %>% 
   .[pp, on = "time"] %>% 
   .[, precip_a := Anomaly(precip, na.rm = TRUE), by = .(lon, lat, month(time))] %>% 
@@ -1164,16 +1164,24 @@ pp_enso_index <- pp %>%
   .[pp_patterns, on = c("lon", "lat", "season")] %>% 
   .[, mean(estimate*precip_a), by = .(time, continent)]
 
-pp_enso_index %>% 
-  dcast(time ~ continent) %>% 
-  ggplot(aes(oceania, america)) +
-  geom_point() +
-  facet_wrap(~season(time), scales = "free")
-  
+
+cors_enso_pp <- pp_enso_index %>%
+  dcast(time ~ continent) %>%
+  .[, cor(oceania, america), by = season(time)] %>% 
+  .[, label := paste0(season, " (cor=", signif(V1, 2), ")")]
 
 # pp_enso_index %>% 
 #   dcast(time ~ continent) %>% 
-#   .[, cor(oceania, america), by = season(time)]
+#   .[, season := season(time)] %>% 
+#   ggplot(aes(oceania, america)) +
+#   geom_point() +
+#   geom_smooth(method = "lm") +
+#   scale_x_continuous("Oceania index") +
+#   scale_y_continuous("America Index") +
+#   facet_wrap(~season, scales = "free", labeller = labeller(season= setNames(cors_enso_pp$label,
+#                                                                             cors_enso_pp$season))) 
+  
+
 ```
 
 
