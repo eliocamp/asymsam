@@ -221,7 +221,7 @@ Their vertical structure and coherence, temporal variability and trends are cons
 We then study the spatial patterns described by the variability exclusive to each index focusing on 50 hPa as representing the stratosphere and 700 hPa as representing the troposphere.
 Finally, the relationships of the SAM at 700 hPa with temperature and precipitation anomalies are investigated.
 
-In the Section \@ref(methods) we describe the methods.
+In Section \@ref(methods) we describe the methods.
 In Section \@ref(temporal) we describe the temporal variability and vertical coherence of the indices.
 In Section \@ref(spatial), we analyse the spatial patterns of geopotential height associated with them.
 In Section \@ref(impacts), we study their relationship with surface-level temperature and precipitation.
@@ -695,7 +695,7 @@ While regression coefficients in Figure \@ref(fig:2d-regr) column a are computed
 Thus, they are to be interpreted as the patterns associated with each index, removing the variability (linearly) explained by the other one.
 
 In the stratosphere, the spatial pattern associated with the SAM is clearly dominated by a zonally symmetric, monopolar structure (Figure \@ref(fig:2d-regr)a.1) which is not centred in the South Pole.
-On the other hand, the monopole associated with S\nobreakdash-SAM (Figure \@ref(fig:2d-regr)c.1) is more symmetric, although still is not perfectly centred in the South Pole. 
+On the other hand, the monopole associated with S\nobreakdash-SAM (Figure \@ref(fig:2d-regr)c.1) is more symmetric, although still not perfectly centred in the South Pole. 
 Furthermore, the regression pattern of A\nobreakdash-SAM is characterized by a wave-1 structure with centres over the Drake Passage in the Western Hemisphere and Davis Sea in the Eastern Hemisphere
 
 ```{r compute-raphael}
@@ -1322,7 +1322,7 @@ The separation of these features between A\nobreakdash-SAM and S\nobreakdash-SAM
 The anomalous circulation at 700 hPa associated with S\nobreakdash-SAM (Figure \@ref(fig:pp-regr-america)c.1) indicate anomalous easterly flow over Southern Chile. This leads to reduced influx of moist air from the Pacific Ocean which is the main source of precipitable water in that region [e.g. @garreaud2007]. On the other hand, the anomalous circulation associated with positive values of A\nobreakdash-SAM (Figure \@ref(fig:pp-regr-america)b.1) in the Atlantic is anticyclonic in the South and cyclonic in the North. This promotes anomalous South-Easterly flow over SESA, which inhibits the flow of the South America Low-Level Jet to the region [@silvestri2009; @zamboni2010]. This same pattern was found to be associated with increased precipitation in Southern Brazil during SACZ events [@rosso2018].
 There is a small area of significant positive precipitation anomalies with the SAM near central Argentina which is also present in the station-based analysis by @gillett2006 that is explained by the A\nobreakdash-SAM.
 
-## Conclusions
+# Conclusions
 
 In this study we characterise the temporal and spatial variability of the zonally symmetric and asymmetric structure of the SAM.
 By projecting monthly geopotential fields at each level with the corresponding asymmetric and symmetric pattern, we created two indices for representing the zonally asymmetric and symmetric contributions of the SAM respectively.
