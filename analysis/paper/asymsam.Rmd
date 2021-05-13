@@ -1145,9 +1145,9 @@ pp_patterns <- enso[index == "oni"] %>%
   add_continent() %>% 
   .[continent %in% names(continents)[-1]] 
 
-# pp_patterns %>% 
-#   .[continent == "america"] %>% 
-#   ggplot(aes(lon,lat)) + 
+# pp_patterns %>%
+#   .[continent == "america"] %>%
+#   ggplot(aes(lon,lat)) +
 #   geom_contour_fill(aes(z = estimate)) +
 #   facet_wrap(season~continent, scales = "free") +
 #   scale_fill_divergent()
@@ -1227,7 +1227,7 @@ Figure\ \@ref(fig:global-pp) shows regression of the SAM indices with precipitat
 The precipitation signal associated with SAM shows generally decreased precipitation at around 45ºS, somewhat increase precipitation around 30ªS (Fig.\ \@ref(fig:global-pp)a) and increased precipitation over Antarctica, a pattern known from other studies [e.g. @hendon2014].
 This pattern is mostly unchanged between seasons albeit from varying in intensity. 
 Panels b and c in Figure\ \@ref(fig:global-pp) shows that the A\nobreakdash-SAM signal is only in the tropics and mid-latitudes, while the S\nobreakdash-SAM signal is strong in the higher latitudes. 
-In particular S\nobreakdash-SAM is associated with the increased precipitation over Antarctica and decrease precipitation around the Southern Ocean. 
+In particular positive values of S\nobreakdash-SAM is associated with the increased precipitation over Antarctica and decrease precipitation around the Southern Ocean.
 
 To study in more detail the impacts over land, Figures \@ref(fig:pp-regr-oceania) and \@ref(fig:pp-regr-america) show regression of the SAM indices with seasonal mean precipitation and 700 hPa geopotential height for New Zealand and neighbouring islands, and South America respectively.
 South Africa is not shown because no significant signal was detected there.
