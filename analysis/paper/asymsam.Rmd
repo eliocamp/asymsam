@@ -72,7 +72,7 @@ knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE,
   cache = TRUE,
-  cache.extra = 41,
+  cache.extra = 42,
   cache.path = "../cache/",
   collapse = TRUE,
   comment = "#>",
@@ -116,10 +116,11 @@ guide_colorstrip_bottom <- function(width = 25, height = 0.5, ...) {
                    barwidth = width, ...)
 }
 
-guide_colorsteps_bottom <- function(width = 25, height = 0.5, ...) {
+guide_colorsteps_bottom <- function(width = 25, height = 0.5, 
+                                    frame.colour = "black", ...) {
   guide_colorsteps(title.position = "top", title.hjust = 0.5,
                    barheight = height,
-                   barwidth = width, ...)
+                   barwidth = width, frame.colour = frame.colour, ...)
 }
 
 geom_coords <- function() {
@@ -420,7 +421,7 @@ if (sign(cor_aao) != 1) {
 }
 ```
 
-```{r asymsam-timeseries, fig.cap = "Time series for A\\nobreakdash-SAM and S\\nobreakdash-SAM at (a) 50~hPa and (b) 700~hPa. To the right, probability density estimate of each index. Series are standarised by the standard deviation of the SAM at each level.", fig.width=6, fig.height=3, fig.env="figure*"}
+```{r asymsam-timeseries, fig.cap = "Time series for A\\nobreakdash-SAM and S\\nobreakdash-SAM at (a) 50~hPa and (b) 700~hPa. To the right, probability density estimate of each index. Series are standardised by the standard deviation of the SAM at each level.", fig.width=6, fig.height=3, fig.env="figure*"}
 indices %>% 
   .[lev %in% c(50, 700) & term != "full"] %>% 
   # .[, estimate_norm := estimate_norm/sd(estimate_norm), by = .(lev, term)] %>% 
@@ -450,7 +451,8 @@ indices %>%
   scale_x_continuous(NULL, labels = NULL, breaks = 0) +
   coord_flip()  +
   theme(strip.text = element_blank()) +
-  plot_layout(widths = c(4, 1)) 
+  plot_layout(widths = c(4, 1))  +
+  panel_background
 ```
 
 We first asses the temporal evolution of A\nobreakdash-SAM and S\nobreakdash-SAM.
@@ -515,7 +517,8 @@ cors %>%
   scale_color_brewer(NULL, palette = "Dark2", 
                      labels = c("0" = "Zero-lag",
                                 "-1" = "A-SAM leads\nS-SAM by 1 month")) +
-  coord_flip()
+  coord_flip() +
+  panel_background
 ```
 
 ```{r cross-correlation, fig.cap = "Cross correlation between levels for the (a) SAM, (b) A\\nobreakdash-SAM, and (c) S\\nobreakdash-SAM for the 1979 -- 2018 period.", fig.width = 6, fig.height=3, fig.env="figure*"}
@@ -551,13 +554,14 @@ crosscor %>%
                     data = ~.x[item2 > item1]) +
   geom_polygon(data = tri, fill = "white") +
   scale_fill_divergent_discretised("Cross-correlation",
-                                   guide = guide_colorstrip_bottom()) +
+                                   guide = guide_colorsteps_bottom()) +
   scale_x_level(minor_breaks = logbreaks, position = "top") +
   scale_y_level(minor_breaks = logbreaks) +
   coord_equal() +
   facet_grid(. ~ term, labeller = labeller(term = lab_sam)) +
   theme(panel.spacing.x = unit(2, "lines"), strip.placement = "outside") +
-  tag_facets(position = "br")
+  tag_facets(position = "br") +
+  panel_background
 ```
 
 Figure \@ref(fig:cross-correlation) shows (zero-lag) cross-correlation across levels for the SAM, A\nobreakdash-SAM and S\nobreakdash-SAM indices.
@@ -596,7 +600,8 @@ indices %>%
   scale_y_continuous("Standard deviations per decade") +
   coord_flip() +
   facet_grid(season ~ term,labeller = labeller(term = lab_sam)) +
-  tag_facets("cr") 
+  tag_facets("cr") +
+  panel_background
 ```
 
 
@@ -631,7 +636,8 @@ indices %>%
                      label = scales::percent_format(1)) +
   scale_fill_brewer(NULL, palette = "Dark2", aesthetics = c("color", "fill"), labels = lab_sam) +
   coord_flip() +
-  facet_wrap(~season)
+  facet_wrap(~season) +
+  panel_background
 ```
 
 To study the question of whether the SAM is becoming more or less asymmetric, we show trends for the  explained variance of each index for each trimester in Figure \@ref(fig:r-squared-trend). 
@@ -678,7 +684,7 @@ indices_2d_yearly %>%
              shape = 21, size = 2.5, color = "black", fill = "#de3e80") +
   scale_x_longitude(labels = NULL) +
   scale_y_latitude(limits = c(NA, -20), labels = NULL) +
-  scale_fill_divergent(NULL, guide = guide_colorstrip_bottom(), 
+  scale_fill_divergent(NULL, guide = guide_colorsteps_bottom(),
                        limits = c(-45, 45),
                        oob = scales::squish,
                        breaks = AnchorBreaks(0, 10, 0)) +
@@ -687,7 +693,7 @@ indices_2d_yearly %>%
   facet_grid(lev ~ term, labeller = labeller(lev = lev.lab, term = lab_sam)) +
   tag_facets("cr", position = list(x = 0.15, y = 0.85)) +
   no_grid +
-  theme(panel.spacing = grid::unit(-1, "lines"))
+  theme(panel.spacing = grid::unit(-1, "lines")) 
 ```
 
 We then computed the spatial regression of geopotential height anomalies on the A\nobreakdash-SAM and S\nobreakdash-SAM indices at 700 hPa and 50 hPa levels (Figure \@ref(fig:2d-regr)).
@@ -741,7 +747,8 @@ indices_2d_yearly %>%
   scale_x_latitude(ticks = 20) +
   coord_flip() +
   facet_grid(lev~term, labeller = labeller(term = lab_sam, lev = lev.lab)) +
-  tag_facets("cr", position = "tr") 
+  tag_facets("cr", position = "tr") +
+  panel_background
 ```
 
 The amplitude of the first zonal wavenumbers at each latitude at 50 hPa and 700 hPa are shown in Figure \@ref(fig:wave-amplitude), where wavenumber zero represents the amplitude of the zonal mean.
@@ -796,10 +803,10 @@ vertical_regr %>%
   geom_contour_fill(aes(z = estimate, fill = ..level..), breaks = AnchorBreaks(0, 10, 0)) +
   geom_contour_tanaka2(aes(z = estimate),
                       breaks = AnchorBreaks(0, 10, 0),
-                      size = 0.3,
-                      global.breaks = FALSE) +
+                      size = 0.3) +
   # geom_contour2(aes(z = p.val), breaks = 0.01) +
-  scale_fill_divergent_discretised(NULL, guide = guide_colorstrip_bottom(13)) +
+  scale_fill_divergent_discretised(NULL, 
+                                   guide = guide_colorsteps_bottom(13, even.steps = FALSE)) +
   # oob = scales::squish,
   scale_y_level() +
   scale_x_longitude(ticks = 60)  +
@@ -1132,7 +1139,7 @@ pp_regr <- rbind(pp_regr_season, pp_regr_annual) %>%
   .[, season := forcats::fct_relevel(season, "Annual")] 
 ```
 
-```{r pp-enso-patterns}
+```{r pp-enso-patterns, eval=FALSE, include=FALSE}
 # This computation is not part of the paper, but was used as an answer to a reviewr. 
 pp_patterns <- enso[index == "oni"] %>% 
   .[pp, on = "time"] %>% 
@@ -1170,16 +1177,16 @@ cors_enso_pp <- pp_enso_index %>%
   .[, cor(oceania, america), by = season(time)] %>% 
   .[, label := paste0(season, " (cor=", signif(V1, 2), ")")]
 
-# pp_enso_index %>% 
-#   dcast(time ~ continent) %>% 
-#   .[, season := season(time)] %>% 
-#   ggplot(aes(oceania, america)) +
-#   geom_point() +
-#   geom_smooth(method = "lm") +
-#   scale_x_continuous("Oceania index") +
-#   scale_y_continuous("America Index") +
-#   facet_wrap(~season, scales = "free", labeller = labeller(season= setNames(cors_enso_pp$label,
-#                                                                             cors_enso_pp$season))) 
+pp_enso_index %>%
+  dcast(time ~ continent) %>%
+  .[, season := season(time)] %>%
+  ggplot(aes(oceania, america)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  scale_x_continuous("Oceania index") +
+  scale_y_continuous("America Index") +
+  facet_wrap(~season, scales = "free", labeller = labeller(season= setNames(cors_enso_pp$label,
+                                                                            cors_enso_pp$season)))
   
 
 ```
@@ -1210,7 +1217,7 @@ pp_regr %>%
   scale_y_latitude(breaks = NULL, limits = c(-90, NA)) +
   discrete_scale("fill", "name", name = "Precipitation",
                  palette = discrete_div_pp,
-                 guide = guide_colorsteps_bottom(show.limits = TRUE)) +
+                 guide = guide_colorsteps_bottom(show.limits = TRUE, even.steps = FALSE)) +
   scale_linetype(guide = "none") +
   coord_polar() +
   geom_coords() +
@@ -1242,14 +1249,23 @@ plot_pp <- function(this_continent, data = pp_regr) {
     .[continent == this_continent] 
   
   
-  data %>%
+
+
+  gdata <- data %>%
     .[term != "mei"] %>% 
     add_continent() %>% 
     # .[lat <= -10] %>% 
     .[continent == this_continent] %>%
-    .[, p.value := Pvaluate(estimate, std.error, df, "fdr"), by = .(season, continent, term)] %>%
-    ggplot(aes(lon, lat)) +
-    geom_contour_fill(aes(z = estimate), na.fill = 0, breaks = AnchorBreaks(0, 0.1, 0)) +
+    .[, p.value := Pvaluate(estimate, std.error, df, "fdr"), by = .(season, continent, term)]
+  
+  
+  breaks_pp <- sort(c(seq(-0.8, 0.8, by = 0.1), range(gdata$estimate)))
+  breaks_pp <- breaks_pp[breaks_pp != 0]
+  
+  gdata %>%   
+  ggplot(aes(lon, lat)) +
+    geom_contour_fill(aes(z = estimate, fill = ..level..), na.fill = 0, 
+                      breaks = breaks_pp) +
     stat_subset(aes(subset = is.na(estimate)), geom = "tile", color = "gray50") +
     # geom_raster(aes(fill = estimate/30)) +
     geom_contour2(aes(z = p.value), breaks = 0.05) +
@@ -1266,14 +1282,17 @@ plot_pp <- function(this_continent, data = pp_regr) {
     geom_qmap(~.x[lat <= 10], keep = 0.015, weighting = 0.9) +
     scale_x_longitude(breaks = NULL) +
     scale_y_latitude(breaks = NULL) +
-    scale_fill_divergent("Precipitation", 
-                         limits = c(-.8, .8),
-                         oob = scales::squish,
-                         low = "#8E521C",
-                         high = "#00665E",
-                         # label = scales::percent_format(),
-                         guide = guide_colorstrip_bottom(), 
-                         breaks = AnchorBreaks(0, 0.1, 0)) +
+     discrete_scale("fill", "name", name = "Precipitation",
+                 palette = discrete_div_pp,
+                 guide = guide_colorsteps_bottom(show.limits = TRUE, even.steps = FALSE)) +
+    # scale_fill_divergent("Precipitation", 
+    #                      limits = c(-.8, .8),
+    #                      oob = scales::squish,
+    #                      low = "#8E521C",
+    #                      high = "#00665E",
+    #                      # label = scales::percent_format(),
+    #                      guide = guide_colorsteps_bottom(), 
+    #                      breaks = AnchorBreaks(0, 0.1, 0)) +
     
     scale_linetype(guide = "none") +
     coord_quickmap(xlim = continents[[this_continent]]$lon,
@@ -1450,7 +1469,7 @@ plot_composites <- function(this_lev) {
     geom_coords() +
     scale_x_longitude(labels = NULL) +
     scale_y_latitude(limits = c(NA, -20), labels = NULL) +
-    scale_fill_divergent(NULL, guide = guide_colorstrip_bottom(),
+    scale_fill_divergent(NULL, guide = guide_colorsteps_bottom(),
                          limits = limits,
                          breaks = AnchorBreaks(0, binwidth = 15, exclude = 0)) +
     coord_polar() +
@@ -1468,7 +1487,7 @@ plot_composites(50)
 plot_composites(700)
 ```
 
-```{r A5, fig.cap = "Regression coefficients of 50~hPa and 700~hPa geopotential height zonal anomalies (meters) onto the standarised timeseries of the leading EOF computed for each season independently for the 1979 -- 2018 period.",  apendix = TRUE, fig.width=6, fig.height=4.5}
+```{r A5, fig.cap = "Regression coefficients of 50~hPa and 700~hPa geopotential height zonal anomalies (meters) onto the standardised timeseries of the leading EOF computed for each season independently for the 1979 -- 2018 period.",  apendix = TRUE, fig.width=6, fig.height=4.5}
 set.seed(42)
 SAM_season <- hgt[lat <= -20] %>% 
   .[lev %in% c(700, 50)] %>% 
@@ -1509,7 +1528,7 @@ plot_patterns <- function(this_lev) {
     scale_x_longitude(labels = NULL) +
     scale_y_latitude(limits = c(NA, -20), labels = NULL) +
     scale_fill_divergent(NULL,
-                         guide = guide_colorstrip_bottom(),
+                         guide = guide_colorsteps_bottom(),
                          limits = limits,
                          breaks = breaks) +
     coord_polar() +
@@ -1524,7 +1543,7 @@ plot_patterns(50) +
   plot_layout(ncol = 1) 
 ```
 
-```{r A6, fig.cap = "Regression of 50~hPa and 700~hPa geopotential height zonal anomalies (meters) onto the standarised timeseries of the leading EOF computed for the periods 1979 -- 1998 and 1999 -- 2018. Spatial correlation between both fields is 0.86 for the 50~hPa fields and 0.76 for the 700~hPa fields.", fig.width=6, fig.height=5}
+```{r A6, fig.cap = "Regression of 50~hPa and 700~hPa geopotential height zonal anomalies (meters) onto the standardised timeseries of the leading EOF computed for the periods 1979 -- 1998 and 1999 -- 2018. Spatial correlation between both fields is 0.86 for the 50~hPa fields and 0.76 for the 700~hPa fields.", fig.width=6, fig.height=5}
 set.seed(42)
 SAM_prepost <- hgt[lat <= -20] %>% 
   .[lev %in% c(700, 50)] %>%
@@ -1568,6 +1587,63 @@ patterns %>%
   scale_x_longitude(labels = NULL) +
   scale_y_latitude(limits = c(NA, -20), labels = NULL) +
   scale_fill_divergent(NULL, 
+                       guide = guide_colorsteps_bottom(),
+                       breaks = AnchorBreaks(0, 5, exclude = 0)) +
+  coord_polar() +
+  geom_coords() +
+  facet_grid(lev~period, labeller = labeller(lev = lev.lab)) +
+  axis_labs_smol +
+  no_grid 
+```
+
+
+
+```{r A6b, eval=FALSE, fig.cap="Regression of 50~hPa and 700~hPa geopotential height zonal anomalies (meters) onto the standardised timeseries of the leading EOF computed for the periods 1979 -- 1998 and 1999 -- 2018 for the SON trimester only. Spatial correlation between both fields is 0.86 for the 50~hPa fields and 0.76 for the 700~hPa fields.", fig.height=5, fig.width=6, include=FALSE}
+# Code used to answer a reviewer comment
+set.seed(42)
+SAM_prepost <- hgt[lat <= -20] %>% 
+  .[season(time) == "SON"] %>% 
+  .[lev %in% c(700, 50)] %>%
+  .[, hgt := hgt_a*sqrt(cos(lat*pi/180))] %>% 
+  .[, year := year(time)] %>% 
+  .[, period := factor(ifelse(year(time) <= 1998, "pre", "post"),
+                       levels = c("pre", "post"), ordered = TRUE,
+                       labels = c("1979-1998", "1999-2018"))] %>%
+  .[, .(eof = list(EOF(hgt ~ time | lon + lat, n = 1, data = .SD))), 
+    by = .(period, lev)]
+
+sam_sep <- SAM_prepost[, eof[[1]]$right, by = .(lev, period)] %>% 
+  setnames("hgt", "full") %>% 
+  .[, c("sym", "asym") := list(mean(full), Anomaly(full)), by = .(lat, period, lev)] 
+
+patterns <- SAM_prepost[, eof[[1]]$left, by = .(period, lev)] %>% 
+  copy() %>% 
+  setnames("hgt", "EOF") %>% 
+  .[, EOF := EOF/sd(EOF), by = .(period, lev)] %>% 
+  .[period == "1979-1998" & lev == 50, EOF := -EOF] %>% 
+  rm_singleton() %>% 
+  hgt[., on = .NATURAL] %>% 
+  # .[lev == 700] %>% 
+  .[season(time) == "SON"] %>% 
+  .[, FitLm(hgt_a, EOF), by = .(lon, lat, period, lev)] %>%
+  rm_intercept() %>% 
+  # .[season == "DJF", estimate := -estimate] %>% 
+  .[, estimate_a := Anomaly(estimate), by = .(lat, period, lev)] 
+
+cor <- patterns %>% 
+  dcast(lon + lat + lev ~ period, value.var = "estimate_a") %>% 
+  .[, cor(`1979-1998`, `1999-2018`), by = lev]
+
+patterns %>% 
+  .[lev == 50 & period == "1999-2018", estimate_a := -estimate_a] %>%
+  periodic(lon = c(0, 360)) %>%
+  ggplot(aes(lon, lat)) +
+  geom_contour_fill(aes(z = estimate_a), breaks = AnchorBreaks(0, 5, 0)) +
+  geom_contour_tanaka2(aes(z = estimate_a), breaks = AnchorBreaks(0, 5, 0)) +
+  geom_qmap() +
+  scale_x_longitude(labels = NULL) +
+  scale_y_latitude(limits = c(NA, -20), labels = NULL) +
+  scale_fill_divergent(NULL, 
                        guide = guide_colorstrip_bottom(),
                        breaks = AnchorBreaks(0, 5, exclude = 0)) +
   coord_polar() +
@@ -1592,7 +1668,7 @@ indices_wide %>%
   geom_contour_tanaka2(aes(z = acf), breaks = AnchorBreaks(0, 0.05)) +
   geom_vline(xintercept = 0) +
   scale_fill_divergent(NULL,
-                       guide = guide_colorstrip_bottom(20),
+                       guide = guide_colorsteps_bottom(20),
                        breaks = AnchorBreaks(0, 0.05),
                        limits = c(NA, .59)) +
   scale_x_continuous("Lag (months)\nA-SAM leads S-SAM              S-SAM leads A-SAM", 
@@ -1664,7 +1740,7 @@ air_regr %>%
   scale_fill_divergent("2-meter air temperature",  
                        limits = c(-0.6, .6), 
                        oob = scales::squish,
-                       guide = guide_colorstrip_bottom(), breaks = AnchorBreaks(0, 0.1, 0)) +
+                       guide = guide_colorsteps_bottom(), breaks = AnchorBreaks(0, 0.1, 0)) +
   coord_polar() +
   facet_grid(season ~ term, labeller = labeller(term = lab_sam, lev = lev.lab)) +
   tag_facets("cr", tag_suffix = "") +
