@@ -72,7 +72,7 @@ knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE,
   cache = TRUE,
-  cache.extra = 42,
+  cache.extra = 41,
   cache.path = "../cache/",
   collapse = TRUE,
   comment = "#>",
@@ -552,7 +552,7 @@ crosscor %>%
                     color = "white", rotate = FALSE, stroke.color = "black", stroke = 0.2, 
                     skip = 1, size = 2, 
                     data = ~.x[item2 > item1]) +
-  geom_polygon(data = tri, fill = "white") +
+  geom_polygon(data = tri, fill = "#fbfbfb") +
   scale_fill_divergent_discretised("Cross-correlation",
                                    guide = guide_colorsteps_bottom()) +
   scale_x_level(minor_breaks = logbreaks, position = "top") +
@@ -560,8 +560,7 @@ crosscor %>%
   coord_equal() +
   facet_grid(. ~ term, labeller = labeller(term = lab_sam)) +
   theme(panel.spacing.x = unit(2, "lines"), strip.placement = "outside") +
-  tag_facets(position = "br") +
-  panel_background
+  tag_facets(position = "br")
 ```
 
 Figure \@ref(fig:cross-correlation) shows (zero-lag) cross-correlation across levels for the SAM, A\nobreakdash-SAM and S\nobreakdash-SAM indices.
@@ -684,7 +683,7 @@ indices_2d_yearly %>%
              shape = 21, size = 2.5, color = "black", fill = "#de3e80") +
   scale_x_longitude(labels = NULL) +
   scale_y_latitude(limits = c(NA, -20), labels = NULL) +
-  scale_fill_divergent(NULL, guide = guide_colorsteps_bottom(),
+  scale_fill_divergent(NULL, guide = guide_colorsteps_bottom(even.steps = FALSE),
                        limits = c(-45, 45),
                        oob = scales::squish,
                        breaks = AnchorBreaks(0, 10, 0)) +
@@ -748,7 +747,8 @@ indices_2d_yearly %>%
   coord_flip() +
   facet_grid(lev~term, labeller = labeller(term = lab_sam, lev = lev.lab)) +
   tag_facets("cr", position = "tr") +
-  panel_background
+  panel_background +
+  theme(panel.spacing = grid::unit(0.5, "lines"))
 ```
 
 The amplitude of the first zonal wavenumbers at each latitude at 50 hPa and 700 hPa are shown in Figure \@ref(fig:wave-amplitude), where wavenumber zero represents the amplitude of the zonal mean.
@@ -811,7 +811,8 @@ vertical_regr %>%
   scale_y_level() +
   scale_x_longitude(ticks = 60)  +
   facet_grid(index_level~., labeller = labeller(index_level = lev.lab)) +
-  tag_facets(position = "bl") 
+  tag_facets(position = "bl") +
+  theme(panel.spacing = grid::unit(1, "lines"))
 ```
 
 To analyse the vertical structure of the geopotential height anomalies associated with the A\nobreakdash-SAM index, we show a vertical cross section of regressions of mean geopotential height between 65\degree S and 40\degree S for the 50 hPa A\nobreakdash-SAM index (Figure \@ref(fig:vertical-regression)a) and for the 700 hPa A\nobreakdash-SAM index (Figure \@ref(fig:vertical-regression)b).
@@ -920,7 +921,7 @@ table %>%
   kbl(align = "c", 
       caption = "Correlation between SAM indices and the Oceanic Niño Index. p-values corrected for False Detection Rate in parenthesis. In bold, correlations with p-value smaller than 0.05.", 
       col.names = c("", lab_sam), booktabs = TRUE) %>%
-  kable_classic(full_width = F) %>%
+  kable_classic_2(full_width = F) %>%
   column_spec(2, bold = rep(table2[, 2] < 0.05, each = 2)) %>%
   column_spec(3, bold = rep(table2[, 3] < 0.05, each = 2)) %>%
   column_spec(4, bold = rep(table2[, 4] < 0.05, each = 2)) %>%
@@ -969,13 +970,19 @@ air_regr <- air %>%
 ```{r regr-air-season, fig.cap = "(ref:regr-air-season-cap)", fig.width = 6, fig.height = 8, fig.env = "figure*", cache = FALSE}
 
 anchor_limits <- function(anchor = 0, binwidth = NULL, exclude = NULL,  bins = 10,
-                          range = c(NA, NA)) {
+                          range = c(NA, NA), sym = TRUE) {
   force(range)
   force(anchor)
   force(binwidth)
   force(exclude)
   force(bins)
   function(x, binwidth2 = NULL) {
+    if (sym) {
+     D <- max(abs(x[1] - anchor), abs(x[2] - anchor))
+     x <- c(anchor - D, anchor + D)
+    }
+    
+    
     if (!is.null(binwidth)) binwidth2 <- binwidth
     if (is.null(binwidth2)) {
       binwidth2 <- diff(pretty(x, bins))[1]
@@ -985,15 +992,15 @@ anchor_limits <- function(anchor = 0, binwidth = NULL, exclude = NULL,  bins = 1
     start <- anchor + mult*binwidth2
     b <- seq(start, x[2] + binwidth2, binwidth2)
     b <- b[!(b %in% exclude)]
-    
+
     if (!is.na(range[1])) {
       m <- min(b)
-      b <- c(b[b >= range[1]], m)
+      b <- c(b[b >= (range[1] + 1e-9)], -Inf)  # DAMN YOU FLOATING POINT ERRORS!!! 
     }
     
     if (!is.na(range[2])) {
       m <- max(b)
-      b <- c(b[b <= range[2]], m)
+      b <- c(b[b <= (range[2] - 1e-9)], Inf)
     }
     sort(b)
     
@@ -1009,16 +1016,15 @@ air_regr %>%
   periodic(lon = c(0, 360)) %>% 
   ggplot(aes(lon, lat)) +
   geom_contour_fill(aes(z = estimate, fill = ..level..), 
-                    breaks = anchor_limits(0, 0.1, 0, range = c(-.6, .6))) +
+                    breaks = anchor_limits(0, 0.1, 0, range = c(-.6, 0.6))) +
   geom_contour2(aes(z = p.value), breaks = c(0, 0.05), color = "black", size = 0.3) +
   
   geom_qmap(~.x[lat <= 0]) +
   geom_coords() +
   scale_x_longitude(labels = NULL) +
   scale_y_latitude(labels = NULL, limits = c(NA, 0)) +
-  discrete_scale("fill", "name", name = "2-meter air temperature",
-                 palette = discrete_div,
-                 guide = guide_colorsteps_bottom(show.limits = TRUE)) +
+  scale_fill_divergent_discretised("2-meter air temperature", 
+                                    guide = guide_colorsteps_bottom(even.steps = FALSE)) +
   coord_polar() +
   facet_grid(season ~ term, labeller = labeller(term = lab_sam, lev = lev.lab)) +
   tag_facets("cr", position = list(x = 0.15, y = 0.85)) +
@@ -1192,7 +1198,7 @@ pp_enso_index %>%
 ```
 
 
-(ref:global-pp-cap) Regression of annual and seasonal mean precipitation anomalies (mm per day, shading)  with a) SAM, b) A\\nobreakdash-SAM and c) S\\nobreakdash-SAM for the 1979 -- 2018 period. Thin lines are the Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate. Note that the colour scale cuts-off at $\pm0.25 \mathrm{K}$ so the areas of very high values in the Tropics don't wash out detail in the mid and high-latitudes.
+(ref:global-pp-cap) Regression of annual and seasonal mean precipitation anomalies (mm per day, shading)  with a) SAM, b) A\nobreakdash-SAM and c) S\nobreakdash-SAM for the 1979 -- 2018 period. Thin lines are the Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate. Note that the colour scale cuts-off at $\pm0.25 \mathrm{K}$ so the areas of very high values in the Tropics don't wash out detail in the mid and high-latitudes.
 
 ```{r global-pp, fig.cap = "(ref:global-pp-cap)", fig.width=6, fig.height=3.5}
 discrete_div_pp <- colorRampPalette(c("#8E521C", "white", "#00665E"))
@@ -1209,15 +1215,18 @@ pp_regr %>%
   .[, lapply(.SD, function(x) approx(lon, x, xout = lons)$y), by = .(lat, season, term)] %>%
   ggplot(aes(lon, lat)) +
   geom_contour_fill(aes(z = estimate, fill = ..level..), 
-                    breaks = breaks_pp) +
+                    breaks = anchor_limits(0, 0.05, 0, range = c(-0.25, 0.25))) +
   stat_subset(aes(subset = is.na(estimate)), geom = "tile", color = "gray50") +
   geom_contour2(aes(z = p.value), breaks = 0.05, size = 0.2) +
   geom_qmap(~.x[lat <= 0], keep = 0.015, weighting = 0.9) +
   scale_x_longitude(breaks = NULL) +
   scale_y_latitude(breaks = NULL, limits = c(-90, NA)) +
-  discrete_scale("fill", "name", name = "Precipitation",
-                 palette = discrete_div_pp,
-                 guide = guide_colorsteps_bottom(show.limits = TRUE, even.steps = FALSE)) +
+  # discrete_scale("fill", "name", name = "Precipitation",
+  #                palette = discrete_div_pp,
+  #                guide = guide_colorsteps_bottom(show.limits = TRUE, even.steps = FALSE)) +
+  scale_fill_divergent_discretised("Precipitation",
+                         low = "#8E521C", high = "#00665E",
+                         guide = guide_colorsteps_bottom(even.steps = FALSE)) +
   scale_linetype(guide = "none") +
   coord_polar() +
   geom_coords() +
@@ -1259,13 +1268,10 @@ plot_pp <- function(this_continent, data = pp_regr) {
     .[, p.value := Pvaluate(estimate, std.error, df, "fdr"), by = .(season, continent, term)]
   
   
-  breaks_pp <- sort(c(seq(-0.8, 0.8, by = 0.1), range(gdata$estimate)))
-  breaks_pp <- breaks_pp[breaks_pp != 0]
-  
   gdata %>%   
   ggplot(aes(lon, lat)) +
     geom_contour_fill(aes(z = estimate, fill = ..level..), na.fill = 0, 
-                      breaks = breaks_pp) +
+                      breaks = anchor_limits(0, 0.1, 0, range = c(-.8, 0.8))) +
     stat_subset(aes(subset = is.na(estimate)), geom = "tile", color = "gray50") +
     # geom_raster(aes(fill = estimate/30)) +
     geom_contour2(aes(z = p.value), breaks = 0.05) +
@@ -1280,27 +1286,25 @@ plot_pp <- function(this_continent, data = pp_regr) {
                       stroke = 0.15, stroke.color = "white",
                       aes(z = estimate), rotate = FALSE, skip = 1) +
     geom_qmap(~.x[lat <= 10], keep = 0.015, weighting = 0.9) +
-    scale_x_longitude(breaks = NULL) +
-    scale_y_latitude(breaks = NULL) +
-     discrete_scale("fill", "name", name = "Precipitation",
-                 palette = discrete_div_pp,
-                 guide = guide_colorsteps_bottom(show.limits = TRUE, even.steps = FALSE)) +
-    # scale_fill_divergent("Precipitation", 
-    #                      limits = c(-.8, .8),
-    #                      oob = scales::squish,
-    #                      low = "#8E521C",
-    #                      high = "#00665E",
-    #                      # label = scales::percent_format(),
-    #                      guide = guide_colorsteps_bottom(), 
-    #                      breaks = AnchorBreaks(0, 0.1, 0)) +
+    scale_x_longitude(ticks = 15, minor_breaks = NULL) +
+    scale_y_latitude(ticks = 10,  minor_breaks = NULL) +
+     # discrete_scale("fill", "name", name = "Precipitation",
+     #             palette = discrete_div_pp,
+     #             guide = guide_colorsteps_bottom(show.limits = TRUE, even.steps = FALSE)) +
+    scale_fill_divergent_discretised("Precipitation",
+                         # limits = c(-.8, .8),
+                         # oob = scales::squish,
+                         low = "#8E521C",
+                         high = "#00665E",
+                         # label = scales::percent_format(),
+                         guide = guide_colorsteps_bottom(even.steps = FALSE)) +
     
     scale_linetype(guide = "none") +
     coord_quickmap(xlim = continents[[this_continent]]$lon,
                    ylim = continents[[this_continent]]$lat) +
     facet_grid(season ~ term, labeller = labeller(term = lab_sam, lev = lev.lab)) +
     tag_facets("cr", position = "bl")  +
-    no_grid +
-    axis_labs_smol
+    axis_labs_smol 
 }
 
 ```
@@ -1421,6 +1425,11 @@ The SAM, A\nobreakdash-SAM and S\nobreakdash-SAM indices are available at the pu
 A version-controlled repository of the code used to create this analysis, including the code used to download the data can be found at <https://github.com/eliocamp/asymsam>.
 
 <!-- \bibliography{AsymSAM,packages} -->
+
+\begin{acknowledgements}
+We are grateful to the reviewers for their constructive comments that improved the manuscript.
+\end{acknowledgements}
+
 
 \newpage
 
