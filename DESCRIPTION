@@ -47,12 +47,14 @@ Imports:
     kableExtra,
     ppcor,
     irlba,
-    magick
+    magick,
+    shadowtext
 Suggests: devtools,
     git2r,
     knitr,
     rmarkdown 
 Remotes: 
     eliocamp/tagger,
-    haozhu233/kableExtra
+    haozhu233/kableExtra,
+    tidyverse/ggplot2
 VignetteBuilder: knitr
