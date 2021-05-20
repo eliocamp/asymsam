@@ -72,7 +72,7 @@ knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE,
   cache = TRUE,
-  cache.extra = 41,
+  cache.extra = 42,
   cache.path = "../cache/",
   collapse = TRUE,
   comment = "#>",
@@ -215,6 +215,10 @@ However, their conclusions are based on composites of positive and negative SAM 
 The latter is particularly important due to the inhomogeneities in reanalysis products prior to the satellite era and the possible change in the asymmetric structure of the SAM [@silvestri2009].
 Moreover, @fogt2012 studied the zonal asymmetric component of the SAM only in sea level pressure.
 Zonal asymmetries in the SAM spatial pattern are fairly barotropic throughout the troposphere, but they change dramatically in the stratosphere [@baldwin2009].
+
+In summary, previous research strongly suggests that the zonally asymmetric component of the SAM can potentially be very different from the zonally symmetric component. 
+It might have different sources of variability, impacts and long-term response to radiative forcing. 
+A single SAM index that mixes the zonally symmetric and zonally asymmetric variability is only able to capture the combined effect of these two potentially distinct modes. 
 
 Our objective is, then, to describe the zonally asymmetric and symmetric components of the SAM variability.
 We first propose a methodology that provides for each level, two indices which aim to capture independently the variability of the symmetric and asymmetric SAM component respectively.
@@ -1343,7 +1347,7 @@ The periodicity of about two years we found in the stratospheric S\nobreakdash-S
 There is evidence of influence between the QBO and the Northern Annular Mode [e.g. @holton1980; @watson2014; @zhang2020], so it is not unlikely that the SAM would be similarly affected.
 Establishing this link would require further research.
 
-We observe a positive trend of SAM in Summer and Autumn, as was documented by previous studies [e.g. @fogt2020 and references therein] for low levels.
+We observe positive trends of the SAM in Summer and Autumn, as was documented by previous studies [e.g. @fogt2020 and references therein] for low levels.
 We show that these trends maximise at 100 hPa, and are explained by the zonally symmetric component.
 We also find a statistically significant positive trend in the Symmetric component of the SAM in the stratosphere that is not evident in the SAM index.
 We find some evidence of the SAM becoming more zonally asymmetric during DJF, as there is a slight positive trend in the variance explained by the as the A\nobreakdash-SAM.
@@ -1377,10 +1381,13 @@ This might indicate that the A\nobreakdash-SAM is closely related to the pathway
 In particular, the negative relationship with precipitation in South America was absent in some areas and switched sign in others in the earlier period.
 The correlation between ENSO and SAM is similarly non-stationary, also changing sign before the 1980s [@fogt2006; @clem2013].
 Seeing as both the ENSO\nobreakdash-SAM relationship and most of the precipitation impacts in South America are captured by the A\nobreakdash-SAM, the magnitude and sign of these impacts are most likely period-dependent and represent the average signal between 1979 and 2018.
-The decadal variations of the A\nobreakdash-SAM should be focus of future studies.
-
-By separating the zonally symmetric and zonally symmetric SAM signals, we show that the asymmetric component of the SAM has its unique variability, trends and impacts.
+The decadal variations of the A\nobreakdash-SAM should be focus of future studies. 
 This is particularly important in the context of a changing climate, as the impact on the SAM of ozone recovery is modelled as highly zonally symmetric, while the impact of increased concentration of greenhouse gases has also a zonally asymmetric component [@arblaster2006].
+
+By separating the zonally symmetric and zonally symmetric SAM patterns, we show that the asymmetric component of the SAM has its unique variability, trends and impacts.
+Some of these signals are only evident when the two SAM components are separated. 
+For those that are evident also using the traditional SAM index, the separation is still worthwhile, since it allows for a clearer view of the sources and processes involved. 
+
 
 ```{=tex}
 \begin{acknowledgements}
