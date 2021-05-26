@@ -190,7 +190,7 @@ Of the several different indices presented in the literature, many of them are b
 @baldwin2009 proposed defining the Northern and Annular modes as the leading EOF of the zonally averaged geopotential height at each level.
 
 Even though these indices are based on zonal averages, their associated geopotential height spatial anomalies contain noticeable deviations from zonal symmetry, particularly in the Pacific Ocean region.
-The zonal asymmetries have not been widely studied, but previous work suggest that they strongly modulate the regional impacts of the SAM [@fan2007; @silvestri2009; @fogt2012; @rosso2018].
+The zonal asymmetries have not been widely studied, but previous work suggests that they strongly modulate the regional impacts of the SAM [@fan2007; @silvestri2009; @fogt2012; @rosso2018].
 The fact that the SAM is not entirely zonally symmetric hinders our ability to reconstruct its historical variability prior to the availability of dense observations in the Southern Hemisphere [@jones2009].
 
 Some of the variability associated with the zonal asymmetries of the SAM seems to be forced by the tropics.
@@ -1039,6 +1039,7 @@ Figure \@ref(fig:regr-air-season)`r combine_words(get_tag(season == "DJF" & term
 Both the local maximums in the ring and the anomalies in the Pacific regions are present mostly on the A\nobreakdash-SAM regression map, while temperature patterns linked to positive S\nobreakdash-SAM show a more zonally consistent ring and less relation to the tropics.
 Over Antarctica positive values of the SAM index are associated with negative temperature anomalies, particularly over the Eastern coast.
 These anomalies are associated only with the S\nobreakdash-SAM.
+Furthermore, the typical longitudinal variations of temperature anomalies along the Antarctic Peninsula are not evident in the regressions with the SAM, in agreement with previous works [e.g. marshall2016].
 On the other hand, temperature anomalies in the Indian ocean, South Africa and Australia are strongly related to A\nobreakdash-SAM and are not present in the regression pattern with the SAM.
 
 In Autumn, Winter and Spring (rows `r combine_words(get_row(season %in% c("MAM", "JJA", "SON"), n = 3))` in Figure \@ref(fig:regr-air-season)) the positive ring is only present through its local maximums in the regression with the SAM, which reflects the more asymmetric nature of the SAM compared to Summer.
