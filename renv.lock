@@ -333,10 +333,10 @@
     },
     "fansi": {
       "Package": "fansi",
-      "Version": "0.4.2",
+      "Version": "0.5.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "fea074fb67fe4c25d47ad09087da847d"
+      "Hash": "d447b40982c576a72b779f0a3b3da227"
     },
     "farver": {
       "Package": "farver",
@@ -459,10 +459,15 @@
     },
     "ggplot2": {
       "Package": "ggplot2",
-      "Version": "3.3.3",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "3eb6477d01eb5bbdc03f7d5f70f2733e"
+      "Version": "3.3.3.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "ggplot2",
+      "RemoteUsername": "tidyverse",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "6d94f0d6366c86147d3409a4b6e7e046d5b7e5b0",
+      "Hash": "d36a9fce15ccb69409a938bb13bdff59"
     },
     "gh": {
       "Package": "gh",
@@ -737,10 +742,10 @@
     },
     "metR": {
       "Package": "metR",
-      "Version": "0.9.1",
+      "Version": "0.9.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "b2138387cd60bd07542c4705e485b734"
+      "Hash": "bc0182c78d003ed14ee27f7478e84f4c"
     },
     "mgcv": {
       "Package": "mgcv",

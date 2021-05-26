@@ -42,7 +42,7 @@ keywords:
 # - MSC code 2
 
 abstract: |
-  The Southern Annular Mode (SAM) is the main mode of variability in the Southern Hemisphere extra-tropical circulation and it is so called because of its zonally symmetric ring-like shape. However, the SAM pattern actually contains noticeable deviations from zonal symmetry. Thus, the purpose of this study is to describe the zonally asymmetric and symmetric components of the SAM variability and their impacts. We regress monthly geopotential height fields at each level onto the asymmetric and symmetric component of the SAM to create two new indices: Asymmetric SAM (A-SAM) and Symmetric SAM (S-SAM). In the troposphere, the A-SAM is associated with a zonal wave 3 which is rotated a quarter wavelength with respect to the climatological zonal wave 3, is much stronger in the Pacific ocean, where it extends vertically to the stratosphere with an equivalent barotropic structure. On the other hand, the S-SAM is associated with negative geopotential height anomalies over Antarctica surrounded by a zonally symmetric ring of positive geopotential height anomalies. The observed relationship between the El Niño Southern Oscillation and the SAM is fully explained by the A-SAM index. The positive trend of the SAM is present only in its symmetric component. Despite this, the SAM is becoming more zonally asymmetric. The regional impacts of the SAM in temperature and precipitation are strongly affected by its asymmetric component.
+  The Southern Annular Mode (SAM) is the main mode of variability in the Southern Hemisphere extra-tropical circulation and it is so called because of its zonally symmetric ring-like shape. However, the SAM pattern actually contains noticeable deviations from zonal symmetry. Thus, the purpose of this study is to describe the zonally asymmetric and symmetric components of the SAM variability and their impacts. We regress monthly geopotential height fields at each level onto the asymmetric and symmetric component of the SAM to create two new indices: Asymmetric SAM (A-SAM) and Symmetric SAM (S-SAM). In the troposphere, the A-SAM is associated with a zonal wave 3 which is rotated a quarter wavelength with respect to the climatological zonal wave 3, is much stronger in the Pacific ocean, where it extends vertically to the stratosphere with an equivalent barotropic structure. On the other hand, the S-SAM is associated with negative geopotential height anomalies over Antarctica surrounded by a zonally symmetric ring of positive geopotential height anomalies. The observed relationship between the El Niño Southern Oscillation and the SAM is fully explained by the A-SAM index. The positive trend of the SAM is present only in its symmetric component. Despite this, the SAM is becoming more zonally asymmetric. The regional impacts of the SAM in temperature and precipitation are strongly affected by its asymmetric component. We show that the asymmetric component of the SAM has its own unique variability, trends and impacts, some of these signals are only evident when the two SAM components are separated.
 
 bibliography: 
   - AsymSAM
@@ -72,7 +72,7 @@ knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE,
   cache = TRUE,
-  cache.extra = 42,
+  cache.extra = 41,
   cache.path = "../cache/",
   collapse = TRUE,
   comment = "#>",
@@ -670,7 +670,8 @@ indices_2d_yearly %>%
   .[lev %in% c(50, 700)] %>%
   .[, term := factor(term, levels = c("full", "asym", "sym"))] %>% 
   ggplot(aes(lon, lat)) +
-  geom_contour_fill(aes(z = estimate), breaks = AnchorBreaks(0, exclude =  0),
+  geom_contour_fill(aes(z = estimate), 
+                    breaks = AnchorBreaks(0, exclude =  0),
                     global.breaks = FALSE) +
   geom_contour_tanaka2(aes(z = estimate),
                       breaks = AnchorBreaks(0, exclude =  0),
@@ -686,10 +687,11 @@ indices_2d_yearly %>%
              shape = 21, size = 2.5, color = "black", fill = "#de3e80") +
   scale_x_longitude(labels = NULL) +
   scale_y_latitude(limits = c(NA, -20), labels = NULL) +
-  scale_fill_divergent(NULL, guide = guide_colorsteps_bottom(even.steps = FALSE),
+  scale_fill_divergent(NULL, 
+                       guide = guide_colorsteps_bottom(even.steps = TRUE),
                        limits = c(-45, 45),
                        oob = scales::squish,
-                       breaks = AnchorBreaks(0, 10, 0)) +
+                       breaks = AnchorBreaks(0, 10, 0)(c(-45, 45))) +
   scale_linetype(guide = "none") +
   coord_polar() +
   facet_grid(lev ~ term, labeller = labeller(lev = lev.lab, term = lab_sam)) +
@@ -1039,13 +1041,14 @@ Figure \@ref(fig:regr-air-season)`r combine_words(get_tag(season == "DJF" & term
 Both the local maximums in the ring and the anomalies in the Pacific regions are present mostly on the A\nobreakdash-SAM regression map, while temperature patterns linked to positive S\nobreakdash-SAM show a more zonally consistent ring and less relation to the tropics.
 Over Antarctica positive values of the SAM index are associated with negative temperature anomalies, particularly over the Eastern coast.
 These anomalies are associated only with the S\nobreakdash-SAM.
-Furthermore, the typical longitudinal variations of temperature anomalies along the Antarctic Peninsula are not evident in the regressions with the SAM, in agreement with previous works [e.g. marshall2016].
+Furthermore, the typical longitudinal variations of temperature anomalies along the Antarctic Peninsula are not evident in the regressions with the SAM, in agreement with previous works [e.g. @marshall2016].
 On the other hand, temperature anomalies in the Indian ocean, South Africa and Australia are strongly related to A\nobreakdash-SAM and are not present in the regression pattern with the SAM.
 
 In Autumn, Winter and Spring (rows `r combine_words(get_row(season %in% c("MAM", "JJA", "SON"), n = 3))` in Figure \@ref(fig:regr-air-season)) the positive ring is only present through its local maximums in the regression with the SAM, which reflects the more asymmetric nature of the SAM compared to Summer.
 There are also negative anomalies in Southern Australia, and positive anomalies over New Zealand and Southern South America.
 Similar features were observed in station measurements by @jones2019, although using data from 1957 to 2016.
-In Spring, the tropical signal of A\nobreakdash-SAM is similar to the one in Summer, again revealing the significance of the ENSO-A\nobreakdash-SAM link.
+In Spring, the tropical signal of A\nobreakdash-SAM is similar to the one in Summer, again revealing the significance of the ENSO-A\nobreakdash-SAM link. 
+Moreover, from Autumn to Spring, positive (negative) temperature anomalies are discernible at the northern (southern) portion of the Antarctic Peninsula in the regressions with the SAM, which are also evident in the regressions with A-SAM. In agreement, @marshall2016 found the same signal in association with SAM while that pattern is only evident in Autumm for the southern baroclinic annular mode, which is associated with variations in extratropical storm amplitude.
 
 The same regressions using temperature data from NOAA's Merged Land Ocean Global Surface Temperature Analysis V4.0.1 [@smith2008; @vose2012], which blends land surface air temperature and sea surface (water) temperature analysis into a monthly global grid are shown in Figure \@ref{fig:A10}.
 Where data is available, the general patterns are similar, although with reduced magnitude, perhaps due to the fact that sea surface temperatures vary less.
