@@ -304,7 +304,7 @@ However, only SAM index has unit standard deviation per definition.
 The explained variance of each pattern is used as an indicator of the degree of zonally symmetry or asymmetry of each monthly field.
 To quantify the coherence between temporal series corresponding to different indices or the same index at different levels, we computed the temporal correlation between them.
 
-(ref:method-cap) Spatial patterns of the first EOF of 700\ hPa geopotential height for 1979 -– 2018 period. (a) Full field, (b) zonally asymmetric component and (c) zonally symmetric component. Arbitrary units; positive values in blue and negative values in red.
+(ref:method-cap) Spatial patterns of the first EOF of 700\ hPa geopotential height for 1979 -- 2018 period. (a) Full field, (b) zonally asymmetric component and (c) zonally symmetric component. Arbitrary units; positive values in blue and negative values in red.
 
 ```{r method, fig.cap = "(ref:method-cap", fig.width=6, fig.height=2.7, fig.env="figure*"}
 sam_sep <- SAM[, eof[[1]]$right, by = .(lev)] %>% 
