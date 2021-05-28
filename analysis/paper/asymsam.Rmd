@@ -173,11 +173,6 @@ lab_sam <-  c(full = "SAM",
 geom_contour_tanaka2 <- purrr::partial(geom_contour_tanaka, range = c(0.01, 0.3))
 ```
 
-<!-- The actual document text starts here: -->
-
-<!-- # Abstract -->
-
-<!-- The main mode of variability in the Southern Hemisphere extratropical circulation is the Southern Annular Mode (SAM); so called because of it's zonally symmetric ring-like shape. However, the SAM pattern actually contains noticeable deviations from zonal symmetry. We regress monthly geopotential height fields at each level onto the asymmetric and symmetric component of the SAM to create two new indices. In the troposphere, the Asymmetric SAM, is associated with a zonal wave 3 which is rotated a quarter wavelength with respect to the climatological zonal wave 3, is much stronger in the Pacific ocean, where it extends vertically to the stratosphere with an equivalent barotropic structure. The Symmetric SAM, on the other hand, is associated with a negative geopotential height anomalies over Antarctica surrounded by a zonally symmetric ring of positive geopotential height anomalies. The observed relationship between the El Niño Southern Oscillation and the SAM is explained fully by the Asymmetric SAM index. The positive trend of the SAM is present only in its asymmetric component. Despite this, the SAM is becoming more zonally asymmetric. The regional impacts of the SAM in temperature and precipitation are strongly affected by its asymmetric nature.  -->
 
 # Introduction
 
@@ -348,7 +343,7 @@ sam_plot %>%
 
 The method assumes linearity in the asymmetric component of the SAM.
 That means that zonal asymmetries associated with positive SAM phase (SAM+) are almost opposite in sign and of the same magnitude to the ones associated with negative SAM phase (SAM-).
-@fogt2012's composites (their Figure 4) suggest that this might not be entirely valid, although much of that apparent non-linearity could be due to the heterogenous nature of the selected years for constructing the composites.
+@fogt2012's composites (their Figure 4) suggest that this might not be entirely valid, although much of that apparent non-linearity could be due to the heterogeneous nature of the selected years for constructing the composites.
 To test this assumption, we computed seasonal composites of zonal anomalies of geopotential height for SAM+ and SAM- (defined as months in which the SAM index is greater than 1 standard deviation and lower than minus 1 standard deviation, respectively) for the period from 1979 to 2018 at the 700 hPa and 50 hPa levels (Figures \@ref(fig:A3) and \@ref(fig:A4)).
 In all seasons and both levels, SAM+ composites are similar to SAM- in structure but with the opposite sign.
 Spatial correlations between composites for each season are high.
@@ -415,7 +410,7 @@ indices_wide <- dcast(indices, + lev + time ~ term, value.var = "estimate_norm")
 ```
 
 ```{r test-aao2}
-# test that my indices hace the correct sign. The Full index needs to be **positively** correlated
+# test that my indices have the correct sign. The Full index needs to be **positively** correlated
 # with the AAO index.
 cor_aao <- indices[term == "full" & lev == 700] %>% 
   .[aao, on = .NATURAL] %>% 
@@ -941,7 +936,7 @@ The wave-3 pattern from Figure \@ref(fig:2d-regr)b.2 is very similar to the PSA
 Indeed, @fogt2011 showed that there is a significant relationship between the SAM and the ENSO.
 The correlation between the SAM and the ENSO as measured by the Oceanic Niño Index [ONI, @bamston1997] is shown in Table \@ref(tab:enso-cor-table) for each SAM index and for each trimester. 
 There is a significant correlation between SAM and ENSO. When divided in trimesters, this correlation is important only in DJF and SON. 
-This relationship is captured mainly by the A\nobreakdash-SAM, as this index has signifcant partial correlations with ENSO while correlations with S\nobreakdash-SAM are all smaller and non-significant. 
+This relationship is captured mainly by the A\nobreakdash-SAM, as this index has significant partial correlations with ENSO while correlations with S\nobreakdash-SAM are all smaller and non-significant. 
 In MAM, ENSO is not significantly correlated with SAM, but it is significantly correlated with A\nobreakdash-SAM in a level comparable with the ENSO-SAM correlation in SON. The same analysis was performed using the Multivariate ENSO Index [@wolter2011] and the Southern Oscillation Index [@ropelewski1987], obtaining similar results.
 The latter allows us to conclude that these results do not depend on the ENSO index used.
 
@@ -1241,7 +1236,7 @@ pp_regr %>%
   theme(panel.spacing = grid::unit(-1, "lines"))
 ```
 
-Figure \@ref(fig:global-pp) shows regression of the SAM indices with precipitation for the Southern Hemisphere. The precipitation signal associated with SAM shows generally decreased precipitation at around 45ºS, somewhat increase precipitation around 30ªS (Fig. \@ref(fig:global-pp)a) and increased precipitation over Antarctica, a pattern known from other studies [e.g. @hendon2014].
+Figure \@ref(fig:global-pp) shows regression of the SAM indices with precipitation for the Southern Hemisphere. The precipitation signal associated with SAM shows generally decreased precipitation at around 45\degree\ S, somewhat increase precipitation around 30\degree\S (Fig. \@ref(fig:global-pp)a) and increased precipitation over Antarctica, a pattern known from other studies [e.g. @hendon2014].
 This pattern is mostly unchanged between seasons albeit varying in intensity (not shown).
 Panels b and c in Figure \@ref(fig:global-pp) shows that the A\nobreakdash-SAM signal is only in the tropics and mid-latitudes, while the S\nobreakdash-SAM signal is strong in the higher latitudes.
 In particular positive values of S\nobreakdash-SAM is associated with the increased precipitation over Antarctica and decrease precipitation around the Southern Ocean.
