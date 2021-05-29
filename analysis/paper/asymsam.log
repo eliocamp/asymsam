@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.3.30)  28 MAY 2021 12:22
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.3.30)  29 MAY 2021 11:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -594,6 +594,9 @@ Overfull \hbox (78.55522pt too wide) in paragraph at lines 264--264
  []
 
 [7]
+Underfull \vbox (badness 1688) has occurred while \output is active []
+
+[8]
 File: cor-lev-1.pdf Graphic file (type pdf)
 <use cor-lev-1.pdf>
 File: cross-correlation-1.pdf Graphic file (type pdf)
@@ -610,9 +613,9 @@ for the SAM, A-SAM
  []
 
 
-Underfull \vbox (badness 4013) has occurred while \output is active []
+Underfull \vbox (badness 5832) has occurred while \output is active []
 
-[8] [9]
+[9]
 File: trends-1.pdf Graphic file (type pdf)
 <use trends-1.pdf>
 
@@ -790,7 +793,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 668.
 Here is how much of TeX's memory you used:
  12930 strings out of 493007
  183307 string characters out of 6136719
- 305043 words of memory out of 5000000
+ 305272 words of memory out of 5000000
  16727 multiletter control sequences out of 15000+600000
  9670 words of font info for 45 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
