@@ -1058,7 +1058,7 @@ Where data is available, the general patterns are similar, although with reduced
 The pattern of negative anomalies in the pole surrounded by positive anomalies roughly seen in all seasons -- although with varying intensity and small-scale details -- translates to enhanced meridional temperature gradient maximised in the zero line, which is consistent with the intensification and poleward migration of the westerlies commonly linked to the SAM through thermal wind balance.
 It's then not surprising to see it more clearly in association with S\nobreakdash-SAM (at least in summer and spring).
 Temperatures over East Antarctica are most impacted by the S\nobreakdash-SAM, while on West Antarctica they are more sensitive to the A\nobreakdash-SAM.
-Considering the positive trend in the S\nobreakdash-SAM index, this might be consistent with temperature trends, which show warming in the West and no trend in the East [@nicolas2014].
+Since the S\nobreakdash-SAM index is negatively correlated with temperatures over East Antarctica, it is possible that the positive trend in the S\nobreakdash-SAM index might help explain the lack of positive temperature trend in East Antarctica compared with West Antarctica in the context of global warming [@nicolas2014].
 
 Figure \@ref(fig:regr-air-season) column b can be partially compared with Figure 11 from @fogt2012.
 Although they used station data from 1958 to 2001, main features are reproduced here, such as the strong signal in New Zealand and Australia in summer and spring.
