@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.3.30)  29 MAY 2021 11:49
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.3.30)  8 JUL 2021 11:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -563,10 +563,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 98--105
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 
-) [1] [2]
-Underfull \vbox (badness 4266) has occurred while \output is active []
-
-[3] [4]
+) [1] [2] [3] [4]
 Overfull \hbox (11.3178pt too wide) in paragraph at lines 189--197
 \TU/lmr/m/n/10 components. We then compute the SAM index, Asymmetric SAM index 
 (A-SAM)
@@ -793,7 +790,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 668.
 Here is how much of TeX's memory you used:
  12930 strings out of 493007
  183307 string characters out of 6136719
- 305272 words of memory out of 5000000
+ 305234 words of memory out of 5000000
  16727 multiletter control sequences out of 15000+600000
  9670 words of font info for 45 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
