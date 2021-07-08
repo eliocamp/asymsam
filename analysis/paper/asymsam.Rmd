@@ -182,7 +182,7 @@ Its positive phase is usually described as anomalously low pressures over Antarc
 Most authors describe the SAM as a zonally symmetric pattern, a fact that is reflected not only in its name, but also in the various methods used to characterise it.
 Of the several different indices presented in the literature, many of them are based on zonal means of sea level pressure or geopotential height [@ho2012].
 @gong1999 defined the SAM index as the zonal mean sea level pressure difference between 40\degree S and 65\degree S, which is also the definition used by the station-based index in @marshall2003.
-@baldwin2009 proposed defining the Northern and Annular modes as the leading EOF of the zonally averaged geopotential height at each level.
+@baldwin2009 proposed defining the Northern and Southern Annular modes as the leading EOF of the zonally averaged geopotential height at each level.
 
 Even though these indices are based on zonal averages, their associated geopotential height spatial anomalies contain noticeable deviations from zonal symmetry, particularly in the Pacific Ocean region.
 The zonal asymmetries have not been widely studied, but previous work suggests that they strongly modulate the regional impacts of the SAM [@fan2007; @silvestri2009; @fogt2012; @rosso2018].
@@ -199,7 +199,7 @@ However, it's not clear yet how or if the asymmetric SAM component responds to t
 
 The impact of the zonally asymmetric component of the SAM at regional scales has not been studied in detail yet.
 The positive phase of the SAM is associated with colder-than-normal temperatures over Antarctica and warmer-than-normal temperatures at lower latitudes [@jones2019] (and vice versa for negative SAM).
-But there are significant deviations from this zonal mean response, notably in the Antarctic Peninsula and the South Atlantic [@fogt2012].
+But there are significant deviations from this zonal mean response, notably in the Antarctic Peninsula and the south Atlantic [@fogt2012].
 The SAM-related signal on precipitation anomalies behaves similarly, although with even greater deviation from zonal symmetry [@lim2016].
 The SAM-precipitation relationship in Southeastern South America can be explained by the Pacific-South American (PSA)-like zonally asymmetric circulation associated with the SAM [@silvestri2009; @rosso2018].
 @fan2007 also found that precipitation in East Asia was impacted by the variability of only the Western Hemisphere part of the SAM.
@@ -755,7 +755,7 @@ indices_2d_yearly %>%
 
 The amplitude of the first zonal wavenumbers at each latitude at 50 hPa and 700 hPa are shown in Figure \@ref(fig:wave-amplitude), where wavenumber zero represents the amplitude of the zonal mean.
 Zonal wave amplitudes of the spatial pattern described by the SAM index (Figure \@ref(fig:wave-amplitude) column `r get_col(term == "full")`) are dominated by the zonal mean (wavenumber 0) at both levels.
-However, zonal waves are important, particularly South of 50\degree S, with wavenumber 1 clearly dominating at 50 hPa (Figure \@ref(fig:wave-amplitude)`r get_tag(term == "full" & lev == 50)`) and a mix of waves of similar amplitude at 700 hPa (Figure \@ref(fig:wave-amplitude)`r get_tag(term == "full" & lev == 700)`).
+However, zonal waves are important, particularly south of 50\degree S, with wavenumber 1 clearly dominating at 50 hPa (Figure \@ref(fig:wave-amplitude)`r get_tag(term == "full" & lev == 50)`) and a mix of waves of similar amplitude at 700 hPa (Figure \@ref(fig:wave-amplitude)`r get_tag(term == "full" & lev == 700)`).
 Figure \@ref(fig:wave-amplitude) column `r get_col(term == "asym")` shows that the A\nobreakdash-SAM is overwhelmingly dominated by wave 1 in the stratosphere (Figure \@ref(fig:wave-amplitude)`r get_tag(term== "asym" & lev == 50)`), while in the troposphere it is explained by a combination of zonal waves 3 to 1 in decreasing level of importance (Figure \@ref(fig:wave-amplitude)`r get_tag(term== "asym" & lev == 700)`) with negligible amplitude of the zonal mean.
 On the other hand, the S\nobreakdash-SAM it is almost entirely explained by the zonal mean at both levels (Figure \@ref(fig:wave-amplitude) column c), with little to no contribution from zonal waves with wavenumbers 1 to 3.
 
@@ -824,8 +824,8 @@ The signal in the stratosphere maximises near 10 hPa despite using the 50 hPa 
 
 The tropospheric A\nobreakdash-SAM (Figure \@ref(fig:vertical-regression)b) has significant signals that extend upwards to the uppermost levels considered.
 In the troposphere, the wave-3 structure is equivalent barotropic with maximum amplitude at roughly 250 hPa.
-The anomalies are larger in the Western hemisphere, where they extend into the stratosphere.
-In the Eastern hemisphere the wave-3 signal is smaller and confined to the troposphere while negative anomalies dominate in the stratosphere.
+The anomalies are larger in the Western Hemisphere, where they extend into the stratosphere.
+In the Eastern Hemisphere the wave-3 signal is smaller and confined to the troposphere while negative anomalies dominate in the stratosphere.
 So, while the tropospheric A\nobreakdash-SAM index is associated with stratospheric geopotential anomalies, these do not project strongly onto the stratospheric A\nobreakdash-SAM.
 The structures shown in Figure \@ref(fig:vertical-regression) are robust to the choice of index level.
 For any stratospheric (above 100 hPa) index, the resulting anomalies are very similar to the wave-1 structure with maximum near 10 hPa in Figure \@ref(fig:vertical-regression)a.
@@ -964,7 +964,7 @@ air_regr <- air %>%
   .[, term := factor(term, levels = names(lab_sam), ordered = TRUE)] 
 ```
 
-(ref:regr-air-season-cap) Regression of seasonal mean 2-metre temperature anomalies (Kelvin) from ERA5 with SAM, A\nobreakdash-SAM and S\nobreakdash-SAM for the 1979 -- 2018 period. Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate. Note that the colour scale cuts-off at $\pm0.6 \mathrm{K}$ to highlight mid-latitudes and tropics features at the expense of the higher values in Polar regions.
+(ref:regr-air-season-cap) Regression of seasonal mean 2-metre temperature anomalies (Kelvin) from ERA5 with SAM, A\nobreakdash-SAM and S\nobreakdash-SAM for the 1979 -- 2018 period. Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate. Note that the colour scale cuts-off at $\pm0.6 \mathrm{K}$ to highlight mid-latitudes and tropics features at the expense of the higher values in polar regions.
 
 ```{r regr-air-season, fig.cap = "(ref:regr-air-season-cap)", fig.width = 6, fig.height = 8, fig.env = "figure*", cache = FALSE}
 
@@ -1041,13 +1041,13 @@ The ring is not zonally symmetric, as there are four distinctive local maximums 
 In the tropics, there are negative anomalies in the equatorial Pacific, consistent with the negative correlation between SAM and ENSO.
 Figure \@ref(fig:regr-air-season)`r combine_words(get_tag(season == "DJF" & term != "full", n = 2))` show temperature anomalies associated with positive values of A\nobreakdash-SAM and S\nobreakdash-SAM, respectively.
 Both the local maximums in the ring and the anomalies in the Pacific regions are present mostly on the A\nobreakdash-SAM regression map, while temperature patterns linked to positive S\nobreakdash-SAM show a more zonally consistent ring and less relation to the tropics.
-Over Antarctica positive values of the SAM index are associated with negative temperature anomalies, particularly over the Eastern coast.
+Over Antarctica positive values of the SAM index are associated with negative temperature anomalies, particularly over the eastern coast.
 These anomalies are associated only with the S\nobreakdash-SAM.
 Furthermore, the typical longitudinal variations of temperature anomalies along the Antarctic Peninsula are not evident in the regressions with the SAM, in agreement with previous works [e.g. @marshall2016].
-On the other hand, temperature anomalies in the Indian ocean, South Africa and Australia are strongly related to A\nobreakdash-SAM and are not present in the regression pattern with the SAM.
+On the other hand, temperature anomalies in the Indian ocean, southern Africa and Australia are strongly related to A\nobreakdash-SAM and are not present in the regression pattern with the SAM.
 
 In autumn, winter and spring (rows `r combine_words(get_row(season %in% c("MAM", "JJA", "SON"), n = 3))` in Figure \@ref(fig:regr-air-season)) the positive ring is only present through its local maximums in the regression with the SAM, which reflects the more asymmetric nature of the SAM compared to summer.
-There are also negative anomalies in Southern Australia, and positive anomalies over New Zealand and Southern South America.
+There are also negative anomalies in southern Australia, and positive anomalies over New Zealand and southern South America.
 Similar features were observed in station measurements by @jones2019, although using data from 1957 to 2016.
 In spring, the tropical signal of A\nobreakdash-SAM is similar to the one in summer, again revealing the significance of the ENSO-A\nobreakdash-SAM link. 
 Moreover, from autumn to spring, positive (negative) temperature anomalies are discernible at the northern (southern) portion of the Antarctic Peninsula in the regressions with the SAM, which are also evident in the regressions with A-SAM. In agreement, @marshall2016 found the same signal in association with SAM while that pattern is only evident in autumn for the southern baroclinic annular mode, which is associated with variations in extratropical storm amplitude.
@@ -1057,7 +1057,7 @@ Where data is available, the general patterns are similar, although with reduced
 
 The pattern of negative anomalies in the pole surrounded by positive anomalies roughly seen in all seasons -- although with varying intensity and small-scale details -- translates to enhanced meridional temperature gradient maximised in the zero line, which is consistent with the intensification and poleward migration of the westerlies commonly linked to the SAM through thermal wind balance.
 It's then not surprising to see it more clearly in association with S\nobreakdash-SAM (at least in summer and spring).
-Temperatures over Eastern Antarctica are most impacted by the S\nobreakdash-SAM, while on Western Antarctica they are more sensitive to the A\nobreakdash-SAM.
+Temperatures over East Antarctica are most impacted by the S\nobreakdash-SAM, while on West Antarctica they are more sensitive to the A\nobreakdash-SAM.
 Considering the positive trend in the S\nobreakdash-SAM index, this might be consistent with temperature trends, which show warming in the West and no trend in the East [@nicolas2014].
 
 Figure \@ref(fig:regr-air-season) column b can be partially compared with Figure 11 from @fogt2012.
@@ -1196,7 +1196,7 @@ pp_enso_index %>%
 
 ```
 
-(ref:global-pp-cap) Regression of monthly precipitation anomalies (mm per day, shading) with a) SAM, b) A\nobreakdash-SAM and c) S\nobreakdash-SAM for the 1979 -- 2018 period. Thin lines are the Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate. Note that the colour scale cuts-off at $\pm0.25 \mathrm{K}$ to highlight mid- and high-latitude features at the expense of the very high values in the Tropics.
+(ref:global-pp-cap) Regression of monthly precipitation anomalies (mm per day, shading) with a) SAM, b) A\nobreakdash-SAM and c) S\nobreakdash-SAM for the 1979 -- 2018 period. Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate. Note that the colour scale cuts-off at $\pm0.25 \mathrm{K}$ to highlight mid- and high-latitude features at the expense of the very high values in the Tropics.
 
 ```{r global-pp, fig.cap = "(ref:global-pp-cap)", fig.width=6, fig.height=3.5}
 discrete_div_pp <- colorRampPalette(c("#8E521C", "white", "#00665E"))
@@ -1304,21 +1304,21 @@ plot_pp <- function(this_continent, data = pp_regr) {
 
 ```
 
-```{r pp-regr-oceania, dependson="def-plot_pp",  fig.cap = "Regression of (row 1) annual and (rows 2 to 5) seasonal mean precipitation anomalies (mm per day, shading) and 700~hPa geopotential height anomalies (thin lines, positive values as solid lines and negative values as dashed lines) with (column a) SAM, (column (b) A\\nobreakdash-SAM and (column c) S\\nobreakdash-SAM for the 1979 -- 2018 period. Thin lines are the Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate.", fig.width = 6, fig.height = 6.5, fig.env = "figure*"}
+```{r pp-regr-oceania, dependson="def-plot_pp",  fig.cap = "Regression of (row 1) annual and (rows 2 to 5) seasonal mean precipitation anomalies (mm per day, shading) and 700~hPa geopotential height anomalies (thin lines, positive values as solid lines and negative values as dashed lines) with (column a) SAM, (column (b) A\\nobreakdash-SAM and (column c) S\\nobreakdash-SAM for the 1979 -- 2018 period. Black contours indicate areas with p-value smaller than 0.05 controlling for False Detection Rate.", fig.width = 6, fig.height = 6.5, fig.env = "figure*"}
 plot_pp("oceania") 
 ```
 
 In Australia, the annual regression shows that the SAM index is associated with positive precipitation anomalies in the Southeastern region (Figure \@ref(fig:pp-regr-oceania)a.1), in agreement with @gillett2006.
-The separation between A\nobreakdash-SAM and S\nobreakdash-SAM suggest that this positive anomaly is explained by the S\nobreakdash-SAM only in the East coast (Figure \@ref(fig:pp-regr-oceania)c.1).
+The separation between A\nobreakdash-SAM and S\nobreakdash-SAM suggest that this positive anomaly is explained by the S\nobreakdash-SAM only in the east coast (Figure \@ref(fig:pp-regr-oceania)c.1).
 Geopotential height anomalies associated with this index (black contours) are indicative of easterly flow from the Tasman Sea, which could explain the positive anomalies in precipitation as found by @hendon2007.
-A\nobreakdash-SAM appears related to positive precipitation anomalies in the West coast of Southeastern Australia (Figure \@ref(fig:pp-regr-oceania)b.2), which could similarly be explained by the anomalous westerly circulation transporting moist air to the continent from the Indian Ocean.
+A\nobreakdash-SAM appears related to positive precipitation anomalies in the west coast of southeastern Australia (Figure \@ref(fig:pp-regr-oceania)b.2), which could similarly be explained by the anomalous westerly circulation transporting moist air to the continent from the Indian Ocean.
 
-The seasonal-based regressions show statistically significant anomalies only in spring, when positive SAM is associated with positive precipitation anomalies in Eastern Australia (Figure \@ref(fig:pp-regr-oceania)a.5).
-In this trimester, S\nobreakdash-SAM seems to be associated with positive precipitation anomalies in a relatively reduced area of the East Coast (Figure \@ref(fig:pp-regr-oceania)c.5) while the positive precipitation anomalies related to positive A\nobreakdash-SAM affect all Eastern Australia (Figure \@ref(fig:pp-regr-oceania)b.5).
+The seasonal-based regressions show statistically significant anomalies only in spring, when positive SAM is associated with positive precipitation anomalies in eastern Australia (Figure \@ref(fig:pp-regr-oceania)a.5).
+In this trimester, S\nobreakdash-SAM seems to be associated with positive precipitation anomalies in a relatively reduced area of the eastern coast (Figure \@ref(fig:pp-regr-oceania)c.5) while the positive precipitation anomalies related to positive A\nobreakdash-SAM affect all eastern Australia (Figure \@ref(fig:pp-regr-oceania)b.5).
 
-In summer, positive SAM index is associated with positive precipitation anomalies in Western and Eastern Australia, particularly in the North East (Figure \@ref(fig:pp-regr-oceania)a.2).
-The Eastern part being dominated by the relationship with S\nobreakdash-SAM and the Western, by A\nobreakdash-SAM.
-In autumn, the regression with SAM shows positive anomalies in the North, similar to summer, which are associated with the A\nobreakdash-SAM.
+In summer, positive SAM index is associated with positive precipitation anomalies in western and eastern Australia, particularly in the north eastern region (Figure \@ref(fig:pp-regr-oceania)a.2).
+The eastern part being dominated by the relationship with S\nobreakdash-SAM and the western, by A\nobreakdash-SAM.
+In autumn, the regression with SAM shows positive anomalies in the north, similar to summer, which are associated with the A\nobreakdash-SAM.
 In winter regression coefficients are much weaker than during the rest of the year. 
 None of these regression coefficients are statistically significant at the 95% level.
 The spring signal is broadly consistent with @hendon2007, but whereas they also detected a strong signal in summer, Figure \@ref(fig:pp-regr-oceania)a.2 shows no statistically significant association (although the coefficients have the consistent sign).
@@ -1329,14 +1329,14 @@ The spring signal is broadly consistent with @hendon2007, but whereas they also 
 plot_pp("america")
 ```
 
-In South America (Figure \@ref(fig:pp-regr-america)), regression using all seasons shows that positive SAM is associated with statistically significant negative precipitation anomalies in Southeastern South America (SESA) and Southern Chile, and non-significant positive anomalies in South Brazil, near the South Atlantic Convergence Zone (SACZ) (Figure \@ref(fig:pp-regr-america)a.1).
+In South America (Figure \@ref(fig:pp-regr-america)), regression using all seasons shows that positive SAM is associated with statistically significant negative precipitation anomalies in Southeastern South America (SESA) and southern Chile, and non-significant positive anomalies in southern Brazil, near the South Atlantic Convergence Zone (SACZ) (Figure \@ref(fig:pp-regr-america)a.1).
 Figure \@ref(fig:pp-regr-america)b.1 and c.1 show that while the signal over SESA and southern Brazil is associated with A\nobreakdash-SAM, that in southern Chile is related to S\nobreakdash-SAM.
 
 Except winter, seasonal-based regressions mirror this same pattern.
 Even if not statistically significant, they all show negative values in SESA and southern Chile along with positive values in southern Brazil in relation with the SAM.
 The separation of these features between A\nobreakdash-SAM and S\nobreakdash-SAM regression maps is also rather consistent.
 
-The anomalous circulation at 700 hPa associated with S\nobreakdash-SAM (Figure \@ref(fig:pp-regr-america)c.1) indicate anomalous easterly flow over Southern Chile. This leads to reduced influx of moist air from the Pacific Ocean which is the main source of precipitable water in that region [e.g. @garreaud2007]. On the other hand, the anomalous circulation associated with positive values of A\nobreakdash-SAM (Figure \@ref(fig:pp-regr-america)b.1) in the Atlantic is anticyclonic in the South and cyclonic in the North. This promotes anomalous South-Easterly flow over SESA, which inhibits the flow of the South America Low-Level Jet to the region [@silvestri2009; @zamboni2010]. This same pattern was found to be associated with increased precipitation in Southern Brazil during SACZ events [@rosso2018].
+The anomalous circulation at 700 hPa associated with S\nobreakdash-SAM (Figure \@ref(fig:pp-regr-america)c.1) indicate anomalous easterly flow over southern Chile. This leads to reduced influx of moist air from the Pacific Ocean which is the main source of precipitable water in that region [e.g. @garreaud2007]. On the other hand, the anomalous circulation associated with positive values of A\nobreakdash-SAM (Figure \@ref(fig:pp-regr-america)b.1) in the Atlantic is anticyclonic in the south and cyclonic in the north. This promotes anomalous eouth-easterly flow over SESA, which inhibits the flow of the South America Low-Level Jet to the region [@silvestri2009; @zamboni2010]. This same pattern was found to be associated with increased precipitation in southern Brazil during SACZ events [@rosso2018].
 There is a small area of significant positive precipitation anomalies with the SAM near central Argentina which is also present in the station-based analysis by @gillett2006 that is explained by the A\nobreakdash-SAM.
 
 # Conclusions
@@ -1368,15 +1368,15 @@ This suggests that ENSO is linked to SAM exclusively through the variability in 
 
 Temperature anomalies associated with the SAM broadly show a pattern of negative anomalies at polar latitudes surrounded by positive anomalies, but with many deviations from symmetry.
 The A\nobreakdash-SAM index explains a big portion of these deviations.
-In particular, the positive phase of A\nobreakdash-SAM is associated with colder temperatures over Southern Brazil, South Africa and Southern Australia, as well as the negative anomalies in the equatorial Pacific consistent with the ENSO\nobreakdash-SAM relationship.
+In particular, the positive phase of A\nobreakdash-SAM is associated with colder temperatures over southern Brazil, southern Africa and southern Australia, as well as the negative anomalies in the equatorial Pacific consistent with the ENSO\nobreakdash-SAM relationship.
 These negative anomalies are particularly clear in the DJF and SON trimesters, which include the months in which the ENSO teleconnection is more active [e.g. @cai2020a].
 
-In Australia the SAM is associated with positive precipitation anomalies in South East and this is explained by the S\nobreakdash-SAM.
-However, the A\nobreakdash-SAM is associated with a small area of positive precipitation anomalies in the Eastern Coast of West Australia, maybe due to advection of moist air from the Indian Ocean.
+In Australia the SAM is associated with positive precipitation anomalies in the south east and this is explained by the S\nobreakdash-SAM.
+However, the A\nobreakdash-SAM is associated with a small area of positive precipitation anomalies in the eastern coast of western Australia, maybe due to advection of moist air from the Indian Ocean.
 
-In South America, precipitation anomalies associated with the SAM are negative both in Southern Chile and Southeastern South America, and positive in Southern Brazil.
+In South America, precipitation anomalies associated with the SAM are negative both in southern Chile and Southeastern South America, and positive in southern Brazil.
 These features are cleanly separated between A\nobreakdash-SAM and S\nobreakdash-SAM.
-S\nobreakdash-SAM explains the negative anomalies in Southern Chile and A\nobreakdash-SAM, the negative-positive dipole between Southeastern South America and Southern Brazil.
+S\nobreakdash-SAM explains the negative anomalies in southern Chile and A\nobreakdash-SAM, the negative-positive dipole between Southeastern South America and southern Brazil.
 Individual seasons mostly follow this pattern.
 
 Of note, even though the A\nobreakdash-SAM is significantly correlated with ENSO in all trimesters except JJA, precipitation patterns associated with the A\nobreakdash-SAM are similar to precipitation patterns associated with ENSO only in SON in Australia, but in all trimesters in South America.
