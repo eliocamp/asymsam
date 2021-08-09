@@ -1,6 +1,31 @@
 # asymsam
 
-This repository contains data, code and other source files associated with a paper Assessment of zonally symmetric and asymmetric components of the SAM. 
+
+This repository contains data, code and other source files associated with a paper [Assessment of zonally symmetric and asymmetric components of the Southern Annular Mode using a novel approach](https://doi.org/10.1007/s00382-021-05896-5) published in Climate Dynamics. 
+
+## To cite
+
+Campitelli, E., Díaz, L.B. & Vera, C. Assessment of zonally symmetric and asymmetric components of the Southern Annular Mode using a novel approach. Clim Dyn (2021). https://doi.org/10.1007/s00382-021-05896-5
+
+BibTex citation:
+
+```bib
+
+@article{campitelli2021,
+  title = {Assessment of Zonally Symmetric and Asymmetric Components of the {{Southern Annular Mode}} Using a Novel Approach},
+  author = {Campitelli, Elio and Díaz, Leandro B. and Vera, Carolina},
+  date = {2021-08-09},
+  journaltitle = {Climate Dynamics},
+  shortjournal = {Clim Dyn},
+  issn = {1432-0894},
+  doi = {10.1007/s00382-021-05896-5},
+  url = {https://doi.org/10.1007/s00382-021-05896-5},
+  urldate = {2021-08-09}
+}
+
+```
+
+## Running the code
 
 Clone this repo. If using RStudio, open the project. 
 
