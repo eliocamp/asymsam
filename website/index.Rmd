@@ -42,7 +42,7 @@ knitr::include_graphics("2d-regr-1.png")
 
 The resulting indices separate the zonally symmetric and zonally asymmetric part of the SAM (Figure \@ref(fig:20-regr)) and are associated with different impacts on temperature and precipitation. 
 
-For more details, see @campitelli2021. 
+For more details, see @campitelli2021 and [the companion blog post](https://eliocamp.github.io/scrapbook/posts/2021-08-09-asymsam/).
 
 
 # Get the data
@@ -54,7 +54,8 @@ You can grab the monthly indices for the 1979 -- 2018 period in [csvy](https://c
 
 If you use this data on your research, please cite it with
 
-Campitelli, E., Diaz, L., & Vera, C. (2021). Assessment of zonally symmetric and asymmetric components of the Southern Annular Mode using a novel approach. Climate Dynamics, (under review).
+Campitelli, E., Díaz, L. B., & Vera, C. (2021). Assessment of zonally symmetric and asymmetric components of the Southern Annular Mode using a novel approach. Climate Dynamics. https://doi.org/10.1007/s00382-021-05896-5
+
 
 Bibtex entry:
 
@@ -62,9 +63,13 @@ Bibtex entry:
 ```
 @article{campitelli2021,
   title = {Assessment of Zonally Symmetric and Asymmetric Components of the {{Southern Annular Mode}} Using a Novel Approach},
-  author = {Campitelli, Elio and Diaz, Leandro and Vera, Carolina},
-  year = {2021},
-  volume = {(under review)},
-  journal = {Climate Dynamics}
+  author = {Campitelli, Elio and Díaz, Leandro B. and Vera, Carolina},
+  date = {2021-08-09},
+  journaltitle = {Climate Dynamics},
+  shortjournal = {Clim Dyn},
+  issn = {1432-0894},
+  doi = {10.1007/s00382-021-05896-5},
+  url = {https://doi.org/10.1007/s00382-021-05896-5}
 }
+
 ```

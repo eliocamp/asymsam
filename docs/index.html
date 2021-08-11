@@ -23,6 +23,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -105,7 +106,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <!--/radix_placeholder_meta_tags-->
   
-  <meta name="citation_reference" content="citation_title=Assessment of zonally symmetric and asymmetric components of the Southern Annular Mode using a novel approach;citation_publication_date=2021;citation_volume=(under review);citation_author=Elio Campitelli;citation_author=Leandro Diaz;citation_author=Carolina Vera"/>
+  <meta name="citation_reference" content="citation_title=Assessment of zonally symmetric and asymmetric components of the Southern Annular Mode using a novel approach;citation_publication_date=2021;citation_doi=10.1007/s00382-021-05896-5;citation_issn=1432-0894;citation_author=Elio Campitelli;citation_author=Leandro B. Díaz;citation_author=Carolina Vera"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
@@ -2346,7 +2347,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.6.6/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2426,27 +2427,31 @@ Figure 2: Regression of geopotential height (meters) at (row 1) 50~hPa and (row 
 </div>
 </div>
 <p>The resulting indices separate the zonally symmetric and zonally asymmetric part of the SAM (Figure <a href="#fig:20-regr">2</a>) and are associated with different impacts on temperature and precipitation.</p>
-<p>For more details, see <span class="citation" data-cites="campitelli2021"><a href="#ref-campitelli2021" role="doc-biblioref">Campitelli, Diaz, and Vera</a> (<a href="#ref-campitelli2021" role="doc-biblioref">2021</a>)</span>.</p>
+<p>For more details, see <span class="citation" data-cites="campitelli2021"><a href="#ref-campitelli2021" role="doc-biblioref">Campitelli, Díaz, and Vera</a> (<a href="#ref-campitelli2021" role="doc-biblioref">2021</a>)</span> and <a href="https://eliocamp.github.io/scrapbook/posts/2021-08-09-asymsam/">the companion blog post</a>.</p>
 <h1 id="get-the-data">Get the data</h1>
 <p>You can grab the monthly indices for the 1979 – 2018 period in <a href="https://csvy.org/">csvy</a> format <a href="indices.csv">here</a>.</p>
 <h1 id="how-to-cite">How to cite</h1>
 <p>If you use this data on your research, please cite it with</p>
-<p>Campitelli, E., Diaz, L., &amp; Vera, C. (2021). Assessment of zonally symmetric and asymmetric components of the Southern Annular Mode using a novel approach. Climate Dynamics, (under review).</p>
+<p>Campitelli, E., Díaz, L. B., &amp; Vera, C. (2021). Assessment of zonally symmetric and asymmetric components of the Southern Annular Mode using a novel approach. Climate Dynamics. <a href="https://doi.org/10.1007/s00382-021-05896-5" class="uri">https://doi.org/10.1007/s00382-021-05896-5</a></p>
 <p>Bibtex entry:</p>
 <pre><code>@article{campitelli2021,
   title = {Assessment of Zonally Symmetric and Asymmetric Components of the {{Southern Annular Mode}} Using a Novel Approach},
-  author = {Campitelli, Elio and Diaz, Leandro and Vera, Carolina},
-  year = {2021},
-  volume = {(under review)},
-  journal = {Climate Dynamics}
-}</code></pre>
+  author = {Campitelli, Elio and Díaz, Leandro B. and Vera, Carolina},
+  date = {2021-08-09},
+  journaltitle = {Climate Dynamics},
+  shortjournal = {Clim Dyn},
+  issn = {1432-0894},
+  doi = {10.1007/s00382-021-05896-5},
+  url = {https://doi.org/10.1007/s00382-021-05896-5}
+}
+</code></pre>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-baldwin2001a" class="csl-entry" role="doc-biblioentry">
 Baldwin, Mark P. 2001. <span>“Annular Modes in Global Daily Surface Pressure.”</span> <em>Geophysical Research Letters</em> 28 (21): 4115–18. <a href="https://doi.org/10.1029/2001GL013564">https://doi.org/10.1029/2001GL013564</a>.
 </div>
 <div id="ref-campitelli2021" class="csl-entry" role="doc-biblioentry">
-Campitelli, Elio, Leandro Diaz, and Carolina Vera. 2021. <span>“Assessment of Zonally Symmetric and Asymmetric Components of the <span>Southern Annular Mode</span> Using a Novel Approach.”</span> <em>Climate Dynamics</em> (under review).
+Campitelli, Elio, Leandro B. Díaz, and Carolina Vera. 2021. <span>“Assessment of Zonally Symmetric and Asymmetric Components of the <span>Southern Annular Mode</span> Using a Novel Approach.”</span> <em>Clim Dyn</em>, August. <a href="https://doi.org/10.1007/s00382-021-05896-5">https://doi.org/10.1007/s00382-021-05896-5</a>.
 </div>
 <div id="ref-fogt2006" class="csl-entry" role="doc-biblioentry">
 Fogt, Ryan L., and David H. Bromwich. 2006. <span>“Decadal <span>Variability</span> of the <span>ENSO Teleconnection</span> to the <span>High</span>-<span>Latitude South Pacific Governed</span> by <span>Coupling</span> with the <span>Southern Annular Mode</span>.”</span> <em>J. Climate</em> 19 (6): 979–97. <a href="https://doi.org/10.1175/JCLI3671.1">https://doi.org/10.1175/JCLI3671.1</a>.
