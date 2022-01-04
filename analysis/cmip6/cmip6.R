@@ -106,7 +106,14 @@ compute_asymsam <- function(file, member = 1) {
         indices = list(indices))
 }
 
-sam <- simulaciones[, compute_asymsam(file.path(cmip_folder, file), c(1, NA)), by = model]
+sam_rds <- here::here("analysis", "cmip6", "sam_cmip.Rds")
+if (file.exists(sam_rds)) {
+   sam <- readRDS(sam_rds)
+} else {
+   message("Get a cup o' coffee.")
+   sam <- simulaciones[, compute_asymsam(file.path(cmip_folder, file), c(1, NA)), by = model]   
+}
+
 
 
 sam[, indices[[1]], by = model] %>% 
