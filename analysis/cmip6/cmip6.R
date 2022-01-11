@@ -158,266 +158,269 @@ if (file.exists(sam_rds)) {
     list(fields = list(fields),
          indices = list(indices))
   }
+  sam <- simulaciones[, compute_asymsam(file.path(cmip_folder, file), c(1, NA)), by = model]
+  saveRDS(sam, sam_rds)
+}
 
 
-  indices_file <- data_path("derived", "indices.Rds")
+indices_file <- data_path("derived", "indices.Rds")
 
-  indices <- readRDS(indices_file)
-  indices[term == "full", term := "sam"]
+indices <- readRDS(indices_file)
+indices[term == "full", term := "sam"]
 
-  hgt <- ReadNetCDF(ERA5(),
-                    subset = list(time = c("1979-01-01", "2018-12-01"),
-                                  latitude = c(-90, -20),
-                                  level = 500),
-                    vars = c(hgt = "z")) %>%
-    normalise_coords() %>%
-    .[, hgt := hgt/9.8] %>%
-    .[, value := hgt - mean(hgt), by = .(lon, lat, lev, month(time))]
+hgt <- ReadNetCDF(ERA5(),
+                  subset = list(time = c("1979-01-01", "2018-12-01"),
+                                latitude = c(-90, -20),
+                                level = 500),
+                  vars = c(hgt = "z")) %>%
+  normalise_coords() %>%
+  .[, hgt := hgt/9.8] %>%
+  .[, value := hgt - mean(hgt), by = .(lon, lat, lev, month(time))]
 
-  sam_obs <- EOF(value ~ time | lon + lat, data = hgt, n = 1)
+sam_obs <- EOF(value ~ time | lon + lat, data = hgt, n = 1)
 
-  sam_obs <- sam_obs$right
+sam_obs <- sam_obs$right
 
-  sam_obs[, ":="(model = "ERA5",
-                 plev = 50000)]
+sam_obs[, ":="(model = "ERA5",
+               plev = 50000)]
 
-  miembros <- miembros %>%
-    rbind(data.table(model = "ERA5", members = 1))
-
-
-
-  r2 <- sam[, fields[[1]], by = model] %>%
-    copy() %>%
-    .[plev == 50000] %>%
-    rbind(sam_obs, fill = TRUE) %>%
-    # .[, value_m := mean(value), by = .(model, plev, lat)] %>%
-    # .[lat < -67 & abs(value) < 1e-5, value := value_m] %>%
-    .[, ":="(value_m = mean(value, na.rm = TRUE),
-             value_a = value - mean(value, na.rm = TRUE)), by = .(model, plev, lat)] %>%
-    .[, FitLm(value, value_a, r2 = TRUE), by = .(model, plev)] %>%
-    rm_intercept() %>%
-    .[term == "value_a"] %>%
-    .[, .(model, r.squared)] %>%
-    .[miembros, on = "model"]
-
-
-  sam[, fields[[1]], by = model] %>%
-    copy() %>%
-    .[plev == 50000] %>%
-    rbind(sam_obs, use.names = TRUE, fill = TRUE) %>%
-    # .[lat < -67 & abs(value) < 1e-5, value := NA] %>%
-    .[r2, on = "model"] %>%
-    .[, model := paste0(model, " — n: ", members, "\n",
-                        "(", scales::percent(r.squared, accuracy = 0.1), ")")] %>%
-    .[, value := value/sd(value, na.rm = TRUE), by = .(model, plev)] %>%
-    .[, model := reorder(model, -r.squared)] %>%
-
-    ggplot(aes(lon, lat)) +
-    geom_contour_fill(aes(z = value),
-                      breaks = AnchorBreaks(0, exclude =  0),
-                      global.breaks = FALSE) +
-    geom_contour_tanaka2(aes(z = value),
-                         breaks = AnchorBreaks(0, exclude =  0),
-                         size = 0.3,
-                         global.breaks = FALSE) +
-    # geom_contour2(aes(z = env)) +
-    geom_qmap(~.x[lat <= -20]) +
-    geom_coords() +
-    scale_x_longitude(labels = NULL) +
-    scale_y_latitude(limits = c(NA, -20), labels = NULL) +
-    scale_fill_divergent(guide = "none") +
-    # scale_fill_divergent(NULL,
-    #                      guide = "none",
-    #                      # guide = guide_colorsteps_bottom(even.steps = TRUE),
-    #                      limits = c(-45, 45),
-    #                      oob = scales::squish,
-    #                      breaks = AnchorBreaks(0, 10, 0)(c(-45, 45))) +
-    scale_linetype(guide = "none") +
-    coord_polar() +
-    facet_wrap(~model, nrow = 2) +
-    # tag_facets("cr", position = list(x = 0.15, y = 0.85)) +
-    no_grid
-
-
-  selected_models <- r2 %>%
-    .[model != "ERA5"] %>%
-    .[order(-r.squared)] %>%
-    .[c(1:3, .N)]
-
-
-  obs_trends <- indices %>%
-    copy() %>%
-    .[, lapply(.SD, mean), by = .(lev, PC, term, time = seasonally(time))] %>%
-    .[, season := season(time)] %>%
-    .[, estimate_norm := -estimate_norm/sd(estimate_norm), by = .(lev, term)] %>%
-    .[, FitLm(estimate_norm, time = time, se = TRUE), by = .(type = term, lev, season)] %>%
-    rm_intercept() %>%
-    .[, term := NULL] %>%
-    .[, estimate := estimate*3600*24*365*10] %>%
-    .[, std.error := std.error*3600*24*365*10] %>%
-    .[, pval := Pvaluate(estimate, std.error, df, "fdr")] %>%
-    setnames("type", "sam") %>%
-    .[, t := qt(.975, df)]
-
-
-  sam[, indices[[1]], by = model] %>%
-    dcast(time + plev + ensemble + model ~ sam, value.var = "estimate") %>%
-    .[season(time) == "DJF"] %>%
-    .[, cor(asym, sym), by = .(model, plev)] %>%
-    ggplot(aes(plev/100, V1^2)) +
-    geom_line() +
-    scale_x_level() +
-    coord_flip() +
-    facet_wrap(~model) +
-    geom_line(data = indices %>%
-                .[season(time) == "DJF"] %>%
-                dcast(time + lev ~ term, value.var = "estimate") %>%
-                .[, cor(asym, sym), by = .(lev)],
-              aes(x = lev),
-              color = "red")
+miembros <- miembros %>%
+  rbind(data.table(model = "ERA5", members = 1))
 
 
 
-
-  models_trends <- sam[, indices[[1]], by = model] %>%
-    .[, sam := factor(sam, levels = c("sam", "asym", "sym"))] %>%
-    .[season(time) == "DJF"] %>%
-    .[, .(estimate = mean(estimate)), by = .(time = seasonally(time), ensemble, model, plev, sam)] %>%
-    .[, estimate := -estimate/sd(estimate), by = .(plev, sam, model, ensemble)] %>%
-    .[, FitLm(estimate, time = as.numeric(time)/(3600*24*365*10), se = TRUE), by = .(sam, plev, ensemble, model, season(time))] %>%
-    # .[sam == "sam"] %>%
-    # .[model == "CanESM5"] %>%
-    .[term == "time"] %>%
-    .[, n := uniqueN(ensemble), by = .(model)] %>%
-    .[, t := qt(.975, df)]
-
-  models_trends %>%
-    .[selected_models, on = "model"] %>%
-    .[, model := paste0(model, " — n: ", members, "\n",
-                        "(", scales::percent(i.r.squared, accuracy = 0.1), ")")] %>%
-    .[, model := reorder(model, -i.r.squared)] %>%
-    ggplot(aes(plev/100, estimate)) +
-
-    geom_hline(yintercept = 0) +
-    geom_line(aes(group = ensemble), alpha = 0.2) +
-    # geom_ribbon(aes(ymax = estimate + std.error*t, ymin = estimate - std.error*t,
-    #                 group = ensemble, alpha = 1 - A^(1/n)),
-    #             fill = "black",
-    #             size = 0.1) +
-
-    geom_ribbon(data = ~.x[, .(se = sd(estimate),
-                               t = qt(.975, .N),
-                               estimate = mean(estimate)), by = .(model, sam, plev)],
-                aes(ymin = estimate - se,
-                    ymax = estimate + se),
-                fill = "#95a3ab", color = "black",
-                alpha = .6, size = 0.1) +
-    geom_line(data = ~.x[, .(estimate = mean(estimate)), by = .(model, sam, plev)]) +
-
-    geom_line(data = obs_trends[season == "DJF"], aes(lev, estimate),
-              color = "#a10705") +
-
-    facet_grid(model ~ sam, labeller = labeller(sam = lab_sam)) +
-    scale_alpha_identity() +
-    scale_x_level() +
-    scale_y_continuous("Standard deviations per decade") +
-    coord_flip() +
-    # tag_facets("cr") +
-    panel_background +
-    theme(strip.text.y = element_text(size = rel(0.7)))
+r2 <- sam[, fields[[1]], by = model] %>%
+  copy() %>%
+  .[plev == 50000] %>%
+  rbind(sam_obs, fill = TRUE) %>%
+  # .[, value_m := mean(value), by = .(model, plev, lat)] %>%
+  # .[lat < -67 & abs(value) < 1e-5, value := value_m] %>%
+  .[, ":="(value_m = mean(value, na.rm = TRUE),
+           value_a = value - mean(value, na.rm = TRUE)), by = .(model, plev, lat)] %>%
+  .[, FitLm(value, value_a, r2 = TRUE), by = .(model, plev)] %>%
+  rm_intercept() %>%
+  .[term == "value_a"] %>%
+  .[, .(model, r.squared)] %>%
+  .[miembros, on = "model"]
 
 
-  models_trends %>%
-    .[selected_models, on = "model"] %>%
-    dcast(plev + ensemble + model ~ sam, value.var = "estimate") %>%
-    ggplot(aes(plev/100, sym - sam)) +
-    geom_line(aes(group = ensemble)) +
-    facet_wrap(~model) +
-    scale_x_level() +
-    coord_flip() +
-    geom_point(data = obs_trends %>%
-                 .[season == "DJF"] %>%
-                 dcast(lev ~ sam, value.var = "estimate"),
-               color = "red",
-               aes(x = lev))
+sam[, fields[[1]], by = model] %>%
+  copy() %>%
+  .[plev == 50000] %>%
+  rbind(sam_obs, use.names = TRUE, fill = TRUE) %>%
+  # .[lat < -67 & abs(value) < 1e-5, value := NA] %>%
+  .[r2, on = "model"] %>%
+  .[, model := paste0(model, " — n: ", members, "\n",
+                      "(", scales::percent(r.squared, accuracy = 0.1), ")")] %>%
+  .[, value := value/sd(value, na.rm = TRUE), by = .(model, plev)] %>%
+  .[, model := reorder(model, -r.squared)] %>%
+
+  ggplot(aes(lon, lat)) +
+  geom_contour_fill(aes(z = value),
+                    breaks = AnchorBreaks(0, exclude =  0),
+                    global.breaks = FALSE) +
+  geom_contour_tanaka2(aes(z = value),
+                       breaks = AnchorBreaks(0, exclude =  0),
+                       size = 0.3,
+                       global.breaks = FALSE) +
+  # geom_contour2(aes(z = env)) +
+  geom_qmap(~.x[lat <= -20]) +
+  geom_coords() +
+  scale_x_longitude(labels = NULL) +
+  scale_y_latitude(limits = c(NA, -20), labels = NULL) +
+  scale_fill_divergent(guide = "none") +
+  # scale_fill_divergent(NULL,
+  #                      guide = "none",
+  #                      # guide = guide_colorsteps_bottom(even.steps = TRUE),
+  #                      limits = c(-45, 45),
+  #                      oob = scales::squish,
+  #                      breaks = AnchorBreaks(0, 10, 0)(c(-45, 45))) +
+  scale_linetype(guide = "none") +
+  coord_polar() +
+  facet_wrap(~model, nrow = 2) +
+  # tag_facets("cr", position = list(x = 0.15, y = 0.85)) +
+  no_grid
+
+
+selected_models <- r2 %>%
+  .[model != "ERA5"] %>%
+  .[order(-r.squared)] %>%
+  .[c(1:3, .N)]
+
+
+obs_trends <- indices %>%
+  copy() %>%
+  .[, lapply(.SD, mean), by = .(lev, PC, term, time = seasonally(time))] %>%
+  .[, season := season(time)] %>%
+  .[, estimate_norm := -estimate_norm/sd(estimate_norm), by = .(lev, term)] %>%
+  .[, FitLm(estimate_norm, time = time, se = TRUE), by = .(type = term, lev, season)] %>%
+  rm_intercept() %>%
+  .[, term := NULL] %>%
+  .[, estimate := estimate*3600*24*365*10] %>%
+  .[, std.error := std.error*3600*24*365*10] %>%
+  .[, pval := Pvaluate(estimate, std.error, df, "fdr")] %>%
+  setnames("type", "sam") %>%
+  .[, t := qt(.975, df)]
+
+
+sam[, indices[[1]], by = model] %>%
+  dcast(time + plev + ensemble + model ~ sam, value.var = "estimate") %>%
+  .[season(time) == "DJF"] %>%
+  .[, cor(asym, sym), by = .(model, plev)] %>%
+  ggplot(aes(plev/100, V1^2)) +
+  geom_line() +
+  scale_x_level() +
+  coord_flip() +
+  facet_wrap(~model) +
+  geom_line(data = indices %>%
+              .[season(time) == "DJF"] %>%
+              dcast(time + lev ~ term, value.var = "estimate") %>%
+              .[, cor(asym, sym), by = .(lev)],
+            aes(x = lev),
+            color = "red")
 
 
 
 
+models_trends <- sam[, indices[[1]], by = model] %>%
+  .[, sam := factor(sam, levels = c("sam", "asym", "sym"))] %>%
+  .[season(time) == "DJF"] %>%
+  .[, .(estimate = mean(estimate)), by = .(time = seasonally(time), ensemble, model, plev, sam)] %>%
+  .[, estimate := -estimate/sd(estimate), by = .(plev, sam, model, ensemble)] %>%
+  .[, FitLm(estimate, time = as.numeric(time)/(3600*24*365*10), se = TRUE), by = .(sam, plev, ensemble, model, season(time))] %>%
+  # .[sam == "sam"] %>%
+  # .[model == "CanESM5"] %>%
+  .[term == "time"] %>%
+  .[, n := uniqueN(ensemble), by = .(model)] %>%
+  .[, t := qt(.975, df)]
+
+models_trends %>%
+  .[selected_models, on = "model"] %>%
+  .[, model := paste0(model, " — n: ", members, "\n",
+                      "(", scales::percent(i.r.squared, accuracy = 0.1), ")")] %>%
+  .[, model := reorder(model, -i.r.squared)] %>%
+  ggplot(aes(plev/100, estimate)) +
+
+  geom_hline(yintercept = 0) +
+  geom_line(aes(group = ensemble), alpha = 0.2) +
+  # geom_ribbon(aes(ymax = estimate + std.error*t, ymin = estimate - std.error*t,
+  #                 group = ensemble, alpha = 1 - A^(1/n)),
+  #             fill = "black",
+  #             size = 0.1) +
+
+  geom_ribbon(data = ~.x[, .(se = sd(estimate),
+                             t = qt(.975, .N),
+                             estimate = mean(estimate)), by = .(model, sam, plev)],
+              aes(ymin = estimate - se,
+                  ymax = estimate + se),
+              fill = "#95a3ab", color = "black",
+              alpha = .6, size = 0.1) +
+  geom_line(data = ~.x[, .(estimate = mean(estimate)), by = .(model, sam, plev)]) +
+
+  geom_line(data = obs_trends[season == "DJF"], aes(lev, estimate),
+            color = "#a10705") +
+
+  facet_grid(model ~ sam, labeller = labeller(sam = lab_sam)) +
+  scale_alpha_identity() +
+  scale_x_level() +
+  scale_y_continuous("Standard deviations per decade") +
+  coord_flip() +
+  # tag_facets("cr") +
+  panel_background +
+  theme(strip.text.y = element_text(size = rel(0.7)))
+
+
+models_trends %>%
+  .[selected_models, on = "model"] %>%
+  dcast(plev + ensemble + model ~ sam, value.var = "estimate") %>%
+  ggplot(aes(plev/100, sym - sam)) +
+  geom_line(aes(group = ensemble)) +
+  facet_wrap(~model) +
+  scale_x_level() +
+  coord_flip() +
+  geom_point(data = obs_trends %>%
+               .[season == "DJF"] %>%
+               dcast(lev ~ sam, value.var = "estimate"),
+             color = "red",
+             aes(x = lev))
 
 
 
-  sam[, indices[[1]], by = model] %>%
-    .[, mean(r2), by = .(plev, sam, model)] %>%
-    .[sam != "sam"] %>%
-    ggplot(aes(plev/100, V1)) +
-    geom_line(aes(color = sam)) +
-    geom_line(data = indices %>%
-                .[term != "sam"] %>%
-                .[, mean(r.squared), by = .(sam = term, lev)],
-              aes(lev, V1, color = sam), linetype = 3
-    ) +
-    scale_x_level() +
-    facet_wrap(~model) +
-    coord_flip()
 
 
 
-  obs_trends_r2 <- indices %>%
-    copy() %>%
-    .[, lapply(.SD, mean), by = .(lev, PC, term, time = seasonally(time))] %>%
-    .[, season := season(time)] %>%
-    # .[, estimate_norm := -estimate_norm/sd(estimate_norm), by = .(lev, term)] %>%
-    .[, FitLm(r.squared, time = time, se = TRUE), by = .(type = term, lev, season)] %>%
-    rm_intercept() %>%
-    .[, term := NULL] %>%
-    .[, estimate := estimate*3600*24*365*10] %>%
-    .[, std.error := std.error*3600*24*365*10] %>%
-    .[, pval := Pvaluate(estimate, std.error, df, "fdr")] %>%
-    setnames("type", "sam") %>%
-    .[, t := qt(.975, df)]
+
+sam[, indices[[1]], by = model] %>%
+  .[, mean(r2), by = .(plev, sam, model)] %>%
+  .[sam != "sam"] %>%
+  ggplot(aes(plev/100, V1)) +
+  geom_line(aes(color = sam)) +
+  geom_line(data = indices %>%
+              .[term != "sam"] %>%
+              .[, mean(r.squared), by = .(sam = term, lev)],
+            aes(lev, V1, color = sam), linetype = 3
+  ) +
+  scale_x_level() +
+  facet_wrap(~model) +
+  coord_flip()
 
 
-  sam[, indices[[1]], by = model] %>%
-    .[season(time) == "DJF"] %>%
-    .[sam != "sam"] %>%
-    .[sam == "asym"] %>%
-    .[, FitLm(r2, time = as.numeric(time)/(3600*24*365*10), se = TRUE), by = .(sam, plev, ensemble, model, season(time))] %>%
-    # .[sam == "asym"] %>%
-    # .[model == "CanESM5"] %>%
-    .[term == "time"] %>%
-    .[, n := uniqueN(ensemble), by = .(model)] %>%
-    .[, t := qt(.975, df)] %>%
-    .[selected_models, on = "model"] %>%
-    .[, model := paste0(model, " — n: ", members, "\n",
-                        "(", scales::percent(i.r.squared, accuracy = 0.1), ")")] %>%
-    .[, model := reorder(model, -i.r.squared)] %>%
-    ggplot(aes(plev/100, estimate)) +
 
-    geom_hline(yintercept = 0) +
-    geom_line(aes(group = ensemble), alpha = 0.2) +
-    # geom_ribbon(aes(ymax = estimate + std.error*t, ymin = estimate - std.error*t,
-    #                 group = ensemble, alpha = 1 - A^(1/n)),
-    #             fill = "black",
-    #             size = 0.1) +
+obs_trends_r2 <- indices %>%
+  copy() %>%
+  .[, lapply(.SD, mean), by = .(lev, PC, term, time = seasonally(time))] %>%
+  .[, season := season(time)] %>%
+  # .[, estimate_norm := -estimate_norm/sd(estimate_norm), by = .(lev, term)] %>%
+  .[, FitLm(r.squared, time = time, se = TRUE), by = .(type = term, lev, season)] %>%
+  rm_intercept() %>%
+  .[, term := NULL] %>%
+  .[, estimate := estimate*3600*24*365*10] %>%
+  .[, std.error := std.error*3600*24*365*10] %>%
+  .[, pval := Pvaluate(estimate, std.error, df, "fdr")] %>%
+  setnames("type", "sam") %>%
+  .[, t := qt(.975, df)]
 
-    geom_ribbon(data = ~.x[, .(se = sd(estimate),
-                               t = qt(.975, .N),
-                               estimate = mean(estimate)), by = .(model, sam, plev)],
-                aes(ymin = estimate - se,
-                    ymax = estimate + se),
-                fill = "#95a3ab", color = "black",
-                alpha = .6, size = 0.1) +
-    geom_line(data = ~.x[, .(estimate = mean(estimate)), by = .(model, sam, plev)]) +
 
-    geom_line(data = obs_trends_r2[season == "DJF"][sam == "asym"], aes(lev, estimate),
-              color = "#a10705") +
+sam[, indices[[1]], by = model] %>%
+  .[season(time) == "DJF"] %>%
+  .[sam != "sam"] %>%
+  .[sam == "asym"] %>%
+  .[, FitLm(r2, time = as.numeric(time)/(3600*24*365*10), se = TRUE), by = .(sam, plev, ensemble, model, season(time))] %>%
+  # .[sam == "asym"] %>%
+  # .[model == "CanESM5"] %>%
+  .[term == "time"] %>%
+  .[, n := uniqueN(ensemble), by = .(model)] %>%
+  .[, t := qt(.975, df)] %>%
+  .[selected_models, on = "model"] %>%
+  .[, model := paste0(model, " — n: ", members, "\n",
+                      "(", scales::percent(i.r.squared, accuracy = 0.1), ")")] %>%
+  .[, model := reorder(model, -i.r.squared)] %>%
+  ggplot(aes(plev/100, estimate)) +
 
-    facet_wrap(model ~ ., labeller = labeller(sam = lab_sam)) +
-    scale_alpha_identity() +
-    scale_x_level() +
-    scale_y_continuous("Change in explained variance per decade",
-                       label = scales::percent_format(1)) +
-    coord_flip() +
-    # tag_facets("cr") +
-    panel_background
+  geom_hline(yintercept = 0) +
+  geom_line(aes(group = ensemble), alpha = 0.2) +
+  # geom_ribbon(aes(ymax = estimate + std.error*t, ymin = estimate - std.error*t,
+  #                 group = ensemble, alpha = 1 - A^(1/n)),
+  #             fill = "black",
+  #             size = 0.1) +
+
+  geom_ribbon(data = ~.x[, .(se = sd(estimate),
+                             t = qt(.975, .N),
+                             estimate = mean(estimate)), by = .(model, sam, plev)],
+              aes(ymin = estimate - se,
+                  ymax = estimate + se),
+              fill = "#95a3ab", color = "black",
+              alpha = .6, size = 0.1) +
+  geom_line(data = ~.x[, .(estimate = mean(estimate)), by = .(model, sam, plev)]) +
+
+  geom_line(data = obs_trends_r2[season == "DJF"][sam == "asym"], aes(lev, estimate),
+            color = "#a10705") +
+
+  facet_wrap(model ~ ., labeller = labeller(sam = lab_sam)) +
+  scale_alpha_identity() +
+  scale_x_level() +
+  scale_y_continuous("Change in explained variance per decade",
+                     label = scales::percent_format(1)) +
+  coord_flip() +
+  # tag_facets("cr") +
+  panel_background
