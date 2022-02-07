@@ -29,6 +29,17 @@ BibTex citation:
 
 Clone this repo. If using RStudio, open the project. 
 
+### Installing system dependencies
+
+System dependencies (on ubuntu) are listd in system-deps.txt. 
+To install them you can use 
+
+``` bash
+xargs sudo apt-get install -y < system-deps.txt
+```
+
+### Installing R packages
+
 This project uses the [renv](https://rstudio.github.io/renv/) package to manage a reproducible environment. If opening this project with RStudio or starting R from the command line from the root directory, renv should automagically install and load itself. 
 
 To recreate the environment then run
