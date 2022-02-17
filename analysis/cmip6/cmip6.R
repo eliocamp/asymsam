@@ -43,7 +43,7 @@ geom_coords <- function() {
   )
 }
 
-
+dir <- here::here("analysis", "cmip6")
 sam_rds <- here::here("analysis", "cmip6", "sam_cmip.Rds")
 if (file.exists(sam_rds)) {
   sam <- readRDS(sam_rds)
@@ -175,7 +175,7 @@ hgt <- ReadNetCDF(ERA5(),
                   vars = c(hgt = "z")) %>%
   normalise_coords() %>%
   .[, hgt := hgt/9.8] %>%
-  .[, value := hgt - mean(hgt), by = .(lon, lat, lev, month(time))]
+  .[, value := (hgt - mean(hgt))*sqrt(cos(lat*pi/180)), by = .(lon, lat, lev, month(time))]
 
 sam_obs <- EOF(value ~ time | lon + lat, data = hgt, n = 1)
 
@@ -204,7 +204,44 @@ r2 <- sam[, fields[[1]], by = model] %>%
   .[miembros, on = "model"]
 
 
-sam[, fields[[1]], by = model] %>%
+sam[, indices[[1]], by = model] %>%
+  .[plev == 50000] %>%
+  .[ensemble == 1] %>%
+  rbind(indices[lev == 500, .(model = "ERA5", time, sam = term, ensemble = 1, estimate)], fill = TRUE) %>%
+  dcast(time + model ~ sam, value.var = "estimate") %>%
+  # .[model == model[1]] %>%
+  .[, FitLm(sam, asym, sym), by = .(model)] %>%
+  .[term == "asym"] %>%
+  .[r2, on = "model"] %>%
+  .[, model := paste0(model, " — n: ", members, "\n",
+                      "(", scales::percent(r.squared, accuracy = 0.1), ")")] %>%
+  .[, model := reorder(model, r.squared)] %>%
+  ggplot(aes(estimate, model)) +
+  geom_col(fill = "#95a3ab", color = "black") +
+  scale_y_discrete(NULL) +
+  scale_x_continuous("Asymmetric SAM index proportion",
+                     limits = c(0, 1))
+
+ggsave(file.path(dir, "asam_proportion.png"), units = "px", dpi = 72,
+       width = 900, height = 500)
+
+
+
+
+
+indices %>%
+  .[lev == 500] %>%
+  dcast(time + lev ~ term, value.var = "estimate") %>%
+  # .[ensemble == 1] %>%
+  # .[model == model[1]] %>%
+  .[, group := sample(1:10, replace = TRUE, size = .N), by = .(lev)] %>%
+  .[, FitLm(sam, asym, sym), by = .(season(time), lev)] %>%
+  .[term == "asym"]
+.[order(model)]
+
+
+
+g <- sam[, fields[[1]], by = model] %>%
   copy() %>%
   .[plev == 50000] %>%
   rbind(sam_obs, use.names = TRUE, fill = TRUE) %>%
@@ -214,12 +251,12 @@ sam[, fields[[1]], by = model] %>%
                       "(", scales::percent(r.squared, accuracy = 0.1), ")")] %>%
   .[, value := value/sd(value, na.rm = TRUE), by = .(model, plev)] %>%
   .[, model := reorder(model, -r.squared)] %>%
-
+  ggperiodic::periodic(lon = c(0, 360)) %>%
   ggplot(aes(lon, lat)) +
-  geom_contour_fill(aes(z = value),
+  geom_contour_fill(aes(z = -value),
                     breaks = AnchorBreaks(0, exclude =  0),
                     global.breaks = FALSE) +
-  geom_contour_tanaka2(aes(z = value),
+  geom_contour_tanaka2(aes(z = -value),
                        breaks = AnchorBreaks(0, exclude =  0),
                        size = 0.3,
                        global.breaks = FALSE) +
@@ -241,6 +278,8 @@ sam[, fields[[1]], by = model] %>%
   # tag_facets("cr", position = list(x = 0.15, y = 0.85)) +
   no_grid
 
+ggsave(file.path(dir, "sam_models.png"), width = 1000, height = 590,
+       units = "px", dpi = 72)
 
 selected_models <- r2 %>%
   .[model != "ERA5"] %>%
@@ -262,22 +301,6 @@ obs_trends <- indices %>%
   setnames("type", "sam") %>%
   .[, t := qt(.975, df)]
 
-
-sam[, indices[[1]], by = model] %>%
-  dcast(time + plev + ensemble + model ~ sam, value.var = "estimate") %>%
-  .[season(time) == "DJF"] %>%
-  .[, cor(asym, sym), by = .(model, plev)] %>%
-  ggplot(aes(plev/100, V1^2)) +
-  geom_line() +
-  scale_x_level() +
-  coord_flip() +
-  facet_wrap(~model) +
-  geom_line(data = indices %>%
-              .[season(time) == "DJF"] %>%
-              dcast(time + lev ~ term, value.var = "estimate") %>%
-              .[, cor(asym, sym), by = .(lev)],
-            aes(x = lev),
-            color = "red")
 
 
 
@@ -330,10 +353,34 @@ models_trends %>%
   theme(strip.text.y = element_text(size = rel(0.7)))
 
 
+ggsave(file.path(dir, "trends.png"), width = 900, height = 500, unit = "px", dpi = 72)
+
+
+
+sam[, indices[[1]], by = model] %>%
+  .[selected_models, on = "model"] %>%
+  dcast(time + plev + ensemble + model ~ sam, value.var = "estimate") %>%
+  .[season(time) == "DJF"] %>%
+  .[, FitLm(sam, asym, sym), by = .(model, plev)] %>%
+  .[term == "asym"] %>%
+  ggplot(aes(plev/100, estimate)) +
+  geom_line() +
+  scale_x_level() +
+  coord_flip() +
+  facet_wrap(~model) +
+  geom_line(data = indices %>%
+              .[season(time) == "DJF"] %>%
+              dcast(time + lev ~ term, value.var = "estimate") %>%
+              .[,  FitLm(sam, asym, sym), by = .(lev)] %>%
+              .[term == "asym"],
+            aes(x = lev),
+            color = "red")
+
+
 models_trends %>%
   .[selected_models, on = "model"] %>%
   dcast(plev + ensemble + model ~ sam, value.var = "estimate") %>%
-  ggplot(aes(plev/100, sym - sam)) +
+  ggplot(aes(plev/100, abs(sym - sam))) +
   geom_line(aes(group = ensemble)) +
   facet_wrap(~model) +
   scale_x_level() +
@@ -424,3 +471,6 @@ sam[, indices[[1]], by = model] %>%
   coord_flip() +
   # tag_facets("cr") +
   panel_background
+
+ggsave(file.path(dir, "r2_trends.png"), units = "px", dpi = 72,
+       width = 900, height = 500)
