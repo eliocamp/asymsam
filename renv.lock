@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.1.0",
+    "Version": "4.1.2",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -74,10 +74,10 @@
     },
     "Rcpp": {
       "Package": "Rcpp",
-      "Version": "1.0.6",
+      "Version": "1.0.8",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "dbb5e436998a7eba5a9d682060533338"
+      "Hash": "22b546dd7e337f6c0c58a39983a496bc"
     },
     "SnowballC": {
       "Package": "SnowballC",
@@ -609,6 +609,13 @@
       "Repository": "CRAN",
       "Hash": "b8a2e63d67833aa65c6592cfc0fa8f65"
     },
+    "jquerylib": {
+      "Package": "jquerylib",
+      "Version": "0.1.4",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "5aab57a3bd297eee1c1d862735972182"
+    },
     "jsonify": {
       "Package": "jsonify",
       "Version": "1.2.1",
@@ -695,7 +702,7 @@
       "Package": "lubridate",
       "Version": "1.7.10",
       "Source": "Repository",
-      "Repository": "CRAN",
+      "Repository": "RSPM",
       "Hash": "1ebfdc8a3cfe8fe19184f5481972b092"
     },
     "magick": {
@@ -1136,7 +1143,7 @@
       "Package": "svglite",
       "Version": "2.0.0",
       "Source": "Repository",
-      "Repository": "CRAN",
+      "Repository": "RSPM",
       "Hash": "8fb6188960bf0f90996ce52f9c2106ac"
     },
     "sys": {
@@ -1150,7 +1157,7 @@
       "Package": "systemfonts",
       "Version": "1.0.2",
       "Source": "Repository",
-      "Repository": "CRAN",
+      "Repository": "RSPM",
       "Hash": "f2e17ba09737e2e7e2ec40fc1f9b6e08"
     },
     "tagger": {

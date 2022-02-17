@@ -52,7 +52,8 @@ Imports:
 Suggests: devtools,
     git2r,
     knitr,
-    rmarkdown 
+    rmarkdown,
+    jquerylib
 Remotes: 
     eliocamp/tagger,
     haozhu233/kableExtra,
