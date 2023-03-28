@@ -45,16 +45,20 @@ abstract: |
   The Southern Annular Mode (SAM) is the main mode of variability in the Southern Hemisphere extra-tropical circulation and it is so called because of its zonally symmetric ring-like shape. However, the SAM pattern actually contains noticeable deviations from zonal symmetry. Thus, the purpose of this study is to describe the zonally asymmetric and symmetric components of the SAM variability and their impacts. We regress monthly geopotential height fields at each level onto the asymmetric and symmetric component of the SAM to create two new indices: Asymmetric SAM (A-SAM) and Symmetric SAM (S-SAM). In the troposphere, the A-SAM is associated with a zonal wave 3 which is rotated a quarter wavelength with respect to the climatological zonal wave 3, is much stronger in the Pacific ocean, where it extends vertically to the stratosphere with an equivalent barotropic structure. On the other hand, the S-SAM is associated with negative geopotential height anomalies over Antarctica surrounded by a zonally symmetric ring of positive geopotential height anomalies. The observed relationship between the El Niño Southern Oscillation and the SAM is fully explained by the A-SAM index. The positive trend of the SAM is present only in its symmetric component. Despite this, the SAM is becoming more zonally asymmetric. The regional impacts of the SAM in temperature and precipitation are strongly affected by its asymmetric component. We show that the asymmetric component of the SAM has its own unique variability, trends and impacts, some of these signals are only evident when the two SAM components are separated.
 
 bibliography: 
-  - AsymSAM
-  - packages
+  - AsymSAM.bib
+  - packages.bib
 bibstyle: spbasic
 # bibstyle options spbasic(default), spphys, spmpsci
 output: 
+  # bookdown::html_document2:
+  #     code_folding: "hide"
+      
   bookdown::pdf_book: 
       base_format: rticles::springer_article
       latex_engine: "xelatex"
       citation_package: "natbib"
       # pandoc_args: ["--lua-filter=abstract-to-meta.lua"]
+  
 header-includes: 
  - \usepackage{gensymb}
  - \usepackage{subfig}
@@ -76,7 +80,7 @@ knitr::opts_chunk$set(
   cache.path = "../cache/",
   collapse = TRUE,
   comment = "#>",
-  dev = c("pdf", "png"),
+  dev = if (knitr::is_html_output()) c("png") else c("pdf", "png"),
   dpi = 300,
   out.extra = ""
 )
